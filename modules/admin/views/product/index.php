@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -19,6 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'pager' => [
+            'firstPageLabel' => 'First',
+            'lastPageLabel' => 'Last',
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -41,7 +47,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         return \Yii::t("app.global",'Deleted');
                     else
                         return '--';
-                }
+                },
+                'filter' => [
+                    0 => Yii::t('app.global', 'Using'),
+                    1 => Yii::t('app.global', 'Deleted'),
+                ]
             ],
             [
                 'attribute' => 'category_id',
@@ -51,7 +61,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         return $model->category->name;
                     }
                     return "--";
-                }
+                },
+                'filter' => Select2::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'category_id',
+                    'data' => $categorys,
+                    'options' => ['placeholder' => 'Select a category ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]),
             ],
             //'image_main',
 

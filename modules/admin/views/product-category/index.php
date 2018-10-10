@@ -45,29 +45,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {delete}',
+                'template' => '{view} {update} {delete} {revert}',
                 'buttons' => [
+                    'revert' => function ($url, $model,$key) {
+                        return Html::a('<span class="glyphicon glyphicon-repeat"></span>', ['revert', 'id' => $key], [
+                            'title' => Yii::t('app.global', 'Revert'),
+                            'data' => [
+                                'confirm' => Yii::t('app.global', 'Are you sure you want to revert this item?'),
+                                'method' => 'post',
+                            ],
+                        ]);
+                    }
+                ],
+                'visibleButtons' => [
                     'view',
                     'update',
-                    'delete' => function ($url, $model) {
-                        if($model->deleted_f)
-                            return Html::a('<span class="glyphicon glyphicon-repeat"></span>', ['revert', 'id' => $model->id], [
-                                'title' => Yii::t('app.global', 'Revert'),
-                                'data' => [
-                                    'confirm' => Yii::t('app.global', 'Are you sure you want to revert this item?'),
-                                    'method' => 'post',
-                                ],
-                            ]);
-                        else
-                            return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
-                                'title' => Yii::t('app.global', 'Delete'),
-                                'data' => [
-                                    'confirm' => Yii::t('app.global', 'Are you sure you want to delete this item?'),
-                                    'method' => 'post',
-                                ],
-                            ]);
+                    'delete' => function ($model, $key, $index) {
+                        return $model->deleted_f != 1;
+                    },
+                    'revert' => function ($model, $key, $index) {
+                        return $model->deleted_f == 1;
                     }
-
                 ],
             ],
         ],

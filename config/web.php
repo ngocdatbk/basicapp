@@ -61,6 +61,12 @@ $config = [
                 ]
             ],
         ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'decimalSeparator' => '.',
+            'thousandSeparator' => ',',
+            'currencyCode' => 'VND',
+        ],
     ],
     'params' => $params,
     'modules' => [
