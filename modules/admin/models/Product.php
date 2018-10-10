@@ -32,7 +32,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'name', 'info', 'image_main', 'category_id'], 'required'],
+            [['code', 'name', 'info', 'category_id'], 'required'],
             [['info'], 'string'],
             [['price', 'category_id', 'deleted_f'], 'integer'],
             [['code'], 'string', 'max' => 20],
@@ -48,13 +48,18 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'code' => 'Code',
-            'name' => 'Name',
-            'info' => 'Info',
-            'price' => 'Price',
+            'code' => Yii::t('app.global', 'Code'),
+            'name' => Yii::t('app.global', 'Name'),
+            'info' => Yii::t('app.global', 'Info'),
+            'price' => Yii::t('app.global', 'Price'),
             'image_main' => 'Image Main',
-            'category_id' => 'Category ID',
-            'deleted_f' => 'Deleted F',
+            'category_id' => Yii::t("admin.product",'Category'),
+            'deleted_f' => Yii::t("app.global",'Deleted'),
         ];
+    }
+
+    public function getCategory()
+    {
+        return $this->hasOne(ProductCategory::className(), ['id' => 'category_id']);
     }
 }

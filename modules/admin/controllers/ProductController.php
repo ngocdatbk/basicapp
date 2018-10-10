@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\modules\admin\models\Product;
+use app\modules\admin\models\ProductCategory;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -37,6 +38,7 @@ class ProductController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Product::find(),
+            'sort'=> ['defaultOrder' => ['category_id'=>SORT_ASC]]
         ]);
 
         return $this->render('index', [
@@ -70,8 +72,12 @@ class ProductController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $categorys = ProductCategory::getAllCategorys();
+        //var_dump($categorys);exit();
+
         return $this->render('create', [
             'model' => $model,
+            'categorys' => $categorys,
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace app\modules\admin\models;
 
 use Yii;
+use app\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "product_category".
@@ -28,7 +29,7 @@ class ProductCategory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'description'], 'required'],
+            [['name'], 'required'],
             [['description'], 'string'],
             [['deleted_f'], 'integer'],
             [['name'], 'string', 'max' => 100],
@@ -42,9 +43,17 @@ class ProductCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'deleted_f' => 'Deleted F',
+            'name' => \Yii::t("admin.product_category",'Name'),
+            'description' => \Yii::t("admin.product_category",'Description'),
+            'deleted_f' => \Yii::t("app.global",'Deleted'),
         ];
+    }
+
+    public static function getAllCategorys()
+    {
+        $categorys = ProductCategory::find()
+        ->where('deleted_f != 1')->all();
+
+        return ArrayHelper::map($categorys, 'id' ,'name');
     }
 }

@@ -36,7 +36,7 @@ class ProductCategoryController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => ProductCategory::find(),
+            'query' => ProductCategory::find()->orderBy('deleted_f'),
         ]);
 
         return $this->render('index', [
@@ -86,7 +86,7 @@ class ProductCategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($model) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -104,7 +104,28 @@ class ProductCategoryController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        if($model)
+        {
+            $model->deleted_f = 1;
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+
+        return $this->redirect(['index']);
+    }
+
+    public function actionRevert($id)
+    {
+        $model = $this->findModel($id);
+        if($model)
+        {
+            $model->deleted_f = 0;
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
 
         return $this->redirect(['index']);
     }
