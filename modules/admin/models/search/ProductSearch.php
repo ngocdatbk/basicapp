@@ -42,11 +42,10 @@ class ProductSearch extends Product
     public function search($params)
     {
         $query = Product::find()
-            ->joinWith([
-                'category' => function ($query) {
-                    $query->onCondition(['!=', 'product_category.deleted_f', 1]);
-                },
-            ],true,'INNER JOIN');
+            ->innerJoinWith((['category' => function($query) {
+                $query->from(['category' => 'product_category']);
+                $query->onCondition(['!=', 'category.deleted_f', 1]);
+            }]));
 
         // add conditions that should always apply here
 
@@ -57,7 +56,7 @@ class ProductSearch extends Product
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'product_category.name' => SORT_ASC,
+                    'category.name' => SORT_ASC,
                     'code' => SORT_ASC,
                 ],
                 'attributes' => [
@@ -65,10 +64,7 @@ class ProductSearch extends Product
                     'name',
                     'price',
                     'deleted_f',
-                    'product_category.name' => [
-                        'asc' => ['product_category.name' => SORT_ASC],
-                        'desc' => ['product_category.name' => SORT_DESC],
-                    ]
+                    'category.name'
                 ]
             ],
         ]);

@@ -14,5 +14,6 @@ return [
     'Create Product Category' => 'Tạo danh mục',
     'Product Categories' => 'Danh mục sản phẩm',
     'Update Product Category' => 'Cập nhật danh mục sản phẩm',
+    'Select a category' => 'Lựa chọn danh mục',
 
 ];

@@ -11,7 +11,9 @@ use kartik\widgets\Select2;
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'product',
+    ]); ?>
 
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
 
@@ -23,14 +25,14 @@ use kartik\widgets\Select2;
 
     <?= $form->field($model, 'category_id')->widget(Select2::classname(), [
         'data' => $datas,
-        'options' => ['placeholder' => 'Select a state ...'],
+        'options' => ['placeholder' => Yii::t('admin.product_category', 'Select a category')],
         'pluginOptions' => [
             'allowClear' => true
         ],
     ]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app.global', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

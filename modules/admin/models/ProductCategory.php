@@ -51,9 +51,10 @@ class ProductCategory extends \yii\db\ActiveRecord
 
     public static function getAllCategorys()
     {
-        $categorys = ProductCategory::find()
-        ->where('deleted_f != 1')->all();
-
-        return ArrayHelper::map($categorys, 'id' ,'name');
+        return ProductCategory::find()
+            ->select(['name'])
+            ->where('deleted_f != 1')
+            ->indexBy('id')
+            ->column();;
     }
 }

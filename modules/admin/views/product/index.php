@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]
             ],
             [
-                'attribute' => 'category_id',
+                'attribute' => 'category.name',
                 'value' => function ($model){
                     if ($model->category)
                     {
@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'model' => $searchModel,
                     'attribute' => 'category_id',
                     'data' => $categorys,
-                    'options' => ['placeholder' => 'Select a category ...'],
+                    'options' => ['placeholder' => Yii::t('admin.product_category', 'Select a category')],
                     'pluginOptions' => [
                         'allowClear' => true
                     ],
