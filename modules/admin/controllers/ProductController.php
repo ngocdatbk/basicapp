@@ -9,6 +9,7 @@ use app\modules\admin\models\search\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -71,8 +72,12 @@ class ProductController extends Controller
 
         if (Yii::$app->request->post())
         {
+            $imageFiles = UploadedFile::getInstancesByName('image');
             echo "<pre>";
-            var_dump(Yii::$app->request->post());
+            var_dump($imageFiles);
+            echo "<pre>";
+            echo "<pre>";
+            var_dump($_REQUEST);
             echo "<pre>";
             exit();
         }
