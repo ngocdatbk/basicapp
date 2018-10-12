@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
+use app\modules\admin\widgets\ImageWidget;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
@@ -13,6 +14,7 @@ use kartik\widgets\Select2;
 
     <?php $form = ActiveForm::begin([
         'id' => 'product',
+        'options' => ['enctype' => 'multipart/form-data']
     ]); ?>
 
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
@@ -30,6 +32,8 @@ use kartik\widgets\Select2;
             'allowClear' => true
         ],
     ]) ?>
+
+    <?= ImageWidget::widget(['images' => null]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app.global', 'Save'), ['class' => 'btn btn-success']) ?>

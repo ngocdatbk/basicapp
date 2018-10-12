@@ -29,7 +29,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'code',
-            'name',
+            [
+                'attribute' => 'name',
+                'format' => 'raw',
+                'value' => function ($model){
+                    if($model->deleted_f)
+                        return '<del>'.$model->name.'</del>';
+                    else
+                        return $model->name;
+                }
+            ],
             [
                 'attribute' => 'info',
                 'value' => function($model){
@@ -74,7 +83,31 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'image_main',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete} {revert}',
+                'buttons' => [
+                    'revert' => function ($url, $model,$key) {
+                        return Html::a('<span class="glyphicon glyphicon-repeat"></span>', ['revert', 'id' => $key], [
+                            'title' => Yii::t('app.global', 'Revert'),
+                            'data' => [
+                                'confirm' => Yii::t('app.global', 'Are you sure you want to revert this item?'),
+                                'method' => 'post',
+                            ],
+                        ]);
+                    }
+                ],
+                'visibleButtons' => [
+                    'view',
+                    'update',
+                    'delete' => function ($model, $key, $index) {
+                        return $model->deleted_f != 1;
+                    },
+                    'revert' => function ($model, $key, $index) {
+                        return $model->deleted_f == 1;
+                    }
+                ],
+            ],
         ],
     ]); ?>
 </div>

@@ -69,6 +69,14 @@ class ProductController extends Controller
     {
         $model = new Product();
 
+        if (Yii::$app->request->post())
+        {
+            echo "<pre>";
+            var_dump(Yii::$app->request->post());
+            echo "<pre>";
+            exit();
+        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -96,8 +104,11 @@ class ProductController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $categorys = ProductCategory::getAllCategorys();
+
         return $this->render('update', [
             'model' => $model,
+            'categorys' => $categorys,
         ]);
     }
 
@@ -110,7 +121,29 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+
+        if($model)
+        {
+            $model->deleted_f = 1;
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+
+        return $this->redirect(['index']);
+    }
+
+    public function actionRevert($id)
+    {
+        $model = $this->findModel($id);
+        if($model)
+        {
+            $model->deleted_f = 0;
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
 
         return $this->redirect(['index']);
     }

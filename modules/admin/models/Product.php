@@ -38,6 +38,7 @@ class Product extends \yii\db\ActiveRecord
             [['code'], 'string', 'max' => 20],
             [['name'], 'string', 'max' => 255],
             [['image_main'], 'string', 'max' => 100],
+            ['code', 'unique'],
         ];
     }
 

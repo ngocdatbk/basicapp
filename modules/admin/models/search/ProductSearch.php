@@ -56,10 +56,10 @@ class ProductSearch extends Product
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'category.name' => SORT_ASC,
-                    'code' => SORT_ASC,
+                    'id' => SORT_DESC,
                 ],
                 'attributes' => [
+                    'id',
                     'code',
                     'name',
                     'price',
