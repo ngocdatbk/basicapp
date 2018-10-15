@@ -3,25 +3,24 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
-use app\modules\admin\widgets\ImageWidget;
+use app\modules\admin\assets\ProductAsset;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
 /* @var $form yii\widgets\ActiveForm */
+
+ProductAsset::register($this);
 ?>
 
 <div class="product-form">
-
     <?php $form = ActiveForm::begin([
         'id' => 'product',
         'options' => ['enctype' => 'multipart/form-data']
     ]); ?>
-
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -33,7 +32,37 @@ use app\modules\admin\widgets\ImageWidget;
         ],
     ]) ?>
 
-    <?= ImageWidget::widget(['images' => null]) ?>
+    <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
+
+    <label class="control-label" for="image"><?= Yii::t('admin.product', 'Images') ?></label>
+    <?= Html::input('file', 'images[]', null, ['class' => 'form-control', 'id' => 'images', 'multiple' => true, 'accept' => 'image/*']); ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="" id="main_image" class="img-thumbnail" style="width: 100%;  " alt="view image">
+        </div>
+        <div class="col-sm-6" >
+            <table class="table"  id="image_list">
+                <tbody>
+                    <?php if(!empty($images)): ?>
+                        <?php foreach ($images as $key => $image): ?>
+                            <tr>
+                                <td style="width: 25%">
+                                    <?= Html::img(Url::to('@web/'.$image->image), ['id' => "old_".$image->id, 'class' => "img-thumbnail image_product"]); ?>
+                                </td>
+                                <td>
+                                    <?= Html::textarea('image_old['.$image->id.'][description]', $image->description, ['placeholder' => "Enter text here...", 'rows' => '4', "style" => ["width" => "100%"]]); ?>
+                                    <?= Html::hiddenInput('image_old['.$image->id.'][is_main]', $image->is_main, ['id' => 'main_old_'.$image->id]); ?>
+                                    <?= Html::hiddenInput('image_old['.$image->id.'][status]', '', ['id' => 'status_old_'.$image->id]); ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app.global', 'Save'), ['class' => 'btn btn-success']) ?>

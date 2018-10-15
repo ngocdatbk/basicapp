@@ -16,13 +16,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Yii::t("app.global",'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t("app.global",'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= $model->deleted_f?
+            Html::a(\Yii::t("app.global",'Revert'), ['revert', 'id' => $model->id], [
+                'class' => 'btn btn-success',
+                'data' => [
+                    'confirm' => Yii::t('app.global', 'Are you sure you want to revert this item?'),
+                    'method' => 'post',
+                ],
+            ])
+            :
+            Html::a(Yii::t("app.global",'Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]);
+
+        ?>
     </p>
 
     <?= DetailView::widget([

@@ -5,10 +5,13 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\modules\admin\models\Product;
 use app\modules\admin\models\ProductCategory;
+use app\modules\admin\models\ProductImage;
 use app\modules\admin\models\search\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\modules\admin\models\ProductImageUpload;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -69,15 +72,33 @@ class ProductController extends Controller
     {
         $model = new Product();
 
-        if (Yii::$app->request->post())
-        {
-            echo "<pre>";
-            var_dump(Yii::$app->request->post());
-            echo "<pre>";
-            exit();
-        }
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) && $model->save()) {
+            $transaction = Yii::$app->getDb()->beginTransaction();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imageFiles = UploadedFile::getInstancesByName('images');
+            foreach ($imageFiles as $file) {
+                $imageUploads = new ProductImageUpload();
+                $imageUploads->imageFile = $file;
+                $path = '';
+                if ($path = $imageUploads->upload()) {
+                    $productImage = new ProductImage();
+                    $productImage->product_id = $model->id;
+                    $productImage->image = $path;
+
+                    if(!$productImage->save())
+                    {
+                        $transaction->rollBack();
+                        return $this->redirect(['index']);
+                    }
+                }
+                else
+                {
+                    $transaction->rollBack();
+                    return $this->redirect(['index']);
+                }
+            }
+
+            $transaction->commit();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -101,14 +122,21 @@ class ProductController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            echo "<pre>";
+            var_dump(Yii::$app->request->post());
+            echo "<pre>";
+            exit();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $images = ProductImage::getImagesProduct($model->id);
         $categorys = ProductCategory::getAllCategorys();
 
         return $this->render('update', [
             'model' => $model,
             'categorys' => $categorys,
+            'images' => $images
         ]);
     }
 
