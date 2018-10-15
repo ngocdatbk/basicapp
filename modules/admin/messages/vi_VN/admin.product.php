@@ -11,7 +11,7 @@ return [
 
     //title
     'Products' => 'Danh sách sản phẩm',
-    'Create Product' => 'Tạo sản phẩm',
+    'Create Product' => 'Thêm sản phẩm',
     'Update Product' => 'Cập nhật sản phẩm',
     'Category' => 'Danh mục sản phẩm'
 ];

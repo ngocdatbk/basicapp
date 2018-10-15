@@ -38,7 +38,7 @@ ProductAsset::register($this);
     <?= Html::input('file', 'images[]', null, ['class' => 'form-control', 'id' => 'images', 'multiple' => true, 'accept' => 'image/*']); ?>
     <div class="row">
         <div class="col-sm-6">
-            <img src="" id="main_image" class="img-thumbnail" style="width: 100%;  " alt="view image">
+            <?= Html::img(isset($image_main)?Url::to('@web/'.$image_main->image):'', ['main_id' => isset($image_main)?'old_'.$image_main->id:'', 'id' => 'main_image', 'class' => "img-thumbnail image_product"]); ?>
         </div>
         <div class="col-sm-6" >
             <table class="table"  id="image_list">
@@ -46,13 +46,18 @@ ProductAsset::register($this);
                     <?php if(!empty($images)): ?>
                         <?php foreach ($images as $key => $image): ?>
                             <tr>
-                                <td style="width: 25%">
+                                <td class="bound_image" style="width: 25%">
                                     <?= Html::img(Url::to('@web/'.$image->image), ['id' => "old_".$image->id, 'class' => "img-thumbnail image_product"]); ?>
+                                    <a class="remove_image" row_id="old_<?= $image->id ?>" old_new="old" type="button" >
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </a>
+
                                 </td>
                                 <td>
                                     <?= Html::textarea('image_old['.$image->id.'][description]', $image->description, ['placeholder' => "Enter text here...", 'rows' => '4', "style" => ["width" => "100%"]]); ?>
                                     <?= Html::hiddenInput('image_old['.$image->id.'][is_main]', $image->is_main, ['id' => 'main_old_'.$image->id]); ?>
                                     <?= Html::hiddenInput('image_old['.$image->id.'][status]', '', ['id' => 'status_old_'.$image->id]); ?>
+                                    <?= Html::hiddenInput('image_old['.$image->id.'][id]', $image->id, ['id' => $image->id]); ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

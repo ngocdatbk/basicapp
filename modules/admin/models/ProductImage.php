@@ -54,4 +54,9 @@ class ProductImage extends \yii\db\ActiveRecord
     {
         return ProductImage::findAll(['product_id' => $product_id]);
     }
+
+    public static function getImagesMain ($product_id )
+    {
+        return ProductImage::findOne(['product_id' => $product_id, 'is_main' => 1]);
+    }
 }

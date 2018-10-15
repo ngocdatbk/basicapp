@@ -20,7 +20,7 @@ class ProductImageUpload extends Model
     public function rules()
     {
         return [
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 

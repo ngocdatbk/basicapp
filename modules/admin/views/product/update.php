@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = Yii::t("app.global",'Update');
     <?= $this->render('_form', [
         'model' => $model,
         'datas' => $categorys,
-        'images' => $images
+        'images' => $images,
+        'image_main' => $image_main
     ]) ?>
 
 </div>

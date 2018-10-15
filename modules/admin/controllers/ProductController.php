@@ -75,26 +75,37 @@ class ProductController extends Controller
         if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) && $model->save()) {
             $transaction = Yii::$app->getDb()->beginTransaction();
 
-            $imageFiles = UploadedFile::getInstancesByName('images');
-            foreach ($imageFiles as $file) {
-                $imageUploads = new ProductImageUpload();
-                $imageUploads->imageFile = $file;
-                $path = '';
-                if ($path = $imageUploads->upload()) {
-                    $productImage = new ProductImage();
-                    $productImage->product_id = $model->id;
-                    $productImage->image = $path;
+            if(Yii::$app->request->post('image_new') && $imageFiles = UploadedFile::getInstancesByName('images')){
+                $new_images = Yii::$app->request->post('image_new');
 
-                    if(!$productImage->save())
+                foreach ($imageFiles as $index => $file) {
+                    $imageUpload = new ProductImageUpload();
+                    $imageUpload->imageFile = $file;
+
+                    if ($path = $imageUpload->upload()) {
+                        $productImage = new ProductImage();
+                        $productImage->product_id = $model->id;
+                        $productImage->image = $path;
+                        $productImage->description = $new_images[$index]['description'];
+                        $productImage->is_main = $new_images[$index]['is_main'];
+
+                        if(!$productImage->save())
+                        {
+                            $transaction->rollBack();
+                            return $this->redirect(['index']);
+                        }
+
+                        if($productImage->is_main)
+                        {
+                            $model->image_main = $productImage['image'];
+                            $model->save();
+                        }
+                    }
+                    else
                     {
                         $transaction->rollBack();
                         return $this->redirect(['index']);
                     }
-                }
-                else
-                {
-                    $transaction->rollBack();
-                    return $this->redirect(['index']);
                 }
             }
 
@@ -122,21 +133,94 @@ class ProductController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            echo "<pre>";
-            var_dump(Yii::$app->request->post());
-            echo "<pre>";
-            exit();
+            $transaction = Yii::$app->getDb()->beginTransaction();
 
+            //old image
+            if($old_images = Yii::$app->request->post('image_old'))
+            {
+                foreach($old_images as $old_image)
+                {
+                    if (($productImage = ProductImage::findOne($old_image['id'])) !== null) {
+                        if($old_image['status'] == 'delete')
+                        {
+                            $productImage->delete();
+                            unlink(Yii::getAlias("@app")."/web/".$productImage->image);
+                            if($old_image['is_main'] and $productImage['image'] == $model->image_main)
+                            {
+                                $model->image_main = '';
+                                $model->save();
+                            }
+                        }
+                        else
+                        {
+                            $productImage->description = $old_image['description'];
+                            $productImage->is_main = $old_image['is_main'];
+                            $productImage->save();
+
+                            if($old_image['is_main'] and $productImage['image'] != $model->image_main)
+                            {
+                                $model->image_main = $productImage['image'];
+                                $model->save();
+                            }
+                        }
+                    }
+                }
+            }
+
+            //new image
+            if(Yii::$app->request->post('image_new') && $imageFiles = UploadedFile::getInstancesByName('images')){
+                $new_images = Yii::$app->request->post('image_new');
+
+                foreach ($imageFiles as $index => $file) {
+                    $imageUpload = new ProductImageUpload();
+                    $imageUpload->imageFile = $file;
+
+                    if ($path = $imageUpload->upload()) {
+                        $productImage = new ProductImage();
+                        $productImage->product_id = $model->id;
+                        $productImage->image = $path;
+                        $productImage->description = $new_images[$index]['description'];
+                        $productImage->is_main = $new_images[$index]['is_main'];
+
+                        if(!$productImage->save())
+                        {
+                            $transaction->rollBack();
+                            return $this->redirect(['index']);
+                        }
+
+                        if($productImage->is_main)
+                        {
+                            $model->image_main = $productImage['image'];
+                            $model->save();
+                        }
+                    }
+                    else
+                    {
+                        $transaction->rollBack();
+                        return $this->redirect(['index']);
+                    }
+                }
+            }
+
+            $transaction->commit();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         $images = ProductImage::getImagesProduct($model->id);
+        $image_main = ProductImage::getImagesMain($model->id);
+
+//        echo "<pre>";
+//        var_dump($image_main);
+//        echo "<pre>";
+//        exit();
+
         $categorys = ProductCategory::getAllCategorys();
 
         return $this->render('update', [
             'model' => $model,
             'categorys' => $categorys,
-            'images' => $images
+            'images' => $images,
+            'image_main' => $image_main
         ]);
     }
 
