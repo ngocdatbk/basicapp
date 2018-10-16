@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
 use app\modules\admin\assets\ProductAsset;
 use yii\helpers\Url;
+use dosamigos\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
@@ -32,13 +33,16 @@ ProductAsset::register($this);
         ],
     ]) ?>
 
-    <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'info')->widget(CKEditor::className(), [
+        'options' => ['rows' => 6],
+        'preset' => 'full'
+    ]) ?>
 
     <label class="control-label" for="image"><?= Yii::t('admin.product', 'Images') ?></label>
     <?= Html::input('file', 'images[]', null, ['class' => 'form-control', 'id' => 'images', 'multiple' => true, 'accept' => 'image/*']); ?>
     <div class="row">
         <div class="col-sm-6">
-            <?= Html::img(isset($image_main)?Url::to('@web/'.$image_main->image):'', ['main_id' => isset($image_main)?'old_'.$image_main->id:'', 'id' => 'main_image', 'class' => "img-thumbnail image_product"]); ?>
+            <?= Html::img(isset($image_main)?Url::to('@web/'.$image_main->image):'', ['main_id' => isset($image_main)?'old_'.$image_main->id:'', 'id' => 'main_image', 'class' => "img-thumbnail"]); ?>
         </div>
         <div class="col-sm-6" >
             <table class="table"  id="image_list">
@@ -47,7 +51,8 @@ ProductAsset::register($this);
                         <?php foreach ($images as $key => $image): ?>
                             <tr>
                                 <td class="bound_image" style="width: 25%">
-                                    <?= Html::img(Url::to('@web/'.$image->image), ['id' => "old_".$image->id, 'class' => "img-thumbnail image_product"]); ?>
+                                    <?= Html::img(Url::to('@web/'.$image->image), ['class' => "img-thumbnail", 'id' => 'img_old_'.$image->id]); ?>
+                                    <label class="select_main" id="old_<?= $image->id ?>" type="button" >Set main image</label>
                                     <a class="remove_image" row_id="old_<?= $image->id ?>" old_new="old" type="button" >
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </a>

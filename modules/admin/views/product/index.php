@@ -40,12 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'attribute' => 'info',
-                'value' => function($model){
-                    return \yii\helpers\StringHelper::truncate($model->info,20,'...');
-                }
-            ],
-            [
                 'attribute' => 'price',
                 'format' => ['decimal', 0],
             ],

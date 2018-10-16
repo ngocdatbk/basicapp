@@ -41,12 +41,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'code',
             'name',
-            'info:ntext',
+            [
+                'attribute' => 'info',
+                'format' => 'html',
+            ],
             [
                 'attribute' => 'price',
                 'format' => ['decimal', 0],
             ],
-            'category_id',
+            [
+                'attribute' => 'category_id',
+                'value' => function ($model){
+                    if($model->category)
+                        return $model->category->name;
+                    else
+                        return '--';
+                }
+            ],
             [
                 'attribute' => 'deleted_f',
                 'value' => function ($model){

@@ -12,3 +12,18 @@
     top: 0;
     left: 0;
 }
+
+.select_main {
+    width: 100%;
+    height: 25px;
+    position: absolute; bottom: 0; left: 0;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+    background: gainsboro;
+    opacity: 0.7;
+}
+
+textarea {
+    resize: none;
+}

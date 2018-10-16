@@ -2,12 +2,12 @@ $(document).ready(function () {
     $("#images").change(function(){
         showSelectedImage(this);
     });
-    $( document ).on( "click", ".image_product", function() {
+    $( document ).on( "click", ".select_main", function() {
         var id = this.id;
         var old_main = $('#main_image').attr('main_id');
 
 
-        $('#main_image').attr('src', $('#'+id).attr('src'));
+        $('#main_image').attr('src', $('#img_'+id).attr('src'));
         $('#main_image').attr('main_id',id);
         $('#main_'+id).val('1');
 
@@ -39,7 +39,8 @@ function showSelectedImage(input) {
                 return function(e){
                     var content = '<tr>'
                             +'<td class="bound_image" style="width: 25%">'
-                                +'<img src="'+e.target.result+'" id="new_'+index+'" class="img-thumbnail image_product" style=" width: 100%;" >'
+                                +'<img src="'+e.target.result+'" id="img_new_'+index+'" class="img-thumbnail" style=" width: 100%;" >'
+                                +'<a class="select_main" id="new_'+index+'" type="button" >Set main image</a>'
                                 +'<a class="remove_image" row_id="new_'+index+'" old_new="new" type="button" >'
                                     +'<i class="glyphicon glyphicon-remove"></i>'
                                 +'</a>'
@@ -55,7 +56,7 @@ function showSelectedImage(input) {
                         var old_main = $('#main_image').attr('main_id');
                         if(!old_main)
                         {
-                            $('#main_image').attr('src', $('#new_'+index).attr('src'));
+                            $('#main_image').attr('src', $('#img_new_'+index).attr('src'));
                             $('#main_image').attr('main_id','new_'+index);
                             $('#main_new_'+index).val('1');
                         }
