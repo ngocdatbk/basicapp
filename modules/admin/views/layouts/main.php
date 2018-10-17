@@ -39,6 +39,21 @@ AppAsset::register($this);
         ]
     ]);
     echo Nav::widget([
+        'options' => ['class' => 'navbar-nav '],
+        'items' => [
+            ['label' => 'Product Category', 'url' => ['/admin/product-category']],
+            ['label' => 'Product', 'url' => ['/admin/product']],
+            [
+                'label' => 'Product',
+                'url' => ['/report/report1'],
+                'items' => [
+                    ['label' => 'Report1', 'url' => ['/report/report1']],
+                    ['label' => 'Report2', 'url' => ['/report/report2']],
+                ]
+            ],
+        ],
+    ]);
+    echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             Yii::$app->user->isGuest ? (
@@ -58,7 +73,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    
+
 
     <div class="container-fluid">
         <?= Breadcrumbs::widget([
