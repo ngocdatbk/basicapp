@@ -41,10 +41,16 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav '],
         'items' => [
-            ['label' => 'Product Category', 'url' => ['/admin/product-category']],
-            ['label' => 'Product', 'url' => ['/admin/product']],
             [
                 'label' => 'Product',
+                'url' => ['/admin/product'],
+                'items' => [
+                    ['label' => 'Product Category', 'url' => ['/admin/product-category']],
+                    ['label' => 'Product', 'url' => ['/admin/product']],
+                ]
+            ],
+            [
+                'label' => 'Report',
                 'url' => ['/report/report1'],
                 'items' => [
                     ['label' => 'Report1', 'url' => ['/report/report1']],

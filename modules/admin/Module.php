@@ -12,7 +12,7 @@ class Module extends \yii\base\Module
      */
     public $controllerNamespace = 'app\modules\admin\controllers';
     public $layoutPath = '@app\modules\admin\views\layouts';
-    public $layout = 'main';
+    public $layout = 'main_vertical';
     public $defaultRoute = "product/index";
 
     /**

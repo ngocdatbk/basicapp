@@ -2,6 +2,20 @@
  * base application
  * @author Lamnx
  */
+$(document).ready(function () {
+    $( document ).on( "click", "label.tree-toggler", function() {
+        $(this).parent().children('ul.tree').toggle(300, printNumber(this));
+    });
+});
+
+function printNumber(label) {
+    return function(e) {
+        if($(this).parent().children('ul.tree').css("display") == 'none')
+            $(label).children('span').attr('class','glyphicon glyphicon-plus');
+        else
+            $(label).children('span').attr('class','glyphicon glyphicon-minus');
+    };
+}
 
 var App = {};
 
