@@ -96,6 +96,30 @@ a.desc:after {
     border: none;
 }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes showmenu {
+    from {left: -230px;}
+    to {left: 0;}
+}
+
+/* Standard syntax */
+@keyframes showmenu {
+    from {left: -230px;}
+    to {left: 0;}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes hidemenu {
+    from {left: 0;}
+    to {left: -230px;}
+}
+
+/* Standard syntax */
+@keyframes hidemenu {
+    from {left: 0;}
+    to {left: -230px;}
+}
+
 @media(max-width:767px) {
     .nav li > form > button.logout {
         display:block;
@@ -103,45 +127,30 @@ a.desc:after {
         width: 100%;
         padding: 10px 15px;
     }
-    .menu_left {
-        -webkit-transform:translate(-230px, 0);
-        -ms-transform:translate(-230px, 0);
-        -o-transform:translate(-230px, 0);
-        transform:translate(-230px, 0);
-    }
 
     .content  {
         margin-left: 0px;
     }
 
-    .logo {
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
+    a.navbar-brand {
+        float: none;
     }
 
-    .navbar {
-        margin-left: 0px;
+    .menu_left {
+        -webkit-animation-name: hidemenu !important;
     }
 }
 @media(min-width:768px) {
     .menu_left {
-        -webkit-transform:translate(0px, 0);
-        -ms-transform:translate(0px, 0);
-        -o-transform:translate(0px, 0);
-        transform:translate(0px, 0);
+        -webkit-animation-name: showmenu !important;
     }
 
     .content  {
         margin-left: 230px;
     }
 
-    .logo {
-        width: 230px !important;
-    }
-
-    .navbar {
-        margin-left: 230px;
+    a.navbar-brand {
+        float: left;
     }
 }
 
@@ -154,37 +163,36 @@ a.desc:after {
     outline: none;
 }
 
-.skin-blue .navbar .navbar-inverse {
+.main-header {
+    height: 50px;
+}
+
+.main-header, #navigations {
     background-color: #367fa9 !important;
     color: #fff !important;
-    border-bottom: 0 solid transparent;
+    border: 0 !important;
 }
 
-.logo {
-    transition: width .3s ease-in-out;
-    display: block;
-    float: left;
-    height: 50px;
-    font-size: 20px;
-    line-height: 50px;
+.show-menu {
+    height: 30px; width: 40px;
+    padding: 5px;
+    margin: 10px 5px;
+    border: 1px solid #eeeeff;
+    cursor: pointer;
+}
+
+#navigations {
+    margin-left: 50px;
+}
+
+#navigations a {
+    border: 0 !important;
+}
+
+a.navbar-brand {
+    display: block !important;
     text-align: center;
-    width: 230px !important;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    padding: 0 15px;
-    font-weight: 300;
-    overflow: hidden;
-    background-color: #367fa9;
-    color: #fff;
-}
-
-.navbar {
-    background-color: #3c8dbc !important;
-    border: 0 !important;
-    margin-left: 230px;
-}
-
-.navbar a {
-    border: 0 !important;
+    color: white !important;
 }
 
 .menu_left {
@@ -201,12 +209,9 @@ a.desc:after {
     -webkit-transition:-webkit-transform .3s ease-in-out,width .3s ease-in-out;
     -moz-transition:-moz-transform .3s ease-in-out,width .3s ease-in-out;
     -o-transition:-o-transform .3s ease-in-out,width .3s ease-in-out;
-    transition:transform .3s ease-in-out,width .3s ease-in-out
-}
-
-header {
-    position: fixed;
-    top: 0; right: 0; left: 0;
+    transition:transform .3s ease-in-out,width .3s ease-in-out;
+    -webkit-animation-duration: .3s;
+    animation-fill-mode: forwards;
 }
 
 .nav > li > label {

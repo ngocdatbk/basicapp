@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -28,12 +29,14 @@ AppAsset::register($this);
 
 <div class="wrap">
     <header class="main-header">
-        <?= Html::a('<span class="logo-lg">' .  Yii::t("app.global","Admin") . '</span>', \yii\helpers\Url::to("/admin"), ['class' => 'logo']) ?>
+        <?= Html::img(Url::to('@web/images/menu.ico'), ['class' => "show-menu"]); ?>
         <?php
         NavBar::begin([
+            'brandLabel' => Yii::t("app.global","Admin"),
+            'brandUrl' => \yii\helpers\Url::to("/admin"),
             'options' => [
-                'class' => 'navbar-inverse ',
-                'id' => 'navigation'
+                'class' => 'navbar-inverse navbar-fixed-top',
+                'id' => 'navigations'
             ],
             'innerContainerOptions' => [
                 'class' => 'container-fluid'
@@ -80,6 +83,7 @@ AppAsset::register($this);
         NavBar::end();
         ?>
     </header>
+
 
     <aside class="menu_left">
         <section>

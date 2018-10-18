@@ -4,11 +4,19 @@
  */
 $(document).ready(function () {
     $( document ).on( "click", "label.tree-toggler", function() {
-        $(this).parent().children('ul.tree').toggle(300, printNumber(this));
+        $(this).parent().children('ul.tree').toggle(300, showDetailMenu(this));
+    });
+
+    $( document ).on( "click", "img.show-menu", function() {
+        var position = $(".menu_left").position();
+        if(position.left < 0)
+            $(".menu_left").animate({left: "0"});
+        else
+            $(".menu_left").animate({left: "-230px"});
     });
 });
 
-function printNumber(label) {
+function showDetailMenu(label) {
     return function(e) {
         if($(this).parent().children('ul.tree').css("display") == 'none')
             $(label).children('span').attr('class','glyphicon glyphicon-plus');
