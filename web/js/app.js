@@ -10,9 +10,17 @@ $(document).ready(function () {
     $( document ).on( "click", "img.show-menu", function() {
         var position = $(".menu_left").position();
         if(position.left < 0)
-            $(".menu_left").animate({left: "0"});
+        {
+            $(".menu_left").css({'transform': 'translateX(0)'});
+            if($(document).width() >= 768)
+                $(".content").animate({'margin-left': '230px'});
+        }
         else
-            $(".menu_left").animate({left: "-230px"});
+        {
+            $(".menu_left").css({'transform': 'translateX(-230px)'});
+            if($(document).width() >= 768)
+                $(".content").animate({'margin-left': '0'});
+        }
     });
 });
 

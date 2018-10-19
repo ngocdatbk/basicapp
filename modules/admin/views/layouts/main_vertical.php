@@ -45,22 +45,14 @@ AppAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav '],
             'items' => [
-                [
-                    'label' => 'Product',
-                    'url' => ['/admin/product'],
-                    'items' => [
-                        ['label' => 'Product Category', 'url' => ['/admin/product-category']],
-                        ['label' => 'Product', 'url' => ['/admin/product']],
-                    ]
-                ],
-                [
-                    'label' => 'Report',
-                    'url' => ['/report/report1'],
-                    'items' => [
-                        ['label' => 'Report1', 'url' => ['/report/report1']],
-                        ['label' => 'Report2', 'url' => ['/report/report2']],
-                    ]
-                ],
+//                [
+//                    'label' => 'Product',
+//                    'url' => ['/admin/product'],
+//                    'items' => [
+//                        ['label' => 'Product Category', 'url' => ['/admin/product-category']],
+//                        ['label' => 'Product', 'url' => ['/admin/product']],
+//                    ]
+//                ],
             ],
         ]);
         echo Nav::widget([
@@ -88,29 +80,17 @@ AppAsset::register($this);
     <aside class="menu_left">
         <section>
             <ul class="nav nav-list">
-                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span> Header 1</label>
-                    <ul class="nav nav-list tree">
-                        <li><a href="#"> Link</a></li>
-                        <li><a href="#"> Link</a></li>
-                        <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Header 1.1</label>
-                            <ul class="nav nav-list tree">
-                                <li><a href="#"> Link</a></li>
-                                <li><a href="#"> Link</a></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Header 1.1.1</label>
-                                    <ul class="nav nav-list tree">
-                                        <li><a href="#"> Link</a></li>
-                                        <li><a href="#"> Link</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span> Product</label>
+                    <ul class="nav nav-list tree lv1">
+                        <li><a href="<?= Url::to('/admin/product-category') ?>"> Product Category</a></li>
+                        <li><a href="<?= Url::to('/admin/product') ?>"> Product</a></li>
                     </ul>
                 </li>
                 <li class="divider"></li>
-                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Header 2</label>
-                    <ul class="nav nav-list tree">
-                        <li><a href="#"> Link</a></li>
-                        <li><a href="#"> Link</a></li>
+                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Report</label>
+                    <ul class="nav nav-list tree lv1">
+                        <li><a href="<?= Url::to('/report/report1') ?>"> Report1</a></li>
+                        <li><a href="<?= Url::to('/report/report2') ?>"> Report2</a></li>
                     </ul>
                 </li>
             </ul>
@@ -123,15 +103,15 @@ AppAsset::register($this);
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="pull-left">&copy; ngocdatbk <?= date('Y') ?></p>
+
+                <p class="pull-right"></p>
+            </div>
+        </footer>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-left">&copy; ngocdatbk <?= date('Y') ?></p>
-
-            <p class="pull-right"></p>
-        </div>
-    </footer>
 </div>
 
 

@@ -96,30 +96,6 @@ a.desc:after {
     border: none;
 }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes showmenu {
-    from {left: -230px;}
-    to {left: 0;}
-}
-
-/* Standard syntax */
-@keyframes showmenu {
-    from {left: -230px;}
-    to {left: 0;}
-}
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes hidemenu {
-    from {left: 0;}
-    to {left: -230px;}
-}
-
-/* Standard syntax */
-@keyframes hidemenu {
-    from {left: 0;}
-    to {left: -230px;}
-}
-
 @media(max-width:767px) {
     .nav li > form > button.logout {
         display:block;
@@ -137,12 +113,20 @@ a.desc:after {
     }
 
     .menu_left {
-        -webkit-animation-name: hidemenu !important;
+        -webkit-transform: translateX(-230px);
+        -moz-transform: translateX(-230px);
+        -ms-transform: translateX(-230px);
+        -o-transform: translateX(-230px);
+        transform: translateX(-230px);
     }
 }
 @media(min-width:768px) {
     .menu_left {
-        -webkit-animation-name: showmenu !important;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
     }
 
     .content  {
@@ -165,6 +149,8 @@ a.desc:after {
 
 .main-header {
     height: 50px;
+    position: fixed;top: 0;
+    z-index: 800;
 }
 
 .main-header, #navigations {
@@ -198,7 +184,6 @@ a.navbar-brand {
 .menu_left {
     position: fixed;
     top: 0;
-    left: 0;
     margin-top: 50px;
     min-height: 100%;
     width: 230px;
@@ -210,8 +195,37 @@ a.navbar-brand {
     -moz-transition:-moz-transform .3s ease-in-out,width .3s ease-in-out;
     -o-transition:-o-transform .3s ease-in-out,width .3s ease-in-out;
     transition:transform .3s ease-in-out,width .3s ease-in-out;
-    -webkit-animation-duration: .3s;
-    animation-fill-mode: forwards;
+}
+
+ul.lv1
+{
+    background-color: #7d7d7d;
+}
+
+ul.lv2
+{
+    background-color: #656565;
+}
+
+ul.lv3
+{
+    background-color: #424141;
+}
+
+ul.lv1 > li > a, ul.lv1 > li > label {
+    padding-left: 15px;
+}
+
+ul.lv2 > li > a, ul.lv2 > li > label {
+    padding-left: 30px;
+}
+
+ul.lv3 > li > a, ul.lv3 > li > label {
+    padding-left: 45px;
+}
+
+.menu_left > li > a:hover {
+    background-color: #0000ee;
 }
 
 .nav > li > label {
@@ -237,7 +251,7 @@ ul.tree {
 }
 
 .content  {
-    padding-top: 15px;
+    padding-top: 65px;
 }
 
 
