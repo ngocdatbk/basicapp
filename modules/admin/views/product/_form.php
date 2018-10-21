@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
 use app\modules\admin\assets\ProductAsset;
 use yii\helpers\Url;
-use dosamigos\ckeditor\CKEditor;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
@@ -33,10 +33,7 @@ ProductAsset::register($this);
         ],
     ]) ?>
 
-    <?= $form->field($model, 'info')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'full'
-    ]) ?>
+    <?= $form->field($model, 'info')->widget(\bizley\quill\Quill::className(), ['toolbarOptions' => 'FULL']) ?>
 
     <label class="control-label" for="image"><?= Yii::t('admin.product', 'Images') ?></label>
     <?= Html::input('file', 'images[]', null, ['class' => 'form-control', 'id' => 'images', 'multiple' => true, 'accept' => 'image/*']); ?>

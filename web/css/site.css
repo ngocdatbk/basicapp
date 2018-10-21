@@ -224,10 +224,6 @@ ul.lv3 > li > a, ul.lv3 > li > label {
     padding-left: 45px;
 }
 
-.menu_left > li > a:hover {
-    background-color: #0000ee;
-}
-
 .nav > li > label {
     position: relative;
     display: block;
@@ -242,16 +238,16 @@ ul.lv3 > li > a, ul.lv3 > li > label {
     border-bottom: 1px solid #2f2f2f;
 }
 
-.nav > li > a:hover {
-    background-color: #2f2f2f;
-}
-
 ul.tree {
     display: none;
 }
 
 .content  {
     padding-top: 65px;
+}
+
+ul li a:hover {
+    color: #332419 !important;
 }
 
 
