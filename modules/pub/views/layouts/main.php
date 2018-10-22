@@ -26,11 +26,22 @@ LayoutAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<header class="footer">
-    <div class="container-fluid">
-
+<div class="header container-fluid">
+    <div class="header-first row">
+        <div class="col-sm-12">
+            <div class="header-first-left">
+                <a class="site-logo">
+                    Saotruc
+                </a>
+            </div>
+            <div class="header-first-right">
+                <a class="site-logo">
+                    Saotruc
+                </a>
+            </div>
+        </div>
     </div>
-</header>
+</div>
 
 
 <div class="wrap">
@@ -44,13 +55,11 @@ LayoutAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container-fluid">
-        <p class="pull-left">&copy; ngocdatbk <?= date('Y') ?></p>
+<div class="footer container-fluid">
+    <p class="pull-left">&copy; ngocdatbk <?= date('Y') ?></p>
 
-        <p class="pull-right"></p>
-    </div>
-</footer>
+    <p class="pull-right"></p>
+</div>
 
 <?php $this->endBody() ?>
 </body>
