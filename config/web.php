@@ -12,7 +12,7 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'language' => 'vi_VN',
-    'defaultRoute' => 'admin/product',
+    'defaultRoute' => 'pub/dashboard',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -72,6 +72,9 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
+        ],
+        'pub' => [
+            'class' => 'app\modules\pub\Module',
         ]
     ],
 ];

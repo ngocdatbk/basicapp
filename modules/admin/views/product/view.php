@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             [
                 'attribute' => 'info',
-                'format' => 'html',
+                'format' => 'raw',
             ],
             [
                 'attribute' => 'price',
