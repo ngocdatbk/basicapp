@@ -130,7 +130,7 @@ a.desc:after {
     }
 
     .content  {
-        margin-left: 230px;
+        margin-left: 230px !important;
     }
 
     a.navbar-brand {

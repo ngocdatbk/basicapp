@@ -30,5 +30,12 @@ class Module extends \yii\base\Module
                 'basePath' => __DIR__.'/messages',
             ];
         }
+        if (!isset(Yii::$app->i18n->translations['admin.*'])) {
+            Yii::$app->i18n->translations['admin.*'] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'sourceLanguage' => 'en_US',
+                'basePath' => __DIR__.'/messages',
+            ];
+        }
     }
 }

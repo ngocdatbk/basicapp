@@ -1,6 +1,10 @@
 html,
 body {
     height: 100%;
+    font-size: 16px;
+    font-family: "Mr Eaves XL Modern", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #212032;
 }
 
 .wrap {
@@ -117,7 +121,6 @@ a.desc:after {
 }
 
 .header {
-    font-size: 16px;
     position: relative;
     overflow: auto;
 
@@ -127,10 +130,6 @@ a.desc:after {
     overflow: auto;
     padding: 5px 44px 5px 60px;
     border-bottom: 1px solid #edeff3;
-}
-.header-second {
-    overflow: auto;
-    padding: 5px 44px 5px 60px;
 }
 
 .header-first-left{
@@ -145,9 +144,45 @@ a.desc:after {
     float: right;
 }
 
-.site-logo {
+.header-first a {
     display: block;
-    padding: 1rem 2rem 1rem 0px;
+    padding: 16px 0px;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.header-first a:hover {
+    color: #ee2761;
+}
+
+.header-second {
+    overflow: auto;
+    padding: 0px 44px 0px 60px;
+}
+
+.navbar-default {
+    background-color: white !important;
+    border: 0 !important;
+}
+
+.header-second div, .header-first div {
+    padding: 0px !important;
+}
+
+.header-second a {
+    height: 50px;
+    line-height: 50px;
+    margin-right: 26px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.header-second a:hover {
+    border-bottom: solid 3px black;
+}
+
+.wrap .container-fluid {
+    padding: 5px 44px 5px 60px;
 }
 
 

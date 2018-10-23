@@ -1,0 +1,10 @@
+.pageee {
+    text-align: center;
+}
+
+.pageee ul {
+    display: inline-block;
+
+    /* One most likely needs to realign flow content */
+    text-align: initial;
+}

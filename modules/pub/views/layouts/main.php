@@ -9,8 +9,18 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\modules\pub\assets\LayoutAsset;
+use app\modules\admin\models\ProductCategory;
+use yii\helpers\Url;
 
 LayoutAsset::register($this);
+
+$categorys = ProductCategory::getAllCategorys('all');
+$item = [];
+foreach($categorys as $categoryid => $category)
+{
+    $item[] = ['label' => $category->name, 'url' => Url::to(['/pub/product-list/index', 'category_id' => $categoryid])];
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -39,6 +49,22 @@ LayoutAsset::register($this);
                     Saotruc
                 </a>
             </div>
+        </div>
+    </div>
+    <div class="header-second row">
+        <div class="col-sm-12">
+            <?php
+            NavBar::begin([
+                'innerContainerOptions' => [
+                    'class' => 'container-fluid'
+                ]
+            ]);
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav '],
+                'items' => $item
+            ]);
+            NavBar::end();
+            ?>
         </div>
     </div>
 </div>

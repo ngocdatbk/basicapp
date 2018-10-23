@@ -209,11 +209,6 @@ class ProductController extends Controller
         $images = ProductImage::getImagesProduct($model->id);
         $image_main = ProductImage::getImagesMain($model->id);
 
-//        echo "<pre>";
-//        var_dump($image_main);
-//        echo "<pre>";
-//        exit();
-
         $categorys = ProductCategory::getAllCategorys();
 
         return $this->render('update', [

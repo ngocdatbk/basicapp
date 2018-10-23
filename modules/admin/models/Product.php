@@ -63,4 +63,14 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasOne(ProductCategory::className(), ['id' => 'category_id']);
     }
+
+    public static function getAllProducts($category_id = '')
+    {
+        $query = Product::find()
+            ->where('deleted_f != 1')
+            ->indexBy('id');
+        if($category_id)
+            $query->andFilterWhere(['category_id' => $category_id]);
+        return $query;
+    }
 }
