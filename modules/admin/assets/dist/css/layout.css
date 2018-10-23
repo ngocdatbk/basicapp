@@ -6,8 +6,9 @@ body {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #f6f6f9;
 }
 
 .wrap > .container {
@@ -104,37 +105,13 @@ a.desc:after {
         padding: 10px 15px;
     }
 
-    .content  {
-        margin-left: 0px;
-    }
-
-    a.navbar-brand {
-        float: none;
-    }
-
-    .menu_left {
-        -webkit-transform: translateX(-230px);
-        -moz-transform: translateX(-230px);
-        -ms-transform: translateX(-230px);
-        -o-transform: translateX(-230px);
-        transform: translateX(-230px);
+    .content_menu {
+        display: none ;
     }
 }
 @media(min-width:768px) {
-    .menu_left {
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -ms-transform: translateX(0);
-        -o-transform: translateX(0);
-        transform: translateX(0);
-    }
-
-    .content  {
-        margin-left: 230px !important;
-    }
-
-    a.navbar-brand {
-        float: left;
+    .content_menu {
+        display: table-cell;
     }
 }
 
@@ -147,69 +124,78 @@ a.desc:after {
     outline: none;
 }
 
+/* header */
 .main-header {
-    height: 50px;
-    position: fixed;top: 0;
-    z-index: 800;
+    width: 100%;
+    background-color: #fff; !important;
+    color: grey !important;
+    overflow: auto;
+    border-bottom: solid 1px #f6f6f9;
 }
 
-.main-header, #navigations {
-    background-color: #367fa9 !important;
-    color: #fff !important;
-    border: 0 !important;
+.header-logo {
+    float: left;
+    padding-left: 15px;
 }
 
-.show-menu {
-    height: 30px; width: 40px;
-    padding: 5px;
-    margin: 10px 5px;
-    border: 1px solid #eeeeff;
-    cursor: pointer;
+.header-menu {
+    float: right;
+    display: inline-block;
 }
 
 #navigations {
-    margin-left: 50px;
+    border: 0 !important;
+    background: transparent !important;
+    margin-bottom: 0px;
+}
+
+.header-logo a {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    line-height: 20px;
+    font-family: "Mr Eaves XL Modern", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    color: #282562;
+    cursor: pointer;
 }
 
 #navigations a {
-    border: 0 !important;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
-a.navbar-brand {
-    display: block !important;
-    text-align: center;
-    color: white !important;
+#navigations a:hover {
+    color: #ee2761 !important;
 }
 
-.menu_left {
-    position: fixed;
-    top: 0;
-    margin-top: 50px;
+/*content*/
+
+.content {
+    display: table;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    table-layout: fixed;
     min-height: 100%;
+}
+.content_body {
+    display: table-cell;
+}
+
+/*content_menu*/
+.content_menu {
     width: 230px;
-    z-index: 810;
-    background-color: #222;
-    color: white !important;
+    background-color: #fff;
+    color: grey !important;
 
     -webkit-transition:-webkit-transform .3s ease-in-out,width .3s ease-in-out;
     -moz-transition:-moz-transform .3s ease-in-out,width .3s ease-in-out;
     -o-transition:-o-transform .3s ease-in-out,width .3s ease-in-out;
     transition:transform .3s ease-in-out,width .3s ease-in-out;
-}
-
-ul.lv1
-{
-    background-color: #7d7d7d;
-}
-
-ul.lv2
-{
-    background-color: #656565;
-}
-
-ul.lv3
-{
-    background-color: #424141;
 }
 
 ul.lv1 > li > a, ul.lv1 > li > label {
@@ -224,30 +210,35 @@ ul.lv3 > li > a, ul.lv3 > li > label {
     padding-left: 45px;
 }
 
+ul li a:hover {
+    color: #332419 !important;
+}
+
 .nav > li > label {
     position: relative;
     display: block;
     padding: 10px 15px;
     cursor: pointer;
-    border-bottom: 1px solid #080808;
     margin: 0px;
 }
 
-.nav > li > a {
-    color: white !important;
-    border-bottom: 1px solid #2f2f2f;
+.nav > li > label:hover {
+    color: #282562;
 }
 
 ul.tree {
     display: none;
 }
 
-.content  {
-    padding-top: 65px;
+/*content_body*/
+
+.content_body {
+    padding-top: 20px;
 }
 
-ul li a:hover {
-    color: #332419 !important;
+.breadcrumb {
+    padding: 0px !important;
 }
+
 
 

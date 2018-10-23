@@ -3,19 +3,14 @@ $(document).ready(function () {
         $(this).parent().children('ul.tree').toggle(300, showDetailMenu(this));
     });
 
-    $( document ).on( "click", "img.show-menu", function() {
-        var position = $(".menu_left").position();
-        if(position.left < 0)
+    $( document ).on( "click", "a.show-menu", function() {
+        if($(".content_menu").css("display") == 'table-cell')
         {
-            $(".menu_left").css({'transform': 'translateX(0)'});
-            if($(document).width() >= 768)
-                $(".content").animate({'margin-left': '230px'});
+            $(".content_menu").css("display",'none');
         }
         else
         {
-            $(".menu_left").css({'transform': 'translateX(-230px)'});
-            if($(document).width() >= 768)
-                $(".content").animate({'margin-left': '0'});
+            $(".content_menu").css("display",'table-cell');
         }
     });
 });
