@@ -27,81 +27,88 @@ LayoutAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <header class="main-header">
-        <div class="header-logo">
-            <a class="show-menu">
-                <?= Yii::t("app.global","Admin") ?>
-            </a>
-        </div>
-        <div class="header-menu">
-            <?php
-            NavBar::begin([
-                'options' => [
-                    'id' => 'navigations'
-                ],
-                'innerContainerOptions' => [
-                    'class' => 'container-fluid'
-                ]
-            ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    Yii::$app->user->isGuest ? (
-                    ['label' => 'Login', 'url' => ['/site/login']]
-                    ) : (
-                        '<li>'
-                        . Html::beginForm(['/site/logout'], 'post')
-                        . Html::submitButton(
-                            'Logout (' . Yii::$app->user->identity->username . ')',
-                            ['class' => 'btn btn-link logout']
+<div class="wrap dis-table">
+    <div class="dis-row">
+        <header class="main-header dis-cell">
+            <div class="header-logo">
+                <a class="show-menu">
+                    <span class="glyphicon glyphicon-user"></span> <?= Yii::t("app.global","Admin") ?>
+                </a>
+            </div>
+            <div class="header-menu">
+                <?php
+                NavBar::begin([
+                    'options' => [
+                        'id' => 'navigations'
+                    ],
+                    'innerContainerOptions' => [
+                        'class' => 'container-fluid'
+                    ]
+                ]);
+                echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items' => [
+                        Yii::$app->user->isGuest ? (
+                        ['label' => 'Login', 'url' => ['/site/login']]
+                        ) : (
+                            '<li>'
+                            . Html::beginForm(['/site/logout'], 'post')
+                            . Html::submitButton(
+                                'Logout (' . Yii::$app->user->identity->username . ')',
+                                ['class' => 'btn btn-link logout']
+                            )
+                            . Html::endForm()
+                            . '</li>'
                         )
-                        . Html::endForm()
-                        . '</li>'
-                    )
-                ],
-            ]);
-            NavBar::end();
-            ?>
-        </div>
+                    ],
+                ]);
+                NavBar::end();
+                ?>
+            </div>
 
-    </header>
+        </header>
+    </div>
 
-    <div class="content">
-        <aside class="content_menu">
-            <section>
-                <ul class="nav nav-list">
-                    <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span> Productxxxxxxxxxxxxx</label>
-                        <ul class="nav nav-list tree lv1">
-                            <li><a href="<?= Url::to('/admin/product-category') ?>"> Product Category</a></li>
-                            <li><a href="<?= Url::to('/admin/product') ?>"> Product</a></li>
-                        </ul>
-                    </li>
-                    <li class="divider"></li>
-                    <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Report</label>
-                        <ul class="nav nav-list tree lv1">
-                            <li><a href="<?= Url::to('/report/report1') ?>"> Report1</a></li>
-                            <li><a href="<?= Url::to('/report/report2') ?>"> Report2</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-        </aside>
+    <div class="dis-row">
+        <div class="dis-cell">
+            <div class="dis-table">
+                <div class="content dis-row">
+                    <aside class="content_menu ">
+                        <section>
+                            <ul class="nav nav-list">
+                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span> Product</label>
+                                    <ul class="nav nav-list tree lv1">
+                                        <li><a href="<?= Url::to('/admin/product-category') ?>"> Product Category</a></li>
+                                        <li><a href="<?= Url::to('/admin/product') ?>"> Product</a></li>
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>
+                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Report</label>
+                                    <ul class="nav nav-list tree lv1">
+                                        <li><a href="<?= Url::to('/report/report1') ?>"> Report1</a></li>
+                                        <li><a href="<?= Url::to('/report/report2') ?>"> Report2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </section>
+                    </aside>
 
-        <div class="container-fluid content_body">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?>
-            <?= $content ?>
+                    <div class="container-fluid content_body dis-cell">
+                        <?= Breadcrumbs::widget([
+                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        ]) ?>
+                        <?= Alert::widget() ?>
+                        <?= $content ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container-fluid">
-            <p class="pull-left">&copy; ngocdatbk <?= date('Y') ?></p>
 
-            <p class="pull-right"></p>
+    <footer class="footer dis-row">
+        <div class="container-fluid dis-cell">
+            <p class="copyright">&copy; ngocdatbk <?= date('Y') ?></p>
         </div>
     </footer>
 </div>
