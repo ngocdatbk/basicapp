@@ -37,13 +37,23 @@ foreach($categorys as $categoryid => $category)
 
 <header class="header">
     <div class="container">
-        <div class="header-logo">
-            <a>Saotruc</a>
+        <a class="header-logo" href="https://www.w3schools.com/css/css_align.asp">
+            <span>Saotruc</span>
+        </a>
+        <div class="header-button">
+            <button class="btn-link">
+                <i class="fa fa-bars"></i>
+                <span>Browse</span>
+            </button>
         </div>
-        <div class="header-button"></div>
-        <div class="header-search"></div>
-        <div class="header-search"></div>
-        <div class="header-customer"></div>
+        <div class="header-search">
+            <form method="get" action="">
+                <div class="input-group search-content">
+                    <input id="search-query" type="text" class="form-control" name="search-query" placeholder="Search for items">
+                    <span class="input-group-addon">Search</span>
+                </div>
+            </form>
+        </div>
     </div>
 </header>
 
