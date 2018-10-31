@@ -12,7 +12,7 @@ class Module extends \yii\base\Module
      */
     public $controllerNamespace = 'app\modules\pub\controllers';
     public $layoutPath = '@app\modules\pub\views\layouts';
-    public $layout = 'main';
+    public $layout = 'layout1';
     public $defaultRoute = "dashboard/index";
 
     /**

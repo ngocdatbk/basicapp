@@ -1,28 +1,31 @@
 <?php
 
-namespace app\modules\admin\assets;
+namespace app\modules\pub\assets;
 
 use yii\web\AssetBundle;
 
-class LayoutAsset extends AssetBundle
+class LayoutPubAsset extends AssetBundle
 {
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@app/modules/admin/assets/dist';
+    public $sourcePath = '@app/modules/pub/assets/dist';
 
     /**
      * @inheritdoc
      */
     public $js = [
-        'js/layout.js',
+        'js/layout1.js',
     ];
 
     public $css = [
-        'css/layout.css',
+        'css/layout1.css',
     ];
     public $depends = [
         'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
+        'app\assets\FontAwesomeAsset',
     ];
 
     /**

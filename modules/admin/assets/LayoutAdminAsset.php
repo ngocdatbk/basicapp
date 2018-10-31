@@ -1,15 +1,15 @@
 <?php
 
-namespace app\modules\pub\assets;
+namespace app\modules\admin\assets;
 
 use yii\web\AssetBundle;
 
-class LayoutAsset extends AssetBundle
+class LayoutAdminAsset extends AssetBundle
 {
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@app/modules/pub/assets/dist';
+    public $sourcePath = '@app/modules/admin/assets/dist';
 
     /**
      * @inheritdoc
@@ -23,6 +23,9 @@ class LayoutAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
+        'app\assets\FontAwesomeAsset',
     ];
 
     /**
