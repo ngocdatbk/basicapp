@@ -6,7 +6,14 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ProductListAsset::register($this);
+
+$this->title = Yii::t("pub.product-list",$category_name)."(".$pagination->totalCount." items)";
+$this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="row">
+    <div class="col-sm-6"><?= $category_name ?></div>
+    <div class="col-sm-6">Sort by</div>
+</div>
 <div class="row">
     <?php foreach($products as $product_id => $product):?>
         <div class="col-sm-3" style="overflow: auto">

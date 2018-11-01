@@ -14,11 +14,6 @@ use yii\helpers\Url;
 LayoutPubAsset::register($this);
 
 $categorys = ProductCategory::getAllCategorys('all');
-$item = [];
-foreach($categorys as $categoryid => $category)
-{
-    $item[] = ['label' => $category->name, 'url' => Url::to(['/pub/product-list/index', 'category_id' => $categoryid])];
-}
 
 ?>
 <?php $this->beginPage() ?>
@@ -37,9 +32,7 @@ foreach($categorys as $categoryid => $category)
 
 <header class="header">
     <div class="container">
-        <a class="header-logo" href="https://www.w3schools.com/css/css_align.asp">
-            <span>Saotruc</span>
-        </a>
+        <?= Html::a("<span>Saotruc</span>", Url::home(), ['class' => "header-logo"]) ?>
         <div class="header-button">
             <button class="btn-link">
                 <i class="fa fa-bars"></i>
@@ -54,17 +47,50 @@ foreach($categorys as $categoryid => $category)
                 </div>
             </form>
         </div>
+        <a class="header-customer" href="https://www.w3schools.com/css/css_align.asp">
+            <i class="fa fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
     </div>
 </header>
 
 <div class="menu-hor">
     <div class="container">
+        <nav class="hor-container">
+            <?php foreach($categorys as $categoryid => $category): ?>
+                <?= Html::a($category->name, Url::to(['/pub/product-list/index', 'category_id' => $categoryid])) ?>
+            <?php endforeach ?>
+        </nav>
+    </div>
+</div>
 
+<div class="menu-ver">
+    <div class="ver-container" >
+        <div class="ver-header">
+            <div>
+                <span>Saotruc</span>
+                <button class="btn-link">&#10006;</button>
+            </div>
+            <div>
+                <p>BROWSE CATEGORIES</p>
+            </div>
+        </div>
+
+        <div class="ver-body">
+            <div class="ver-content">
+                <?php foreach($categorys as $categoryid => $category): ?>
+                    <?= Html::a($category->name, Url::to(['/pub/product-list/index', 'category_id' => $categoryid])) ?>
+                <?php endforeach ?>
+            </div>
+        </div>
     </div>
 </div>
 
 <div class="content">
     <div class="container">
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
         <?= $content ?>
     </div>
 </div>

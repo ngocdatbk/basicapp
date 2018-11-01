@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box !important;
+}
+
 html,
 body {
     height: 100%;
@@ -7,6 +11,11 @@ body {
 /*HEADER*/
 .header {
     border-bottom: 1px solid #E1E3DF;
+    overflow: auto;
+}
+
+.header .container {
+    position: relative;
 }
 
 .header-logo, .header-button {
@@ -30,6 +39,20 @@ body {
     color: #595959 !important;
 }
 
+.header-customer {
+    vertical-align: middle;
+    color: #595959;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.header-customer {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
 .header-search {
     position: relative;
 }
@@ -41,18 +64,102 @@ body {
     transform: translate(-50%, -50%);
 }
 
-
-
+/*menu horizonal*/
 .menu-hor{
-    height: 50px;
+    overflow: auto;
     border-bottom: 1px solid #E1E3DF;
 }
+.menu-hor .container {
+    text-align: center;
+}
+
+.menu-hor a{
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #595959;
+}
+
+.menu-hor a:hover{
+    color: tomato;
+}
+
+/*menu vertical*/
+
+.menu-ver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.menu-ver .ver-container {
+    height: 100%;
+    background: white;
+    position: absolute;
+    left: -50%;
+}
+
+.ver-container > .ver-header{
+    height: 100px;
+    border-bottom: 1px solid #E1E3DF;
+    padding: 0 16px;
+}
+
+.ver-container > .ver-header > div:first-child{
+    height: 70px;
+    line-height: 70px;
+    font-size: 30px;
+}
+
+.ver-container > .ver-header > div:first-child > span{
+    color: tomato;
+    float: left;
+}
+
+.ver-container > .ver-header > div:first-child > button{
+    float: right;
+    text-decoration: none;
+    border: 0;
+    padding: 0;
+}
+
+.ver-container > .ver-header > div:last-child{
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #595959 !important;
+}
+
+.ver-container > .ver-body{
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+}
+
+.ver-container > .ver-body > .ver-content{
+    width: 100%;
+    overflow: auto;
+ }
+
+.ver-container > .ver-body > .ver-content a{
+    border-bottom: 1px solid #E1E3DF !important;
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #595959;
+}
+
+.ver-container > .ver-body > .ver-content a:hover{
+    color: tomato;
+}
+
+
 
 .content {
-    min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
 }
 
 .content > .container {
@@ -61,68 +168,13 @@ body {
 }
 
 .footer > .container{
-    height: 80px;
     border-top: 1px solid #E1E3DF;
-    padding-top: 20px;
 }
 
-@media(max-width:479px) {
-    .header {
-        height: 44px;
-    }
-
-    .header-logo, .header-button {
-        height: 44px;
-        line-height: 44px;
-    }
-
-    .header-logo span {
-        font-size: 30px;
-        line-height: 1.5;
-        margin-right: 10px;
-    }
-
-    .header-button {
-        display: inline-block;
-    }
-
-    .header-button span {
-        display: none;
-    }
-}
-
-@media(max-width:900px) {
-    .header {
-        height: 60px;
-    }
-
-    .header-logo, .header-button, .header-search {
-        height: 60px;
-        line-height: 60px;
-    }
-
-    .header-logo span {
-        font-size: 30px;
-        line-height: 1.5;
-        margin-right: 10px;
-    }
-
-    .header-button {
-        display: inline-block;
-    }
-
-    .header-search {
-        float: none;
-        display: block;
-    }
-}
 
 @media(min-width:901px) {
-    .header {
-        height: 80px;
-    }
 
-    .header-logo, .header-search {
+    .header-logo, .header-search, .header-customer {
         height: 80px;
         line-height: 80px;
     }
@@ -139,7 +191,97 @@ body {
 
     .header-search {
         float: left;
-        display: inline-block;
-        width: 500px;
+        width: 60%;
+    }
+
+    .menu-ver .ver-container {
+        width: 40%;
+    }
+
+    .content {
+        min-height: calc(100% - 203px);
+    }
+
+    .footer > .container{
+        height: 80px;
+        line-height: 80px;
+    }
+}
+
+@media(max-width:900px) {
+    .header-logo, .header-button, .header-search, .header-customer {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .header-logo span {
+        font-size: 30px;
+        line-height: 1.5;
+        margin-right: 10px;
+    }
+
+    .header-search {
+        clear: left;
+        border-top: 1px solid #E1E3DF;
+    }
+
+    .menu-hor {
+        display: none;
+    }
+
+    .menu-ver .ver-container {
+        width: 50%;
+    }
+
+    .content {
+        min-height: calc(100% - 182px);
+    }
+
+    .footer > .container{
+        height: 60px;
+        line-height: 60px;
+    }
+}
+
+@media(max-width:479px) {
+    .header-logo, .header-button, .header-search, .header-customer {
+        height: 44px;
+        line-height: 44px;
+    }
+
+    .header-logo span {
+        font-size: 30px;
+        line-height: 1.5;
+        margin-right: 10px;
+    }
+
+    .header-button span {
+        display: none;
+    }
+
+    .header-customer span {
+        display: none;
+    }
+
+    .header-search {
+        clear: left;
+        border-top: 1px solid #E1E3DF;
+    }
+
+    .menu-hor {
+        display: none;
+    }
+
+    .menu-ver .ver-container {
+        width: 100%;
+    }
+
+    .content {
+        min-height: calc(100% - 134px);
+    }
+
+    .footer > .container{
+        height: 44px;
+        line-height: 44px;
     }
 }
