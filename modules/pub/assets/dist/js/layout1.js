@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".header > .container> .header-button button").on('click',function() {
+    $(".header > .container-fluid> .header-button button").on('click',function() {
         $(".menu-ver").css("display",'block');
         $(".menu-ver .ver-container").animate({left: 0});
     });

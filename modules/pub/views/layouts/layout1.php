@@ -31,7 +31,7 @@ $categorys = ProductCategory::getAllCategorys('all');
 <?php $this->beginBody() ?>
 
 <header class="header">
-    <div class="container">
+    <div class="container-fluid">
         <?= Html::a("<span>Saotruc</span>", Url::home(), ['class' => "header-logo"]) ?>
         <div class="header-button">
             <button class="btn-link">
@@ -55,7 +55,7 @@ $categorys = ProductCategory::getAllCategorys('all');
 </header>
 
 <div class="menu-hor">
-    <div class="container">
+    <div class="container-fluid">
         <nav class="hor-container">
             <?php foreach($categorys as $categoryid => $category): ?>
                 <?= Html::a($category->name, Url::to(['/pub/product-list/index', 'category_id' => $categoryid])) ?>
@@ -87,7 +87,7 @@ $categorys = ProductCategory::getAllCategorys('all');
 </div>
 
 <div class="content">
-    <div class="container">
+    <div class="container-fluid">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -96,7 +96,7 @@ $categorys = ProductCategory::getAllCategorys('all');
 </div>
 
 <footer class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <div class="pull-left">Saotruc</div>
         <div class="pull-right">&copy; ngocdatbk <?= date('Y') ?></div>
     </div>

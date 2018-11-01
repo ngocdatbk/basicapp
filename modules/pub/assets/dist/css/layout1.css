@@ -14,7 +14,7 @@ body {
     overflow: auto;
 }
 
-.header .container {
+.header .container-fluid {
     position: relative;
 }
 
@@ -69,7 +69,7 @@ body {
     overflow: auto;
     border-bottom: 1px solid #E1E3DF;
 }
-.menu-hor .container {
+.menu-hor .container-fluid {
     text-align: center;
 }
 
@@ -94,6 +94,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 1;
 }
 
 .menu-ver .ver-container {
@@ -162,12 +163,20 @@ body {
     height: auto;
 }
 
-.content > .container {
+.content > .container-fluid {
     min-height: 100%;
     height: auto;
 }
 
-.footer > .container{
+.content > .container-fluid > .breadcrumb {
+    background-color: transparent;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    font-size: 13px;
+}
+
+.footer > .container-fluid{
     border-top: 1px solid #E1E3DF;
 }
 
@@ -202,7 +211,7 @@ body {
         min-height: calc(100% - 203px);
     }
 
-    .footer > .container{
+    .footer > .container-fluid{
         height: 80px;
         line-height: 80px;
     }
@@ -237,7 +246,7 @@ body {
         min-height: calc(100% - 182px);
     }
 
-    .footer > .container{
+    .footer > .container-fluid{
         height: 60px;
         line-height: 60px;
     }
@@ -280,7 +289,7 @@ body {
         min-height: calc(100% - 134px);
     }
 
-    .footer > .container{
+    .footer > .container-fluid{
         height: 44px;
         line-height: 44px;
     }

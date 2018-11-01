@@ -1,10 +1,48 @@
-.pageee {
-    text-align: center;
+.list-header {
+    padding: 16px 0;
 }
 
-.pageee ul {
-    display: inline-block;
+.list-header div:first-child {
+    font-size: 25px;
+    font-weight: bold;
+}
 
-    /* One most likely needs to realign flow content */
-    text-align: initial;
+.list-header div:last-child {
+    text-align: right;
+    color: #595959;
+}
+
+.list-header div:last-child .dropdown {
+    display: inline-block;
+}
+
+.list-header div:last-child button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.list-filters {
+    width: 250px;
+    float: left;
+    height: 100px;
+    border: 1px solid #E1E3DF;
+    margin: 0 18px;
+}
+
+.list-content {
+    width: calc(100% - 286px);
+    float: left;
+}
+
+.list-content .card {
+    margin-bottom: 18px;
+}
+
+.list-content .card .card-image{
+    background-color: #595959;
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
 }
