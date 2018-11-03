@@ -66,6 +66,10 @@ $config = [
             'decimalSeparator' => '.',
             'thousandSeparator' => ',',
             'currencyCode' => 'VND',
+            'numberFormatterOptions' => [
+                NumberFormatter::MIN_FRACTION_DIGITS => 0,
+                NumberFormatter::MAX_FRACTION_DIGITS => 2,
+            ],
         ],
     ],
     'params' => $params,

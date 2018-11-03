@@ -1,13 +1,14 @@
 .list-header {
-    padding: 16px 0;
+    margin: 5px 0 10px;
 }
 
 .list-header div:first-child {
     font-size: 25px;
-    font-weight: bold;
+    vertical-align: bottom;
 }
 
 .list-header div:last-child {
+    padding-top: 6px;
     text-align: right;
     color: #595959;
 }
@@ -16,10 +17,10 @@
     display: inline-block;
 }
 
-.list-header div:last-child button {
-    background-color: transparent;
-    border: 0;
+.list-header div:last-child a {
+    text-decoration: none;
     padding: 0;
+    cursor: pointer;
 }
 
 .list-filters {
@@ -35,14 +36,55 @@
     float: left;
 }
 
+.list-content .new-padright {
+    padding-right: 7px;
+}
+
 .list-content .card {
     margin-bottom: 18px;
+    text-decoration: none;
+}
+
+.list-content .card .card-detail .card-name{
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.list-content .card .card-detail .card-info{
+    font-size: 12px;
+    color: #595959 !important;
+    margin-bottom: 5px;
+}
+
+.list-content .card .card-detail .card-price{
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 5px;
 }
 
 .list-content .card .card-image{
-    background-color: #595959;
+    background-color: rgba(77, 186, 255, 0.13);
     position: relative;
     width: 100%;
     padding-top: 100%;
     background-size: cover;
+}
+
+.list-content .card .card-image:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.list-content .pagination a {
+    color: #222;
+}
+
+@media(max-width:640px) {
+    .list-filters {
+        display: none;
+    }
+
+    .list-content {
+        width: 100%;
+    }
 }
