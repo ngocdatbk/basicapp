@@ -64,6 +64,11 @@ class Product extends \yii\db\ActiveRecord
         return $this->hasOne(ProductCategory::className(), ['id' => 'category_id']);
     }
 
+    public function getProductImage()
+    {
+        return $this->hasMany(ProductImage::className(), ['product_id' => 'id']);
+    }
+
     public static function getAllProducts($category_id = '')
     {
         $query = Product::find()

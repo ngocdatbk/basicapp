@@ -79,6 +79,8 @@ class ProductController extends Controller
                 $new_images = Yii::$app->request->post('image_new');
 
                 foreach ($imageFiles as $index => $file) {
+                    if($new_images[$index]['status'] == 'delete')
+                        continue;
                     $imageUpload = new ProductImageUpload();
                     $imageUpload->imageFile = $file;
 
@@ -172,6 +174,8 @@ class ProductController extends Controller
                 $new_images = Yii::$app->request->post('image_new');
 
                 foreach ($imageFiles as $index => $file) {
+                    if($new_images[$index]['status'] == 'delete')
+                        continue;
                     $imageUpload = new ProductImageUpload();
                     $imageUpload->imageFile = $file;
 

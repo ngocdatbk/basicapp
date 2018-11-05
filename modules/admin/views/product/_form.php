@@ -50,7 +50,7 @@ ProductAsset::register($this);
                                 <td class="bound_image" style="width: 25%">
                                     <?= Html::img(Url::to('@web/'.$image->image), ['class' => "img-thumbnail", 'id' => 'img_old_'.$image->id]); ?>
                                     <label class="select_main" id="old_<?= $image->id ?>" type="button" >Set main image</label>
-                                    <a class="remove_image" row_id="old_<?= $image->id ?>" old_new="old" type="button" >
+                                    <a class="remove_image" row_id="old_<?= $image->id ?>" type="button" >
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </a>
 

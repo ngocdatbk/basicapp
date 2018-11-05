@@ -17,16 +17,9 @@ $(document).ready(function () {
 
     $( document ).on( "click", ".remove_image", function() {
         var row_id = $(this).attr('row_id');
-        var old_new = $(this).attr('old_new');
-        if(old_new == 'old')
-        {
-            $(this).parent().parent().css("display",'none');
-            $('#status_'+row_id).val('delete');
-        }
-        else
-        {
-            $(this).parent().parent().remove();
-        }
+
+        $(this).parent().parent().css("display",'none');
+        $('#status_'+row_id).val('delete');
     });
 });
 
@@ -41,13 +34,14 @@ function showSelectedImage(input) {
                             +'<td class="bound_image" style="width: 25%">'
                                 +'<img src="'+e.target.result+'" id="img_new_'+index+'" class="img-thumbnail" style=" width: 100%;" >'
                                 +'<a class="select_main" id="new_'+index+'" type="button" >Set main image</a>'
-                                +'<a class="remove_image" row_id="new_'+index+'" old_new="new" type="button" >'
+                                +'<a class="remove_image" row_id="new_'+index+'" type="button" >'
                                     +'<i class="glyphicon glyphicon-remove"></i>'
                                 +'</a>'
                             +'</td>'
                             + '<td>'
                                 +'<textarea rows="4" style="width: 100%" name="image_new['+index+'][description]" placeholder="Enter text here..."></textarea>'
                                 +'<input type="hidden" name="image_new['+index+'][is_main]" id="main_new_'+index+'" value="">'
+                                +'<input type="hidden" name="image_new['+index+'][status]" id="status_new_'+index+'" value="">'
                             +'</td>'
                         +'</tr>';
                     $("#image_list").append(content);

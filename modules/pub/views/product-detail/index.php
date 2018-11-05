@@ -1,17 +1,34 @@
 <?php
 /* @var $this yii\web\View */
-use yii\bootstrap\Carousel;
+use app\widgets\ImageGallery;
+use app\modules\pub\assets\ProductDetailAsset;
+
+ProductDetailAsset::register($this);
+
 ?>
-<?= Carousel::widget([
-    'items' => [
-        // the item contains only the image
-        '<img src="http://2.bp.blogspot.com/-5Qh1mWqMOQg/UjLEYPeJ4kI/AAAAAAAAGHA/ZAgbd4EHhGI/s1600/hinh-nen-thien-nhien-10.jpg"/>',
-        // equivalent to the above
-        ['content' => '<img src="http://baobinhphuoc.com.vn/Content/UploadFiles/EditorFiles/images/2017/Quy4/2559384317310646469067746543664106583080452n-151394302916822122017023843.jpg"/>'],
-        // the item contains both the image and the caption
-        [
-            'content' => '<img src="https://www.ttcgroup.vn/media/10334/dalat3.jpg"/>',
-            'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
-        ],
-    ]
-]) ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-7 col-sm-7">
+            <?= ImageGallery::widget([
+                'images' => $product->productImage,
+                'options' => [
+                    'itemWidth' => 10
+                ]
+            ]) ?>
+        </div>
+        <div class="col-5 col-sm-5">
+            <h2 class="product-name"><?= $product->name ?></h2>
+            <span class="product-info"><?= $product->info ?></span>
+            <span class="product-price"><b><?= Yii::$app->formatter->asCurrency($product->price) ?></b></span>
+            <button class="btn btn-success btn-block" >Buy it now</button>
+
+            <div class="social-share">
+                <p>Chia sẻ thiết kế này!</p>
+                <button class="btn btn-default"><i class="fa fa-facebook"></i> Facebook</button>
+                <button class="btn btn-default"><i class="fa fa-twitter"></i> Twitter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
