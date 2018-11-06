@@ -3,9 +3,14 @@
 }
 
 .product-name {
-    margin-top: 0;
+    margin: 0 0 5px;
 }
-.social-share {
+
+.btn-buy {
     margin-top: 20px;
+}
+
+.social-share {
+    margin: 20px 0;
     text-align: center;
 }

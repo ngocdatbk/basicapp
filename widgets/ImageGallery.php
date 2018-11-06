@@ -10,7 +10,6 @@ class ImageGallery extends Widget
 {
     public $images;
     public $options = [
-        'itemWidth' => 23
     ];
 
     public function init()
