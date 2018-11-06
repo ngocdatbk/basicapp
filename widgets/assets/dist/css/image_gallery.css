@@ -14,7 +14,7 @@
     background-color: white;
 }
 
-.feature {
+.control {
     position: relative;
 }
 
@@ -44,7 +44,7 @@
 .gallery-wrapper {
     position: relative;
     overflow: hidden;
-    margin-top: 5px;
+    margin: 5px 30px 0;
 }
 
 .gallery {
@@ -70,13 +70,17 @@
 
 .move-btn {
     color: white;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.5);
     border: 0;
 
     padding: 0 10px;
     position: absolute;
     top: 0;
     height: 100%;
+}
+
+.move-btn.disabled {
+    background-color: rgba(0,0,0,0.05);
 }
 
 .move-btn:not(.disabled):hover {

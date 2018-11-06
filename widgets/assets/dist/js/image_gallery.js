@@ -45,26 +45,22 @@ $(document).ready(function () {
 function selectItem(e) {
     if (e.target.classList.contains('active')) return;
 
-    curentItem = Number(e.target.getAttribute("index"));
-    changeItem(curentItem);
-}
-
-function changeItem(newIndex){
-    featured.style.backgroundImage = galleryItems[curentItem].style.backgroundImage;
-    preview.style.backgroundImage = galleryItems[curentItem].style.backgroundImage;
+    featured.style.backgroundImage = e.target.style.backgroundImage;
+    preview.style.backgroundImage = e.target.style.backgroundImage;
 
     for (var i = 0; i < galleryItems.length; i++) {
         if (galleryItems[i].classList.contains('active'))
             galleryItems[i].classList.remove('active');
     }
 
-    galleryItems[curentItem].classList.add('active');
+    e.target.classList.add('active');
+}
+
+function changeItem(newIndex){
+
 }
 
 function moveLeft() {
-    if(curentItem > 0)
-        changeItem(--curentItem);
-
     itemLeft--;
     gallery.style.left = -galleryItems[itemLeft].offsetLeft + "px";
     if(gallery.offsetLeft >= 0)
@@ -80,9 +76,6 @@ function moveLeft() {
 }
 
 function moveRight() {
-    if(curentItem < numOfItems)
-        changeItem(++curentItem);
-
     itemLeft++;
     gallery.style.left = -galleryItems[itemLeft].offsetLeft + "px";
     if(gallery.offsetLeft + gallery.scrollWidth <= gallery_wrapper.offsetWidth + galleryItems[0].offsetWidth)

@@ -29,7 +29,7 @@ ProductDetailAsset::register($this);
 
     <div class="row">
         <div class="col-sm-12">
-            <h2>Description</h2>
+            <h3>Description</h3>
             <span class="product-info"><?= $product->info ?></span>
         </div>
     </div>
