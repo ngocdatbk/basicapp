@@ -4,7 +4,7 @@ namespace app\modules\pub\assets;
 
 use yii\web\AssetBundle;
 
-class ProductDetailAsset extends AssetBundle
+class ProductAsset extends AssetBundle
 {
     /**
      * @inheritdoc
@@ -16,7 +16,7 @@ class ProductDetailAsset extends AssetBundle
      */
 
     public $css = [
-        'css/product_detail.css',
+        'css/product.css',
     ];
     public $depends = [
         'yii\web\YiiAsset',

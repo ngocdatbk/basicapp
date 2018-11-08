@@ -17,7 +17,6 @@ class CartController extends \yii\web\Controller
         }
 
         return $this->render('index', ['cart_cookie' => $cart_cookie]);
-
     }
 
     public function actionAdd($product_id)
@@ -37,12 +36,17 @@ class CartController extends \yii\web\Controller
         }
 
         $response_cookies = Yii::$app->response->cookies;
-        $response_cookies->remove('cart');
         $response_cookies->add(new \yii\web\Cookie([
             'name' => 'cart',
             'value' => Json::encode($cart_cookie),
             'expire' => time()+ 14*86400,
         ]));
+
+//        echo "<pre>";
+//        var_dump(Yii::$app->request->cookies);
+//        var_dump(Yii::$app->response->cookies);
+//        echo "<pre>";
+//        exit();
         return $this->redirect("index");
     }
 
@@ -53,13 +57,74 @@ class CartController extends \yii\web\Controller
             $product_id = $data['product_id'];
             $quantity = $data['quantity'];
 
-            /*van de - k gui cookie ve dan den lan request sau cookie gui len khong duoc cap nhat*/
+            $cart_cookie = array();
+            $request_cookies = Yii::$app->request->cookies;
+            if (isset($request_cookies['cart'])) {
+                $cart_cookie = Json::decode($request_cookies['cart']->value);
+            }
+            else {
+                return Json::encode(array("result"=>"error"));
+            }
+
+            if (isset($cart_cookie[$product_id])) {
+                $cart_cookie[$product_id]['quantity'] = (int)$quantity;
+            }
+            else {
+                return Json::encode(array("result"=>"error"));
+            }
+
+            $cart_total = 0;
+            foreach($cart_cookie as $car)
+            {
+                $cart_total += $car['quantity'];
+            }
+
+            $response_cookies = Yii::$app->response->cookies;
+            $response_cookies->add(new \yii\web\Cookie([
+                'name' => 'cart',
+                'value' => Json::encode($cart_cookie),
+                'expire' => time()+ 14*86400,
+            ]));
+            return Json::encode(array("result"=>"success",'cart_total' => $cart_total));
         }
     }
 
     public function actionDelete()
     {
+        if (Yii::$app->request->post()) {
+            $data = Yii::$app->request->post();
+            $product_id = $data['product_id'];
 
+            $cart_cookie = array();
+            $request_cookies = Yii::$app->request->cookies;
+            if (isset($request_cookies['cart'])) {
+                $cart_cookie = Json::decode($request_cookies['cart']->value);
+            }
+            else {
+                return Json::encode(array("result"=>"error"));
+            }
+
+            if (isset($cart_cookie[$product_id])) {
+                unset($cart_cookie[$product_id]);
+            }
+            else {
+                return Json::encode(array("result"=>"error"));
+            }
+
+            $cart_total = 0;
+            foreach($cart_cookie as $car)
+            {
+                $cart_total += $car['quantity'];
+            }
+
+            $response_cookies = Yii::$app->response->cookies;
+            $response_cookies->add(new \yii\web\Cookie([
+                'name' => 'cart',
+                'value' => Json::encode($cart_cookie),
+                'expire' => time()+ 14*86400,
+            ]));
+            return Json::encode(array("result"=>"success",'cart_total' => $cart_total));
+        }
     }
 
 }

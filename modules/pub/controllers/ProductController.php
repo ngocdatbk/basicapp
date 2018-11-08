@@ -7,7 +7,7 @@ use app\modules\admin\models\Product;
 use app\modules\admin\models\ProductCategory;
 use yii\data\Pagination;
 
-class ProductListController extends \yii\web\Controller
+class ProductController extends \yii\web\Controller
 {
     public function actionIndex()
     {
@@ -33,5 +33,15 @@ class ProductListController extends \yii\web\Controller
             'category_name' => $category_name
         ]);
     }
-
+    public function actionDetail()
+    {
+        if(isset(Yii::$app->request->queryParams['id']))
+        {
+            $product = Product::findOne(Yii::$app->request->queryParams['id']);
+            return $this->render('detail',['product' => $product]);
+        }else
+        {
+            throw new BadRequestHttpException('Invalid request', 500);
+        }
+    }
 }

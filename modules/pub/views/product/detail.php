@@ -3,9 +3,9 @@
 use app\widgets\ImageGallery;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use app\modules\pub\assets\ProductDetailAsset;
+use app\modules\pub\assets\ProductAsset;
 
-ProductDetailAsset::register($this);
+ProductAsset::register($this);
 
 ?>
 

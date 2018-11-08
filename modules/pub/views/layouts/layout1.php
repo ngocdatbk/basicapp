@@ -72,7 +72,7 @@ if (isset($request_cookies['cart'])) {
     <div class="container-fluid fluid-newpad">
         <nav class="hor-container">
             <?php foreach($categorys as $categoryid => $category): ?>
-                <?= Html::a($category->name, Url::to(['/pub/product-list/index', 'category_id' => $categoryid])) ?>
+                <?= Html::a($category->name, Url::to(['/pub/product/index', 'category_id' => $categoryid])) ?>
             <?php endforeach ?>
         </nav>
     </div>
@@ -93,7 +93,7 @@ if (isset($request_cookies['cart'])) {
         <div class="ver-body">
             <div class="ver-content">
                 <?php foreach($categorys as $categoryid => $category): ?>
-                    <?= Html::a($category->name, Url::to(['/pub/product-list/index', 'category_id' => $categoryid])) ?>
+                    <?= Html::a($category->name, Url::to(['/pub/product/index', 'category_id' => $categoryid])) ?>
                 <?php endforeach ?>
             </div>
         </div>

@@ -1,14 +1,14 @@
 <?php
 /* @var $this yii\web\View */
 use yii\widgets\LinkPager;
-use app\modules\pub\assets\ProductListAsset;
+use app\modules\pub\assets\ProductAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-ProductListAsset::register($this);
+ProductAsset::register($this);
 
-$this->title = Yii::t("pub.product-list",$category_name);
-$this->params['breadcrumbs'][] = Yii::t("pub.product-list",$category_name)."(".$pagination->totalCount." items)";
+$this->title = Yii::t("pub.product",$category_name);
+$this->params['breadcrumbs'][] = Yii::t("pub.product",$category_name)."(".$pagination->totalCount." items)";
 ?>
 <div class="row list-header">
     <div class="col-6 col-xs-6"><?= $category_name ?></div>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = Yii::t("pub.product-list",$category_name)."(".$
             <div class="row">
                 <?php foreach($products as $product_id => $product):?>
                     <div class="col-md-3 col-xs-6 new-padright">
-                        <a class="card" href="<?= Url::to(['/pub/product-detail/index','id' => $product->id]) ?>">
+                        <a class="card" href="<?= Url::to(['/pub/product/detail','id' => $product->id]) ?>">
                             <div class="card-image" style='background-image: url("<?= $product->image_main?Url::to('@web/'.$product->image_main):'' ?>");' > </div>
                             <div class="card-detail">
                                 <p class="card-name"><?= $product->name ?></p>
