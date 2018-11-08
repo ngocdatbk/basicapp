@@ -10,10 +10,21 @@ use yii\widgets\Breadcrumbs;
 use app\modules\pub\assets\LayoutPubAsset;
 use app\modules\admin\models\ProductCategory;
 use yii\helpers\Url;
+use yii\helpers\Json;
 
 LayoutPubAsset::register($this);
 
 $categorys = ProductCategory::getAllCategorys('all');
+
+$request_cookies = Yii::$app->request->cookies;
+$cart = 0;
+if (isset($request_cookies['cart'])) {
+    $cart_cookie = Json::decode($request_cookies['cart']->value);
+    foreach($cart_cookie as $product)
+    {
+        $cart += $product['quantity'];
+    }
+}
 
 ?>
 <?php $this->beginPage() ?>
@@ -47,9 +58,12 @@ $categorys = ProductCategory::getAllCategorys('all');
                 </div>
             </form>
         </div>
-        <a class="header-customer" href="https://www.w3schools.com/css/css_align.asp">
-            <i class="fa fa-shopping-cart"></i>
+        <a class="header-customer" href="<?= Url::to('/pub/cart/index') ?>">
+            <i class="fa fa-shopping-cart cart_container">
+                <span class="cart_num" ><?= $cart ?></span>
+            </i>
             <span>Cart</span>
+
         </a>
     </div>
 </header>

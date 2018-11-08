@@ -57,6 +57,22 @@ body {
     right: 15px;
 }
 
+.cart_container{
+    position: relative;
+}
+
+.cart_num {
+    background-color: #ffc70e;
+    border-radius: 2px;
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    padding: 2px 4px;
+    top: -9px;
+    left: 9px;
+}
+
 .header-search {
     position: relative;
 }

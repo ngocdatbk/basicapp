@@ -1,6 +1,8 @@
 <?php
 /* @var $this yii\web\View */
 use app\widgets\ImageGallery;
+use yii\helpers\Html;
+use yii\helpers\Url;
 use app\modules\pub\assets\ProductDetailAsset;
 
 ProductDetailAsset::register($this);
@@ -17,8 +19,10 @@ ProductDetailAsset::register($this);
         <div class="col-5 col-sm-5">
             <h2 class="product-name"><?= $product->name ?></h2>
             <span class="product-price"><b><?= Yii::$app->formatter->asCurrency($product->price) ?></b></span>
-            <button class="btn btn-success btn-block btn-buy" >Buy it now</button>
-
+            <form method="get" action="<?= Url::to("/pub/cart/add") ?>">
+                <?= Html::hiddenInput("product_id",$product->id) ?>
+                <button class="btn btn-success btn-block btn-buy" type="submit" >Buy it now</button>
+            </form>
             <div class="social-share">
                 <p>Chia sẻ sản phẩm này!</p>
                 <button class="btn btn-default"><i class="fa fa-facebook"></i> Facebook</button>
