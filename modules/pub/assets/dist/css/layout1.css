@@ -298,7 +298,7 @@ body {
         display: none;
     }
 
-    .header-customer span {
+    .header-customer span:not(.cart_num) {
         display: none;
     }
 

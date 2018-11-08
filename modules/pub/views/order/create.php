@@ -3,11 +3,17 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\widgets\Alert;
 use app\modules\pub\assets\OrderAsset;
 
 OrderAsset::register($this);
 ?>
 <div class="container order">
+    <div class="row">
+        <div class="col-lg-12">
+            <?= Alert::widget() ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-8 checkout">
             <h2>Checkout</h2>

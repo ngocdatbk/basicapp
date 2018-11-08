@@ -27,7 +27,11 @@ class OrderController extends \yii\web\Controller
             if(!$order->save())
             {
                 $transaction->rollBack();
-                return $this->redirect(['pub/cart/index']);
+                Yii::$app->session->setFlash('error', 'System error');
+                return $this->render('create', [
+                    'model' => $order,
+                    'cart_cookie' => $cart_cookie
+                ]);
             }
 
             $total_amount = 0;
@@ -37,13 +41,17 @@ class OrderController extends \yii\web\Controller
 
                 $orderDetail = new OrderDetail();
                 $orderDetail->order_id = $order->id;
-                $orderDetail->product_id = $detail['detail']['product_id'];
+                $orderDetail->product_id = $detail['detail']['id'];
                 $orderDetail->quantity = $detail['quantity'];
 
                 if(!$orderDetail->save())
                 {
                     $transaction->rollBack();
-                    return $this->redirect(['pub/cart/index']);
+                    Yii::$app->session->setFlash('error', 'System error');
+                    return $this->render('create', [
+                        'model' => $order,
+                        'cart_cookie' => $cart_cookie
+                    ]);
                 }
             }
 
@@ -51,10 +59,19 @@ class OrderController extends \yii\web\Controller
             if(!$order->save())
             {
                 $transaction->rollBack();
-                return $this->redirect(['pub/cart/index']);
+                Yii::$app->session->setFlash('error', 'System error');
+                return $this->render('create', [
+                    'model' => $order,
+                    'cart_cookie' => $cart_cookie
+                ]);
             }
 
             $transaction->commit();
+
+            $response_cookies = Yii::$app->response->cookies;
+            unset($_COOKIE['cart']);
+            $response_cookies->remove('cart');
+            Yii::$app->session->setFlash('success', 'Create order success!');
         }
 
         return $this->render('create', [
