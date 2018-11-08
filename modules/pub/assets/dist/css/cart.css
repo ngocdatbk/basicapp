@@ -89,6 +89,13 @@
     font-size: 25px;
     color: white;
     margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.btn-checkout:hover {
+    color: white;
 }
 
 @media(max-width:767px) {

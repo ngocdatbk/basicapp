@@ -19,10 +19,10 @@ CartAsset::register($this);
                 ?>
                     <div class="row row-product" id="row-product-<?= $product['detail']['id'] ?>">
                         <div class="col-sm-3 row-product-image">
-                            <a href="<?= Url::to(['/pub/product-detail/index','id' => $product['detail']['id']]) ?>"><figure class="product-image" style="background-image: url('<?= Url::to('@web/'.$product['detail']['image_main']) ?>')" ></figure></a>
+                            <a href="<?= Url::to(['/pub/product/detail','id' => $product['detail']['id']]) ?>"><figure class="product-image" style="background-image: url('<?= Url::to('@web/'.$product['detail']['image_main']) ?>')" ></figure></a>
                         </div>
                         <div class="col-sm-5  row-product-detail">
-                            <h4><a href="<?= Url::to(['/pub/product-detail/index','id' => $product['detail']['id']]) ?>"><?= $product['detail']['name'] ?></a></h4>
+                            <h4><a href="<?= Url::to(['/pub/product/detail','id' => $product['detail']['id']]) ?>"><?= $product['detail']['name'] ?></a></h4>
                             <input class="product-quantity" id="quantity-<?= $product['detail']['id'] ?>" product-id="<?= $product['detail']['id'] ?>" type="number" value="<?= $product['quantity'] ?>"> x <?= Yii::$app->formatter->asCurrency($product['detail']['price']) ?>
                         </div>
                         <div class="col-sm-4  row-product-control">
@@ -40,7 +40,7 @@ CartAsset::register($this);
                 <div class="total-right"><?= Yii::$app->formatter->asCurrency($total_amount) ?></div>
             </div>
             <div class="ship">Shipping and tax will be calculated on checkout</div>
-            <button class="btn-checkout">Checkout</button>
+            <a href="<?= Url::to(['/pub/order/create']) ?>" class="btn-checkout">Checkout</a>
         </div>
     </div>
 </div>

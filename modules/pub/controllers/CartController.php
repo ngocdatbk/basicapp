@@ -15,7 +15,6 @@ class CartController extends \yii\web\Controller
         if (isset($request_cookies['cart'])) {
             $cart_cookie = Json::decode($request_cookies['cart']->value);
         }
-
         return $this->render('index', ['cart_cookie' => $cart_cookie]);
     }
 
@@ -42,11 +41,6 @@ class CartController extends \yii\web\Controller
             'expire' => time()+ 14*86400,
         ]));
 
-//        echo "<pre>";
-//        var_dump(Yii::$app->request->cookies);
-//        var_dump(Yii::$app->response->cookies);
-//        echo "<pre>";
-//        exit();
         return $this->redirect("index");
     }
 
