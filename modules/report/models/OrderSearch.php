@@ -63,7 +63,6 @@ class OrderSearch extends Order
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'order_time' => $this->order_time,
             'total' => $this->total,
             'status' => $this->status,
         ]);
@@ -77,6 +76,23 @@ class OrderSearch extends Order
             ->andFilterWhere(['like', 'user_receive_address', $this->user_receive_address])
             ->andFilterWhere(['like', 'user_note', $this->user_note])
             ->andFilterWhere(['like', 'admin_note', $this->admin_note]);
+
+        if (!empty($this->order_time['from_date'])) {
+            $query->andFilterWhere(['>=', $this->tableName() . ".order_time", AppLocale::getTimeOfDate($this->order_time['from_date'], $format)]);
+        }
+
+        if (!empty($this->order_time['to_date'])) {
+            $todate = AppLocale::getTimeOfDate($this->order_time['to_date'], $format);
+            $query->andFilterWhere(['<=', $this->tableName() . ".order_time", $todate + 86399]); //add tim 23:59:59
+        }
+
+        if (!empty($this->order_time['from_date'])) {
+            $query->andFilterWhere(['>=', 'account_request.order_date', strtotime(Carbon::createFromFormat('d-m-Y', $this->order_time['from_date'])->toDateString())]);
+        }
+
+        if (!empty($this->order_time['to_date'])) {
+            $query->andFilterWhere(['<=', 'account_request.order_date', strtotime(Carbon::createFromFormat('d-m-Y', $this->order_time['to_date'])->toDateString())]);
+        }
 
         return $dataProvider;
     }
