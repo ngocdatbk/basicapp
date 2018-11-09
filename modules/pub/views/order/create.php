@@ -20,24 +20,29 @@ OrderAsset::register($this);
             <?php $form = ActiveForm::begin([
                 'id' => 'order'
             ]); ?>
-            <fieldset>
-                <legend>Personalia:</legend>
-                <?= $form->field($model, 'user_order_name')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'user_order_phone')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'user_order_email')->textInput(['maxlength' => true]) ?>
-            </fieldset>
 
+            <label for="user_order">User order</label>
+            <div class="user_order" id="user_order">
+                <?= $form->field($model, 'user_order_name')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_name' )])->label(false) ?>
+                <?= $form->field($model, 'user_order_phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_phone' )])->label(false) ?>
+                <?= $form->field($model, 'user_order_email')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_email' )])->label(false) ?>
+            </div>
 
-            <?= $form->field($model, 'user_receive_name')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'user_receive_phone')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'user_receive_email')->textInput(['maxlength' => true]) ?>
+            <label for="user_receive">User receive</label>
+            <span>(*) Chỉ cần điền nếu người nhận hàng khác người đặt hàng</span>
+            <div class="user_receive">
+                <?= $form->field($model, 'user_receive_name')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_name' )])->label(false) ?>
+                <?= $form->field($model, 'user_receive_phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_phone' )])->label(false) ?>
+                <?= $form->field($model, 'user_receive_email')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_email' )])->label(false) ?>
+
+            </div>
+
             <?= $form->field($model, 'user_receive_address')->textInput(['maxlength' => true]) ?>
-
             <?= $form->field($model, 'user_note')->textarea(['maxlength' => true]) ?>
 
 
             <div class="form-group">
-                <?= Html::submitButton(Yii::t('app.global', 'Save'), ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton(Yii::t('app.global', 'Order'), ['class' => 'btn btn-success']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>
@@ -57,7 +62,7 @@ OrderAsset::register($this);
                     $total_quantity += $product['quantity'];
                     $total_amount += $product['detail']['price'] * $product['quantity'];
                     ?>
-                    <div class="row row-product" id="row-product-<?= $product['detail']['id'] ?>">
+                    <div class="row row-product">
                         <div class="col-sm-4 row-product-image">
                             <a href="<?= Url::to(['/pub/product/detail','id' => $product['detail']['id']]) ?>"><figure class="product-image" style="background-image: url('<?= Url::to('@web/'.$product['detail']['image_main']) ?>')" ></figure></a>
                         </div>

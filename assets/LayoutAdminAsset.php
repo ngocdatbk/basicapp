@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\assets;
+namespace app\assets;
 
 use yii\web\AssetBundle;
 
@@ -9,7 +9,7 @@ class LayoutAdminAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@app/modules/admin/assets/dist';
+    public $sourcePath = '@app/assets/dist';
 
     /**
      * @inheritdoc

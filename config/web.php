@@ -79,6 +79,12 @@ $config = [
         ],
         'pub' => [
             'class' => 'app\modules\pub\Module',
+        ],
+        'report' => [
+            'class' => 'app\modules\report\Module',
+        ],
+        'dashboard' => [
+            'class' => 'app\modules\dashboard\Module',
         ]
     ],
 ];

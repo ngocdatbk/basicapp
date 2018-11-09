@@ -4,8 +4,8 @@ namespace app\modules\pub\controllers;
 
 use Yii;
 use yii\helpers\Json;
-use app\modules\pub\models\Order;
-use app\modules\pub\models\OrderDetail;
+use app\modules\report\models\Order;
+use app\modules\report\models\OrderDetail;
 
 class OrderController extends \yii\web\Controller
 {
@@ -69,9 +69,10 @@ class OrderController extends \yii\web\Controller
             $transaction->commit();
 
             $response_cookies = Yii::$app->response->cookies;
-            unset($_COOKIE['cart']);
             $response_cookies->remove('cart');
             Yii::$app->session->setFlash('success', 'Create order success!');
+
+            return $this->redirect(["result",'order_id' => $order->id]);
         }
 
         return $this->render('create', [
@@ -80,4 +81,11 @@ class OrderController extends \yii\web\Controller
         ]);
     }
 
+    public function actionResult($order_id)
+    {
+        $order = Order::findOne($order_id);
+        return $this->render('result', [
+            'model' => $order
+        ]);
+    }
 }

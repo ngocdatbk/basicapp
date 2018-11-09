@@ -8,6 +8,8 @@
 
 .btn-buy {
     margin-top: 20px;
+    padding: 12px 0 !important;
+    font-size: 25px !important;
 }
 
 .social-share {

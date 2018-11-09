@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\modules\admin\assets\LayoutAdminAsset;
+use app\assets\LayoutAdminAsset;
 use yii\helpers\Url;
 
 LayoutAdminAsset::register($this);
@@ -76,6 +76,8 @@ LayoutAdminAsset::register($this);
                     <aside class="content_menu ">
                         <section>
                             <ul class="nav nav-list">
+                                <li><a href="<?= Url::to('/dashboard/dashboard') ?>"> Dashboard</a></li>
+                                <li class="divider"></li>
                                 <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span> Product</label>
                                     <ul class="nav nav-list tree lv1">
                                         <li><a href="<?= Url::to('/admin/product-category') ?>"> Product Category</a></li>
@@ -85,8 +87,7 @@ LayoutAdminAsset::register($this);
                                 <li class="divider"></li>
                                 <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Report</label>
                                     <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/report/report1') ?>"> Report1</a></li>
-                                        <li><a href="<?= Url::to('/report/report2') ?>"> Report2</a></li>
+                                        <li><a href="<?= Url::to('/report/order') ?>"> Order list</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -95,6 +96,10 @@ LayoutAdminAsset::register($this);
 
                     <div class="container-fluid content_body dis-cell">
                         <?= Breadcrumbs::widget([
+                            'homeLink' => [
+                                'label' => 'Home',  // required
+                                'url' => '/dashboard/dashboard',      // optional, will be processed by Url::to()
+                            ],
                             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                         ]) ?>
                         <?= Alert::widget() ?>

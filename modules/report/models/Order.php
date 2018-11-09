@@ -1,7 +1,7 @@
 <?php
 
-namespace app\modules\pub\models;
-
+namespace app\modules\report\models;
+use app\modules\report\models\OrderDetail;
 use Yii;
 
 /**
@@ -37,11 +37,13 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_order_name', 'user_order_phone', 'user_receive_name', 'user_receive_phone', 'user_receive_address'], 'required'],
+            [['user_order_name', 'user_order_phone', 'user_receive_address'], 'required'],
             [['order_time', 'total', 'status'], 'integer'],
             [['user_order_name', 'user_order_email', 'user_receive_name', 'user_receive_email'], 'string', 'max' => 50],
             [['user_order_phone', 'user_receive_phone'], 'string', 'max' => 20],
             [['user_receive_address', 'user_note', 'admin_note'], 'string', 'max' => 255],
+            [['user_order_email','user_receive_email'], 'email'],
+            [['user_order_phone','user_receive_phone'], 'match', 'pattern' => '/^[0-9]{9,15}$/', 'message' => 'Number phone is not valid1'],
         ];
     }
 
@@ -54,10 +56,10 @@ class Order extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_order_name' => 'User Order Name',
             'user_order_phone' => 'User Order Phone',
-            'user_order_e-mail' => 'User Order E Mail',
+            'user_order_email' => 'User Order E Mail',
             'user_receive_name' => 'User Receive Name',
             'user_receive_phone' => 'User Receive Phone',
-            'user_receive_e-mail' => 'User Receive E Mail',
+            'user_receive_email' => 'User Receive E Mail',
             'user_receive_address' => 'User Receive Address',
             'order_time' => 'Order Time',
             'user_note' => 'User Note',
@@ -65,5 +67,23 @@ class Order extends \yii\db\ActiveRecord
             'status' => 'Status',
             'admin_note' => 'Admin Note',
         ];
+    }
+
+    public function getOrderDetail()
+    {
+        return $this->hasMany(OrderDetail::className(), ['order_id' => 'id']);
+    }
+
+    public function getStatusLabel()
+    {
+        if ($this->status == 0) {
+            return Yii::t('report.order', 'Request');
+        } elseif ($this->status == 1) {
+            return Yii::t('report.order', 'Approved');
+        } elseif ($this->status == 2) {
+            return Yii::t('report.order', 'Rejected');
+        }
+
+        return '';
     }
 }

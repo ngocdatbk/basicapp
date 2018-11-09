@@ -1,6 +1,18 @@
 .order {
     margin-top: 20px;
 }
+.order-result {
+    margin-top: 20px;
+    max-width: 500px;
+}
+.order-result table
+{
+    border: 0 !important;
+}
+.order-result th,.order-result td {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
 
 .order h2, .order h4 {
     margin-top: 0;
@@ -10,6 +22,19 @@
     font-weight: bold;
 }
 
+.checkout .user_order,  .checkout .user_receive {
+    border: 1px solid #ddd;
+    overflow: auto;
+    padding: 15px 15px 0;
+    margin-bottom: 10px;
+}
+
+.checkout button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 25px;
+}
 
 
 

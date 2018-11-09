@@ -1,7 +1,7 @@
 <?php
 
-namespace app\modules\pub\models;
-
+namespace app\modules\report\models;
+use app\modules\admin\models\Product;
 use Yii;
 
 /**
@@ -44,5 +44,10 @@ class OrderDetail extends \yii\db\ActiveRecord
             'product_id' => 'Product ID',
             'quantity' => 'Quantity',
         ];
+    }
+
+    public function getProduct()
+    {
+        return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }
 }

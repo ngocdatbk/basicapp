@@ -16,11 +16,11 @@ class CartController extends \yii\web\Controller
             $cart_cookie = Json::decode($request_cookies['cart']->value);
         }
 
-        echo "<pre>";
-        var_dump(Yii::$app->request->cookies);
-        var_dump(Yii::$app->response->cookies);
-        echo "<pre>";
-        exit();
+//        echo "<pre>";
+//        var_dump(Yii::$app->request->cookies);
+//        var_dump(Yii::$app->response->cookies);
+//        echo "<pre>";
+//        exit();
 
         return $this->render('index', ['cart_cookie' => $cart_cookie]);
     }
