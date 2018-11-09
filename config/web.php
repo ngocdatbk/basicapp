@@ -12,6 +12,7 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'language' => 'vi_VN',
+    'timeZone' => 'Asia/Ho_Chi_Minh',
     'defaultRoute' => 'pub/dashboard',
     'components' => [
         'request' => [

@@ -23,10 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_order_name',
             'user_order_phone',
             'user_order_email:email',
-            'user_receive_name',
-            'user_receive_phone',
-            'user_receive_email:email',
-            'user_receive_address',
             [
                 'attribute' => 'order_time',
                 'label' => Yii::t('report.order', 'Order time'),
@@ -35,13 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     'align' => 'right',
                 ],
                 'filter' => '<div class="input-group drp-container">' . DateRangePicker::widget([
-                    'name' => 'Order[order_time]',
+                    'name' => 'OrderSearch[order_time]',
                     'useWithAddon' => true,
                     'convertFormat' => true,
-                    'startAttribute' => 'Order[order_time][from_date]',
-                    'endAttribute' => 'Order[order_time][to_date]',
-                    'startInputOptions' => ['value' => isset(Yii::$app->request->get('Order')['order_time']['from_date']) ? Yii::$app->request->get('Order')['order_time']['from_date'] : '01-01-1970'],
-                    'endInputOptions' => ['value' => isset(Yii::$app->request->get('Order')['order_time']['to_date']) ? Yii::$app->request->get('Order')['order_time']['to_date'] : date('d-m-Y')],
+                    'startAttribute' => 'OrderSearch[order_time][from_date]',
+                    'endAttribute' => 'OrderSearch[order_time][to_date]',
+                    'startInputOptions' => ['value' => isset(Yii::$app->request->get('OrderSearch')['order_time']['from_date']) ? Yii::$app->request->get('OrderSearch')['order_time']['from_date'] : date('d-m-Y',time()-7*86400)],
+                    'endInputOptions' => ['value' => isset(Yii::$app->request->get('OrderSearch')['order_time']['to_date']) ? Yii::$app->request->get('OrderSearch')['order_time']['to_date'] : date('d-m-Y')],
                     'pluginOptions' => [
                         'locale' => ['format' => 'd-m-Y'],
                         'opens'=>'left',
@@ -56,7 +52,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]). '</div>'
             ],
-            'user_note',
             [
                 'attribute' => 'status',
                 'label' => Yii::t('report.order', 'Status'),
