@@ -18,7 +18,7 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
+            [['status'], 'integer'],
             [['user_order_name', 'user_order_phone', 'user_order_email', 'user_receive_name', 'user_receive_phone', 'user_receive_email', 'user_receive_address', 'user_note', 'admin_note', 'order_time'], 'safe'],
         ];
     }
@@ -84,19 +84,6 @@ class OrderSearch extends Order
         if (!empty($this->order_time['to_date'])) {
             $query->andFilterWhere(['<=', $this->tableName() . ".order_time", strtotime($this->order_time['to_date']) + 86399]); //add tim 23:59:59
         }
-//        echo "<pre>";
-//        var_dump(Yii::$app->request->queryParams);
-//        echo Yii::$app->request->get('OrderSearch')['order_time']['from_date'];
-//        echo "<pre>";
-//        echo $query->createCommand()->rawSql;exit();
-
-//        if (!empty($this->order_time['from_date'])) {
-//            $query->andFilterWhere(['>=', 'account_request.order_date', strtotime(Carbon::createFromFormat('d-m-Y', $this->order_time['from_date'])->toDateString())]);
-//        }
-//
-//        if (!empty($this->order_time['to_date'])) {
-//            $query->andFilterWhere(['<=', 'account_request.order_date', strtotime(Carbon::createFromFormat('d-m-Y', $this->order_time['to_date'])->toDateString())]);
-//        }
 
         return $dataProvider;
     }

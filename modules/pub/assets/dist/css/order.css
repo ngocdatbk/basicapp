@@ -22,13 +22,6 @@
     font-weight: bold;
 }
 
-.checkout .user_order,  .checkout .user_receive {
-    border: 1px solid #ddd;
-    overflow: auto;
-    padding: 15px 15px 0;
-    margin-bottom: 10px;
-}
-
 .checkout button[type="submit"] {
     display: block;
     width: 100%;

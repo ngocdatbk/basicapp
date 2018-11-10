@@ -20,6 +20,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            [
+                'attribute' => 'id',
+                'label' => Yii::t('report.order', 'Order code'),
+            ],
             'user_order_name',
             'user_order_phone',
             'user_order_email:email',
@@ -36,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'convertFormat' => true,
                     'startAttribute' => 'OrderSearch[order_time][from_date]',
                     'endAttribute' => 'OrderSearch[order_time][to_date]',
-                    'startInputOptions' => ['value' => isset(Yii::$app->request->get('OrderSearch')['order_time']['from_date']) ? Yii::$app->request->get('OrderSearch')['order_time']['from_date'] : date('d-m-Y',time()-7*86400)],
+                    'startInputOptions' => ['value' => isset(Yii::$app->request->get('OrderSearch')['order_time']['from_date']) ? Yii::$app->request->get('OrderSearch')['order_time']['from_date'] : '1-1-1970'],
                     'endInputOptions' => ['value' => isset(Yii::$app->request->get('OrderSearch')['order_time']['to_date']) ? Yii::$app->request->get('OrderSearch')['order_time']['to_date'] : date('d-m-Y')],
                     'pluginOptions' => [
                         'locale' => ['format' => 'd-m-Y'],
@@ -56,13 +60,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'status',
                 'label' => Yii::t('report.order', 'Status'),
                 'value' => function ($model) {
-                    return $model->statusLabel;
+                    return Yii::$app->controller->module->params['order_status'][$model->status];
                 },
-                'filter' => [
-                    '0' => Yii::t('report.order', 'Request'),
-                    '1' => Yii::t('report.order', 'Approved'),
-                    '2' => Yii::t('report.order', 'Rejected'),
-                ]
+                'filter' => Yii::$app->controller->module->params['order_status']
             ],
             'admin_note',
             [

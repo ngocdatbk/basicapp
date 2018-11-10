@@ -21,6 +21,8 @@ class Module extends \yii\base\Module
     {
         parent::init();
 
+        Yii::configure($this, require(__DIR__.'/config/web.php'));
+
         // custom initialization code goes here
         if (!isset(Yii::$app->i18n->translations['report.*'])) {
             Yii::$app->i18n->translations['report.*'] = [

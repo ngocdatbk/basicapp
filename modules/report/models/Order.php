@@ -71,19 +71,7 @@ class Order extends \yii\db\ActiveRecord
 
     public function getOrderDetail()
     {
-        return $this->hasMany(OrderDetail::className(), ['order_id' => 'id']);
-    }
-
-    public function getStatusLabel()
-    {
-        if ($this->status == 0) {
-            return Yii::t('report.order', 'Request');
-        } elseif ($this->status == 1) {
-            return Yii::t('report.order', 'Approved');
-        } elseif ($this->status == 2) {
-            return Yii::t('report.order', 'Rejected');
-        }
-
-        return '';
+        return $this->hasMany(OrderDetail::className(), ['order_id' => 'id'])
+            ->where(['deleted_f' => 0]);
     }
 }

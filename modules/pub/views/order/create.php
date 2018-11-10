@@ -22,19 +22,18 @@ OrderAsset::register($this);
             ]); ?>
 
             <label for="user_order">User order</label>
-            <div class="user_order" id="user_order">
-                <?= $form->field($model, 'user_order_name')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_name' )])->label(false) ?>
-                <?= $form->field($model, 'user_order_phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_phone' )])->label(false) ?>
-                <?= $form->field($model, 'user_order_email')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_email' )])->label(false) ?>
+            <div class="row">
+                <div class="col-sm-4"><?= $form->field($model, 'user_order_name')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_name' )])->label(false) ?></div>
+                <div class="col-sm-4"><?= $form->field($model, 'user_order_phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_phone' )])->label(false) ?></div>
+                <div class="col-sm-4"><?= $form->field($model, 'user_order_email')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_order_email' )])->label(false) ?></div>
             </div>
 
             <label for="user_receive">User receive</label>
             <span>(*) Chỉ cần điền nếu người nhận hàng khác người đặt hàng</span>
-            <div class="user_receive">
-                <?= $form->field($model, 'user_receive_name')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_name' )])->label(false) ?>
-                <?= $form->field($model, 'user_receive_phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_phone' )])->label(false) ?>
-                <?= $form->field($model, 'user_receive_email')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_email' )])->label(false) ?>
-
+            <div class="row">
+                <div class="col-sm-4"><?= $form->field($model, 'user_receive_name')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_name' )])->label(false) ?></div>
+                <div class="col-sm-4"><?= $form->field($model, 'user_receive_phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_phone' )])->label(false) ?></div>
+                <div class="col-sm-4"><?= $form->field($model, 'user_receive_email')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel( 'user_receive_email' )])->label(false) ?></div>
             </div>
 
             <?= $form->field($model, 'user_receive_address')->textInput(['maxlength' => true]) ?>
