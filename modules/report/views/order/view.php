@@ -33,10 +33,28 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'user_order_name',
-            'user_order_phone',
-            'user_order_email',
+            [
+                'attribute' => 'user_order_phone',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->user_order_phone, "tel:".$model->user_order_phone);
+                },
+            ],
+            [
+                'attribute' => 'user_order_email',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->user_order_email, "mailto:".$model->user_order_email);
+                },
+            ],
             'user_receive_name',
-            'user_receive_phone',
+            [
+                'attribute' => 'user_receive_phone',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a($model->user_receive_phone, "tel:".$model->user_receive_phone);
+                },
+            ],
             'user_receive_email',
             'user_receive_email',
             'user_receive_address',

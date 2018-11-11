@@ -41,7 +41,10 @@ class OrderSearch extends Order
      */
     public function search($params)
     {
-        $query = Order::find();
+        $query = Order::find()
+            ->where(['deleted_f' => 0])
+            ->orderBy("order_time desc")
+        ;
 
         // add conditions that should always apply here
 

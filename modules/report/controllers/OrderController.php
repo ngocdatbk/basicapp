@@ -38,7 +38,6 @@ class OrderController extends Controller
         $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -90,8 +89,12 @@ class OrderController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $order = $this->findModel($id);
+        $order->deleted_f = 1;
+        if($order->save())
+            Yii::$app->session->setFlash('success', 'Delete success!');
+        else
+            Yii::$app->session->setFlash('error', 'Delete unsuccess!');
         return $this->redirect(['index']);
     }
 

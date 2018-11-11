@@ -7,11 +7,6 @@ use app\modules\report\models\OrderDetail;
 
 class OrderDetailController extends \yii\web\Controller
 {
-    public function actionIndex()
-    {
-        echo 'xxx';
-    }
-
     public function actionUpdate()
     {
         if (Yii::$app->request->post()) {
