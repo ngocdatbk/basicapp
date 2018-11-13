@@ -65,12 +65,25 @@ class OrderController extends \yii\web\Controller
                     'cart_cookie' => $cart_cookie
                 ]);
             }
+            if($order->user_order_email){
+                if(!\app\modules\emailQueue\models\EmailQueue::queue(Yii::$app->params['email_marketing'], $order->user_order_email, 'Order success', Yii::$app->controller->module->id, 'order', $order->getAttributes()+['detail' => $cart_cookie]))
+                {
+                    $transaction->rollBack();
+                    Yii::$app->session->setFlash('error', 'System error');
+                    return $this->render('create', [
+                        'model' => $order,
+                        'cart_cookie' => $cart_cookie
+                    ]);
+                }
+            }
 
             $transaction->commit();
 
             $response_cookies = Yii::$app->response->cookies;
             $response_cookies->remove('cart');
+
             Yii::$app->session->setFlash('success', 'Create order success!');
+
 
             return $this->redirect(["result",'order_id' => $order->id]);
         }
