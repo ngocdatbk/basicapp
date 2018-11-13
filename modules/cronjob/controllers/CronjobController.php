@@ -37,6 +37,14 @@ class CronjobController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->mailer->compose()
+            ->setFrom('ngocdatbk@gmail.com')
+            ->setTo('ngocdatbk@gmail.com')
+            ->setSubject('Message subject')
+            ->setTextBody('Plain text content')
+            ->setHtmlBody('<b>HTML content</b>')
+            ->send();
+
         $searchModel = new CronjobSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
