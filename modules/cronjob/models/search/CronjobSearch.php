@@ -19,7 +19,7 @@ class CronjobSearch extends Cronjob
     {
         return [
             [['id', 'last_run',  'is_active', 'logging_f'], 'integer'],
-            [['cron_job_id', 'name', 'class', 'module_id', 'run_rules'], 'safe'],
+            [['cronjob_id', 'name', 'class', 'module_id', 'run_rules'], 'safe'],
         ];
     }
 
@@ -66,7 +66,7 @@ class CronjobSearch extends Cronjob
             'logging_f' => $this->logging_f,
         ]);
 
-        $query->andFilterWhere(['like', 'cron_job_id', $this->cron_job_id])
+        $query->andFilterWhere(['like', 'cronjob_id', $this->cronjob_id])
             ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'class', $this->class])
             ->andFilterWhere(['like', 'module_id', $this->module_id])

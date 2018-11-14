@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'cron_job_id') ?>
+    <?= $form->field($model, 'cronjob_id') ?>
 
     <?= $form->field($model, 'name') ?>
 

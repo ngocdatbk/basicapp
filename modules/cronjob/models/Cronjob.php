@@ -9,7 +9,7 @@ use yii\helpers\Json;
  * This is the model class for table "cronjob".
  *
  * @property int $id
- * @property string $cron_job_id
+ * @property string $cronjob_id
  * @property string $name Tên cron job
  * @property string $class lớp thực hiện cron job
  * @property string $module_id module chứa lớp thực hiện
@@ -35,10 +35,10 @@ class Cronjob extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cron_job_id', 'name', 'class', 'module_id', 'run_rules'], 'required'],
+            [['cronjob_id', 'name', 'class', 'module_id', 'run_rules'], 'required'],
             [['run_rules'], 'string'],
             [['last_run', 'next_run', 'is_active', 'logging_f'], 'integer'],
-            [['cron_job_id', 'module_id'], 'string', 'max' => 50],
+            [['cronjob_id', 'module_id'], 'string', 'max' => 50],
             [['name'], 'string', 'max' => 100],
             [['class'], 'string', 'max' => 255],
         ];
@@ -51,7 +51,7 @@ class Cronjob extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'cron_job_id' => 'Cron Job ID',
+            'cronjob_id' => 'Cron Job ID',
             'name' => 'Name',
             'class' => 'Class',
             'module_id' => 'Module ID',
@@ -99,7 +99,7 @@ class Cronjob extends \yii\db\ActiveRecord
 
     public static function updateRunTime($cronJobId, $nextRun, $lastRun)
     {
-        $cronJob = static::findOne(['cron_job_id' => $cronJobId]);
+        $cronJob = static::findOne(['cronjob_id' => $cronJobId]);
         $cronJob->next_run = $nextRun;
         $cronJob->last_run = $lastRun;
 

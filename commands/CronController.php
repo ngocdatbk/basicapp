@@ -5,7 +5,7 @@ namespace app\commands;
 use Yii;
 use yii\helpers\Json;
 use yii\console\Controller;
-use app\modules\cronjob\models\CronJob as CronModel;
+use app\modules\cronjob\models\Cronjob as CronModel;
 use app\modules\cronjob\models\CronjobLog as CronLogModel;
 use app\modules\cronjob\helpers\CronHelper;
 
@@ -19,6 +19,7 @@ class CronController extends Controller
         ->andWhere(['<=', 'next_run', time()])
         ->orderBy(['next_run' => 'asc'])
         ->all();
+
         foreach ($tasks as $task) {
             $this->runTask($task);
         }
@@ -30,7 +31,7 @@ class CronController extends Controller
         $nextRun = CronHelper::calculateNextRunTime($runRules);
         $lastRun = time();
 
-        if (CronModel::updateRunTime($task->cron_job_id, $nextRun, $lastRun)) {
+        if (CronModel::updateRunTime($task->cronjob_id, $nextRun, $lastRun)) {
             try {
                 $this->logging($task, $lastRun, $this->execute($task));
             } catch (Exception $exc) {
@@ -52,7 +53,7 @@ class CronController extends Controller
             return 'Module not found.';
         }
 
-        $class = new $cronClass($task->cron_job_id, $module);
+        $class = new $cronClass($task->cronjob_id, $module);
         if (!($class instanceof \app\commands\CronAbstractController)) {
             return 'Class is not an instanceof app\controllers\CronAbstractController class.';
         }
@@ -83,7 +84,7 @@ class CronController extends Controller
             }
 
             $cronLogModel = new CronLogModel;
-            $cronLogModel->cron_job_id = $task->cron_job_id;
+            $cronLogModel->cronjob_id = $task->cronjob_id;
             $cronLogModel->execution_time = $executionTime;
             $cronLogModel->status = $status;
             $cronLogModel->save();

@@ -26,7 +26,6 @@ OrderAsset::register($this);
                     'user_receive_name',
                     'user_receive_phone',
                     'user_receive_email',
-                    'user_receive_email',
                     'user_receive_address',
                     'user_note',
                     [

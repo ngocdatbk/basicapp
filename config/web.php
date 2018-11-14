@@ -1,6 +1,5 @@
 <?php
 $params = require __DIR__ . '/params.php';
-$params = require(__DIR__ . '/params.php');
 $modules = require(__DIR__ . '/modules.php');
 $components = require(__DIR__ . '/components.php');
 

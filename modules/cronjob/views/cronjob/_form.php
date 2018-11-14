@@ -41,7 +41,7 @@ for ($i = 0; $i < 32; $i++) {
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'cron_job_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cronjob_id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

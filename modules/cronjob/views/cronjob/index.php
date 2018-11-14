@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\CheckboxColumn',
                 'options' => ['style' => 'width:30px;'],
-                'name' => 'cron_job_id',
+                'name' => 'cronjob_id',
             ],
             [
                 'attribute' => 'name',

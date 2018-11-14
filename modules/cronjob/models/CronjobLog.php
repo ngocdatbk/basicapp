@@ -28,8 +28,9 @@ class CronjobLog extends \yii\db\ActiveRecord
     {
         return [
             [['cronjob_id', 'execution_time', 'status'], 'required'],
-            [['cronjob_id', 'execution_time'], 'integer'],
+            ['execution_time', 'integer'],
             [['status'], 'string', 'max' => 255],
+            [['cronjob_id'], 'string', 'max' => 50],
         ];
     }
 

@@ -5,11 +5,14 @@ namespace app\modules\cronjob\controllers;
 use Yii;
 use yii\helpers\Json;
 use app\modules\cronjob\models\Cronjob;
+use app\modules\cronjob\models\CronjobLog;
 use app\modules\cronjob\models\search\CronjobSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\modules\cronjob\helpers\CronHelper;
+use yii\data\ActiveDataProvider;
+use app\commands\CronController;
 
 /**
  * CronjobController implements the CRUD actions for Cronjob model.
@@ -37,14 +40,6 @@ class CronjobController extends Controller
      */
     public function actionIndex()
     {
-        Yii::$app->mailer->compose()
-            ->setFrom('ngocdatbk@gmail.com')
-            ->setTo('ngocdatbk@gmail.com')
-            ->setSubject('Message subject')
-            ->setTextBody('Plain text content')
-            ->setHtmlBody('<b>HTML content</b>')
-            ->send();
-
         $searchModel = new CronjobSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -62,8 +57,21 @@ class CronjobController extends Controller
      */
     public function actionView($id)
     {
+        $cronjobModel = $this->findModel($id);
+
+        $logDataProvider = new ActiveDataProvider([
+            'query' => CronjobLog::find()
+                ->where(['cronjob_id' => $cronjobModel->cronjob_id]),
+            'sort' => [
+                'defaultOrder' => [
+                    'execution_time' => SORT_DESC,
+                ]
+            ],
+        ]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $cronjobModel,
+            'logDataProvider' => $logDataProvider,
         ]);
     }
 
@@ -186,6 +194,30 @@ class CronjobController extends Controller
         }
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * Run cronjob manual
+     */
+    public function actionRunManual($id)
+    {
+        $model = $this->findModel($id);
+
+        $cronManager = new CronController($model->cronjob_id, $model->module_id);
+        $cronManager->runTask($model);
+
+        return $this->redirect(['view', 'id' => $model->id]);
+    }
+
+
+
+    public function actionDeleteLog($id)
+    {
+        $model = $this->findModel($id);
+
+        CronjobLog::deleteAll(['cronjob_id' => $model->cronjob_id]);
+
+        return $this->redirect(['view', 'id' => $model->id]);
     }
 
     /**

@@ -66,7 +66,7 @@ class OrderController extends \yii\web\Controller
                 ]);
             }
             if($order->user_order_email){
-                if(!\app\modules\emailQueue\models\EmailQueue::queue(Yii::$app->params['email_marketing'], $order->user_order_email, 'Order success', Yii::$app->controller->module->id, 'order', $order->getAttributes()+['detail' => $cart_cookie]))
+                if(!\app\modules\emailQueue\models\EmailQueue::queue(Yii::$app->params['email_marketing'], $order->user_order_email, 'Order success', Yii::$app->controller->module->id, 'order_invoice', $order->getAttributes()+['detail' => $cart_cookie]))
                 {
                     $transaction->rollBack();
                     Yii::$app->session->setFlash('error', 'System error');
