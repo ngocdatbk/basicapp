@@ -1,1 +1,2 @@
-E:\xampp\php\php yii cron
+@Echo off
+E:\xampp\php\php E:\www\saotruc\yii cron

@@ -28,12 +28,20 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.mailtrap.io',
-                'username' => 'ed03c14b61ab3b',
-                'password' => '3170b21bdd591e',
-                'port' => '2525',
-                'encryption' => '',
+                'host' => 'smtp.gmail.com',
+                'username' => 'donaldclintonbjj@gmail.com',
+                'password' => 'dat@06101989',
+                'port' => '465',
+                'encryption' => 'ssl',
             ],
+//            'transport' => [
+//                'class' => 'Swift_SmtpTransport',
+//                'host' => 'smtp.mailtrap.io',
+//                'username' => 'ed03c14b61ab3b',
+//                'password' => '3170b21bdd591e',
+//                'port' => '2525',
+//                'encryption' => '',
+//            ],
         ],
         'log' => [
             'targets' => [
