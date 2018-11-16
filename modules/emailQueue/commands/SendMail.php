@@ -16,7 +16,7 @@ class SendMail extends CronAbstractController
         $mailer = \Yii::createObject ( [
             'class' => 'yii\swiftmailer\Mailer',
 //            'viewPath' => '@app/mail',
-            'htmlLayout' => 'layouts/main-html',
+            'html/Layout' => 'layouts/main-html',
 //            'textLayout' => 'layouts/main-text',
             'messageConfig' => [
                 'charset' => 'UTF-8',
