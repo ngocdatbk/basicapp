@@ -17,5 +17,8 @@ return [
     ],
     'cronjob' => [
         'class' => 'app\modules\cronjob\Module',
+    ],
+    'setting' => [
+        'class' => 'app\modules\setting\Module',
     ]
 ];
