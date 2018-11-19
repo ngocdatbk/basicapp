@@ -1,7 +1,7 @@
 <?php
 
 namespace app\modules\setting;
-
+use Yii;
 /**
  * setting module definition class
  */
@@ -11,14 +11,21 @@ class Module extends \yii\base\Module
      * {@inheritdoc}
      */
     public $controllerNamespace = 'app\modules\setting\controllers';
+    public $layoutPath = '@app\views\layouts';
+    public $layout = '/admin_vertical';
+    public $defaultRoute = 'setting';
 
-    /**
-     * {@inheritdoc}
-     */
     public function init()
     {
         parent::init();
 
-        // custom initialization code goes here
+        // Register translations
+        if (!isset(Yii::$app->i18n->translations['setting.*'])) {
+            Yii::$app->i18n->translations['setting.*'] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => __DIR__ . '/messages',
+                'sourceLanguage' => 'en_US',
+            ];
+        }
     }
 }
