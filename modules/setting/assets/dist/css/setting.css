@@ -1,0 +1,35 @@
+/*
+    Created on : Apr 7, 2016, 8:39:55 PM
+    Author     : Administrator
+*/
+
+.input_edit {
+    cursor: pointer !important;
+}
+
+.tab-pane {
+    margin-top: 10px;
+}
+
+.btn-collapse {
+    margin-bottom: 10px !important;
+}
+
+@media(max-width:767px) {
+    .btn-collapse {
+        display: block !important;
+    }
+
+    .nav-tabs {
+        display: none !important;
+    }
+}
+@media(min-width:768px) {
+    .btn-collapse {
+        display: none !important;
+    }
+
+    .nav-tabs {
+        display: block !important;
+    }
+}

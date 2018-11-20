@@ -7,6 +7,9 @@ return [
     'cache' => [
         'class' => 'yii\caching\FileCache',
     ],
+    'settings' => [
+        'class' => 'app\modules\setting\components\Settings',
+    ],
     'user' => [
         'identityClass' => 'app\models\User',
         'enableAutoLogin' => true,

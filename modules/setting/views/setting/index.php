@@ -1,39 +1,20 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\setting\models\SettingSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $model app\modules\setting\models\Setting */
 
-$this->title = 'Settings';
+$this->title = 'Update Setting';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="setting-index">
+<div class="setting">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Setting', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'section',
-            'key',
-            'value:ntext',
-            'type',
-            'status',
-            'description',
-            'created_at',
-            'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 </div>

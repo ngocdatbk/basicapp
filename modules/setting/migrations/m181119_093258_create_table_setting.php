@@ -13,15 +13,9 @@ class m181119_093258_create_table_setting extends Migration
     public function safeUp()
     {
         $this->createTable('setting', [
-            'id' => $this->integer(11)->unsigned() . ' AUTO_INCREMENT PRIMARY KEY',
-            'type' => $this->string(10)->notNull(),
-            'section' => $this->string(255)->notNull(),
-            'key' => $this->string(255)->notNull(),
+            'key' => $this->string(255). ' PRIMARY KEY',
             'value' => $this->text()->notNull(),
-            'status' => $this->smallInteger(6)->defaultValue(1)->notNull(),
-            'description' => $this->string(255)->null(),
-            'created_at' => $this->integer(11)->notNull(),
-            'updated_at' => $this->integer(11)->notNull(),
+            'modified' => $this->integer(11)->notNull(),
         ],'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB');
     }
 

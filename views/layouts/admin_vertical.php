@@ -99,8 +99,7 @@ LayoutAdminAsset::register($this);
                                 <li class="divider"></li>
                                 <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Setting</label>
                                     <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/setting') ?>"> Setting manager</a></li>
-                                        <li><a href="<?= Url::to('/setting/setting-section') ?>"> Setting section</a></li>
+                                        <li><a href="<?= Url::to('/setting') ?>"> Setting</a></li>
                                     </ul>
                                 </li>
                             </ul>
