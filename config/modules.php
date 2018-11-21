@@ -12,8 +12,8 @@ return [
     'dashboard' => [
         'class' => 'app\modules\dashboard\Module',
     ],
-    'email-queue' => [
-        'class' => 'app\modules\emailQueue\Module',
+    'email' => [
+        'class' => 'app\modules\email\Module',
     ],
     'cronjob' => [
         'class' => 'app\modules\cronjob\Module',

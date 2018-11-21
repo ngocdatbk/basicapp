@@ -1,7 +1,11 @@
 $(document).ready(function () {
     $( document ).on( "click", ".input_edit", function() {
         var input_id = $(this).attr('input_id');
-        $("#"+input_id).attr('disabled',false).focus();
+        //$("#"+input_id).attr('disabled',false).focus();
+        if($('[name="SettingModel['+input_id+']"]'))
+            $('[name="SettingModel['+input_id+']"]').attr('disabled',false).focus();
+        if($('[name="SettingModelPassword['+input_id+']"]'))
+            $('[name="SettingModelPassword['+input_id+']"]').attr('disabled',false).focus();
     });
 
     $( document ).on( "click", ".btn-collapse", function() {

@@ -9,15 +9,23 @@ use app\modules\setting\models\Setting;
 class SettingModel extends Model
 {
     public $email;
+    public $email_pass;
     public $name;
+    public $status;
+    public $gender;
+    public $is_admin;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['name'], 'string', 'max' => 10],
+            [['name'], 'string', 'max' => 50],
+            [['email_pass'], 'string'],
             [['email'], 'email'],
+            [['status'], 'integer'],
+            [['gender'], 'integer'],
+            [['is_admin'], 'integer'],
         ];
     }
 
@@ -30,40 +38,5 @@ class SettingModel extends Model
             'name' => 'Name',
             'email' => 'Email',
         ];
-    }
-
-    public function loadSettings()
-    {
-        $settings = Yii::$app->cache->getOrSet('setting', function () {
-            return (new \yii\db\Query())
-                ->select(['value'])
-                ->from('setting')
-                ->indexBy('key')
-                ->column();
-        });
-
-        $this->attributes = $settings;
-    }
-
-    public function resetCache()
-    {
-        Yii::$app->cache->set('setting', (new \yii\db\Query())
-            ->select(['value'])
-            ->from('setting')
-            ->indexBy('key')
-            ->column());
-    }
-
-    public function saveSetting($key,$value)
-    {
-        $setting = Setting::findOne($key);
-        if($setting === null)
-        {
-            $setting = new Setting();
-            $setting->key = $key;
-        }
-        $setting->value = $value;
-        $setting->modified = time();
-        $setting->save();
     }
 }

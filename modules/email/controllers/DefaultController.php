@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\emailQueue\controllers;
+namespace app\modules\email\controllers;
 
 use yii\web\Controller;
 

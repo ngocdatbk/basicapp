@@ -36,16 +36,28 @@ class SettingController extends Controller
     public function actionIndex()
     {
         $model = new SettingModel();
-        $model->loadSettings();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            foreach(Yii::$app->request->post('SettingModel') as $key => $value)
+        if (Yii::$app->request->post()) {
+            $model->load(Yii::$app->request->post('SettingModel'));
+            $model->load(Yii::$app->request->post('SettingModelPassword'));
+            if($model->validate())
             {
-                $model->saveSetting($key,$value);
+                if(Yii::$app->request->post('SettingModel'))
+                    foreach(Yii::$app->request->post('SettingModel') as $key => $value)
+                    {
+                        Yii::$app->settings->set($key,$value);
+                    }
+                if(Yii::$app->request->post('SettingModelPassword'))
+                foreach(Yii::$app->request->post('SettingModelPassword') as $key => $value)
+                {
+                    if($value)
+                        Yii::$app->settings->set($key,utf8_encode(Yii::$app->security->encryptByKey($value, $key)));
+                }
+                Yii::$app->settings->resetCache();
             }
-            $model->resetCache();
         }
 
+        $model->attributes = Yii::$app->settings->getAll();
         return $this->render('index', [
             'model' => $model,
         ]);

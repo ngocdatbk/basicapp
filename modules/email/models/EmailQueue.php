@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\emailQueue\models;
+namespace app\modules\email\models;
 
 use Yii;
 

@@ -64,7 +64,6 @@ use yii\helpers\Html;
 </head>
 <body>
     <?php $this->beginBody() ?>
-    xxx
     <?= $content ?>
     <?php $this->endBody() ?>
 </body>

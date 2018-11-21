@@ -39,9 +39,11 @@ class Settings extends Component
         }
         $setting->value = $value;
         $setting->modified = time();
-        $setting->save();
+        if(!$setting->save())
+            return false;
 
         $this->resetCache();
+        return true;
     }
 
     public function has($key): bool

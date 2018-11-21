@@ -17,11 +17,12 @@ return [
     'errorHandler' => [
         'errorAction' => 'site/error',
     ],
-    'mailer' => [
+    'mailer_marketing' => [
         'class' => 'yii\swiftmailer\Mailer',
-        // send all mails to a file by default. You have to set
-        // 'useFileTransport' to false and configure a transport
-        // for the mailer to send real emails.
+        'messageConfig' => [
+            'charset' => 'UTF-8',
+            'from' => ['noreply@site.com' => 'Saotruc.vn'],
+        ],
         'useFileTransport' => false,
 //        'transport' => [
 //            'class' => 'Swift_SmtpTransport',
@@ -35,6 +36,22 @@ return [
             'class' => 'Swift_SmtpTransport',
             'host' => 'smtp.gmail.com',
             'username' => 'donaldclintonbjj@gmail.com',
+            'password' => 'dat@06101989',
+            'port' => '465',
+            'encryption' => 'ssl',
+        ],
+    ],
+    'mailer_test' => [
+        'class' => 'yii\swiftmailer\Mailer',
+        'messageConfig' => [
+            'charset' => 'UTF-8',
+            'from' => ['noreply@site.com' => 'Saotruc.vn'],
+        ],
+        'useFileTransport' => false,
+        'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'smtp.gmail.com',
+            'username' => 'tcvremote@gmail.com',
             'password' => 'dat@06101989',
             'port' => '465',
             'encryption' => 'ssl',
