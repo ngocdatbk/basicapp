@@ -17,6 +17,11 @@ $config = [
     'language' => 'vi_VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            // uncomment if you want to cache RBAC items hierarchy
+            // 'cache' => 'cache',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

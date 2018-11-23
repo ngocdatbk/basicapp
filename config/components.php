@@ -10,6 +10,11 @@ return [
     'settings' => [
         'class' => 'app\modules\setting\components\Settings',
     ],
+    'authManager' => [
+        'class' => 'yii\rbac\DbManager',
+        // uncomment if you want to cache RBAC items hierarchy
+        // 'cache' => 'cache',
+    ],
     'user' => [
         'identityClass' => 'app\models\User',
         'enableAutoLogin' => true,
