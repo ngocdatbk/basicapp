@@ -2,7 +2,7 @@
 
 namespace app\modules\report\controllers;
 
-use yii\web\Controller;
+use app\components\Controller;
 
 /**
  * Default controller for the `report` module

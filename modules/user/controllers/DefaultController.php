@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\modules\user\controllers;
 
 use app\components\Controller;
 
 /**
- * Default controller for the `admin` module
+ * Default controller for the `user` module
  */
 class DefaultController extends Controller
 {

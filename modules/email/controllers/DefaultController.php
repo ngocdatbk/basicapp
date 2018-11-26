@@ -2,7 +2,7 @@
 
 namespace app\modules\email\controllers;
 
-use yii\web\Controller;
+use app\components\Controller;
 
 /**
  * Default controller for the `email-queue` module

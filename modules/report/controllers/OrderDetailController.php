@@ -5,7 +5,7 @@ use Yii;
 use yii\helpers\Json;
 use app\modules\report\models\OrderDetail;
 
-class OrderDetailController extends \yii\web\Controller
+class OrderDetailController extends \app\components\Controller
 {
     public function actionUpdate()
     {

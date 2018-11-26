@@ -4,7 +4,8 @@ $modules = require(__DIR__ . '/modules.php');
 $components = require(__DIR__ . '/components.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'Saotruc',
+    'name' => 'Saotruc',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [

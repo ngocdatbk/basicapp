@@ -16,8 +16,19 @@ return [
         // 'cache' => 'cache',
     ],
     'user' => [
-        'identityClass' => 'app\models\User',
-        'enableAutoLogin' => true,
+        'class' => 'app\modules\user\components\User',
+        'loginUrl' => '/user/auth/login',
+    ],
+    'authClientCollection' => [
+        'class' => 'yii\authclient\Collection',
+        'clients' => [
+            'google' => [
+                'class' => 'yii\authclient\clients\Google',
+                'clientId' => '101413593506-ssu4i3fil1m58c9d11g3p9rd5ggp49rc.apps.googleusercontent.com',
+                'clientSecret' => 'vmB1p95Zbu0i6yigNo69FEfh',
+                'returnUrl' => 'http://saotruc.com/user/auth/login-google?authclient=google'
+            ],
+        ],
     ],
     'errorHandler' => [
         'errorAction' => 'site/error',

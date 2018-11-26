@@ -7,7 +7,7 @@ use app\modules\admin\models\Product;
 use app\modules\admin\models\ProductCategory;
 use app\modules\admin\models\ProductImage;
 use app\modules\admin\models\search\ProductSearch;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\modules\admin\models\ProductImageUpload;

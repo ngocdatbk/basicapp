@@ -1,18 +1,18 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\modules\user\controllers;
 
 use Yii;
-use app\modules\admin\models\ProductCategory;
-use yii\data\ActiveDataProvider;
+use app\modules\user\models\User;
+use app\modules\user\models\UserSearch;
 use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductCategoryController implements the CRUD actions for ProductCategory model.
+ * UserController implements the CRUD actions for User model.
  */
-class ProductCategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,23 +30,23 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Lists all ProductCategory models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => ProductCategory::find()->orderBy('deleted_f'),
-        ]);
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single ProductCategory model.
-     * @param integer $id
+     * Displays a single User model.
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -58,16 +58,16 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Creates a new ProductCategory model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProductCategory();
+        $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->user_id]);
         }
 
         return $this->render('create', [
@@ -76,9 +76,9 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Updates an existing ProductCategory model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -86,8 +86,8 @@ class ProductCategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load($model) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->user_id]);
         }
 
         return $this->render('update', [
@@ -96,50 +96,29 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Deletes an existing ProductCategory model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-        if($model)
-        {
-            $model->deleted_f = 1;
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        }
-
-        return $this->redirect(['index']);
-    }
-
-    public function actionRevert($id)
-    {
-        $model = $this->findModel($id);
-        if($model)
-        {
-            $model->deleted_f = 0;
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        }
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the ProductCategory model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return ProductCategory the loaded model
+     * @param string $id
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProductCategory::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 

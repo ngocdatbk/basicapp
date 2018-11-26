@@ -2,7 +2,7 @@
 
 namespace app\modules\email\controllers;
 
-class EmailQueueController extends \yii\web\Controller
+class EmailQueueController extends \app\components\Controller
 {
     public function actionIndex()
     {

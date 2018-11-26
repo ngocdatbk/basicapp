@@ -5,7 +5,7 @@ namespace app\modules\report\controllers;
 use Yii;
 use app\modules\report\models\Order;
 use app\modules\report\models\OrderSearch;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 

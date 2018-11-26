@@ -20,5 +20,8 @@ return [
     ],
     'setting' => [
         'class' => 'app\modules\setting\Module',
-    ]
+    ],
+    'user' => [
+        'class' => 'app\modules\user\Module',
+    ],
 ];

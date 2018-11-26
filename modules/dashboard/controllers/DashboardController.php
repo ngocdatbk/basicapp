@@ -2,7 +2,7 @@
 
 namespace app\modules\dashboard\controllers;
 
-class DashboardController extends \yii\web\Controller
+class DashboardController extends \app\components\Controller
 {
     public function actionIndex()
     {

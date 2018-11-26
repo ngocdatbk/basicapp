@@ -7,7 +7,7 @@ use yii\helpers\Json;
 use app\modules\cronjob\models\Cronjob;
 use app\modules\cronjob\models\CronjobLog;
 use app\modules\cronjob\models\search\CronjobSearch;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\modules\cronjob\helpers\CronHelper;
