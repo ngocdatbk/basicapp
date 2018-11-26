@@ -14,21 +14,6 @@ use yii\filters\VerbFilter;
 class SettingController extends Controller
 {
     /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
-    /**
      * Creates a new Setting model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
