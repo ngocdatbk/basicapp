@@ -18,6 +18,7 @@ return [
     'user' => [
         'class' => 'app\modules\user\components\User',
         'loginUrl' => '/user/auth/login',
+        'returnUrlParam' => '/admin/dashboard/dashboard'
     ],
     'authClientCollection' => [
         'class' => 'yii\authclient\Collection',

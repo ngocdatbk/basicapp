@@ -84,17 +84,16 @@ class LoginForm extends \yii\base\Model
      */
     public function login()
     {
-        $loginAttemptModel = new UserLoginAttempts();
         $numberLimit = ArrayHelper::getValue(Yii::$app->getModule('user')->params, 'number_login_attempt');
 
-        if ($loginAttemptModel->countLoginAttempt($this->email) >= $numberLimit){
+        if (UserLoginAttempts::countLoginAttempt($this->email) >= $numberLimit){
             Yii::$app->session->setFlash('error', Yii::t('user.field', 'Your account has been locked due to too many failed login'));
             return false;
         }
 
         if ($this->validate()) {
             if ($this->getUser()->is_active) {
-                $loginAttemptModel->clearLoginAttempt($this->email);
+                UserLoginAttempts::clearLoginAttempt($this->email);
                 return Yii::$app->user->login($this->getUser(), $this->rememberMe ? $this->rememberTime : 0);
             } else {
                 Yii::$app->session->setFlash('error', Yii::t('user.messagess', 'Your account is not active'));
@@ -102,7 +101,7 @@ class LoginForm extends \yii\base\Model
         }
 
         //add login attempt when login error
-        $loginAttemptModel->logLoginAttempt($this->email);
+        UserLoginAttempts::logLoginAttempt($this->email);
 
         return false;
     }
