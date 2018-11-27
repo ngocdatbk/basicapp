@@ -58,13 +58,46 @@ if (isset($request_cookies['cart'])) {
                 </div>
             </form>
         </div>
-        <a class="header-customer" href="<?= Url::to('/pub/cart/index') ?>">
-            <i class="fa fa-shopping-cart cart_container">
-                <span class="cart_num" ><?= $cart ?></span>
-            </i>
-            <span>Cart</span>
-
-        </a>
+        <div class="header-customer" >
+            <?php  if(Yii::$app->user->isGuest){ ?>
+                <?= Html::a('Login','/user/auth/login') ?>
+            <?php } else {?>
+                <a class="dropdown-toggle dropdown_web" data-toggle="dropdown" href="#"><?= Yii::$app->user->identity->username ?> <span class="caret"></span></a>
+                <a class="dropdown-toggle dropdown_mobile" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header">Product</li>
+                    <li><a href="<?= Url::to('/admin/product-category') ?>"> Product Category</a></li>
+                    <li><a href="<?= Url::to('/admin/product') ?>"> Product</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Report</li>
+                    <li><a href="<?= Url::to('/report/order') ?>"> Order list</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">System tools</li>
+                    <li><a href="<?= Url::to('/cronjob') ?>"> Cron tasks</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Setting</li>
+                    <li><a href="<?= Url::to('/setting') ?>"> Setting</a></li>
+                    <li class="divider"></li>
+                    <li>
+                        <?php
+                        echo Html::beginForm(['/user/auth/logout'], 'post');
+                        echo Html::submitButton(
+                            'Logout',
+                            ['class' => 'btn-logout']
+                        );
+                        echo Html::endForm();
+                        ?>
+                    </li>
+                </ul>
+            <?php }?>
+            &nbsp;
+            <a class="cart_container" href="<?= Url::to('/pub/cart/index') ?>">
+                <i class="fa fa-shopping-cart cart_container">
+                    <span class="cart_num" ><?= $cart ?></span>
+                </i>
+                <span>Cart</span>
+            </a>
+        </div>
     </div>
 </header>
 

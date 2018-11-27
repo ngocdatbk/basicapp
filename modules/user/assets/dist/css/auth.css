@@ -77,6 +77,16 @@ body {
     background-color: indianred !important;
     color: white !important;
 }
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0,0,0,0.2);
+}
+
+.btn-facebook:hover {
+    background-color: #8b9dc3 !important;
+    color: white !important;
+}
 
 .btn-social {
     position: relative;
@@ -97,4 +107,8 @@ body {
     font-size: 1.6em;
     text-align: center;
     border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+.text-center {
+    text-align: center;
 }

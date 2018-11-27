@@ -29,6 +29,11 @@ return [
                 'clientSecret' => 'vmB1p95Zbu0i6yigNo69FEfh',
                 'returnUrl' => 'http://saotruc.com/user/auth/login-google?authclient=google'
             ],
+            'facebook' => [
+                'class' => 'yii\authclient\clients\Facebook',
+                'clientId' => '2079264792162398',
+                'clientSecret' => '5cdbfd68e7114cbbdb20866756eeed15',
+            ],
         ],
     ],
     'errorHandler' => [

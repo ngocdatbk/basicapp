@@ -36,34 +36,23 @@ LayoutAdminAsset::register($this);
                 </a>
             </div>
             <div class="header-menu">
-                <?php
-                NavBar::begin([
-                    'options' => [
-                        'id' => 'navigations'
-                    ],
-                    'innerContainerOptions' => [
-                        'class' => 'container-fluid'
-                    ]
-                ]);
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => [
-                        Yii::$app->user->isGuest ? (
-                        ['label' => 'Login', 'url' => ['/user/auth/login']]
-                        ) : (
-                            '<li>'
-                            . Html::beginForm(['/user/auth/logout'], 'post')
-                            . Html::submitButton(
-                                'Logout (' . Yii::$app->user->identity->username . ')',
-                                ['class' => 'btn btn-link logout']
-                            )
-                            . Html::endForm()
-                            . '</li>'
-                        )
-                    ],
-                ]);
-                NavBar::end();
-                ?>
+                <a class="item-header-menu" href="/">Go site</span></a>
+                <div class="dropdown item-header-menu">
+                    <a class="dropdown-toggle dropdown_web" data-toggle="dropdown" href="#"><?= Yii::$app->user->identity->username ?> <span class="caret"></span></a>
+                    <a class="dropdown-toggle dropdown_mobile" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <?php
+                            echo Html::beginForm(['/user/auth/logout'], 'post');
+                            echo Html::submitButton(
+                                'Logout',
+                                ['class' => 'btn-logout']
+                            );
+                            echo Html::endForm();
+                            ?>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </header>

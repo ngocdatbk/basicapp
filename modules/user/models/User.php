@@ -41,7 +41,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['email', 'fullname', 'username'], 'required'],
+            [['email', 'username'], 'required'],
             [['email'], 'email'],
             [['email'], 'unique', 'targetClass' => '\app\modules\user\models\User'],
             [['email'], 'string', 'max' => 120],
@@ -49,7 +49,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
                 'targetClass' => '\app\modules\user\models\User',
                 'message' => 'This username has already been taken.'],
             [['username'], 'string', 'max' => 32],
-            ['username', 'match', 'pattern' => '/^[a-z0-9_]\w*$/'],
+//            ['username', 'match', 'pattern' => '/^[a-z0-9_]\w*$/'],
             [['fullname'], 'string', 'max' => 150],
             [['is_active', 'is_admin'], 'integer'],
             ['last_login', 'integer'],

@@ -15,7 +15,7 @@ body {
 /*HEADER*/
 .header {
     border-bottom: 1px solid #E1E3DF;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 .header .fluid-newpad {
@@ -43,7 +43,7 @@ body {
     color: #595959 !important;
 }
 
-.header-customer {
+.header-customer a {
     vertical-align: middle;
     color: #595959;
     cursor: pointer;
@@ -51,13 +51,23 @@ body {
 }
 
 .header-customer {
-    font-size: 20px;
     position: absolute;
     top: 0;
     right: 15px;
 }
 
+.header-customer form {
+    line-height: normal;
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: 0;
+    padding: 3px 20px;
+}
+
 .cart_container{
+    font-size: 20px;
     position: relative;
 }
 
@@ -218,6 +228,14 @@ body {
         display: none;
     }
 
+    .dropdown_mobile {
+        display: none;
+    }
+
+    .dropdown_web {
+        display: inline;
+    }
+
     .header-search {
         float: left;
         width: 60%;
@@ -251,6 +269,14 @@ body {
         font-size: 30px;
         line-height: 1.5;
         margin-right: 10px;
+    }
+
+    .dropdown_mobile {
+        display: none;
+    }
+
+    .dropdown_web {
+        display: inline;
     }
 
     .header-search {
@@ -298,7 +324,20 @@ body {
         display: none;
     }
 
-    .header-customer span:not(.cart_num) {
+    .header-customer ul {
+        right: 0px !important;
+        left: auto !important;
+    }
+
+    .dropdown_mobile {
+        display: inline;
+    }
+
+    .dropdown_web {
+        display: none;
+    }
+
+    .header-customer span:not(.cart_num, .caret) {
         display: none;
     }
 

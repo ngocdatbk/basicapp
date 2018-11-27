@@ -55,10 +55,16 @@ $fieldOptions2 = [
         <div class="social-auth-links text-center">
             <p>- HOẶC -</p>
             <a href="<?= Url::to('/user/auth/login-google?authclient=google') ?>" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> <?= Yii::t('user.title', 'Sign in using Google+') ?></a>
+            <a href="<?= Url::to('/user/auth/login-facebook?authclient=facebook') ?>" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> <?= Yii::t('user.title', 'Sign in using Facebook') ?></a>
         </div>
         <!-- /.social-auth-links -->
 
         <?= Html::a(Yii::t('user.title', 'Forgot password?'), ['forgot-password']) ?><br>
+
+        <div class="text-center">
+            <p>-----</p>
+            <a href="<?= Url::to('/user/auth/signup') ?>" class="btn btn-primary btn-block btn-flat">Signup</a>
+        </div>
     </div>
     <!-- /.login-box-body -->
 </div><!-- /.login-box -->

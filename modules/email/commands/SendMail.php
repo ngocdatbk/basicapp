@@ -35,7 +35,8 @@ class SendMail extends CronAbstractController
 
         foreach ($emailToSends as $emailToSend) {
             $mailer = $emailToSend->from;
-            Yii::$app->$mailer->htmlLayout = "layouts/".$emailToSend->module_id . "_" . $emailToSend->content_id;
+            if($emailToSend->layout)
+                Yii::$app->$mailer->htmlLayout = "layouts/".$emailToSend->layout;
 
             if (!Yii::$app->$mailer->compose($emailToSend->module_id . "_" . $emailToSend->content_id,['data' => $emailToSend['extra_data']])
                 ->setTo($emailToSend->to)
@@ -45,7 +46,7 @@ class SendMail extends CronAbstractController
                 $emailToSend->setAttribute('status', -1); //for retry
                 $emailToSend->save();
             } else {
-//                $emailToSend->delete();
+                $emailToSend->delete();
             }
         }
 

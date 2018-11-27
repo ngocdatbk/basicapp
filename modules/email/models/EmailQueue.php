@@ -34,10 +34,10 @@ class EmailQueue extends \yii\db\ActiveRecord
     {
         return [
             [['from', 'to', 'subject', 'content_id'], 'required'],
-            [['from', 'to'], 'email'],
+            [['to'], 'email'],
             [['extra_data'], 'string'],
             [['created_date', 'status'], 'integer'],
-            [['from', 'to', 'subject', 'module_id', 'content_id'], 'string', 'max' => 255],
+            [['from', 'to', 'subject', 'layout', 'module_id', 'content_id'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,7 +59,7 @@ class EmailQueue extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function queue($from, $to, $subject, $moduleId, $contentId, $extraData = null)
+    public static function queue($from, $to, $subject, $moduleId, $contentId, $extraData = null, $layout = null)
     {
         $emailQueue = new static();
 
@@ -67,6 +67,7 @@ class EmailQueue extends \yii\db\ActiveRecord
             'from' => $from,
             'to' => $to,
             'subject' => $subject,
+            'layout' => $layout,
             'module_id' => $moduleId,
             'content_id' => $contentId,
         ]);
