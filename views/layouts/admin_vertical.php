@@ -32,7 +32,7 @@ LayoutAdminAsset::register($this);
         <header class="main-header dis-cell">
             <div class="header-logo">
                 <a class="show-menu">
-                    <span class="glyphicon glyphicon-user"></span> <?= Yii::t("app.global","Admin") ?>
+                    <i class="fa fa-bars"></i> <?= Yii::t("app.global","Admin") ?>
                 </a>
             </div>
             <div class="header-menu">

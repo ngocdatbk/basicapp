@@ -31,8 +31,8 @@ body {
 }
 
 .login-box, .register-box {
-    width: 360px;
-    margin: 7% auto;
+    width: 300px;
+    margin: 4% auto;
 }
 
 .login-logo a, .register-logo a {

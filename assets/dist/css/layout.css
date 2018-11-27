@@ -199,6 +199,11 @@ a.desc:after {
     text-decoration: none !important;
 }
 
+.dropdown-menu {
+    right: 0px;
+    left: auto;
+}
+
 .header-menu a:hover {
     color: #ee2761 !important;
 }
@@ -207,6 +212,7 @@ a.desc:after {
     background-color: transparent;
     border: 0;
     padding: 3px 20px;
+    width: 100%;
 }
 
 

@@ -10,6 +10,7 @@ ProductAsset::register($this);
 $this->title = Yii::t("pub.product",$category_name);
 $this->params['breadcrumbs'][] = Yii::t("pub.product",$category_name)."(".$pagination->totalCount." items)";
 ?>
+
 <div class="row list-header">
     <div class="col-6 col-xs-6"><?= $category_name ?></div>
     <div class="col-6 col-xs-6">

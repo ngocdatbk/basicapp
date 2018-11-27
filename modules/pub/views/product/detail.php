@@ -7,6 +7,9 @@ use app\modules\pub\assets\ProductAsset;
 
 ProductAsset::register($this);
 
+$this->title = Yii::t("pub.product",$product->category->name);
+$this->params['breadcrumbs'][] = ['label' => Yii::t("pub.product",$product->category->name), 'url' => ['/pub/product', 'category_id' => $product->category_id]];
+$this->params['breadcrumbs'][] = Yii::t("pub.product",$product->name);
 ?>
 
 <div class="container">
