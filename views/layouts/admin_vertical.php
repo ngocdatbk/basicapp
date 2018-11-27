@@ -86,6 +86,12 @@ LayoutAdminAsset::register($this);
                                     </ul>
                                 </li>
                                 <li class="divider"></li>
+                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Manager User</label>
+                                    <ul class="nav nav-list tree lv1">
+                                        <li><a href="<?= Url::to('/user/user') ?>"> User list</a></li>
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>
                                 <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Setting</label>
                                     <ul class="nav nav-list tree lv1">
                                         <li><a href="<?= Url::to('/setting') ?>"> Setting</a></li>

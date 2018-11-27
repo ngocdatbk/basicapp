@@ -25,15 +25,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'user_id',
             'username',
             'gender',
             'email:email',
             'phone_number',
-            //'fullname',
-            //'is_active',
-            //'is_admin',
-            //'last_login',
+            'fullname',
+            [
+                'attribute' => 'is_active',
+                'value' => function ($model){
+                    if($model->is_active)
+                        return Yii::t("app.global",'Active');
+                    else
+                        return Yii::t("app.global",'Inactive');
+                }
+            ],
+            [
+                'attribute' => 'is_admin',
+                'value' => function ($model){
+                    if($model->is_active)
+                        return Yii::t("app.global",'Admin');
+                    else
+                        return '';
+                }
+            ],
+            [
+                'attribute' => 'last_login',
+                'label' => Yii::t('app.global', 'Last login'),
+                'format' => ['datetime', 'short'],
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

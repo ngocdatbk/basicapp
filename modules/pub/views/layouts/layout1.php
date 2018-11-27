@@ -75,6 +75,9 @@ if (isset($request_cookies['cart'])) {
                     <li class="dropdown-header">System tools</li>
                     <li><a href="<?= Url::to('/cronjob') ?>"> Cron tasks</a></li>
                     <li class="divider"></li>
+                    <li class="dropdown-header">Manager User</li>
+                    <li><a href="<?= Url::to('/user/user') ?>"> User list</a></li>
+                    <li class="divider"></li>
                     <li class="dropdown-header">Setting</li>
                     <li><a href="<?= Url::to('/setting') ?>"> Setting</a></li>
                     <li class="divider"></li>
