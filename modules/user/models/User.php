@@ -109,7 +109,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             }
         }
 
-        return static::findOneWithPermission($id);
+        return static::findOne($id);
     }
 
     /**
