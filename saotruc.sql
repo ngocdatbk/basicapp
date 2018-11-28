@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 26, 2018 lúc 11:02 AM
+-- Thời gian đã tạo: Th10 28, 2018 lúc 09:18 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -135,7 +135,7 @@ CREATE TABLE `cronjob` (
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
-(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1542790302, 1542790362, 1, 1);
+(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1543392911, 1543392971, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,177 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 ('SendMail', 1542788057, 'Success.'),
 ('SendMail', 1542789582, 'Success.'),
 ('SendMail', 1542790197, 'Success.'),
-('SendMail', 1542790302, 'Success.');
+('SendMail', 1542790302, 'Success.'),
+('SendMail', 1543289369, 'Success.'),
+('SendMail', 1543289531, 'Success.'),
+('SendMail', 1543289896, 'Success.'),
+('SendMail', 1543290426, 'Success.'),
+('SendMail', 1543290426, 'Success.'),
+('SendMail', 1543290495, 'Success.'),
+('SendMail', 1543290526, 'Success.'),
+('SendMail', 1543291467, 'Success.'),
+('SendMail', 1543291758, 'Success.'),
+('SendMail', 1543291821, 'Success.'),
+('SendMail', 1543291967, 'Success.'),
+('SendMail', 1543292110, 'Success.'),
+('SendMail', 1543292410, 'Success.'),
+('SendMail', 1543292710, 'Success.'),
+('SendMail', 1543293011, 'Success.'),
+('SendMail', 1543293311, 'Success.'),
+('SendMail', 1543293611, 'Success.'),
+('SendMail', 1543293911, 'Success.'),
+('SendMail', 1543294211, 'Success.'),
+('SendMail', 1543294511, 'Success.'),
+('SendMail', 1543294811, 'Success.'),
+('SendMail', 1543295111, 'Success.'),
+('SendMail', 1543295411, 'Success.'),
+('SendMail', 1543295711, 'Success.'),
+('SendMail', 1543296011, 'Success.'),
+('SendMail', 1543296311, 'Success.'),
+('SendMail', 1543296611, 'Success.'),
+('SendMail', 1543296911, 'Success.'),
+('SendMail', 1543297211, 'Success.'),
+('SendMail', 1543297511, 'Success.'),
+('SendMail', 1543297811, 'Success.'),
+('SendMail', 1543298111, 'Success.'),
+('SendMail', 1543298411, 'Success.'),
+('SendMail', 1543298711, 'Success.'),
+('SendMail', 1543299011, 'Success.'),
+('SendMail', 1543299311, 'Success.'),
+('SendMail', 1543299611, 'Success.'),
+('SendMail', 1543299911, 'Success.'),
+('SendMail', 1543300211, 'Success.'),
+('SendMail', 1543300511, 'Success.'),
+('SendMail', 1543300811, 'Success.'),
+('SendMail', 1543301111, 'Success.'),
+('SendMail', 1543301411, 'Success.'),
+('SendMail', 1543301711, 'Success.'),
+('SendMail', 1543302011, 'Success.'),
+('SendMail', 1543302311, 'Success.'),
+('SendMail', 1543302611, 'Success.'),
+('SendMail', 1543302911, 'Success.'),
+('SendMail', 1543303211, 'Success.'),
+('SendMail', 1543303511, 'Success.'),
+('SendMail', 1543303811, 'Success.'),
+('SendMail', 1543304111, 'Success.'),
+('SendMail', 1543304411, 'Success.'),
+('SendMail', 1543304711, 'Success.'),
+('SendMail', 1543305011, 'Success.'),
+('SendMail', 1543305311, 'Success.'),
+('SendMail', 1543305611, 'Success.'),
+('SendMail', 1543305911, 'Success.'),
+('SendMail', 1543306211, 'Success.'),
+('SendMail', 1543306511, 'Success.'),
+('SendMail', 1543306811, 'Success.'),
+('SendMail', 1543307111, 'Success.'),
+('SendMail', 1543307411, 'Success.'),
+('SendMail', 1543307711, 'Success.'),
+('SendMail', 1543308011, 'Success.'),
+('SendMail', 1543308311, 'Success.'),
+('SendMail', 1543308611, 'Success.'),
+('SendMail', 1543308911, 'Success.'),
+('SendMail', 1543309211, 'Success.'),
+('SendMail', 1543309511, 'Success.'),
+('SendMail', 1543309811, 'Success.'),
+('SendMail', 1543310111, 'Success.'),
+('SendMail', 1543310411, 'Success.'),
+('SendMail', 1543310711, 'Success.'),
+('SendMail', 1543311011, 'Success.'),
+('SendMail', 1543311311, 'Success.'),
+('SendMail', 1543311611, 'Success.'),
+('SendMail', 1543311911, 'Success.'),
+('SendMail', 1543312211, 'Success.'),
+('SendMail', 1543312511, 'Success.'),
+('SendMail', 1543312811, 'Success.'),
+('SendMail', 1543313111, 'Success.'),
+('SendMail', 1543313411, 'Success.'),
+('SendMail', 1543313711, 'Success.'),
+('SendMail', 1543314011, 'Success.'),
+('SendMail', 1543367711, 'Success.'),
+('SendMail', 1543368013, 'Success.'),
+('SendMail', 1543368311, 'Success.'),
+('SendMail', 1543368611, 'Success.'),
+('SendMail', 1543368911, 'Success.'),
+('SendMail', 1543369211, 'Success.'),
+('SendMail', 1543369511, 'Success.'),
+('SendMail', 1543369811, 'Success.'),
+('SendMail', 1543370111, 'Success.'),
+('SendMail', 1543370411, 'Success.'),
+('SendMail', 1543370711, 'Success.'),
+('SendMail', 1543371011, 'Success.'),
+('SendMail', 1543371311, 'Success.'),
+('SendMail', 1543371611, 'Success.'),
+('SendMail', 1543371911, 'Success.'),
+('SendMail', 1543372211, 'Success.'),
+('SendMail', 1543372511, 'Success.'),
+('SendMail', 1543372811, 'Success.'),
+('SendMail', 1543373111, 'Success.'),
+('SendMail', 1543373411, 'Success.'),
+('SendMail', 1543373711, 'Success.'),
+('SendMail', 1543374011, 'Success.'),
+('SendMail', 1543374311, 'Success.'),
+('SendMail', 1543374611, 'Success.'),
+('SendMail', 1543374911, 'Success.'),
+('SendMail', 1543375211, 'Success.'),
+('SendMail', 1543375511, 'Success.'),
+('SendMail', 1543375811, 'Success.'),
+('SendMail', 1543376111, 'Success.'),
+('SendMail', 1543376411, 'Success.'),
+('SendMail', 1543376711, 'Success.'),
+('SendMail', 1543377011, 'Success.'),
+('SendMail', 1543377311, 'Success.'),
+('SendMail', 1543377611, 'Success.'),
+('SendMail', 1543377911, 'Success.'),
+('SendMail', 1543378211, 'Success.'),
+('SendMail', 1543378511, 'Success.'),
+('SendMail', 1543378810, 'Success.'),
+('SendMail', 1543379111, 'Success.'),
+('SendMail', 1543379411, 'Success.'),
+('SendMail', 1543379711, 'Success.'),
+('SendMail', 1543380011, 'Success.'),
+('SendMail', 1543380311, 'Success.'),
+('SendMail', 1543380611, 'Success.'),
+('SendMail', 1543380911, 'Success.'),
+('SendMail', 1543381211, 'Success.'),
+('SendMail', 1543381511, 'Success.'),
+('SendMail', 1543381811, 'Success.'),
+('SendMail', 1543382111, 'Success.'),
+('SendMail', 1543382411, 'Success.'),
+('SendMail', 1543382711, 'Success.'),
+('SendMail', 1543383011, 'Success.'),
+('SendMail', 1543383311, 'Success.'),
+('SendMail', 1543383611, 'Success.'),
+('SendMail', 1543383911, 'Success.'),
+('SendMail', 1543384211, 'Success.'),
+('SendMail', 1543384511, 'Success.'),
+('SendMail', 1543384811, 'Success.'),
+('SendMail', 1543385111, 'Success.'),
+('SendMail', 1543385411, 'Success.'),
+('SendMail', 1543385711, 'Success.'),
+('SendMail', 1543386011, 'Success.'),
+('SendMail', 1543386311, 'Success.'),
+('SendMail', 1543386611, 'Success.'),
+('SendMail', 1543386911, 'Success.'),
+('SendMail', 1543387211, 'Success.'),
+('SendMail', 1543387511, 'Success.'),
+('SendMail', 1543387811, 'Success.'),
+('SendMail', 1543388111, 'Success.'),
+('SendMail', 1543388411, 'Success.'),
+('SendMail', 1543388711, 'Success.'),
+('SendMail', 1543389011, 'Success.'),
+('SendMail', 1543389311, 'Success.'),
+('SendMail', 1543389611, 'Success.'),
+('SendMail', 1543389911, 'Success.'),
+('SendMail', 1543390211, 'Success.'),
+('SendMail', 1543390511, 'Success.'),
+('SendMail', 1543390811, 'Success.'),
+('SendMail', 1543391111, 'Success.'),
+('SendMail', 1543391411, 'Success.'),
+('SendMail', 1543391711, 'Success.'),
+('SendMail', 1543392011, 'Success.'),
+('SendMail', 1543392311, 'Success.'),
+('SendMail', 1543392611, 'Success.'),
+('SendMail', 1543392911, 'Success.');
 
 -- --------------------------------------------------------
 
@@ -198,19 +368,13 @@ CREATE TABLE `email_queue` (
   `from` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL COMMENT 'mailer component',
   `to` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL COMMENT 'email người nhận',
   `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL COMMENT 'chủ đề mail',
+  `layout` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `module_id` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL COMMENT 'module id để định vị đường dẫn email template',
   `content_id` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL COMMENT 'content id để định vị đường dẫn email template',
   `extra_data` blob COMMENT 'dữ liệu đổ vào email template',
   `created_date` int(11) DEFAULT NULL COMMENT 'ngày tạo',
   `status` tinyint(4) DEFAULT '0' COMMENT 'trạng thái của mail'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
-
---
--- Đang đổ dữ liệu cho bảng `email_queue`
---
-
-INSERT INTO `email_queue` (`id`, `from`, `to`, `subject`, `module_id`, `content_id`, `extra_data`, `created_date`, `status`) VALUES
-(4, 'mailer_test', 'ngocdatbk@gmail.com', 'Order success', 'pub', 'order_invoice', 0x613a31353a7b733a323a226964223b693a33333b733a31353a22757365725f6f726465725f6e616d65223b733a333a22646174223b733a31363a22757365725f6f726465725f70686f6e65223b733a31313a223031363636303430363936223b733a31363a22757365725f6f726465725f656d61696c223b733a31393a226e676f63646174626b40676d61696c2e636f6d223b733a31373a22757365725f726563656976655f6e616d65223b733a303a22223b733a31383a22757365725f726563656976655f70686f6e65223b733a303a22223b733a31383a22757365725f726563656976655f656d61696c223b733a303a22223b733a32303a22757365725f726563656976655f61646472657373223b733a393a22746861692062696e68223b733a31303a226f726465725f74696d65223b693a313534323137393532333b733a393a22757365725f6e6f7465223b733a303a22223b733a353a22746f74616c223b693a3630303030303b733a363a22737461747573223b693a303b733a31303a2261646d696e5f6e6f7465223b4e3b733a393a2264656c657465645f66223b4e3b733a363a2264657461696c223b613a323a7b693a353b613a323a7b733a383a227175616e74697479223b693a313b733a363a2264657461696c223b613a383a7b733a323a226964223b693a353b733a343a22636f6465223b733a353a224dc4903031223b733a343a226e616d65223b733a32303a2253c3a16f204dc3a86f20c490656e204dc4903031223b733a343a22696e666f223b733a31343a2253c3a16f204dc3a86f20c490656e223b733a353a227072696365223b693a3430303030303b733a31303a22696d6167655f6d61696e223b733a31363a2275706c6f6164732f746175312e6a7067223b733a31313a2263617465676f72795f6964223b693a313b733a393a2264656c657465645f66223b693a303b7d7d693a393b613a323a7b733a383a227175616e74697479223b693a313b733a363a2264657461696c223b613a383a7b733a323a226964223b693a393b733a343a22636f6465223b733a353a224dc4903033223b733a343a226e616d65223b733a32303a2253c3a16f204dc3a86f20c490656e204dc4903033223b733a343a22696e666f223b733a31343a2253c3a16f204dc3a86f20c490656e223b733a353a227072696365223b693a3230303030303b733a31303a22696d6167655f6d61696e223b733a31373a2275706c6f6164732f74696575312e6a7067223b733a31313a2263617465676f72795f6964223b693a313b733a393a2264656c657465645f66223b693a303b7d7d7d7d, 1542179523, 0);
 
 -- --------------------------------------------------------
 
@@ -292,7 +456,8 @@ INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_em
 (30, 'dat', '01666040696', 'nhungnguyen@gmail.com', '', '', '', 'thai binh', 1542084305, '', 400000, 0, NULL, 0),
 (31, 'dat', '01666040696', 'nhungnguyen@gmail.com', '', '', '', 'thai binh', 1542178091, 'note', 600000, 0, NULL, 0),
 (32, 'nhung', '0973571696', 'nhungnguyen@gmail.com', '', '', '', 'thai binh', 1542179057, 'note', 600000, 0, NULL, 0),
-(33, 'dat', '01666040696', 'ngocdatbk@gmail.com', '', '', '', 'thai binh', 1542179523, '', 600000, 0, NULL, 0);
+(33, 'dat', '01666040696', 'ngocdatbk@gmail.com', '', '', '', 'thai binh', 1542179523, '', 600000, 0, NULL, 0),
+(34, 'nhung', '0973571696', 'ngocdatbk@gmail.com', '', '', '', 'thai binh', 1543289440, '', 200000, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -319,7 +484,8 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted
 (39, 32, 5, 1, 0),
 (40, 32, 9, 1, 0),
 (41, 33, 5, 1, 0),
-(42, 33, 9, 1, 0);
+(42, 33, 9, 1, 0),
+(43, 34, 9, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -486,7 +652,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
-(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', NULL, 'Khúc Ngọc Đạt', 1, 1, 0);
+(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 0),
+(5, 'ngocdatbk@gmail.com', 'Unspecified', 'ngocdatbk@gmail.com', NULL, 'khuc dat', 1, 0, 1543388053),
+(6, 'khucngocdat1989', NULL, 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
+(8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 1, 1543388199);
 
 -- --------------------------------------------------------
 
@@ -505,7 +674,10 @@ CREATE TABLE `user_auth` (
 --
 
 INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
-(1, 'nr2-PnAs9CpYIbJo3m-1HcsHzM9R-Bte', '$2y$13$QLOfCFsV5/tvYJg8CbjkUuhCOBSfU9Nx92PJzWaSfHSJ94UOCtmuu');
+(1, 'nr2-PnAs9CpYIbJo3m-1HcsHzM9R-Bte', '$2y$13$GNcr9gnqqvaOq53Uxn7u5eurhjXOiqAZ00EP/ht821fb8HnV5RqVu'),
+(5, 'alsdm8kJ1FXg62Fi-hAeNnuL_3wXwOQo', '$2y$13$nLGbFp.ykqJCJcEId0NDqulkZkNEcIiK.ymFAIJIpXA9SVte5IjoO'),
+(6, '9i5e9bYVmnP6H6mPfNDXw8ko7CfWFNWx', '$2y$13$oSHSaNDYmmGb73lMNj.Ql.0qlkTIGEGfXfCWoph1x1KySsbsIIIbq'),
+(8, 'ECVM8FVob1yx3e3JEi7lrbe3jNKayjJG', '$2y$13$i1DrBuSq/.tcatqZIRUs8eU/yfE5GP9T4RZ4ULe5QDkIvpPIyNvxK');
 
 -- --------------------------------------------------------
 
@@ -658,19 +830,19 @@ ALTER TABLE `cronjob`
 -- AUTO_INCREMENT cho bảng `email_queue`
 --
 ALTER TABLE `email_queue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã order', AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã order', AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -694,7 +866,7 @@ ALTER TABLE `product_image`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22831;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
