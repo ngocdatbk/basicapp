@@ -8,11 +8,13 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\modules\pub\assets\LayoutPubAsset;
+use app\assets\AppAsset;
 use app\modules\admin\models\ProductCategory;
 use yii\helpers\Url;
 use yii\helpers\Json;
 
 LayoutPubAsset::register($this);
+AppAsset::register($this);
 
 $categorys = ProductCategory::getAllCategorys('all');
 

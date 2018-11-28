@@ -41,7 +41,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['email', 'username'], 'required'],
+            [['email', 'username', 'fullname'], 'required'],
             [['email'], 'email'],
             [['email'], 'unique', 'targetClass' => '\app\modules\user\models\User'],
             [['email'], 'string', 'max' => 120],
@@ -49,7 +49,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
                 'targetClass' => '\app\modules\user\models\User',
                 'message' => 'This username has already been taken.'],
             [['username'], 'string', 'max' => 32],
-            ['username', 'match', 'pattern' => '/^[a-z0-9_]\w*$/'],
+//            ['username', 'match', 'pattern' => '/^[a-z0-9_]\w*$/'],
             [['fullname'], 'string', 'max' => 150],
             [['is_active', 'is_admin'], 'integer'],
             ['last_login', 'integer'],
@@ -83,17 +83,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         ];
     }
 
-    /**
-     * @param $user_id
-     * @return array|null|\yii\db\ActiveRecord
-     */
-    public static function findOneWithPermission($user_id)
-    {
-        return static::find()
-//            ->with('permissionRoleUser')
-            ->where(['user_id' => $user_id])
-            ->one();
-    }
     /**
      * Finds user by email
      *
@@ -175,8 +164,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
                 $transaction->rollBack();
                 $result = false;
             } else {
-//                UserCaution::deleteAll(['user_id' => $this->user_id]);
-//                UserExternal::deleteAll(['user_id' => $this->user_id]);
                 $transaction->commit();
             }
 

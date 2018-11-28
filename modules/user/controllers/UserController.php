@@ -5,6 +5,8 @@ namespace app\modules\user\controllers;
 use Yii;
 use app\modules\user\models\User;
 use app\modules\user\models\UserSearch;
+use app\modules\user\models\form\CreateForm;
+use app\modules\user\models\form\UpdateForm;
 use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -49,14 +51,19 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+        $model = new CreateForm();
+        $model->is_active = 1;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->user_id]);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->create()) {
+                return $this->redirect(['view', 'id' => $user->user_id]);
+            }
+            else
+                Yii::$app->session->setFlash('error', Yii::t('user.field', 'Error'));
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model
         ]);
     }
 
@@ -65,14 +72,20 @@ class UserController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = UpdateForm::findOne($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->user_id]);
+        if (Yii::$app->request->post()) {
+            if ($model->load(Yii::$app->request->post()) && $model->updateUser()) {
+                Yii::$app->session->setFlash('success', Yii::t('user.field', 'Updated successfully.'));
+                return $this->redirect(['view', 'id' => $id]);
+            }
+            else
+            {
+                Yii::$app->session->setFlash('error', Yii::t('user.field', 'Updated fail.'));
+            }
         }
 
         return $this->render('update', [
