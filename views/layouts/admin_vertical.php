@@ -13,7 +13,7 @@ use app\assets\AppAsset;
 use yii\helpers\Url;
 
 LayoutAdminAsset::register($this);
-//AppAsset::register($this);
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
