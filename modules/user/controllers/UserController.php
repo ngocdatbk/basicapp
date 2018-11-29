@@ -122,24 +122,4 @@ class UserController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-    public function actionListAllUser()
-    {
-        $q = Yii::$app->request->get('q');
-        $query = new \yii\db\Query;
-        $query->select('user.user_id as id, fullname as text')
-            ->from('user')
-            ->limit(20);
-
-        if (!empty($q)) {
-            $query->andWhere(['like', 'fullname', trim($q)]);
-        }
-
-        $command = $query->createCommand();
-        $data = $command->queryAll();
-
-        $out['results'] = array_values($data);
-
-        return $this->responseJSON($out);
-    }
 }

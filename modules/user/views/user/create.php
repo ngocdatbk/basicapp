@@ -3,9 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\Alert;
-use yii\helpers\ArrayHelper;
-use kartik\widgets\Select2;
-use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
@@ -38,31 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'password_repeat')->passwordInput() ?>
                     <?= $form->field($model, 'is_admin')->checkbox(); ?>
                     <?= $form->field($model, 'is_active')->radioList([1 => Yii::t('user.field' , 'Active'), 0 => Yii::t('user.field' , 'Inactive')]) ?>
-
-                    <?= Select2::widget([
-                        'name' => 'kv-repo-template',
-                        'value' => '14719648',
-                        'initValueText' => ['india','chaina'],
-                        'options' => [
-                            'options' => ['placeholder' => 'Select user ...', 'multiple' => true],
-                        ],
-                        'pluginOptions' => [
-                            'tags' => true,
-                            'tokenSeparators' => [',', ' '],
-                            'maximumInputLength' => 10,
-                            'allowClear' => true,
-                            'ajax' => [
-                                'tags' => true,
-                                'multiple' => true,
-                                'url' => '/user/user/list-all-user',
-                                'dataType' => 'json',
-                                'data' => new JsExpression('function(params) { return {q:params.term}; }')
-                            ],
-                            'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
-                            'templateResult' => new JsExpression('function(company) { return company.text; }'),
-                            'templateSelection' => new JsExpression('function (company) { return company.text; }'),
-                        ],
-                    ]) ?>
                 </div>
 
                 <div class="box-footer">
