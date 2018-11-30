@@ -18,6 +18,8 @@ return [
     'user' => [
         'class' => 'app\modules\user\components\User',
         'loginUrl' => '/user/auth/login',
+//        'enableAutoLogin' => true,
+//        'authTimeout' => 60*30,
         'returnUrlParam' => '/admin/dashboard/dashboard'
     ],
     'authClientCollection' => [
