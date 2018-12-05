@@ -79,3 +79,4 @@ class Product extends \yii\db\ActiveRecord
         return $query;
     }
 }
+

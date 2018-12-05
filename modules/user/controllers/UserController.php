@@ -57,8 +57,7 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->create()) {
                 return $this->redirect(['view', 'id' => $user->user_id]);
-            }
-            else
+            } else
                 Yii::$app->session->setFlash('error', Yii::t('user.field', 'Error'));
         }
 
@@ -81,9 +80,7 @@ class UserController extends Controller
             if ($model->load(Yii::$app->request->post()) && $model->updateUser()) {
                 Yii::$app->session->setFlash('success', Yii::t('user.field', 'Updated successfully.'));
                 return $this->redirect(['view', 'id' => $id]);
-            }
-            else
-            {
+            } else {
                 Yii::$app->session->setFlash('error', Yii::t('user.field', 'Updated fail.'));
             }
         }

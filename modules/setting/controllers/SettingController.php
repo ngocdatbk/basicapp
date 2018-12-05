@@ -25,19 +25,17 @@ class SettingController extends Controller
         if (Yii::$app->request->post()) {
             $model->load(Yii::$app->request->post('SettingModel'));
             $model->load(Yii::$app->request->post('SettingModelPassword'));
-            if($model->validate())
-            {
-                if(Yii::$app->request->post('SettingModel'))
-                    foreach(Yii::$app->request->post('SettingModel') as $key => $value)
-                    {
+            if ($model->validate()) {
+                if (Yii::$app->request->post('SettingModel'))
+                    foreach (Yii::$app->request->post('SettingModel') as $key => $value) {
                         Yii::$app->settings->set($key,$value);
                     }
-                if(Yii::$app->request->post('SettingModelPassword'))
-                foreach(Yii::$app->request->post('SettingModelPassword') as $key => $value)
-                {
-                    if($value)
-                        Yii::$app->settings->set($key,utf8_encode(Yii::$app->security->encryptByKey($value, $key)));
-                }
+
+                if (Yii::$app->request->post('SettingModelPassword'))
+                    foreach (Yii::$app->request->post('SettingModelPassword') as $key => $value) {
+                        if ($value)
+                            Yii::$app->settings->set($key,utf8_encode(Yii::$app->security->encryptByKey($value, $key)));
+                    }
                 Yii::$app->settings->resetCache();
             }
         }

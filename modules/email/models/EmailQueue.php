@@ -75,6 +75,7 @@ class EmailQueue extends \yii\db\ActiveRecord
         if ($extraData) {
             $emailQueue->setAttribute('extra_data', serialize($extraData));
         }
+
         if ($emailQueue->save()) {
             return true;
         }

@@ -41,8 +41,8 @@ class SendMail extends CronAbstractController
             if (!Yii::$app->$mailer->compose($emailToSend->module_id . "_" . $emailToSend->content_id,['data' => $emailToSend['extra_data']])
                 ->setTo($emailToSend->to)
                 ->setSubject($emailToSend->subject)
-                ->send())
-            {
+                ->send()
+            ) {
                 $emailToSend->setAttribute('status', -1); //for retry
                 $emailToSend->save();
             } else {

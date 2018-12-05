@@ -45,8 +45,7 @@ class CronjobController extends Controller
         $cronjobModel = $this->findModel($id);
 
         $logDataProvider = new ActiveDataProvider([
-            'query' => CronjobLog::find()
-                ->where(['cronjob_id' => $cronjobModel->cronjob_id]),
+            'query' => CronjobLog::find()->where(['cronjob_id' => $cronjobModel->cronjob_id]),
             'sort' => [
                 'defaultOrder' => [
                     'execution_time' => SORT_DESC,

@@ -32,11 +32,11 @@ class Settings extends Component
     public function set($key, $value)
     {
         $setting = SettingDatabase::findOne($key);
-        if($setting === null)
-        {
+        if ($setting === null) {
             $setting = new SettingDatabase();
             $setting->key = $key;
         }
+
         $setting->value = $value;
         $setting->modified = time();
         if(!$setting->save())

@@ -16,12 +16,6 @@ class CartController extends \yii\web\Controller
             $cart_cookie = Json::decode($request_cookies['cart']->value);
         }
 
-//        echo "<pre>";
-//        var_dump(Yii::$app->request->cookies);
-//        var_dump(Yii::$app->response->cookies);
-//        echo "<pre>";
-//        exit();
-
         return $this->render('index', ['cart_cookie' => $cart_cookie]);
     }
 
@@ -33,10 +27,10 @@ class CartController extends \yii\web\Controller
         if (isset($request_cookies['cart'])) {
             $cart_cookie = Json::decode($request_cookies['cart']->value);
         }
+
         if (isset($cart_cookie[$product_id])) {
             $cart_cookie[$product_id]['quantity']++;
-        }
-        else{
+        } else {
             $product = Product::findOne($product_id);
             $cart_cookie[$product_id] = array('quantity' => 1, "detail" => $product->attributes);
         }
@@ -62,21 +56,18 @@ class CartController extends \yii\web\Controller
             $request_cookies = Yii::$app->request->cookies;
             if (isset($request_cookies['cart'])) {
                 $cart_cookie = Json::decode($request_cookies['cart']->value);
-            }
-            else {
+            } else {
                 return Json::encode(array("result"=>"error"));
             }
 
             if (isset($cart_cookie[$product_id])) {
                 $cart_cookie[$product_id]['quantity'] = (int)$quantity;
-            }
-            else {
+            } else {
                 return Json::encode(array("result"=>"error"));
             }
 
             $cart_total = 0;
-            foreach($cart_cookie as $car)
-            {
+            foreach($cart_cookie as $car) {
                 $cart_total += $car['quantity'];
             }
 
@@ -100,21 +91,18 @@ class CartController extends \yii\web\Controller
             $request_cookies = Yii::$app->request->cookies;
             if (isset($request_cookies['cart'])) {
                 $cart_cookie = Json::decode($request_cookies['cart']->value);
-            }
-            else {
+            } else {
                 return Json::encode(array("result"=>"error"));
             }
 
             if (isset($cart_cookie[$product_id])) {
                 unset($cart_cookie[$product_id]);
-            }
-            else {
+            } else {
                 return Json::encode(array("result"=>"error"));
             }
 
             $cart_total = 0;
-            foreach($cart_cookie as $car)
-            {
+            foreach($cart_cookie as $car) {
                 $cart_total += $car['quantity'];
             }
 

@@ -24,19 +24,19 @@ class OrderController extends \yii\web\Controller
 
             $order->order_time = time();
             $order->status = 0;
-            if(!$order->save())
-            {
+            if(!$order->save()) {
                 $transaction->rollBack();
                 Yii::$app->session->setFlash('error', 'System error');
-                return $this->render('create', [
-                    'model' => $order,
-                    'cart_cookie' => $cart_cookie
-                ]);
+                return $this->render('create',
+                    [
+                        'model' => $order,
+                        'cart_cookie' => $cart_cookie
+                    ]
+                );
             }
 
             $total_amount = 0;
-            foreach($cart_cookie as $detail)
-            {
+            foreach ($cart_cookie as $detail) {
                 $total_amount += $detail['detail']['price'] * $detail['quantity'];
 
                 $orderDetail = new OrderDetail();
@@ -44,36 +44,46 @@ class OrderController extends \yii\web\Controller
                 $orderDetail->product_id = $detail['detail']['id'];
                 $orderDetail->quantity = $detail['quantity'];
 
-                if(!$orderDetail->save())
-                {
+                if(!$orderDetail->save()) {
                     $transaction->rollBack();
                     Yii::$app->session->setFlash('error', 'System error');
-                    return $this->render('create', [
-                        'model' => $order,
-                        'cart_cookie' => $cart_cookie
-                    ]);
+                    return $this->render('create',
+                        [
+                            'model' => $order,
+                            'cart_cookie' => $cart_cookie
+                        ]
+                    );
                 }
             }
 
             $order->total = $total_amount;
-            if(!$order->save())
-            {
+            if(!$order->save()) {
                 $transaction->rollBack();
                 Yii::$app->session->setFlash('error', 'System error');
-                return $this->render('create', [
-                    'model' => $order,
-                    'cart_cookie' => $cart_cookie
-                ]);
-            }
-            if($order->user_order_email){
-                if(!\app\modules\email\models\EmailQueue::queue('mailer_marketing', $order->user_order_email, 'Order success', Yii::$app->controller->module->id, 'order_invoice', $order->getAttributes()+['detail' => $cart_cookie], Yii::$app->controller->module->id. "_" .'order_invoice'))
-                {
-                    $transaction->rollBack();
-                    Yii::$app->session->setFlash('error', 'System error');
-                    return $this->render('create', [
+                return $this->render('create',
+                    [
                         'model' => $order,
                         'cart_cookie' => $cart_cookie
-                    ]);
+                    ]
+                );
+            }
+            if($order->user_order_email){
+                if(!\app\modules\email\models\EmailQueue::queue(
+                    'mailer_marketing',
+                    $order->user_order_email,
+                    'Order success', Yii::$app->controller->module->id,
+                    'order_invoice',
+                    $order->getAttributes()+['detail' => $cart_cookie],
+                    Yii::$app->controller->module->id. "_" .'order_invoice'
+                )) {
+                    $transaction->rollBack();
+                    Yii::$app->session->setFlash('error', 'System error');
+                    return $this->render('create',
+                        [
+                            'model' => $order,
+                            'cart_cookie' => $cart_cookie
+                        ]
+                    );
                 }
             }
 
@@ -84,21 +94,20 @@ class OrderController extends \yii\web\Controller
 
             Yii::$app->session->setFlash('success', 'Create order success!');
 
-
-            return $this->redirect(["result",'order_id' => $order->id]);
+            return $this->redirect(["result", 'order_id' => $order->id]);
         }
 
-        return $this->render('create', [
-            'model' => $order,
-            'cart_cookie' => $cart_cookie
-        ]);
+        return $this->render('create',
+            [
+                'model' => $order,
+                'cart_cookie' => $cart_cookie
+            ]
+        );
     }
 
     public function actionResult($order_id)
     {
         $order = Order::findOne($order_id);
-        return $this->render('result', [
-            'model' => $order
-        ]);
+        return $this->render('result', ['model' => $order]);
     }
 }

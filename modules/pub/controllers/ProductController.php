@@ -12,8 +12,7 @@ class ProductController extends \yii\web\Controller
     public function actionIndex()
     {
         $category_name = "All category";
-        if(isset(Yii::$app->request->queryParams['category_id']))
-        {
+        if (isset(Yii::$app->request->queryParams['category_id'])) {
             $category = ProductCategory::findOne(Yii::$app->request->queryParams['category_id']);
             $category_name = $category->name;
         }
@@ -35,12 +34,10 @@ class ProductController extends \yii\web\Controller
     }
     public function actionDetail()
     {
-        if(isset(Yii::$app->request->queryParams['id']))
-        {
+        if (isset(Yii::$app->request->queryParams['id'])) {
             $product = Product::findOne(Yii::$app->request->queryParams['id']);
             return $this->render('detail',['product' => $product]);
-        }else
-        {
+        } else {
             throw new BadRequestHttpException('Invalid request', 500);
         }
     }
