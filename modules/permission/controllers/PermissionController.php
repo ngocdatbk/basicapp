@@ -12,7 +12,6 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use yii\db\Exception;
-use yii\data\ActiveDataProvider;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.
@@ -38,28 +37,14 @@ class PermissionController extends Controller
      * Lists all AuthItem models.
      * @return mixed
      */
-//    public function actionIndex()
-//    {
-//        $searchModel = new AuthItemSearch();
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,Item::TYPE_PERMISSION);
-//
-//        return $this->render('index', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-
     public function actionIndex()
     {
-        $query = AuthItem::find()
-            ->select('name, description, parent as parent_id')
-            ->leftJoin(AuthItemChild::tableName(),'auth_item.name = auth_item_child.child');
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
+        $searchModel = new AuthItemSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,Item::TYPE_PERMISSION);
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -92,7 +77,11 @@ class PermissionController extends Controller
             if($model->save())
                 return $this->redirect(['view', 'id' => $model->name]);
         }
-
+        $authItems = $model->listPermissionTree();
+        echo "<pre>";
+        var_dump($authItems);
+        echo "<pre>";
+        exit();
         return $this->render('create', [
             'model' => $model,
         ]);

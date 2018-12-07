@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use app\widgets\Alert;
-use leandrogehlen\treegrid\TreeGrid;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\permission\models\AuthItemSearch */
@@ -21,14 +20,17 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create permission', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= TreeGrid::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'keyColumnName' => 'id',
-        'parentColumnName' => 'parent_id',
+        'filterModel' => $searchModel,
         'columns' => [
-            'id',
-            'description',
-            ['class' => 'yii\grid\ActionColumn']
-        ]
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'name',
+            'description:ntext',
+            'rule_name',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
     ]); ?>
 </div>

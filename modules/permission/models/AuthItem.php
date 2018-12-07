@@ -113,7 +113,14 @@ class AuthItem extends \yii\db\ActiveRecord
 
     public function listPermissionTree()
     {
-
+        $authItems = $this->find()->asArray()->indexBy('name')->all();
+        $authItemChilds = AuthItemChild::find()->asArray()->all();
+        foreach ($authItemChilds as $authItemChild) {
+            if (!isset($authItems[$authItemChild['parent']]['children']))
+                $authItems[$authItemChild['parent']]['children'] = array();
+            $authItems[$authItemChild['parent']]['children'][] = $authItems[$authItemChild['child']];
+        }
+        return $authItems;
     }
 
     public function listPermissionTreeInput()
