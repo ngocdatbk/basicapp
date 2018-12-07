@@ -24,4 +24,7 @@ return [
     'user' => [
         'class' => 'app\modules\user\Module',
     ],
+    'permission' => [
+        'class' => 'app\modules\permission\Module',
+    ],
 ];

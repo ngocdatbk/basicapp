@@ -11,8 +11,6 @@ class Module extends \yii\base\Module
      * {@inheritdoc}
      */
     public $controllerNamespace = 'app\modules\cronjob\controllers';
-    public $layoutPath = '@app\views\layouts';
-    public $layout = '/admin_vertical';
     public $defaultRoute = 'cronjob';
 
     public function init()

@@ -94,6 +94,13 @@ AppAsset::register($this);
                                     </ul>
                                 </li>
                                 <li class="divider"></li>
+                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Permission</label>
+                                    <ul class="nav nav-list tree lv1">
+                                        <li><a href="<?= Url::to('/permission/permission') ?>"> Manager permissions</a></li>
+                                        <li><a href="<?= Url::to('/permission/role') ?>"> Manager roles</a></li>
+                                    </ul>
+                                </li>
+                                <li class="divider"></li>
                                 <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Setting</label>
                                     <ul class="nav nav-list tree lv1">
                                         <li><a href="<?= Url::to('/setting') ?>"> Setting</a></li>
