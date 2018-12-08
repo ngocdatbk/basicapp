@@ -113,7 +113,7 @@ class AuthItem extends \yii\db\ActiveRecord
 
     public function listPermissionTree()
     {
-        $permissions = $this->find()
+        $authItems = $this->find()
             ->select(['name','description'])
             ->where(['type' => 2])
             ->asArray()
@@ -128,17 +128,47 @@ class AuthItem extends \yii\db\ActiveRecord
             ->asArray()
             ->column();
 
+        $permissions = $authItems;
         foreach ($authItemParents as $child => $parent) {
             if (!isset($permissions[$parent]['children']))
                 $permissions[$parent]['children'] = array();
-            $permissions[$parent]['children'][] = $permissions[$child];
-            $permissions[$child]['parent'] = $permissions[$parent];
+            $permissions[$parent]['children'][$child] = $authItems[$child];
+            $permissions[$child]['parent'] = $authItems[$parent];
         }
-        return $permissions;
+
+        $roots = array('name' => 'root', 'description' => '', 'children' => array());
+        foreach ($permissions as $name => $permission) {
+            if (!isset($permission['parent']))
+                $roots['children'][$name] = $permission;
+        }
+        $permissions['root'] = $roots;
+
+        return $this->buildTree('', $permissions, $permissions['root']);
     }
 
-    public function listPermissionTreeInput()
+    public function buildTree($pre, $listChilds, $root)
     {
+        $result = [];
+        $result[$root['name']] = $pre.$root['description'];
+        if (isset($root['children'])) {
+            $childs = $root['children'];
+            foreach ($childs as $name => $child) {
+                $result = array_merge($result, $this->buildTree('-'.$pre, $listChilds, $listChilds[$name]));
+            }
+        }
 
+        return $result;
     }
+
+//    public function buildTree($listChilds, $root)
+//    {
+//        if (isset($root['children'])) {
+//            $childs = $root['children'];
+//            foreach ($childs as $name => $child) {
+//                $root['children'][$name] = $this->buildTree($listChilds, $listChilds[$name]);
+//            }
+//        }
+//
+//        return $root;
+//    }
 }
