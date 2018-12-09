@@ -4,6 +4,7 @@ namespace app\modules\permission\controllers;
 
 use Yii;
 use app\modules\permission\models\AuthItem;
+use app\modules\permission\models\CreatePermissionForm;
 use app\modules\permission\models\AuthAssignment;
 use app\modules\permission\models\AuthItemChild;
 use app\modules\permission\models\AuthItemSearch;
@@ -68,22 +69,17 @@ class PermissionController extends Controller
      */
     public function actionCreate()
     {
-        $model = new AuthItem();
+        $model = new CreatePermissionForm();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->type = Item::TYPE_PERMISSION;
-            $model->created_at = time();
-            $model->updated_at = time();
-            if($model->save())
+            if ($model->createPermission())
                 return $this->redirect(['view', 'id' => $model->name]);
         }
-        $authItems = $model->listPermissionTree();
-        echo "<pre>";
-        var_dump($authItems);
-        echo "<pre>";
-        exit();
+
+        $parents = $model->listPermissionTree();
         return $this->render('create', [
             'model' => $model,
+            'parents' => $parents
         ]);
     }
 
@@ -120,8 +116,10 @@ class PermissionController extends Controller
             }
         }
 
+        $parents = $model->listPermissionTree();
         return $this->render('update', [
             'model' => $model,
+            'parents' => $parents
         ]);
     }
 

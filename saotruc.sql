@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2018 lúc 09:18 AM
--- Phiên bản máy phục vụ: 10.1.28-MariaDB
--- Phiên bản PHP: 7.1.11
+-- Host: 127.0.0.1
+-- Generation Time: Dec 09, 2018 at 07:54 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `saotruc`
+-- Database: `saotruc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `auth_assignment`
+-- Table structure for table `auth_assignment`
 --
 
 CREATE TABLE `auth_assignment` (
@@ -35,7 +35,7 @@ CREATE TABLE `auth_assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `auth_assignment`
+-- Dumping data for table `auth_assignment`
 --
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `auth_item`
+-- Table structure for table `auth_item`
 --
 
 CREATE TABLE `auth_item` (
@@ -59,20 +59,18 @@ CREATE TABLE `auth_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `auth_item`
+-- Dumping data for table `auth_item`
 --
 
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
 ('admin', 1, NULL, NULL, NULL, 1542959944, 1542959944),
 ('author', 1, NULL, NULL, NULL, 1542959944, 1542959944),
-('createPost', 2, 'Create a post', NULL, NULL, 1542959944, 1542959944),
-('updateOwnPost', 2, 'Update own post', 'isAuthor', NULL, 1542959944, 1542959944),
-('updatePost', 2, 'Update post', NULL, NULL, 1542959944, 1542959944);
+('Product', 2, '', '', NULL, 1544381567, 1544381567);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `auth_item_child`
+-- Table structure for table `auth_item_child`
 --
 
 CREATE TABLE `auth_item_child` (
@@ -81,20 +79,16 @@ CREATE TABLE `auth_item_child` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `auth_item_child`
+-- Dumping data for table `auth_item_child`
 --
 
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
-('admin', 'author'),
-('admin', 'updatePost'),
-('author', 'createPost'),
-('author', 'updateOwnPost'),
-('updateOwnPost', 'updatePost');
+('admin', 'author');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `auth_rule`
+-- Table structure for table `auth_rule`
 --
 
 CREATE TABLE `auth_rule` (
@@ -105,7 +99,7 @@ CREATE TABLE `auth_rule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `auth_rule`
+-- Dumping data for table `auth_rule`
 --
 
 INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
@@ -114,7 +108,7 @@ INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cronjob`
+-- Table structure for table `cronjob`
 --
 
 CREATE TABLE `cronjob` (
@@ -131,7 +125,7 @@ CREATE TABLE `cronjob` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cronjob`
+-- Dumping data for table `cronjob`
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
@@ -140,7 +134,7 @@ INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_ru
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cronjob_log`
+-- Table structure for table `cronjob_log`
 --
 
 CREATE TABLE `cronjob_log` (
@@ -150,7 +144,7 @@ CREATE TABLE `cronjob_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cronjob_log`
+-- Dumping data for table `cronjob_log`
 --
 
 INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
@@ -360,7 +354,7 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `email_queue`
+-- Table structure for table `email_queue`
 --
 
 CREATE TABLE `email_queue` (
@@ -379,7 +373,7 @@ CREATE TABLE `email_queue` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migration`
+-- Table structure for table `migration`
 --
 
 CREATE TABLE `migration` (
@@ -388,7 +382,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migration`
+-- Dumping data for table `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -400,7 +394,7 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migration_module`
+-- Table structure for table `migration_module`
 --
 
 CREATE TABLE `migration_module` (
@@ -410,7 +404,7 @@ CREATE TABLE `migration_module` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migration_module`
+-- Dumping data for table `migration_module`
 --
 
 INSERT INTO `migration_module` (`version`, `apply_time`, `module`) VALUES
@@ -428,7 +422,7 @@ INSERT INTO `migration_module` (`version`, `apply_time`, `module`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -449,7 +443,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `order`
+-- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_email`, `user_receive_name`, `user_receive_phone`, `user_receive_email`, `user_receive_address`, `order_time`, `user_note`, `total`, `status`, `admin_note`, `deleted_f`) VALUES
@@ -462,7 +456,7 @@ INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_em
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order_detail`
+-- Table structure for table `order_detail`
 --
 
 CREATE TABLE `order_detail` (
@@ -474,7 +468,7 @@ CREATE TABLE `order_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `order_detail`
+-- Dumping data for table `order_detail`
 --
 
 INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted_f`) VALUES
@@ -490,7 +484,7 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -505,7 +499,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `code`, `name`, `info`, `price`, `image_main`, `category_id`, `deleted_f`) VALUES
@@ -535,7 +529,7 @@ INSERT INTO `product` (`id`, `code`, `name`, `info`, `price`, `image_main`, `cat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_category`
+-- Table structure for table `product_category`
 --
 
 CREATE TABLE `product_category` (
@@ -546,7 +540,7 @@ CREATE TABLE `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_category`
+-- Dumping data for table `product_category`
 --
 
 INSERT INTO `product_category` (`id`, `name`, `description`, `deleted_f`) VALUES
@@ -557,7 +551,7 @@ INSERT INTO `product_category` (`id`, `name`, `description`, `deleted_f`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_image`
+-- Table structure for table `product_image`
 --
 
 CREATE TABLE `product_image` (
@@ -569,7 +563,7 @@ CREATE TABLE `product_image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_image`
+-- Dumping data for table `product_image`
 --
 
 INSERT INTO `product_image` (`id`, `product_id`, `image`, `description`, `is_main`) VALUES
@@ -608,7 +602,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `image`, `description`, `is_mai
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
@@ -618,7 +612,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `setting`
+-- Dumping data for table `setting`
 --
 
 INSERT INTO `setting` (`key`, `value`, `modified`) VALUES
@@ -632,7 +626,7 @@ INSERT INTO `setting` (`key`, `value`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -648,11 +642,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
-(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 0),
+(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544378430),
 (5, 'ngocdatbk@gmail.com', 'Unspecified', 'ngocdatbk@gmail.com', NULL, 'khuc dat', 1, 0, 1543388053),
 (6, 'khucngocdat1989', NULL, 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
 (8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 1, 1543388199);
@@ -660,7 +654,7 @@ INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `f
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user_auth`
+-- Table structure for table `user_auth`
 --
 
 CREATE TABLE `user_auth` (
@@ -670,7 +664,7 @@ CREATE TABLE `user_auth` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `user_auth`
+-- Dumping data for table `user_auth`
 --
 
 INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
@@ -682,7 +676,7 @@ INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user_confirm`
+-- Table structure for table `user_confirm`
 --
 
 CREATE TABLE `user_confirm` (
@@ -695,7 +689,7 @@ CREATE TABLE `user_confirm` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user_login_attempts`
+-- Table structure for table `user_login_attempts`
 --
 
 CREATE TABLE `user_login_attempts` (
@@ -704,18 +698,18 @@ CREATE TABLE `user_login_attempts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `auth_assignment`
+-- Indexes for table `auth_assignment`
 --
 ALTER TABLE `auth_assignment`
   ADD PRIMARY KEY (`item_name`,`user_id`),
   ADD KEY `auth_assignment_user_id_idx` (`user_id`);
 
 --
--- Chỉ mục cho bảng `auth_item`
+-- Indexes for table `auth_item`
 --
 ALTER TABLE `auth_item`
   ADD PRIMARY KEY (`name`),
@@ -723,80 +717,80 @@ ALTER TABLE `auth_item`
   ADD KEY `idx-auth_item-type` (`type`);
 
 --
--- Chỉ mục cho bảng `auth_item_child`
+-- Indexes for table `auth_item_child`
 --
 ALTER TABLE `auth_item_child`
   ADD PRIMARY KEY (`parent`,`child`),
   ADD KEY `child` (`child`);
 
 --
--- Chỉ mục cho bảng `auth_rule`
+-- Indexes for table `auth_rule`
 --
 ALTER TABLE `auth_rule`
   ADD PRIMARY KEY (`name`);
 
 --
--- Chỉ mục cho bảng `cronjob`
+-- Indexes for table `cronjob`
 --
 ALTER TABLE `cronjob`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `email_queue`
+-- Indexes for table `email_queue`
 --
 ALTER TABLE `email_queue`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `migration`
+-- Indexes for table `migration`
 --
 ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
 
 --
--- Chỉ mục cho bảng `migration_module`
+-- Indexes for table `migration_module`
 --
 ALTER TABLE `migration_module`
   ADD PRIMARY KEY (`version`);
 
 --
--- Chỉ mục cho bảng `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `order_detail`
+-- Indexes for table `order_detail`
 --
 ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `product_category`
+-- Indexes for table `product_category`
 --
 ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `product_image`
+-- Indexes for table `product_image`
 --
 ALTER TABLE `product_image`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`key`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
@@ -804,92 +798,69 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Chỉ mục cho bảng `user_auth`
+-- Indexes for table `user_auth`
 --
 ALTER TABLE `user_auth`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Chỉ mục cho bảng `user_confirm`
+-- Indexes for table `user_confirm`
 --
 ALTER TABLE `user_confirm`
   ADD PRIMARY KEY (`confirm_key`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `cronjob`
+-- AUTO_INCREMENT for table `cronjob`
 --
 ALTER TABLE `cronjob`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `email_queue`
+-- AUTO_INCREMENT for table `email_queue`
 --
 ALTER TABLE `email_queue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `order`
+-- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã order', AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT cho bảng `order_detail`
+-- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT cho bảng `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT cho bảng `product_category`
+-- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `product_image`
+-- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `auth_assignment`
---
-ALTER TABLE `auth_assignment`
-  ADD CONSTRAINT `auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Các ràng buộc cho bảng `auth_item`
---
-ALTER TABLE `auth_item`
-  ADD CONSTRAINT `auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Các ràng buộc cho bảng `auth_item_child`
---
-ALTER TABLE `auth_item_child`
-  ADD CONSTRAINT `auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
