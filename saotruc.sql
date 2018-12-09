@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 07:58 PM
+-- Generation Time: Dec 09, 2018 at 08:15 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -65,8 +65,10 @@ CREATE TABLE `auth_item` (
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
 ('admin', 1, '', NULL, NULL, 1542959944, 1542959944),
 ('author', 1, '', NULL, NULL, 1542959944, 1542959944),
-('CreateProduct', 2, '', '', NULL, 1544381778, 1544381778),
-('Product', 2, '', '', NULL, 1544381567, 1544381567);
+('CreateProduct', 2, 'Create product', '', NULL, 1544381778, 1544382919),
+('DeleteProduct', 2, 'Delete Product', '', NULL, 1544382106, 1544382106),
+('Product', 2, 'Product', '', NULL, 1544381567, 1544381567),
+('UpdateProduct', 2, 'Update Product', '', NULL, 1544382073, 1544382073);
 
 -- --------------------------------------------------------
 
@@ -84,7 +86,10 @@ CREATE TABLE `auth_item_child` (
 --
 
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
-('admin', 'author');
+('admin', 'author'),
+('Product', 'CreateProduct'),
+('Product', 'DeleteProduct'),
+('Product', 'UpdateProduct');
 
 -- --------------------------------------------------------
 
@@ -647,7 +652,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
-(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544378430),
+(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544382007),
 (5, 'ngocdatbk@gmail.com', 'Unspecified', 'ngocdatbk@gmail.com', NULL, 'khuc dat', 1, 0, 1543388053),
 (6, 'khucngocdat1989', NULL, 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
 (8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 1, 1543388199);

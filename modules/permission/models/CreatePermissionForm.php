@@ -71,4 +71,38 @@ class CreatePermissionForm extends AuthItem
 
         return null;
     }
+
+    public function updatePermission($old_name)
+    {
+        $this->updated_at = time();
+        if ($this->validate()) {
+            $transaction = Yii::$app->getDb()->beginTransaction();
+            try {
+                $this->save();
+                if ($old_name != $this->name) {
+                    AuthItemChild::updateAll(["parent" => $this->name], ["parent" => $old_name]);
+                    AuthItemChild::updateAll(["child" => $this->name], ["child" => $old_name]);
+                    AuthAssignment::updateAll(["item_name" => $this->name], ["item_name" => $old_name]);
+                }
+
+                $old_parent = AuthItemChild::find()->where(['child' => $old_name])->one();
+                if ($this->parent) {
+                    if (!$old_parent)
+                        $old_parent = new AuthItemChild();
+                    $old_parent->parent = $this->parent;
+                    $old_parent->child = $this->name;
+                    $old_parent->save();
+                } elseif ($old_parent) {
+                    $old_parent->delete();
+                }
+                $transaction->commit();
+                return $this;
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+                return null;
+            }
+        }
+
+        return null;
+    }
 }

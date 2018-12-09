@@ -77,12 +77,6 @@ class PermissionController extends Controller
         }
 
         $parents = $model->listPermissionTree();
-
-        echo "<pre>";
-        var_dump($parents);
-        echo "<pre>";
-        exit();
-
         return $this->render('create', [
             'model' => $model,
             'parents' => $parents
@@ -98,28 +92,11 @@ class PermissionController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = CreatePermissionForm::findOne($id);
         $old_name = $model->name;
         if ($model->load(Yii::$app->request->post())) {
-            $transaction = Yii::$app->getDb()->beginTransaction();
-            try {
-                $model->updated_at = time();
-                $model->save();
-                if ($old_name != $model->name) {
-                    AuthItemChild::updateAll(["parent" => $model->name], ["parent" => $old_name]);
-                    AuthItemChild::updateAll(["child" => $model->name], ["child" => $old_name]);
-                    AuthAssignment::updateAll(["item_name" => $model->name], ["item_name" => $old_name]);
-                }
-
-                $transaction->commit();
+            if ($model->updatePermission($old_name))
                 return $this->redirect(['view', 'id' => $model->name]);
-            } catch (Exception $e) {
-                Yii::$app->session->setFlash('error', $e->getName());
-                $transaction->rollBack();
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
-            }
         }
 
         $parents = $model->listPermissionTree();
