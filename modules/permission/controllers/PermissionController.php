@@ -77,6 +77,12 @@ class PermissionController extends Controller
         }
 
         $parents = $model->listPermissionTree();
+
+        echo "<pre>";
+        var_dump($parents);
+        echo "<pre>";
+        exit();
+
         return $this->render('create', [
             'model' => $model,
             'parents' => $parents

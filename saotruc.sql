@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 07:54 PM
+-- Generation Time: Dec 09, 2018 at 07:58 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -51,7 +51,7 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 CREATE TABLE `auth_item` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `type` smallint(6) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
   `rule_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `data` blob,
   `created_at` int(11) DEFAULT NULL,
@@ -63,8 +63,9 @@ CREATE TABLE `auth_item` (
 --
 
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
-('admin', 1, NULL, NULL, NULL, 1542959944, 1542959944),
-('author', 1, NULL, NULL, NULL, 1542959944, 1542959944),
+('admin', 1, '', NULL, NULL, 1542959944, 1542959944),
+('author', 1, '', NULL, NULL, 1542959944, 1542959944),
+('CreateProduct', 2, '', '', NULL, 1544381778, 1544381778),
 ('Product', 2, '', '', NULL, 1544381567, 1544381567);
 
 -- --------------------------------------------------------

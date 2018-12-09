@@ -64,7 +64,6 @@ class CreatePermissionForm extends AuthItem
                 $transaction->commit();
                 return $this;
             } catch (\Exception $e) {
-                echo $e;exit();
                 $transaction->rollBack();
                 return null;
             }
