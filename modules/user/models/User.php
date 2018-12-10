@@ -86,7 +86,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         ];
     }
 
-    public function getRoles()
+    public function getAssignments()
     {
         return $this->hasMany(AuthAssignment::className(), ['user_id' => 'user_id']);
     }

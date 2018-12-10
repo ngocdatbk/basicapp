@@ -185,4 +185,22 @@ class AuthItem extends \yii\db\ActiveRecord
         }
         return $listAllPermission;
     }
+
+    public function listPermissionOfUser($user_id)
+    {
+        $listAllPermission = $this->listPermissionTree('list');
+        $user_roles = AuthAssignment::find()->where(['user_id' => $user_id])->column();
+        $listAssignedPermission = AuthItemChild::find()
+            ->innerJoin(AuthItem::tableName(),'auth_item.name = auth_item_child.child')
+            ->select(['parent','child'])
+            ->where(['type' => 2, 'parent' => $user_roles])
+            ->indexBy('child')
+            ->asArray()
+            ->column();
+
+        foreach ($listAssignedPermission as $name => $assignedPermission) {
+            $listAllPermission[$name]['allow'] = true;
+        }
+        return $listAllPermission;
+    }
 }

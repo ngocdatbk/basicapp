@@ -41,7 +41,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find()->with('roles');
+        $query = User::find()->with('assignments');
 
         // add conditions that should always apply here
 

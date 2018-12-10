@@ -32,15 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone_number',
             [
                 'attribute' => 'roles',
+                'format' => 'raw',
                 'value' => function ($model){
-                    return var_dump($model->roles);
-                    if ($model->roles) {
-//                        $model->roles = ArrayHelper::getColumn($model->roles,'item_name');
-                        return 'xxx';
-                        return count($model->roles);
-                        return implode(', ', $model->roles);
+                    if ($model->assignments) {
+                        $assignments = ArrayHelper::getColumn($model->assignments, function ($element) {
+                            return Html::a($element['item_name'], ['/permission/role/assign-permission', 'id' => $element['item_name']], ['target' => '_blank']);
+                        });
+                        return implode(', ', $assignments);
                     } else
-                        return 'xxx';
+                        return '';
                 }
             ],
             [
@@ -67,7 +67,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => ['datetime', 'short'],
             ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {view_permission} {delete}',
+                'buttons' => [
+                    'view_permission' => function ($url, $model,$key) {
+                        return Html::a('<span class="glyphicon glyphicon-ban-circle"></span>', ['view-permission', 'id' => $key], [
+                            'title' => Yii::t('user.user', 'View permission'),
+                        ]);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 </div>

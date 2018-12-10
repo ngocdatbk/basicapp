@@ -12,6 +12,7 @@ use app\modules\permission\models\AuthAssignment;
 use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ArrayDataProvider;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -45,6 +46,26 @@ class UserController extends Controller
         $model->roles = implode(', ', $model->roles);
         return $this->render('view', [
             'model' => $model
+        ]);
+    }
+
+    public function actionViewPermission($id)
+    {
+        $model = $this->findModel($id);
+
+        $authItem = new AuthItem();
+        $listPermission = $authItem->listPermissionOfUser($id);
+//        echo "<pre>";
+//        var_dump($listPermission);
+//        echo "<pre>";
+//        exit();
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $listPermission,
+            'pagination' => false
+        ]);
+        return $this->render('view_permission', [
+            'model' => $model,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
