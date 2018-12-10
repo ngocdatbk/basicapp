@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\Alert;
 use app\helpers\ArrayHelper;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\user\models\User */
@@ -35,6 +36,15 @@ $this->params['breadcrumbs'][] = Yii::t('user.field', 'Update');
                     <?= $form->field($model, 'password')->passwordInput(); ?>
                     <?= $form->field($model, 'is_admin')->checkbox(); ?>
                     <?= $form->field($model, 'is_active')->radioList([1 => Yii::t('user.field' , 'Active'), 0 => Yii::t('user.field' , 'Inactive')]) ?>
+                    <?= $form->field($model, 'roles')->widget(Select2::classname(), [
+                        'data' => $all_roles,
+                        'options' => ['placeholder' => 'Select roles ...', 'multiple' => true],
+                        'pluginOptions' => [
+                            'tags' => true,
+                            'tokenSeparators' => [',', ' '],
+                            'maximumInputLength' => 10
+                        ],
+                    ])->label('Tag Multiple') ?>
                 </div>
 
                 <div class="box-footer">

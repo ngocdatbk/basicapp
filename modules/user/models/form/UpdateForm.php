@@ -7,6 +7,7 @@ use app\modules\user\models\User;
 use app\modules\user\models\UserAuth;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
+use app\modules\permission\models\AuthAssignment;
 
 class UpdateForm extends User
 {
@@ -27,6 +28,7 @@ class UpdateForm extends User
     public function rules()
     {
         return [
+            [['roles'], 'safe'],
             [['password'], 'string', 'min' => 6],
             [['email', 'username', 'fullname'], 'required'],
             [['email'], 'email'],
@@ -70,47 +72,55 @@ class UpdateForm extends User
         return ArrayHelper::merge($attributeLabels, $attributeLabels_extend);
     }
 
-    public function updateUser()
+    public function updateUser($old_roles)
     {
         if($this->validate())
         {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {
-                if ($this->save()) {
-                    //Update password if changed
-                    if ($this->password) {
-                        $userAuth = UserAuth::findOne(['user_id' => $this->user_id]);
+                $this->save();
+                if ($this->password) {
+                    $userAuth = UserAuth::findOne(['user_id' => $this->user_id]);
 
-                        if (!$userAuth) {
-                            $userAuth = new UserAuth();
-                            $userAuth->user_id = $this->user_id;
-                            $userAuth->generateAuthKey();
-                        }
-
-                        $userAuth->setPassword($this->password);
-                        if (!$userAuth->save()) {
-                            $transaction->rollBack();
-                            return null;
-
-                        }
+                    if (!$userAuth) {
+                        $userAuth = new UserAuth();
+                        $userAuth->user_id = $this->user_id;
+                        $userAuth->generateAuthKey();
                     }
-                    $transaction->commit();
-                    return $this;
+
+                    $userAuth->setPassword($this->password);
+                    $userAuth->save();
                 }
 
+                $new_roles = $this->roles;
 
+                $insert_roles = array_diff($new_roles, $old_roles);
+                $delete_roles = array_diff($old_roles, $new_roles);
+
+                if ($insert_roles) {
+                    $rows = [];
+                    foreach ($insert_roles as $rid => $role) {
+                        $rows[] = ['item_name' => $role, 'user_id' => $this->user_id, 'created_at' => time()];
+                    }
+                    Yii::$app->db->createCommand()->batchInsert(AuthAssignment::tableName(), ['item_name', 'user_id', 'created_at'], $rows)->execute();
+                }
+                if ($delete_roles)
+                    AuthAssignment::deleteAll(['user_id' => $this->user_id, 'item_name' => $delete_roles]);
+
+                $transaction->commit();
+                return $this;
             } catch (\Exception $e) {
                 $transaction->rollBack();
-                throw $e;
             }
         }
 
         return null;
     }
 
-    protected function findModel($id)
+    public function findModel($id)
     {
         if (($model = UpdateForm::findOne($id)) !== null) {
+            $model->roles = AuthAssignment::find()->where(['user_id' => $model->user_id])->column();
             return $model;
         }
 

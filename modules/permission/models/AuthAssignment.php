@@ -56,4 +56,9 @@ class AuthAssignment extends \yii\db\ActiveRecord
     {
         return $this->hasOne(AuthItem::className(), ['name' => 'item_name']);
     }
+
+    public static function deleteByUser($userId)
+    {
+        return AuthAssignment::deleteAll(['user_id' => $userId]);
+    }
 }

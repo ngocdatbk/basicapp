@@ -13,6 +13,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use yii\db\Exception;
+use yii\data\ArrayDataProvider;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.
@@ -40,11 +41,14 @@ class PermissionController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AuthItemSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,Item::TYPE_PERMISSION);
+        $model = new AuthItem();
+        $listPermission = $model->listPermissionTree('list');
 
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $listPermission,
+            'pagination' => false
+        ]);
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -76,7 +80,7 @@ class PermissionController extends Controller
                 return $this->redirect(['view', 'id' => $model->name]);
         }
 
-        $parents = $model->listPermissionTree();
+        $parents = $model->listPermissionTree('input');
         return $this->render('create', [
             'model' => $model,
             'parents' => $parents
@@ -99,7 +103,7 @@ class PermissionController extends Controller
                 return $this->redirect(['view', 'id' => $model->name]);
         }
 
-        $parents = $model->listPermissionTree();
+        $parents = $model->listPermissionTree('input', [$old_name => $old_name]);
         return $this->render('update', [
             'model' => $model,
             'parents' => $parents

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\user\models\UserSearch */
@@ -26,14 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'fullname',
-            'username',
             'gender',
             'email:email',
             'phone_number',
             [
+                'attribute' => 'roles',
+                'value' => function ($model){
+                    return var_dump($model->roles);
+                    if ($model->roles) {
+//                        $model->roles = ArrayHelper::getColumn($model->roles,'item_name');
+                        return 'xxx';
+                        return count($model->roles);
+                        return implode(', ', $model->roles);
+                    } else
+                        return 'xxx';
+                }
+            ],
+            [
                 'attribute' => 'is_active',
                 'value' => function ($model){
-                    if($model->is_active)
+                    if ($model->is_active)
                         return Yii::t("app.global",'Active');
                     else
                         return Yii::t("app.global",'Inactive');
@@ -42,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'is_admin',
                 'value' => function ($model){
-                    if($model->is_active)
+                    if ($model->is_active)
                         return Yii::t("app.global",'Admin');
                     else
                         return '';

@@ -111,7 +111,7 @@ class AuthItem extends \yii\db\ActiveRecord
         return $this->hasMany(AuthItem::className(), ['name' => 'parent'])->viaTable('auth_item_child', ['child' => 'name']);
     }
 
-    public function listPermissionTree()
+    public function listPermissionTree($for, $except = [])
     {
         $authItems = $this->find()
             ->select(['name','description'])
@@ -143,32 +143,46 @@ class AuthItem extends \yii\db\ActiveRecord
         }
         $permissions['root'] = $roots;
 
-        return $this->buildTree('', $permissions, $permissions['root']);
+        $except['root'] = 'root';
+        return $this->buildTree('', $permissions, $permissions['root'], $for, $except);
     }
 
-    public function buildTree($pre, $listChilds, $root)
+    public function buildTree($pre, $listChilds, $root, $for, $except)
     {
         $result = [];
-        $result[$root['name']] = $pre.$root['description'];
+        if (!isset($except[$root['name']])) {
+            if ($for == 'input')
+                $result[$root['name']] = $pre.$root['description'];
+            else
+                $result[$root['name']] = array('name' => $root['name'], 'description' => $pre.$root['description']);
+        }
+
         if (isset($root['children'])) {
             $childs = $root['children'];
             foreach ($childs as $name => $child) {
-                $result = array_merge($result, $this->buildTree('-'.$pre, $listChilds, $listChilds[$name]));
+                if (isset($except[$name]))
+                    continue;
+                $result = array_merge($result, $this->buildTree('----'.$pre, $listChilds, $listChilds[$name], $for, $except));
             }
         }
 
         return $result;
     }
 
-//    public function buildTree($listChilds, $root)
-//    {
-//        if (isset($root['children'])) {
-//            $childs = $root['children'];
-//            foreach ($childs as $name => $child) {
-//                $root['children'][$name] = $this->buildTree($listChilds, $listChilds[$name]);
-//            }
-//        }
-//
-//        return $root;
-//    }
+    public function listPermissionWithAssigned()
+    {
+        $listAllPermission = $this->listPermissionTree('list');
+        $listAssignedPermission = AuthItemChild::find()
+            ->innerJoin(AuthItem::tableName(),'auth_item.name = auth_item_child.child')
+            ->select(['parent','child'])
+            ->where(['type' => 2, 'parent' => $this->name])
+            ->indexBy('child')
+            ->asArray()
+            ->column();
+
+        foreach ($listAssignedPermission as $name => $assignedPermission) {
+            $listAllPermission[$name]['allow'] = true;
+        }
+        return $listAllPermission;
+    }
 }

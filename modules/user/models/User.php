@@ -5,6 +5,7 @@ namespace app\modules\user\models;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\base\NotSupportedException;
+use app\modules\permission\models\AuthAssignment;
 
 /**
  * This is the model class for table "user".
@@ -22,6 +23,7 @@ use yii\base\NotSupportedException;
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     private $_userAuth = false;
+    public $roles;
 
     const USER_INACTIVE = 0;
     const USER_ACTIVE = 1;
@@ -41,6 +43,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
+            [['roles'], 'safe'],
             [['email', 'username', 'fullname'], 'required'],
             [['email'], 'email'],
             [['email'], 'unique', 'targetClass' => '\app\modules\user\models\User'],
@@ -81,6 +84,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'is_admin' => 'Is Admin',
             'last_login' => 'Last Login',
         ];
+    }
+
+    public function getRoles()
+    {
+        return $this->hasMany(AuthAssignment::className(), ['user_id' => 'user_id']);
     }
 
     /**
@@ -151,24 +159,20 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     /**
      * @inheritdoc
      */
-    public function delete()
+    public function deleteUser()
     {
         $transaction = static::getDb()->beginTransaction();
 
         try {
-            $result = parent::delete();
+            parent::delete();
+            UserAuth::deleteUserAuth($this->user_id);
+            AuthAssignment::deleteByUser($this->user_id);
 
-            if ($result === false || !UserAuth::deleteUserAuth($this->user_id)) {
-                $transaction->rollBack();
-                $result = false;
-            } else {
-                $transaction->commit();
-            }
-
-            return $result;
+            $transaction->commit();
+            return true;
         } catch (\Exception $e) {
             $transaction->rollBack();
-            throw $e;
+            return false;
         }
     }
 

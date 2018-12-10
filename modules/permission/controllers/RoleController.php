@@ -12,6 +12,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use yii\db\Exception;
+use yii\data\ArrayDataProvider;
+use yii\helpers\ArrayHelper;
 
 /**
  * RoleController implements the CRUD actions for AuthItem model.
@@ -48,6 +50,52 @@ class RoleController extends Controller
         ]);
     }
 
+    public function actionAssignPermission($id)
+    {
+        $model = $this->findModel($id);
+        $listPermission = $model->listPermissionWithAssigned();
+
+        if (Yii::$app->request->post()) {
+            $new_permission = array_keys(Yii::$app->request->post('permission'));
+            $old_permission = AuthItemChild::find()
+                ->innerJoin(AuthItem::tableName(),'auth_item.name = auth_item_child.child')
+                ->select(['child','parent'])
+                ->where(['type' => 2, 'parent' => $model->name])
+                ->asArray()
+                ->column();
+
+            $insert_permission = array_diff($new_permission, $old_permission);
+            $delete_permission = array_diff($old_permission, $new_permission);
+
+            $transaction = Yii::$app->getDb()->beginTransaction();
+            try {
+                if ($insert_permission) {
+                    $rows = [];
+                    foreach ($insert_permission as $cid => $child) {
+                        $rows[] = ['parent' => $model->name, 'child' => $child];
+                    }
+                    Yii::$app->db->createCommand()->batchInsert(AuthItemChild::tableName(), ['parent', 'child'], $rows)->execute();
+                }
+                if ($delete_permission)
+                    AuthItemChild::deleteAll(['parent' => $model->name, 'child' => $delete_permission]);
+                $transaction->commit();
+                return $this->redirect(['view', 'id' => $model->name]);
+            } catch (Exception $e) {
+                $transaction->rollBack();
+            }
+        }
+
+
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $listPermission,
+            'pagination' => false
+        ]);
+        return $this->render('assign_permission', [
+            'model' => $model,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single AuthItem model.
      * @param string $id
@@ -75,7 +123,7 @@ class RoleController extends Controller
             $model->created_at = time();
             $model->updated_at = time();
             if($model->save())
-                return $this->redirect(['view', 'id' => $model->name]);
+                return $this->redirect(['assign-permission', 'id' => $model->name]);
         }
 
         return $this->render('create', [

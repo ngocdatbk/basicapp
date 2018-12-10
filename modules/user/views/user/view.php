@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute' => 'is_active',
                             'value' => $model->is_active ? Yii::t('user.field', 'Active') : Yii::t('user.field', 'Inactive'),
                         ],
+                        'roles'
                     ],
                 ]) ?>
             </div>

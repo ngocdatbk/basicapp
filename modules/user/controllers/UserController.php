@@ -7,6 +7,8 @@ use app\modules\user\models\User;
 use app\modules\user\models\UserSearch;
 use app\modules\user\models\form\CreateForm;
 use app\modules\user\models\form\UpdateForm;
+use app\modules\permission\models\AuthItem;
+use app\modules\permission\models\AuthAssignment;
 use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -39,8 +41,10 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $model->roles = implode(', ', $model->roles);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model
         ]);
     }
 
@@ -61,8 +65,10 @@ class UserController extends Controller
                 Yii::$app->session->setFlash('error', Yii::t('user.field', 'Error'));
         }
 
+        $all_roles = AuthItem::find()->select(['description', 'name'])->where(['type' => 1])->indexBy('name')->column();
         return $this->render('create', [
-            'model' => $model
+            'model' => $model,
+            'all_roles' => $all_roles
         ]);
     }
 
@@ -74,10 +80,11 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = UpdateForm::findOne($id);
+        $model = UpdateForm::findModel($id);
+        $old_roles = $model->roles;
 
-        if (Yii::$app->request->post()) {
-            if ($model->load(Yii::$app->request->post()) && $model->updateUser()) {
+        if (Yii::$app->request->post() && $model->load(Yii::$app->request->post())) {
+            if ($model->updateUser($old_roles)) {
                 Yii::$app->session->setFlash('success', Yii::t('user.field', 'Updated successfully.'));
                 return $this->redirect(['view', 'id' => $id]);
             } else {
@@ -85,8 +92,10 @@ class UserController extends Controller
             }
         }
 
+        $all_roles = AuthItem::find()->select(['description', 'name'])->where(['type' => 1])->indexBy('name')->column();
         return $this->render('update', [
             'model' => $model,
+            'all_roles' => $all_roles
         ]);
     }
 
@@ -99,7 +108,7 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->deleteUser();
 
         return $this->redirect(['index']);
     }
@@ -114,6 +123,7 @@ class UserController extends Controller
     protected function findModel($id)
     {
         if (($model = User::findOne($id)) !== null) {
+            $model->roles = AuthAssignment::find()->where(['user_id' => $model->user_id])->column();
             return $model;
         }
 

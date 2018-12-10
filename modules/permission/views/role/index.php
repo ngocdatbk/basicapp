@@ -29,7 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {assign_permission} {delete}',
+                'buttons' => [
+                    'assign_permission' => function ($url, $model,$key) {
+                        return Html::a('<span class="glyphicon glyphicon-ban-circle"></span>', ['assign-permission', 'id' => $key], [
+                            'title' => Yii::t('permission.permission', 'Assign permission'),
+                        ]);
+                    }
+                ],
+            ],
         ],
     ]); ?>
 </div>

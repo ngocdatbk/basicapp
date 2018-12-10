@@ -6,6 +6,7 @@ use Yii;
 use app\modules\user\models\User;
 use app\modules\user\models\UserAuth;
 use yii\helpers\ArrayHelper;
+use app\modules\permission\models\AuthAssignment;
 
 class CreateForm extends User
 {
@@ -59,22 +60,26 @@ class CreateForm extends User
         if ($this->validate()) {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {
-                if ($this->save()) {
-                    $userAuth = new UserAuth();
-                    $userAuth->user_id = $this->user_id;
-                    $userAuth->setPassword($this->password);
-                    $userAuth->generateAuthKey();
+                $this->save();
 
-                    if ($userAuth->save()) {
-                        $transaction->commit();
-                        return $this;
+                $userAuth = new UserAuth();
+                $userAuth->user_id = $this->user_id;
+                $userAuth->setPassword($this->password);
+                $userAuth->generateAuthKey();
+                $userAuth->save();
+
+                if ($this->roles) {
+                    $rows = [];
+                    foreach ($this->roles as $rid => $role) {
+                        $rows[] = ['item_name' => $role, 'user_id' => $this->user_id, 'created_at' => time()];
                     }
+                    Yii::$app->db->createCommand()->batchInsert(AuthAssignment::tableName(), ['item_name', 'user_id', 'created_at'], $rows)->execute();
                 }
 
-                $transaction->rollBack();
+                $transaction->commit();
+                return $this;
             } catch (\Exception $e) {
                 $transaction->rollBack();
-                throw $e;
             }
         }
 

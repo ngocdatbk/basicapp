@@ -32,8 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description:ntext',
             'rule_name',
-            'created_at',
-            'updated_at',
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
 
