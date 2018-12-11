@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = Yii::t('permission.permission', 'Assign permiss
                 },
             ],
         ],
+        'tableOptions' => ['class' => 'table table-striped table-bordered table-hover']
     ]); ?>
 
     <?php ActiveForm::end(); ?>

@@ -14,6 +14,7 @@ use yii\rbac\Item;
 use yii\db\Exception;
 use yii\data\ArrayDataProvider;
 use yii\helpers\ArrayHelper;
+use yii\filters\AccessControl;
 
 /**
  * RoleController implements the CRUD actions for AuthItem model.
@@ -26,6 +27,32 @@ class RoleController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view'],
+                        'roles' => ['Role'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['create'],
+                        'roles' => ['CreateRole'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['update'],
+                        'roles' => ['UpdateRole'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['delete'],
+                        'roles' => ['DeleteRole'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

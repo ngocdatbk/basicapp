@@ -51,6 +51,8 @@ class CreatePermissionForm extends AuthItem
         $this->type = Item::TYPE_PERMISSION;
         $this->created_at = time();
         $this->updated_at = time();
+        if(!$this->rule_name)
+            unset($this->rule_name);
         if ($this->validate()) {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {
@@ -75,6 +77,8 @@ class CreatePermissionForm extends AuthItem
     public function updatePermission($old_name)
     {
         $this->updated_at = time();
+        if(!$this->rule_name)
+            unset($this->rule_name);
         if ($this->validate()) {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {

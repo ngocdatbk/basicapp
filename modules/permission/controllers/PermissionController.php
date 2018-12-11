@@ -15,6 +15,7 @@ use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use yii\db\Exception;
 use yii\data\ArrayDataProvider;
+use yii\filters\AccessControl;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.
@@ -27,6 +28,32 @@ class PermissionController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view'],
+                        'roles' => ['Permission'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['create'],
+                        'roles' => ['CreatePermission'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['update'],
+                        'roles' => ['UpdatePermission'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['delete'],
+                        'roles' => ['DeletePermission'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
