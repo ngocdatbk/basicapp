@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 10, 2018 lúc 11:12 AM
+-- Thời gian đã tạo: Th12 11, 2018 lúc 11:17 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -39,7 +39,9 @@ CREATE TABLE `auth_assignment` (
 --
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
-('Admin', '5', 1544436446);
+('Admin', '5', 1544436446),
+('Modarator', '1', 1544518164),
+('Sale', '8', 1544518175);
 
 -- --------------------------------------------------------
 
@@ -63,21 +65,50 @@ CREATE TABLE `auth_item` (
 
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
 ('Admin', 1, 'Admin', NULL, NULL, 1542959944, 1544413393),
-('CreateProduct', 2, 'Create product', '', NULL, 1544381778, 1544382919),
-('CreateSetting', 2, 'Create Setting', '', NULL, 1544429235, 1544429235),
-('CreateUser', 2, 'Create User', '', NULL, 1544412139, 1544412139),
-('DeleteProduct', 2, 'Delete Product', '', NULL, 1544382106, 1544382106),
-('DeleteSetting', 2, 'Delete Setting', '', NULL, 1544429277, 1544429277),
-('DeleteUser', 2, 'Delete User', '', NULL, 1544413200, 1544413200),
+('CreateCronTask', 2, 'Create Cron Task', NULL, NULL, 1544516838, 1544516838),
+('CreateOrder', 2, 'Create Order', NULL, NULL, 1544516696, 1544516696),
+('CreatePermission', 2, 'Create Permission', NULL, NULL, 1544517120, 1544517120),
+('CreateProduct', 2, 'Create product', NULL, NULL, 1544381778, 1544382919),
+('CreateProductCategory', 2, 'Create Product Category', NULL, NULL, 1544516592, 1544516592),
+('CreateRole', 2, 'Create Role', NULL, NULL, 1544517188, 1544517188),
+('CreateRule', 2, 'Create Rule', NULL, NULL, 1544517246, 1544517246),
+('CreateSetting', 2, 'Create Setting', NULL, NULL, 1544429235, 1544429235),
+('CreateUser', 2, 'Create User', NULL, NULL, 1544412139, 1544412139),
+('CronTask', 2, 'Cron Task', NULL, NULL, 1544516812, 1544516812),
+('DeleteCronTask', 2, 'Delete Cron Task', NULL, NULL, 1544516882, 1544516882),
+('DeleteOrder', 2, 'Delete Order', NULL, NULL, 1544516754, 1544516754),
+('DeletePermission', 2, 'Delete Permission', NULL, NULL, 1544517164, 1544517164),
+('DeleteProduct', 2, 'Delete Product', NULL, NULL, 1544382106, 1544382106),
+('DeleteProductCategory', 2, 'Delete Product Category', NULL, NULL, 1544516636, 1544516636),
+('DeleteRole', 2, 'Delete Role', NULL, NULL, 1544517226, 1544517226),
+('DeleteRule', 2, 'Delete Rule', NULL, NULL, 1544517282, 1544517282),
+('DeleteSetting', 2, 'Delete Setting', NULL, NULL, 1544429277, 1544429277),
+('DeleteUser', 2, 'Delete User', NULL, NULL, 1544413200, 1544413200),
+('MenuPermission', 2, 'Menu Permission', NULL, NULL, 1544500342, 1544519583),
+('MenuProduct', 2, 'Menu Product', NULL, NULL, 1544516518, 1544516518),
+('MenuReport', 2, 'Menu Report', NULL, NULL, 1544433107, 1544516933),
+('MenuSetting', 2, 'Menu Setting', NULL, NULL, 1544517010, 1544517010),
+('MenuSystemTool', 2, 'Menu System Tool', NULL, NULL, 1544516781, 1544516952),
+('MenuUser', 2, 'Menu User', NULL, NULL, 1544516972, 1544516972),
 ('Modarator', 1, 'Modarator', NULL, NULL, 1544433088, 1544433088),
-('Product', 2, 'Product', '', NULL, 1544381567, 1544381567),
-('Report', 2, 'Report', '', NULL, 1544433107, 1544433107),
+('Order', 2, 'Order', NULL, NULL, 1544516673, 1544516673),
+('Permission', 2, 'Permission', NULL, NULL, 1544517056, 1544517056),
+('Product', 2, 'Product', NULL, NULL, 1544381567, 1544516536),
+('ProductCategory', 2, 'Product Category', NULL, NULL, 1544516559, 1544516559),
+('Role', 2, 'Role', NULL, NULL, 1544517073, 1544517073),
+('Rule', 2, 'Rule', NULL, NULL, 1544517089, 1544519839),
 ('Sale', 1, 'Sale', NULL, NULL, 1542959944, 1544413370),
-('Setting', 2, 'Setting', '', NULL, 1544429151, 1544429151),
-('UpdateProduct', 2, 'Update Product', '', NULL, 1544382073, 1544382073),
-('UpdateSetting', 2, 'Update Setting', '', NULL, 1544429261, 1544429261),
-('UpdateUser', 2, 'Update User', '', NULL, 1544412159, 1544413165),
-('User', 2, 'User', '', NULL, 1544412120, 1544412120);
+('Setting', 2, 'Setting', NULL, NULL, 1544429151, 1544517024),
+('UpdateCronTask', 2, 'Update Cron Task', NULL, NULL, 1544516857, 1544516857),
+('UpdateOrder', 2, 'Update Order', NULL, NULL, 1544516723, 1544516723),
+('UpdatePermission', 2, 'Update Permission', NULL, NULL, 1544517137, 1544517137),
+('UpdateProduct', 2, 'Update Product', NULL, NULL, 1544382073, 1544382073),
+('UpdateProductCategory', 2, 'Update Product Category', NULL, NULL, 1544516614, 1544516614),
+('UpdateRole', 2, 'Update Role', NULL, NULL, 1544517206, 1544517206),
+('UpdateRule', 2, 'Update Rule', NULL, NULL, 1544517263, 1544517263),
+('UpdateSetting', 2, 'Update Setting', NULL, NULL, 1544429261, 1544429261),
+('UpdateUser', 2, 'Update User', NULL, NULL, 1544412159, 1544413165),
+('User', 2, 'User', NULL, NULL, 1544412120, 1544516986);
 
 -- --------------------------------------------------------
 
@@ -95,15 +126,47 @@ CREATE TABLE `auth_item_child` (
 --
 
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
-('Admin', 'Product'),
-('Admin', 'User'),
-('Modarator', 'Product'),
-('Modarator', 'Report'),
-('Modarator', 'Setting'),
+('Admin', 'MenuPermission'),
+('Admin', 'MenuProduct'),
+('Admin', 'MenuReport'),
+('Admin', 'MenuSetting'),
+('Admin', 'MenuSystemTool'),
+('Admin', 'MenuUser'),
+('CronTask', 'CreateCronTask'),
+('CronTask', 'DeleteCronTask'),
+('CronTask', 'UpdateCronTask'),
+('MenuPermission', 'Permission'),
+('MenuPermission', 'Role'),
+('MenuPermission', 'Rule'),
+('MenuProduct', 'Product'),
+('MenuProduct', 'ProductCategory'),
+('MenuReport', 'Order'),
+('MenuSetting', 'Setting'),
+('MenuSystemTool', 'CronTask'),
+('MenuUser', 'User'),
+('Modarator', 'MenuProduct'),
+('Modarator', 'MenuReport'),
+('Modarator', 'MenuSetting'),
+('Modarator', 'MenuSystemTool'),
+('Order', 'CreateOrder'),
+('Order', 'DeleteOrder'),
+('Order', 'UpdateOrder'),
+('Permission', 'CreatePermission'),
+('Permission', 'DeletePermission'),
+('Permission', 'UpdatePermission'),
 ('Product', 'CreateProduct'),
 ('Product', 'DeleteProduct'),
 ('Product', 'UpdateProduct'),
-('Sale', 'Report'),
+('ProductCategory', 'CreateProductCategory'),
+('ProductCategory', 'DeleteProductCategory'),
+('ProductCategory', 'UpdateProductCategory'),
+('Role', 'CreateRole'),
+('Role', 'DeleteRole'),
+('Role', 'UpdateRole'),
+('Rule', 'CreateRule'),
+('Rule', 'DeleteRule'),
+('Rule', 'UpdateRule'),
+('Sale', 'MenuReport'),
 ('Setting', 'CreateSetting'),
 ('Setting', 'DeleteSetting'),
 ('Setting', 'UpdateSetting'),
@@ -129,7 +192,7 @@ CREATE TABLE `auth_rule` (
 --
 
 INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
-('isAuthor', 0x4f3a31393a226170705c726261635c417574686f7252756c65223a333a7b733a343a226e616d65223b733a383a226973417574686f72223b733a393a22637265617465644174223b693a313534323935393934343b733a393a22757064617465644174223b693a313534323935393934343b7d, 1542959944, 1542959944);
+('isAuthor', 0x4f3a31393a226170705c726261635c417574686f7252756c65223a333a7b733a343a226e616d65223b733a383a226973417574686f72223b733a393a22637265617465644174223b4e3b733a393a22757064617465644174223b693a313534343439393435383b7d, 1544499373, 1544499458);
 
 -- --------------------------------------------------------
 
@@ -155,7 +218,7 @@ CREATE TABLE `cronjob` (
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
-(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544436610, 1544436670, 1, 1);
+(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544523311, 1544523371, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -480,7 +543,105 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 ('SendMail', 1544435710, 'Success.'),
 ('SendMail', 1544436010, 'Success.'),
 ('SendMail', 1544436310, 'Success.'),
-('SendMail', 1544436610, 'Success.');
+('SendMail', 1544436610, 'Success.'),
+('SendMail', 1544494210, 'Success.'),
+('SendMail', 1544494510, 'Success.'),
+('SendMail', 1544494810, 'Success.'),
+('SendMail', 1544495110, 'Success.'),
+('SendMail', 1544495410, 'Success.'),
+('SendMail', 1544495710, 'Success.'),
+('SendMail', 1544496010, 'Success.'),
+('SendMail', 1544496310, 'Success.'),
+('SendMail', 1544496610, 'Success.'),
+('SendMail', 1544496910, 'Success.'),
+('SendMail', 1544497210, 'Success.'),
+('SendMail', 1544497510, 'Success.'),
+('SendMail', 1544497810, 'Success.'),
+('SendMail', 1544498110, 'Success.'),
+('SendMail', 1544498410, 'Success.'),
+('SendMail', 1544498710, 'Success.'),
+('SendMail', 1544499010, 'Success.'),
+('SendMail', 1544499310, 'Success.'),
+('SendMail', 1544499610, 'Success.'),
+('SendMail', 1544499910, 'Success.'),
+('SendMail', 1544500210, 'Success.'),
+('SendMail', 1544500510, 'Success.'),
+('SendMail', 1544500810, 'Success.'),
+('SendMail', 1544501110, 'Success.'),
+('SendMail', 1544501410, 'Success.'),
+('SendMail', 1544501710, 'Success.'),
+('SendMail', 1544502010, 'Success.'),
+('SendMail', 1544502310, 'Success.'),
+('SendMail', 1544502610, 'Success.'),
+('SendMail', 1544502910, 'Success.'),
+('SendMail', 1544503210, 'Success.'),
+('SendMail', 1544503510, 'Success.'),
+('SendMail', 1544503810, 'Success.'),
+('SendMail', 1544504110, 'Success.'),
+('SendMail', 1544504410, 'Success.'),
+('SendMail', 1544504710, 'Success.'),
+('SendMail', 1544505010, 'Success.'),
+('SendMail', 1544505310, 'Success.'),
+('SendMail', 1544505610, 'Success.'),
+('SendMail', 1544505910, 'Success.'),
+('SendMail', 1544506210, 'Success.'),
+('SendMail', 1544506510, 'Success.'),
+('SendMail', 1544506810, 'Success.'),
+('SendMail', 1544507110, 'Success.'),
+('SendMail', 1544507410, 'Success.'),
+('SendMail', 1544507710, 'Success.'),
+('SendMail', 1544508010, 'Success.'),
+('SendMail', 1544508310, 'Success.'),
+('SendMail', 1544508610, 'Success.'),
+('SendMail', 1544508910, 'Success.'),
+('SendMail', 1544509211, 'Success.'),
+('SendMail', 1544509511, 'Success.'),
+('SendMail', 1544509811, 'Success.'),
+('SendMail', 1544510111, 'Success.'),
+('SendMail', 1544510411, 'Success.'),
+('SendMail', 1544510711, 'Success.'),
+('SendMail', 1544511011, 'Success.'),
+('SendMail', 1544511311, 'Success.'),
+('SendMail', 1544511611, 'Success.'),
+('SendMail', 1544511911, 'Success.'),
+('SendMail', 1544512211, 'Success.'),
+('SendMail', 1544512511, 'Success.'),
+('SendMail', 1544512811, 'Success.'),
+('SendMail', 1544513111, 'Success.'),
+('SendMail', 1544513411, 'Success.'),
+('SendMail', 1544513711, 'Success.'),
+('SendMail', 1544514011, 'Success.'),
+('SendMail', 1544514311, 'Success.'),
+('SendMail', 1544514611, 'Success.'),
+('SendMail', 1544514911, 'Success.'),
+('SendMail', 1544515211, 'Success.'),
+('SendMail', 1544515511, 'Success.'),
+('SendMail', 1544515811, 'Success.'),
+('SendMail', 1544516111, 'Success.'),
+('SendMail', 1544516411, 'Success.'),
+('SendMail', 1544516711, 'Success.'),
+('SendMail', 1544517011, 'Success.'),
+('SendMail', 1544517311, 'Success.'),
+('SendMail', 1544517611, 'Success.'),
+('SendMail', 1544517911, 'Success.'),
+('SendMail', 1544518211, 'Success.'),
+('SendMail', 1544518511, 'Success.'),
+('SendMail', 1544518811, 'Success.'),
+('SendMail', 1544519111, 'Success.'),
+('SendMail', 1544519411, 'Success.'),
+('SendMail', 1544519711, 'Success.'),
+('SendMail', 1544520011, 'Success.'),
+('SendMail', 1544520311, 'Success.'),
+('SendMail', 1544520611, 'Success.'),
+('SendMail', 1544520911, 'Success.'),
+('SendMail', 1544521211, 'Success.'),
+('SendMail', 1544521511, 'Success.'),
+('SendMail', 1544521811, 'Success.'),
+('SendMail', 1544522111, 'Success.'),
+('SendMail', 1544522411, 'Success.'),
+('SendMail', 1544522711, 'Success.'),
+('SendMail', 1544523011, 'Success.'),
+('SendMail', 1544523311, 'Success.');
 
 -- --------------------------------------------------------
 
@@ -777,8 +938,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
-(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544408800),
-(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1543388053),
+(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544519922),
+(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1544519931),
 (6, 'khucngocdat1989', '', 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
 (8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 1, 1543388199);
 
@@ -799,7 +960,7 @@ CREATE TABLE `user_auth` (
 --
 
 INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
-(1, 'nr2-PnAs9CpYIbJo3m-1HcsHzM9R-Bte', '$2y$13$GNcr9gnqqvaOq53Uxn7u5eurhjXOiqAZ00EP/ht821fb8HnV5RqVu'),
+(1, 'nr2-PnAs9CpYIbJo3m-1HcsHzM9R-Bte', '$2y$13$59Xv2p02ThYjDXj7y9nM.euPK5sgqc2I4rIjVrqp/VZIIqKYVxBS6'),
 (5, 'alsdm8kJ1FXg62Fi-hAeNnuL_3wXwOQo', '$2y$13$nLGbFp.ykqJCJcEId0NDqulkZkNEcIiK.ymFAIJIpXA9SVte5IjoO'),
 (6, '9i5e9bYVmnP6H6mPfNDXw8ko7CfWFNWx', '$2y$13$oSHSaNDYmmGb73lMNj.Ql.0qlkTIGEGfXfCWoph1x1KySsbsIIIbq'),
 (8, 'ECVM8FVob1yx3e3JEi7lrbe3jNKayjJG', '$2y$13$i1DrBuSq/.tcatqZIRUs8eU/yfE5GP9T4RZ4ULe5QDkIvpPIyNvxK');
