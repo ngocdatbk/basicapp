@@ -17,7 +17,13 @@ use kartik\widgets\Select2;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'rule_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'rule_name')->widget(Select2::classname(), [
+        'data' => $rules,
+        'options' => ['placeholder' => Yii::t('permission.permission', 'Select a rule')],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]) ?>
 
     <?= $form->field($model, 'parent')->widget(Select2::classname(), [
         'data' => $parents,

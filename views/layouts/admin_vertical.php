@@ -98,6 +98,7 @@ AppAsset::register($this);
                                     <ul class="nav nav-list tree lv1">
                                         <li><a href="<?= Url::to('/permission/permission') ?>"> Manager permissions</a></li>
                                         <li><a href="<?= Url::to('/permission/role') ?>"> Manager roles</a></li>
+                                        <li><a href="<?= Url::to('/permission/rule') ?>"> Manager rules</a></li>
                                     </ul>
                                 </li>
                                 <li class="divider"></li>

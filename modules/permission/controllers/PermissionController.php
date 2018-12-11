@@ -4,6 +4,7 @@ namespace app\modules\permission\controllers;
 
 use Yii;
 use app\modules\permission\models\AuthItem;
+use app\modules\permission\models\AuthRule;
 use app\modules\permission\models\CreatePermissionForm;
 use app\modules\permission\models\AuthAssignment;
 use app\modules\permission\models\AuthItemChild;
@@ -81,9 +82,12 @@ class PermissionController extends Controller
         }
 
         $parents = $model->listPermissionTree('input');
+        $rules = AuthRule::find()->indexBy('name')->column();
+
         return $this->render('create', [
             'model' => $model,
-            'parents' => $parents
+            'parents' => $parents,
+            'rules' => $rules
         ]);
     }
 
@@ -104,9 +108,11 @@ class PermissionController extends Controller
         }
 
         $parents = $model->listPermissionTree('input', [$old_name => $old_name]);
+        $rules = AuthRule::find()->indexBy('name')->column();
         return $this->render('update', [
             'model' => $model,
-            'parents' => $parents
+            'parents' => $parents,
+            'rules' => $rules
         ]);
     }
 

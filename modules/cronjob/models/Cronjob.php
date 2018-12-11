@@ -41,6 +41,7 @@ class Cronjob extends \yii\db\ActiveRecord
             [['cronjob_id', 'module_id'], 'string', 'max' => 50],
             [['name'], 'string', 'max' => 100],
             [['class'], 'string', 'max' => 255],
+            [['class'], 'validateCronClass'],
         ];
     }
 

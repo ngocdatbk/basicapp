@@ -114,7 +114,7 @@ class AuthItem extends \yii\db\ActiveRecord
     public function listPermissionTree($for, $except = [])
     {
         $authItems = $this->find()
-            ->select(['name','description'])
+            ->select(['name','description', 'rule_name'])
             ->where(['type' => 2])
             ->asArray()
             ->indexBy('name')
@@ -136,7 +136,7 @@ class AuthItem extends \yii\db\ActiveRecord
             $permissions[$child]['parent'] = $authItems[$parent];
         }
 
-        $roots = array('name' => 'root', 'description' => '', 'children' => array());
+        $roots = array('name' => 'root', 'description' => '', 'children' => array(), 'rule_name' => '');
         foreach ($permissions as $name => $permission) {
             if (!isset($permission['parent']))
                 $roots['children'][$name] = $permission;
@@ -154,7 +154,7 @@ class AuthItem extends \yii\db\ActiveRecord
             if ($for == 'input')
                 $result[$root['name']] = $pre.$root['description'];
             else
-                $result[$root['name']] = array('name' => $root['name'], 'description' => $pre.$root['description']);
+                $result[$root['name']] = array('name' => $root['name'], 'description' => $pre.$root['description'], 'rule_name' => $root['rule_name']);
         }
 
         if (isset($root['children'])) {
