@@ -66,48 +66,7 @@ AppAsset::register($this);
                 <div class="content dis-row">
                     <aside class="content_menu ">
                         <section>
-                            <ul class="nav nav-list">
-                                <li><a href="<?= Url::to('/dashboard/dashboard') ?>"> Dashboard</a></li>
-                                <li class="divider"></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span> Product</label>
-                                    <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/admin/product-category') ?>"> Product Category</a></li>
-                                        <li><a href="<?= Url::to('/admin/product') ?>"> Product</a></li>
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Report</label>
-                                    <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/report/order') ?>"> Order list</a></li>
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>System tools</label>
-                                    <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/cronjob') ?>"> Cron tasks</a></li>
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Manager User</label>
-                                    <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/user/user') ?>"> User list</a></li>
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Permission</label>
-                                    <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/permission/permission') ?>"> Manager permissions</a></li>
-                                        <li><a href="<?= Url::to('/permission/role') ?>"> Manager roles</a></li>
-                                        <li><a href="<?= Url::to('/permission/rule') ?>"> Manager rules</a></li>
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>
-                                <li><label class="tree-toggler nav-header"><span class="glyphicon glyphicon-plus" style="float: right"></span>Setting</label>
-                                    <ul class="nav nav-list tree lv1">
-                                        <li><a href="<?= Url::to('/setting') ?>"> Setting</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <?= \app\modules\core\widgets\SidebarNavigationWidget::widget(); ?>
                         </section>
                     </aside>
 

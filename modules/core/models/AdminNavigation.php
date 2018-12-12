@@ -7,7 +7,7 @@ use app\helpers\Php;
 use app\modules\permission\models\Permission;
 use Yii;
 use yii\helpers\Html;
-use yii\db\ActiveRecord;
+use app\components\Model;
 
 /**
  * This is the model class for table "admin_navigation".
@@ -30,7 +30,7 @@ use yii\db\ActiveRecord;
  * @property string $updated_by
  * @property integer $display_f
  */
-class AdminNavigation extends ActiveRecord
+class AdminNavigation extends Model
 {
     /**
      * @inheritdoc
