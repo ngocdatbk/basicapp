@@ -9,7 +9,7 @@ use app\modules\permission\models\CreatePermissionForm;
 use app\modules\permission\models\AuthAssignment;
 use app\modules\permission\models\AuthItemChild;
 use app\modules\permission\models\AuthItemSearch;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
@@ -128,6 +128,7 @@ class PermissionController extends Controller
     public function actionUpdate($id)
     {
         $model = CreatePermissionForm::findOne($id);
+        $model->parent = $model->parents ? $model->parents[0]->name : '';
         $old_name = $model->name;
         if ($model->load(Yii::$app->request->post())) {
             if ($model->updatePermission($old_name))
@@ -167,6 +168,26 @@ class PermissionController extends Controller
         }
 
         return $this->redirect(['index']);
+    }
+
+    public function actionListPermission()
+    {
+        $q = Yii::$app->request->get('q');
+        $query = new \yii\db\Query;
+        $query->select('permission_id as id, title as text')
+            ->from(Permission::tableName())
+            ->limit(20);
+
+        if (!empty($q)) {
+            $query->andWhere(['like', 'title', trim($q)]);
+        }
+
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+
+        $out['results'] = array_values($data);
+
+        return $this->responseJSON($out);
     }
 
     /**

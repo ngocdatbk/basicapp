@@ -7,7 +7,7 @@ use app\modules\permission\models\AuthItem;
 use app\modules\permission\models\AuthAssignment;
 use app\modules\permission\models\AuthItemChild;
 use app\modules\permission\models\AuthItemSearch;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;

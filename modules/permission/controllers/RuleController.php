@@ -7,7 +7,7 @@ use app\modules\permission\models\AuthRule;
 use app\modules\permission\models\EditRule;
 use app\modules\permission\models\AuthItem;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;

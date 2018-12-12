@@ -27,4 +27,7 @@ return [
     'permission' => [
         'class' => 'app\modules\permission\Module',
     ],
+    'core' => [
+        'class' => 'app\modules\core\Module',
+    ],
 ];

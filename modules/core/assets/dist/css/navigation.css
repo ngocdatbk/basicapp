@@ -1,0 +1,35 @@
+div.children {
+	display: none;
+}
+
+div.children ul{
+	padding: 0;
+}
+
+div.children ul > li {
+	list-style: none;
+	line-height: 29px;
+	border-bottom: 1px solid #d4d2d2;
+}
+
+span.action {
+	display: none;
+	font-size: 11px;
+}
+
+div.children ul li:hover{
+	cursor: pointer;
+}
+
+div.children ul li:hover span.action{
+	display: inline-block;
+}
+
+span.action{
+	float: right;
+}
+
+.text-muted {
+	font-size: 12px;
+	font-style: Italic;
+}
