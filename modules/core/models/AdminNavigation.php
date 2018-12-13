@@ -411,7 +411,7 @@ class AdminNavigation extends Model
         //Heading sidebar menu item
         if (empty($item['url'])) {
             $menuItem['url'] = false;
-            $menuItem['icon'] = false;
+            $menuItem['icon'] = $item['icon'];
 
             return $menuItem;
         }

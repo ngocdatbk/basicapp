@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 12, 2018 at 07:47 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 13, 2018 lúc 11:26 AM
+-- Phiên bản máy phục vụ: 10.1.28-MariaDB
+-- Phiên bản PHP: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `saotruc`
+-- Cơ sở dữ liệu: `saotruc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_navigation`
+-- Cấu trúc bảng cho bảng `admin_navigation`
 --
 
 CREATE TABLE `admin_navigation` (
@@ -50,31 +50,32 @@ CREATE TABLE `admin_navigation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin_navigation`
+-- Đang đổ dữ liệu cho bảng `admin_navigation`
 --
 
 INSERT INTO `admin_navigation` (`navigation_id`, `label`, `icon`, `url`, `menu_group`, `parent_id`, `level`, `label_type`, `permission_type`, `permission`, `debug_only`, `display_order`, `created_date`, `created_by`, `updated_date`, `updated_by`, `display_f`, `module_id`) VALUES
+(0x61646d696e5f6e617669676174696f6e, 'Admin navigation', '', '/core/admin-navigation', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, NULL, 1544693362, 5, 0, 0, 1, NULL),
 (0x63726f6e5f7461736b73, 'Cron tasks', '', '/cronjob', 0x736964656261725f6d656e75, 0x73797374656d5f746f6f6c73, 1, 0x74657874, '', '', 0, NULL, 1544609992, 5, 0, 0, 1, NULL),
-(0x64617368626f617264, 'Dashboard', '', '/dashboard/dashboard', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609517, 5, 0, 0, 1, NULL),
+(0x64617368626f617264, 'Dashboard', 'fa-dashboard', '/dashboard/dashboard', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609517, 5, 1544695932, 5, 1, NULL),
 (0x6d616e6167655f73657474696e67, 'Manage Setting', '', '/setting', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, NULL, 1544610144, 5, 0, 0, 1, NULL),
 (0x6d616e616765725f7065726d697373696f6e73, 'Manager permissions', '', '/permission/permission', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, NULL, 1544610055, 5, 0, 0, 1, NULL),
 (0x6d616e616765725f726f6c6573, 'Manager roles', '', '/permission/role', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, NULL, 1544610081, 5, 0, 0, 1, NULL),
 (0x6d616e616765725f72756c6573, 'Manager rules', '', '/permission/rule', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, NULL, 1544610106, 5, 0, 0, 1, NULL),
-(0x6d616e616765725f75736572, 'Manager User', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609634, 5, 0, 0, 1, NULL),
-(0x6d656e755f7065726d697373696f6e, 'Permission', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609652, 5, 1544609900, 5, 1, NULL),
-(0x6d656e755f70726f64756374, 'Product', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609567, 5, 1544609861, 5, 1, NULL),
-(0x6d656e755f73657474696e67, 'Setting', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609692, 5, 1544609909, 5, 1, NULL),
+(0x6d616e616765725f75736572, 'Manager User', 'fa-users', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609634, 5, 1544696207, 5, 1, NULL),
+(0x6d656e755f7065726d697373696f6e, 'Permission', 'fa-lock', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609652, 5, 1544696291, 5, 1, NULL),
+(0x6d656e755f70726f64756374, 'Product', '', '', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, NULL, 1544609567, 5, 1544696309, 5, 1, NULL),
+(0x6d656e755f73657474696e67, 'Setting', 'fa-gear', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609692, 5, 1544696054, 5, 1, NULL),
 (0x6f726465725f6c697374, 'Order list', '', '/report/order', 0x736964656261725f6d656e75, 0x7265706f7274, 1, 0x74657874, '', '', 0, NULL, 1544609964, 5, 0, 0, 1, NULL),
 (0x70726f64756374, 'Product', '', '/admin/product', 0x736964656261725f6d656e75, 0x6d656e755f70726f64756374, 1, 0x74657874, '', '', 0, NULL, 1544609933, 5, 0, 0, 1, NULL),
 (0x70726f647563745f63617465676f7279, 'Product Category', '', '/admin/product-category', 0x736964656261725f6d656e75, 0x6d656e755f70726f64756374, 1, 0x74657874, '', '', 0, NULL, 1544609729, 5, 1544609881, 5, 1, NULL),
-(0x7265706f7274, 'Report', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609584, 5, 0, 0, 1, NULL),
-(0x73797374656d5f746f6f6c73, 'System tools', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609608, 5, 0, 0, 1, NULL),
+(0x7265706f7274, 'Report', 'fa-bar-chart', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609584, 5, 1544696132, 5, 1, NULL),
+(0x73797374656d5f746f6f6c73, 'System tools', 'fa-magic', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609608, 5, 1544696081, 5, 1, NULL),
 (0x757365725f6c697374, 'User list', '', '/user/user', 0x736964656261725f6d656e75, 0x6d616e616765725f75736572, 1, 0x74657874, '', '', 0, NULL, 1544610026, 5, 0, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_assignment`
+-- Cấu trúc bảng cho bảng `auth_assignment`
 --
 
 CREATE TABLE `auth_assignment` (
@@ -84,7 +85,7 @@ CREATE TABLE `auth_assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_assignment`
+-- Đang đổ dữ liệu cho bảng `auth_assignment`
 --
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
@@ -95,7 +96,7 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_item`
+-- Cấu trúc bảng cho bảng `auth_item`
 --
 
 CREATE TABLE `auth_item` (
@@ -109,7 +110,7 @@ CREATE TABLE `auth_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_item`
+-- Đang đổ dữ liệu cho bảng `auth_item`
 --
 
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
@@ -162,7 +163,7 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_item_child`
+-- Cấu trúc bảng cho bảng `auth_item_child`
 --
 
 CREATE TABLE `auth_item_child` (
@@ -171,7 +172,7 @@ CREATE TABLE `auth_item_child` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_item_child`
+-- Đang đổ dữ liệu cho bảng `auth_item_child`
 --
 
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
@@ -226,7 +227,7 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_rule`
+-- Cấu trúc bảng cho bảng `auth_rule`
 --
 
 CREATE TABLE `auth_rule` (
@@ -237,7 +238,7 @@ CREATE TABLE `auth_rule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_rule`
+-- Đang đổ dữ liệu cho bảng `auth_rule`
 --
 
 INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
@@ -246,7 +247,7 @@ INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cronjob`
+-- Cấu trúc bảng cho bảng `cronjob`
 --
 
 CREATE TABLE `cronjob` (
@@ -263,16 +264,16 @@ CREATE TABLE `cronjob` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `cronjob`
+-- Đang đổ dữ liệu cho bảng `cronjob`
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
-(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544610011, 1544610071, 1, 1);
+(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544696711, 1544696771, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cronjob_log`
+-- Cấu trúc bảng cho bảng `cronjob_log`
 --
 
 CREATE TABLE `cronjob_log` (
@@ -282,7 +283,7 @@ CREATE TABLE `cronjob_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `cronjob_log`
+-- Đang đổ dữ liệu cho bảng `cronjob_log`
 --
 
 INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
@@ -796,12 +797,121 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 ('SendMail', 1544609111, 'Success.'),
 ('SendMail', 1544609411, 'Success.'),
 ('SendMail', 1544609711, 'Success.'),
-('SendMail', 1544610011, 'Success.');
+('SendMail', 1544610011, 'Success.'),
+('SendMail', 1544664315, 'Success.'),
+('SendMail', 1544664611, 'Success.'),
+('SendMail', 1544664911, 'Success.'),
+('SendMail', 1544665211, 'Success.'),
+('SendMail', 1544665511, 'Success.'),
+('SendMail', 1544665811, 'Success.'),
+('SendMail', 1544666111, 'Success.'),
+('SendMail', 1544666411, 'Success.'),
+('SendMail', 1544666711, 'Success.'),
+('SendMail', 1544667011, 'Success.'),
+('SendMail', 1544667311, 'Success.'),
+('SendMail', 1544667611, 'Success.'),
+('SendMail', 1544667912, 'Success.'),
+('SendMail', 1544668211, 'Success.'),
+('SendMail', 1544668511, 'Success.'),
+('SendMail', 1544668811, 'Success.'),
+('SendMail', 1544669111, 'Success.'),
+('SendMail', 1544669411, 'Success.'),
+('SendMail', 1544669711, 'Success.'),
+('SendMail', 1544670011, 'Success.'),
+('SendMail', 1544670311, 'Success.'),
+('SendMail', 1544670611, 'Success.'),
+('SendMail', 1544670911, 'Success.'),
+('SendMail', 1544671211, 'Success.'),
+('SendMail', 1544671511, 'Success.'),
+('SendMail', 1544671811, 'Success.'),
+('SendMail', 1544672111, 'Success.'),
+('SendMail', 1544672411, 'Success.'),
+('SendMail', 1544672711, 'Success.'),
+('SendMail', 1544673011, 'Success.'),
+('SendMail', 1544673311, 'Success.'),
+('SendMail', 1544673611, 'Success.'),
+('SendMail', 1544673911, 'Success.'),
+('SendMail', 1544674211, 'Success.'),
+('SendMail', 1544674511, 'Success.'),
+('SendMail', 1544674810, 'Success.'),
+('SendMail', 1544675111, 'Success.'),
+('SendMail', 1544675411, 'Success.'),
+('SendMail', 1544675711, 'Success.'),
+('SendMail', 1544676011, 'Success.'),
+('SendMail', 1544676311, 'Success.'),
+('SendMail', 1544676611, 'Success.'),
+('SendMail', 1544676911, 'Success.'),
+('SendMail', 1544677211, 'Success.'),
+('SendMail', 1544677511, 'Success.'),
+('SendMail', 1544677811, 'Success.'),
+('SendMail', 1544678111, 'Success.'),
+('SendMail', 1544678411, 'Success.'),
+('SendMail', 1544678711, 'Success.'),
+('SendMail', 1544679011, 'Success.'),
+('SendMail', 1544679311, 'Success.'),
+('SendMail', 1544679611, 'Success.'),
+('SendMail', 1544679911, 'Success.'),
+('SendMail', 1544680211, 'Success.'),
+('SendMail', 1544680511, 'Success.'),
+('SendMail', 1544680811, 'Success.'),
+('SendMail', 1544681111, 'Success.'),
+('SendMail', 1544681411, 'Success.'),
+('SendMail', 1544681711, 'Success.'),
+('SendMail', 1544682011, 'Success.'),
+('SendMail', 1544682311, 'Success.'),
+('SendMail', 1544682611, 'Success.'),
+('SendMail', 1544682911, 'Success.'),
+('SendMail', 1544683211, 'Success.'),
+('SendMail', 1544683511, 'Success.'),
+('SendMail', 1544683811, 'Success.'),
+('SendMail', 1544684111, 'Success.'),
+('SendMail', 1544684411, 'Success.'),
+('SendMail', 1544684711, 'Success.'),
+('SendMail', 1544685011, 'Success.'),
+('SendMail', 1544685311, 'Success.'),
+('SendMail', 1544685611, 'Success.'),
+('SendMail', 1544685911, 'Success.'),
+('SendMail', 1544686211, 'Success.'),
+('SendMail', 1544686511, 'Success.'),
+('SendMail', 1544686811, 'Success.'),
+('SendMail', 1544687111, 'Success.'),
+('SendMail', 1544687411, 'Success.'),
+('SendMail', 1544687711, 'Success.'),
+('SendMail', 1544688011, 'Success.'),
+('SendMail', 1544688311, 'Success.'),
+('SendMail', 1544688611, 'Success.'),
+('SendMail', 1544688911, 'Success.'),
+('SendMail', 1544689211, 'Success.'),
+('SendMail', 1544689511, 'Success.'),
+('SendMail', 1544689811, 'Success.'),
+('SendMail', 1544690111, 'Success.'),
+('SendMail', 1544690411, 'Success.'),
+('SendMail', 1544690711, 'Success.'),
+('SendMail', 1544691011, 'Success.'),
+('SendMail', 1544691311, 'Success.'),
+('SendMail', 1544691611, 'Success.'),
+('SendMail', 1544691911, 'Success.'),
+('SendMail', 1544692211, 'Success.'),
+('SendMail', 1544692511, 'Success.'),
+('SendMail', 1544692811, 'Success.'),
+('SendMail', 1544693111, 'Success.'),
+('SendMail', 1544693411, 'Success.'),
+('SendMail', 1544693711, 'Success.'),
+('SendMail', 1544694011, 'Success.'),
+('SendMail', 1544694311, 'Success.'),
+('SendMail', 1544694611, 'Success.'),
+('SendMail', 1544694911, 'Success.'),
+('SendMail', 1544695211, 'Success.'),
+('SendMail', 1544695511, 'Success.'),
+('SendMail', 1544695811, 'Success.'),
+('SendMail', 1544696111, 'Success.'),
+('SendMail', 1544696411, 'Success.'),
+('SendMail', 1544696711, 'Success.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `email_queue`
+-- Cấu trúc bảng cho bảng `email_queue`
 --
 
 CREATE TABLE `email_queue` (
@@ -820,7 +930,7 @@ CREATE TABLE `email_queue` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration`
+-- Cấu trúc bảng cho bảng `migration`
 --
 
 CREATE TABLE `migration` (
@@ -829,7 +939,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `migration`
+-- Đang đổ dữ liệu cho bảng `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -841,7 +951,7 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration_module`
+-- Cấu trúc bảng cho bảng `migration_module`
 --
 
 CREATE TABLE `migration_module` (
@@ -851,7 +961,7 @@ CREATE TABLE `migration_module` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `migration_module`
+-- Đang đổ dữ liệu cho bảng `migration_module`
 --
 
 INSERT INTO `migration_module` (`version`, `apply_time`, `module`) VALUES
@@ -869,7 +979,7 @@ INSERT INTO `migration_module` (`version`, `apply_time`, `module`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
@@ -890,7 +1000,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `order`
+-- Đang đổ dữ liệu cho bảng `order`
 --
 
 INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_email`, `user_receive_name`, `user_receive_phone`, `user_receive_email`, `user_receive_address`, `order_time`, `user_note`, `total`, `status`, `admin_note`, `deleted_f`) VALUES
@@ -903,7 +1013,7 @@ INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_em
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_detail`
+-- Cấu trúc bảng cho bảng `order_detail`
 --
 
 CREATE TABLE `order_detail` (
@@ -915,7 +1025,7 @@ CREATE TABLE `order_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `order_detail`
+-- Đang đổ dữ liệu cho bảng `order_detail`
 --
 
 INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted_f`) VALUES
@@ -931,7 +1041,7 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -946,7 +1056,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `code`, `name`, `info`, `price`, `image_main`, `category_id`, `deleted_f`) VALUES
@@ -976,7 +1086,7 @@ INSERT INTO `product` (`id`, `code`, `name`, `info`, `price`, `image_main`, `cat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_category`
+-- Cấu trúc bảng cho bảng `product_category`
 --
 
 CREATE TABLE `product_category` (
@@ -987,7 +1097,7 @@ CREATE TABLE `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product_category`
+-- Đang đổ dữ liệu cho bảng `product_category`
 --
 
 INSERT INTO `product_category` (`id`, `name`, `description`, `deleted_f`) VALUES
@@ -998,7 +1108,7 @@ INSERT INTO `product_category` (`id`, `name`, `description`, `deleted_f`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_image`
+-- Cấu trúc bảng cho bảng `product_image`
 --
 
 CREATE TABLE `product_image` (
@@ -1010,7 +1120,7 @@ CREATE TABLE `product_image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product_image`
+-- Đang đổ dữ liệu cho bảng `product_image`
 --
 
 INSERT INTO `product_image` (`id`, `product_id`, `image`, `description`, `is_main`) VALUES
@@ -1049,7 +1159,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `image`, `description`, `is_mai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting`
+-- Cấu trúc bảng cho bảng `setting`
 --
 
 CREATE TABLE `setting` (
@@ -1059,7 +1169,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `setting`
+-- Đang đổ dữ liệu cho bảng `setting`
 --
 
 INSERT INTO `setting` (`key`, `value`, `modified`) VALUES
@@ -1073,7 +1183,7 @@ INSERT INTO `setting` (`key`, `value`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -1089,19 +1199,19 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
 (1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544519922),
-(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1544633000),
+(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1544666302),
 (6, 'khucngocdat1989', '', 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
 (8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 1, 1543388199);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_auth`
+-- Cấu trúc bảng cho bảng `user_auth`
 --
 
 CREATE TABLE `user_auth` (
@@ -1111,7 +1221,7 @@ CREATE TABLE `user_auth` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user_auth`
+-- Đang đổ dữ liệu cho bảng `user_auth`
 --
 
 INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
@@ -1123,7 +1233,7 @@ INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_confirm`
+-- Cấu trúc bảng cho bảng `user_confirm`
 --
 
 CREATE TABLE `user_confirm` (
@@ -1136,7 +1246,7 @@ CREATE TABLE `user_confirm` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_login_attempts`
+-- Cấu trúc bảng cho bảng `user_login_attempts`
 --
 
 CREATE TABLE `user_login_attempts` (
@@ -1145,24 +1255,24 @@ CREATE TABLE `user_login_attempts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin_navigation`
+-- Chỉ mục cho bảng `admin_navigation`
 --
 ALTER TABLE `admin_navigation`
   ADD PRIMARY KEY (`navigation_id`);
 
 --
--- Indexes for table `auth_assignment`
+-- Chỉ mục cho bảng `auth_assignment`
 --
 ALTER TABLE `auth_assignment`
   ADD PRIMARY KEY (`item_name`,`user_id`),
   ADD KEY `auth_assignment_user_id_idx` (`user_id`);
 
 --
--- Indexes for table `auth_item`
+-- Chỉ mục cho bảng `auth_item`
 --
 ALTER TABLE `auth_item`
   ADD PRIMARY KEY (`name`),
@@ -1170,80 +1280,80 @@ ALTER TABLE `auth_item`
   ADD KEY `idx-auth_item-type` (`type`);
 
 --
--- Indexes for table `auth_item_child`
+-- Chỉ mục cho bảng `auth_item_child`
 --
 ALTER TABLE `auth_item_child`
   ADD PRIMARY KEY (`parent`,`child`),
   ADD KEY `child` (`child`);
 
 --
--- Indexes for table `auth_rule`
+-- Chỉ mục cho bảng `auth_rule`
 --
 ALTER TABLE `auth_rule`
   ADD PRIMARY KEY (`name`);
 
 --
--- Indexes for table `cronjob`
+-- Chỉ mục cho bảng `cronjob`
 --
 ALTER TABLE `cronjob`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `email_queue`
+-- Chỉ mục cho bảng `email_queue`
 --
 ALTER TABLE `email_queue`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migration`
+-- Chỉ mục cho bảng `migration`
 --
 ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `migration_module`
+-- Chỉ mục cho bảng `migration_module`
 --
 ALTER TABLE `migration_module`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_detail`
+-- Chỉ mục cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_category`
+-- Chỉ mục cho bảng `product_category`
 --
 ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_image`
+-- Chỉ mục cho bảng `product_image`
 --
 ALTER TABLE `product_image`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setting`
+-- Chỉ mục cho bảng `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`key`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
@@ -1251,66 +1361,66 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `user_auth`
+-- Chỉ mục cho bảng `user_auth`
 --
 ALTER TABLE `user_auth`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `user_confirm`
+-- Chỉ mục cho bảng `user_confirm`
 --
 ALTER TABLE `user_confirm`
   ADD PRIMARY KEY (`confirm_key`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `cronjob`
+-- AUTO_INCREMENT cho bảng `cronjob`
 --
 ALTER TABLE `cronjob`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `email_queue`
+-- AUTO_INCREMENT cho bảng `email_queue`
 --
 ALTER TABLE `email_queue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã order', AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `order_detail`
+-- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT for table `product_category`
+-- AUTO_INCREMENT cho bảng `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `product_image`
+-- AUTO_INCREMENT cho bảng `product_image`
 --
 ALTER TABLE `product_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;

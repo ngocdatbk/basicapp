@@ -82,7 +82,7 @@ class SidebarNavigationWidget extends Nav
                 throw new InvalidConfigException("The 'label' option is required.");
             }
 
-            if (isset($item['icon'])) {
+            if (isset($item['icon']) && $item['icon']) {
                 $item['icon'] = $item['icon'];
             } else {
                 $item['icon'] = $this->defaultIcon;
@@ -184,12 +184,6 @@ class SidebarNavigationWidget extends Nav
 
         if ($this->activateItems && $active) {
             Html::addCssClass($options, 'active');
-        }
-
-        if ($url === false) {
-            $options['class'] = 'header';
-
-            return Html::tag('li', $label . $items, $options);
         }
 
         return Html::tag('li', Html::a($label, $url, $linkOptions) . $items, $options);

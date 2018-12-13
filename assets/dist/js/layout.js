@@ -1,25 +1,26 @@
 $(document).ready(function () {
-    $( document ).on( "click", "label.tree-toggler", function() {
-        $(this).parent().children('ul.tree').toggle(300, showDetailMenu(this));
+    $( document ).on( "click", ".sidebar-menu li.treeview", function() {
+        if (this.classList.contains("active")) {
+            unActiveChild(this.parentNode);
+        } else {
+            unActiveChild(this.parentNode);
+            this.classList.add("active");
+        }
     });
 
     $( document ).on( "click", "a.show-menu", function() {
-        if($(".content_menu").css("display") == 'table-cell')
-        {
+        if ($(".content_menu").css("display") == 'table-cell') {
             $(".content_menu").css("display",'none');
-        }
-        else
-        {
+        } else {
             $(".content_menu").css("display",'table-cell');
         }
     });
 });
 
-function showDetailMenu(label) {
-    return function(e) {
-        if($(this).parent().children('ul.tree').css("display") == 'none')
-            $(label).children('span').attr('class','glyphicon glyphicon-plus');
-        else
-            $(label).children('span').attr('class','glyphicon glyphicon-minus');
-    };
+function unActiveChild(parent) {
+    var childNodes = parent.getElementsByClassName("active");
+    if (childNodes.length) {
+        childNodes[0].classList.remove("active");
+        unActiveChild(parent);
+    }
 }
