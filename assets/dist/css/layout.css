@@ -260,10 +260,19 @@ a.desc:after {
     color: #ee2761;
     border-left-color: #ee2761;
 }
-.sidebar-menu li a {
+.sidebar-menu>li>a {
     border-left: 3px solid transparent;
     position: relative;
     padding: 12px 5px 12px 15px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.treeview-menu>li>a {
+    border-left: 3px solid transparent;
+    position: relative;
+    padding: 6px 5px 6px 15px;
     display: block;
     text-decoration: none;
     color: black;
@@ -282,18 +291,27 @@ a.desc:after {
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-left: 5px;
 }
 
 .sidebar-menu .treeview-menu {
     background-color: #eefff6;
 }
 
+.sidebar-menu .treeview-menu>li>a {
+    padding: 5px 5px 5px 15px;
+    display: block;
+    font-size: 14px;
+}
+
+.sidebar-menu .treeview-menu .treeview-menu {
+    padding-left: 20px;
+}
+
 .sidebar-menu .treeview-menu li:not(.active) a:hover {
     color: #ee2761;
 }
 
-.sidebar-menu .treeview-menu li.active a {
+.sidebar-menu .treeview-menu li.active>a {
     color: #ee2761;
 }
 

@@ -41,24 +41,6 @@ $('.checkAll').change(function() {
     }
 });
 
-$('.export-selected').on('click', function(event) {
-    event.preventDefault();
-
-    var checkedVals = $('.check_value:checkbox:checked').map(function() {
-        return this.value;
-    }).get();
-
-    var ids = checkedVals.join(',');
-    var url = $(this).attr('href');
-
-    if (ids.length > 0) {
-        var urlExport = url + '?ids='+ids;
-        window.open(urlExport, '_blank');
-    } else {
-        alert('Vui lòng chọn ít nhất 1 trường dữ liệu');
-    }
-});
-
 if ($('#highlight').length && $('#highlight').parents('div.children').length != 0) {
     $('#highlight').parents('td').children('a').click();
 }

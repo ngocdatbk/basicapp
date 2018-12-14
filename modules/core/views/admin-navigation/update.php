@@ -21,7 +21,6 @@ $this->params['breadcrumbs'][] = Yii::t('core.admin_menu', 'Update');
 			<div class="box-body">
                 <?= $this->render('_form', [
                     'model' => $model,
-					'parents' => $parents,
 					'permission' => $permission
                 ]) ?>
 			</div>

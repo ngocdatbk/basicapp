@@ -20,7 +20,6 @@ $model->display_f = 1;
 			<div class="box-body">
                 <?= $this->render('_form', [
                     'model' => $model,
-					'parents' => $parents,
 					'permission' => $permission
                 ]) ?>
 			</div>

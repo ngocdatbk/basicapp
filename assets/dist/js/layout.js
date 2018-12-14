@@ -1,11 +1,12 @@
 $(document).ready(function () {
-    $( document ).on( "click", ".sidebar-menu li.treeview", function() {
+    $( document ).on( "click", ".sidebar-menu li.treeview", function(e) {
         if (this.classList.contains("active")) {
             unActiveChild(this.parentNode);
         } else {
             unActiveChild(this.parentNode);
             this.classList.add("active");
         }
+        e.stopPropagation();
     });
 
     $( document ).on( "click", "a.show-menu", function() {
@@ -19,8 +20,7 @@ $(document).ready(function () {
 
 function unActiveChild(parent) {
     var childNodes = parent.getElementsByClassName("active");
-    if (childNodes.length) {
-        childNodes[0].classList.remove("active");
-        unActiveChild(parent);
+    for (var i = 0; i < childNodes.length; i++) {
+        childNodes[i].classList.remove("active");
     }
 }

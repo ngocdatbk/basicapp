@@ -32,6 +32,7 @@ use app\components\Model;
  */
 class AdminNavigation extends Model
 {
+    public $display_before;
     /**
      * @inheritdoc
      */
@@ -46,9 +47,10 @@ class AdminNavigation extends Model
     public function rules()
     {
         return [
+            [['display_before'], 'safe'],
             [['navigation_id', 'label'], 'required'],
             [['level', 'debug_only', 'display_order', 'created_date', 'created_by', 'updated_date', 'updated_by', 'display_f'], 'integer'],
-            [['navigation_id', 'menu_group', 'label_type', 'permission_type', 'parent_id'], 'string', 'max' => 30],
+            [['navigation_id', 'menu_group', 'label_type', 'permission_type', 'parent_id', 'display_before'], 'string', 'max' => 30],
             [['label', 'permission'], 'string', 'max' => 255],
             [['icon'], 'string', 'max' => 50],
             [['url'], 'string', 'max' => 150],
@@ -263,10 +265,33 @@ class AdminNavigation extends Model
         return $this->hasMany(static::className(), ['parent_id' => 'navigation_id']);
     }
 
-    public function getAdminMenuOptions($except = [])
+    public function getAdminMenuChilds($parent_id, $currentId = '')
+    {
+        $parent_id = $parent_id ? $parent_id : '0';
+        $query = static::find()->select('navigation_id, label, label_type, level')
+            ->select(['navigation_id', 'CONCAT (\' position \',display_order, \' - \', label) as label'])
+            ->where(['AND', ['display_f' => 1], ['parent_id' => $parent_id]]);
+        if ($currentId) {
+            $query->andWhere(['<>', 'navigation_id', $currentId]);
+        }
+
+        $listItems = $query->orderBy(['display_order' => SORT_ASC, 'created_date' => SORT_ASC])->all();
+        if (!empty($listItems)) {
+            return ArrayHelper::mapToIndex($listItems, ['id' => 'navigation_id', 'text' => 'label']);
+        }
+
+        return [];
+    }
+
+    public function getAdminMenuOptions($q, $group, $except = [])
     {
         $roots = array('navigation_id' => 'root', 'label' => 'root', 'children' => array(), 'rule_name' => '');
-        $menuItems = static::find()->orderBy(['display_order' => SORT_ASC, 'created_date' => SORT_ASC])->indexBy('navigation_id')->asArray()->all();
+        $query = static::find()->where(['AND', ['display_f' => 1], ['menu_group' => $group]]);
+        if (!empty($q)) {
+            $query->andWhere(['LIKE', 'label', $q]);
+        }
+        $menuItems = $query->orderBy(['display_order' => SORT_ASC, 'created_date' => SORT_ASC])->indexBy('navigation_id')->asArray()->all();
+
         $menuItems['root'] = $roots;
 
         foreach ($menuItems as $id => $menuItem) {
@@ -279,14 +304,15 @@ class AdminNavigation extends Model
         }
 
         $except['root'] = 'root';
-        return $this->buildTree('', $menuItems, $menuItems['root'], $except);
+        $result = [];
+        $this->buildTree($result,'', $menuItems, $menuItems['root'], $except);
+        return $result;
     }
 
-    public function buildTree($pre, $listChilds, $root, $except)
+    public function buildTree(&$result, $pre, $listChilds, $root, $except)
     {
-        $result = [];
         if (!isset($except[$root['navigation_id']])) {
-            $result[$root['navigation_id']] = $pre.$root['label'];
+            $result[] = ['id' => $root['navigation_id'], 'text' => $pre.$root['label']];
         }
 
         if (isset($root['children'])) {
@@ -294,11 +320,9 @@ class AdminNavigation extends Model
             foreach ($childs as $name => $child) {
                 if (isset($except[$name]))
                     continue;
-                $result = array_merge($result, $this->buildTree('----'.$pre, $listChilds, $listChilds[$name], $except));
+                $this->buildTree($result, '----'.$pre, $listChilds, $listChilds[$name], $except);
             }
         }
-
-        return $result;
     }
 
     /**

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 13, 2018 lúc 11:26 AM
+-- Thời gian đã tạo: Th12 14, 2018 lúc 11:29 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -54,23 +54,24 @@ CREATE TABLE `admin_navigation` (
 --
 
 INSERT INTO `admin_navigation` (`navigation_id`, `label`, `icon`, `url`, `menu_group`, `parent_id`, `level`, `label_type`, `permission_type`, `permission`, `debug_only`, `display_order`, `created_date`, `created_by`, `updated_date`, `updated_by`, `display_f`, `module_id`) VALUES
-(0x61646d696e5f6e617669676174696f6e, 'Admin navigation', '', '/core/admin-navigation', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, NULL, 1544693362, 5, 0, 0, 1, NULL),
-(0x63726f6e5f7461736b73, 'Cron tasks', '', '/cronjob', 0x736964656261725f6d656e75, 0x73797374656d5f746f6f6c73, 1, 0x74657874, '', '', 0, NULL, 1544609992, 5, 0, 0, 1, NULL),
-(0x64617368626f617264, 'Dashboard', 'fa-dashboard', '/dashboard/dashboard', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609517, 5, 1544695932, 5, 1, NULL),
-(0x6d616e6167655f73657474696e67, 'Manage Setting', '', '/setting', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, NULL, 1544610144, 5, 0, 0, 1, NULL),
-(0x6d616e616765725f7065726d697373696f6e73, 'Manager permissions', '', '/permission/permission', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, NULL, 1544610055, 5, 0, 0, 1, NULL),
-(0x6d616e616765725f726f6c6573, 'Manager roles', '', '/permission/role', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, NULL, 1544610081, 5, 0, 0, 1, NULL),
-(0x6d616e616765725f72756c6573, 'Manager rules', '', '/permission/rule', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, NULL, 1544610106, 5, 0, 0, 1, NULL),
-(0x6d616e616765725f75736572, 'Manager User', 'fa-users', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609634, 5, 1544696207, 5, 1, NULL),
-(0x6d656e755f7065726d697373696f6e, 'Permission', 'fa-lock', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609652, 5, 1544696291, 5, 1, NULL),
-(0x6d656e755f70726f64756374, 'Product', '', '', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, NULL, 1544609567, 5, 1544696309, 5, 1, NULL),
-(0x6d656e755f73657474696e67, 'Setting', 'fa-gear', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609692, 5, 1544696054, 5, 1, NULL),
-(0x6f726465725f6c697374, 'Order list', '', '/report/order', 0x736964656261725f6d656e75, 0x7265706f7274, 1, 0x74657874, '', '', 0, NULL, 1544609964, 5, 0, 0, 1, NULL),
-(0x70726f64756374, 'Product', '', '/admin/product', 0x736964656261725f6d656e75, 0x6d656e755f70726f64756374, 1, 0x74657874, '', '', 0, NULL, 1544609933, 5, 0, 0, 1, NULL),
-(0x70726f647563745f63617465676f7279, 'Product Category', '', '/admin/product-category', 0x736964656261725f6d656e75, 0x6d656e755f70726f64756374, 1, 0x74657874, '', '', 0, NULL, 1544609729, 5, 1544609881, 5, 1, NULL),
-(0x7265706f7274, 'Report', 'fa-bar-chart', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609584, 5, 1544696132, 5, 1, NULL),
-(0x73797374656d5f746f6f6c73, 'System tools', 'fa-magic', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, NULL, 1544609608, 5, 1544696081, 5, 1, NULL),
-(0x757365725f6c697374, 'User list', '', '/user/user', 0x736964656261725f6d656e75, 0x6d616e616765725f75736572, 1, 0x74657874, '', '', 0, NULL, 1544610026, 5, 0, 0, 1, NULL);
+(0x61646d696e5f6e617669676174696f6e, 'Admin navigation', '', '/core/admin-navigation', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, 2, 1544693362, 5, 0, 0, 1, NULL),
+(0x63726f6e5f7461736b73, 'Cron tasks', '', '/cronjob', 0x736964656261725f6d656e75, 0x73797374656d5f746f6f6c73, 1, 0x74657874, '', '', 0, 0, 1544609992, 5, 0, 0, 1, NULL),
+(0x64617368626f617264, 'Dashboard', 'fa-dashboard', '/dashboard/dashboard', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 0, 1544609517, 5, 1544695932, 5, 1, NULL),
+(0x6d616e6167655f73657474696e67, 'Manage Setting', '', '/setting', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, 1, 1544610144, 5, 1544778019, 5, 1, NULL),
+(0x6d616e616765725f7065726d697373696f6e73, 'Manager permissions', '', '/permission/permission', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, 0, 1544610055, 5, 0, 0, 1, NULL),
+(0x6d616e616765725f726f6c6573, 'Manager roles', '', '/permission/role', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, 1, 1544610081, 5, 0, 0, 1, NULL),
+(0x6d616e616765725f72756c6573, 'Manager rules', '', '/permission/rule', 0x736964656261725f6d656e75, 0x6d656e755f7065726d697373696f6e, 1, 0x74657874, '', '', 0, 2, 1544610106, 5, 0, 0, 1, NULL),
+(0x6d616e616765725f75736572, 'Manager User', 'fa-users', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 5, 1544609634, 5, 1544778248, 5, 1, NULL),
+(0x6d656e755f7065726d697373696f6e, 'Permission', 'fa-lock', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 3, 1544609652, 5, 1544778258, 5, 1, NULL),
+(0x6d656e755f70726f64756374, 'Product', '', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 4, 1544609567, 5, 1544783341, 5, 1, NULL),
+(0x6d656e755f73657474696e67, 'Setting', 'fa-gear', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 2, 1544609692, 5, 1544779138, 5, 1, NULL),
+(0x6f726465725f6c697374, 'Order list', '', '/report/order', 0x736964656261725f6d656e75, 0x7265706f7274, 1, 0x74657874, '', '', 0, 0, 1544609964, 5, 0, 0, 1, NULL),
+(0x70726f64756374, 'Product', '', '/admin/product', 0x736964656261725f6d656e75, 0x6d656e755f70726f64756374, 1, 0x74657874, '', '', 0, 0, 1544609933, 5, 0, 0, 1, NULL),
+(0x70726f647563745f63617465676f7279, 'Product Category', '', '/admin/product-category', 0x736964656261725f6d656e75, 0x6d656e755f70726f64756374, 1, 0x74657874, '', '', 0, 1, 1544609729, 5, 1544609881, 5, 1, NULL),
+(0x7265706f7274, 'Report', 'fa-bar-chart', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 1, 1544609584, 5, 1544778277, 5, 1, NULL),
+(0x73797374656d5f746f6f6c73, 'System tools', 'fa-magic', '', 0x736964656261725f6d656e75, 0x30, 0, 0x74657874, '', '', 0, 4, 1544609608, 5, 1544778234, 5, 1, NULL),
+(0x74657374, 'test', '', '', 0x736964656261725f6d656e75, 0x6d656e755f73657474696e67, 1, 0x74657874, '', '', 0, 3, 1544776373, 5, 1544778181, 5, 1, NULL),
+(0x757365725f6c697374, 'User list', '', '/user/user', 0x736964656261725f6d656e75, 0x6d616e616765725f75736572, 1, 0x74657874, '', '', 0, 0, 1544610026, 5, 0, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -268,7 +269,7 @@ CREATE TABLE `cronjob` (
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
-(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544696711, 1544696771, 1, 1);
+(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544783111, 1544783171, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -906,7 +907,117 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 ('SendMail', 1544695811, 'Success.'),
 ('SendMail', 1544696111, 'Success.'),
 ('SendMail', 1544696411, 'Success.'),
-('SendMail', 1544696711, 'Success.');
+('SendMail', 1544696711, 'Success.'),
+('SendMail', 1544697011, 'Success.'),
+('SendMail', 1544750712, 'Success.'),
+('SendMail', 1544751011, 'Success.'),
+('SendMail', 1544751311, 'Success.'),
+('SendMail', 1544751611, 'Success.'),
+('SendMail', 1544751911, 'Success.'),
+('SendMail', 1544752211, 'Success.'),
+('SendMail', 1544752511, 'Success.'),
+('SendMail', 1544752811, 'Success.'),
+('SendMail', 1544753111, 'Success.'),
+('SendMail', 1544753411, 'Success.'),
+('SendMail', 1544753711, 'Success.'),
+('SendMail', 1544754011, 'Success.'),
+('SendMail', 1544754311, 'Success.'),
+('SendMail', 1544754611, 'Success.'),
+('SendMail', 1544754911, 'Success.'),
+('SendMail', 1544755211, 'Success.'),
+('SendMail', 1544755510, 'Success.'),
+('SendMail', 1544755811, 'Success.'),
+('SendMail', 1544756111, 'Success.'),
+('SendMail', 1544756411, 'Success.'),
+('SendMail', 1544756711, 'Success.'),
+('SendMail', 1544757011, 'Success.'),
+('SendMail', 1544757311, 'Success.'),
+('SendMail', 1544757611, 'Success.'),
+('SendMail', 1544757911, 'Success.'),
+('SendMail', 1544758211, 'Success.'),
+('SendMail', 1544758511, 'Success.'),
+('SendMail', 1544758811, 'Success.'),
+('SendMail', 1544759111, 'Success.'),
+('SendMail', 1544759411, 'Success.'),
+('SendMail', 1544759711, 'Success.'),
+('SendMail', 1544760011, 'Success.'),
+('SendMail', 1544760311, 'Success.'),
+('SendMail', 1544760611, 'Success.'),
+('SendMail', 1544760911, 'Success.'),
+('SendMail', 1544761210, 'Success.'),
+('SendMail', 1544761511, 'Success.'),
+('SendMail', 1544761811, 'Success.'),
+('SendMail', 1544762111, 'Success.'),
+('SendMail', 1544762411, 'Success.'),
+('SendMail', 1544762711, 'Success.'),
+('SendMail', 1544763011, 'Success.'),
+('SendMail', 1544763311, 'Success.'),
+('SendMail', 1544763611, 'Success.'),
+('SendMail', 1544763911, 'Success.'),
+('SendMail', 1544764211, 'Success.'),
+('SendMail', 1544764511, 'Success.'),
+('SendMail', 1544764811, 'Success.'),
+('SendMail', 1544765111, 'Success.'),
+('SendMail', 1544765411, 'Success.'),
+('SendMail', 1544765711, 'Success.'),
+('SendMail', 1544766011, 'Success.'),
+('SendMail', 1544766311, 'Success.'),
+('SendMail', 1544766611, 'Success.'),
+('SendMail', 1544766911, 'Success.'),
+('SendMail', 1544767211, 'Success.'),
+('SendMail', 1544767511, 'Success.'),
+('SendMail', 1544767811, 'Success.'),
+('SendMail', 1544768111, 'Success.'),
+('SendMail', 1544768411, 'Success.'),
+('SendMail', 1544768711, 'Success.'),
+('SendMail', 1544769011, 'Success.'),
+('SendMail', 1544769311, 'Success.'),
+('SendMail', 1544769611, 'Success.'),
+('SendMail', 1544769911, 'Success.'),
+('SendMail', 1544770211, 'Success.'),
+('SendMail', 1544770511, 'Success.'),
+('SendMail', 1544770811, 'Success.'),
+('SendMail', 1544771111, 'Success.'),
+('SendMail', 1544771411, 'Success.'),
+('SendMail', 1544771711, 'Success.'),
+('SendMail', 1544772011, 'Success.'),
+('SendMail', 1544772311, 'Success.'),
+('SendMail', 1544772611, 'Success.'),
+('SendMail', 1544772911, 'Success.'),
+('SendMail', 1544773211, 'Success.'),
+('SendMail', 1544773511, 'Success.'),
+('SendMail', 1544773811, 'Success.'),
+('SendMail', 1544774111, 'Success.'),
+('SendMail', 1544774411, 'Success.'),
+('SendMail', 1544774711, 'Success.'),
+('SendMail', 1544775011, 'Success.'),
+('SendMail', 1544775311, 'Success.'),
+('SendMail', 1544775611, 'Success.'),
+('SendMail', 1544775911, 'Success.'),
+('SendMail', 1544776211, 'Success.'),
+('SendMail', 1544776511, 'Success.'),
+('SendMail', 1544776811, 'Success.'),
+('SendMail', 1544777111, 'Success.'),
+('SendMail', 1544777411, 'Success.'),
+('SendMail', 1544777711, 'Success.'),
+('SendMail', 1544778011, 'Success.'),
+('SendMail', 1544778311, 'Success.'),
+('SendMail', 1544778611, 'Success.'),
+('SendMail', 1544778911, 'Success.'),
+('SendMail', 1544779211, 'Success.'),
+('SendMail', 1544779511, 'Success.'),
+('SendMail', 1544779811, 'Success.'),
+('SendMail', 1544780111, 'Success.'),
+('SendMail', 1544780411, 'Success.'),
+('SendMail', 1544780711, 'Success.'),
+('SendMail', 1544781011, 'Success.'),
+('SendMail', 1544781311, 'Success.'),
+('SendMail', 1544781611, 'Success.'),
+('SendMail', 1544781911, 'Success.'),
+('SendMail', 1544782211, 'Success.'),
+('SendMail', 1544782511, 'Success.'),
+('SendMail', 1544782811, 'Success.'),
+('SendMail', 1544783111, 'Success.');
 
 -- --------------------------------------------------------
 
@@ -1204,7 +1315,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
 (1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 1, 1544519922),
-(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1544666302),
+(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1544750813),
 (6, 'khucngocdat1989', '', 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
 (8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 1, 1543388199);
 

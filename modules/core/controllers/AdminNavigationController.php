@@ -10,6 +10,7 @@ use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
+use yii\db\Exception;
 
 /**
  * AdminNavigationController implements the CRUD actions for AdminNavigation model.
@@ -93,16 +94,47 @@ class AdminNavigationController extends Controller
     {
         $model = new AdminNavigation();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post())) {
+            $transaction = Yii::$app->getDb()->beginTransaction();
+            try {
+                $model->save();
+                $model_before = $this->findModel($model->display_before);
+                if ($model->display_order < $model_before->display_order) {
+                    AdminNavigation::updateAllCounters(
+                        ['display_order' => -1],
+                        [
+                            'AND',
+                            ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
+                            ['>', 'display_order', $model->display_order],
+                            ['<', 'display_order', $model_before->display_order]
+                        ]
+                    );
+                    $model->display_order = $model_before->display_order;
+                    $model->save();
+                } elseif ($model->display_order > $model_before->display_order) {
+                    AdminNavigation::updateAllCounters(
+                        ['display_order' => 1],
+                        [
+                            'AND',
+                            ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
+                            ['>=', 'display_order', $model_before->display_order],
+                            ['<', 'display_order', $model->display_order]
+                        ]
+                    );
+                    $model->display_order = $model_before->display_order;
+                    $model->save();
+                }
+                $transaction->commit();
+                return $this->redirect(['index']);
+            } catch (Exception $e) {
+                $transaction->rollBack();
+            }
         }
 
         $authItem = new AuthItem();
         $permission = $authItem->listPermissionTree('input');
-        $parents = $model->getAdminMenuOptions();
         return $this->render('create', [
             'model' => $model,
-            'parents' => $parents,
             'permission' => $permission
         ]);
     }
@@ -116,20 +148,85 @@ class AdminNavigationController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $afterItem = AdminNavigation::find()
+            ->where(['AND', ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id], ['>', 'display_order', $model->display_order]])
+            ->orderBy(['display_order' => SORT_ASC])
+            ->one();
+        if ($afterItem)
+            $model->display_before = $afterItem->navigation_id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('highlight', $id);
+        if ($model->load(Yii::$app->request->post())) {
+            $transaction = Yii::$app->getDb()->beginTransaction();
+            try {
+                unset($model->display_order);
+                $model->save();
+                if ($model->display_before) {
+                    $model_before = $this->findModel($model->display_before);
+                    if ($model->display_order < $model_before->display_order) {
+                        AdminNavigation::updateAllCounters(
+                            ['display_order' => -1],
+                            [
+                                'AND',
+                                ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
+                                ['>=', 'display_order', $model->display_order],
+                                ['<=', 'display_order', $model_before->display_order],
+                                ['!=', 'navigation_id', $model->navigation_id],
+                                ['!=', 'navigation_id', $model_before->navigation_id]
 
-            return $this->redirect(['index']);
+                            ]
+                        );
+                        $model->display_order = $model_before->display_order;
+                        $model->save();
+                    } elseif ($model->display_order > $model_before->display_order) {
+                        AdminNavigation::updateAllCounters(
+                            ['display_order' => 1],
+                            [
+                                'AND',
+                                ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
+                                ['>=', 'display_order', $model_before->display_order],
+                                ['<=', 'display_order', $model->display_order],
+                                ['!=', 'navigation_id', $model->navigation_id]
+                            ]
+                        );
+                        $model->display_order = $model_before->display_order;
+                        $model->save();
+                    } else {
+                        AdminNavigation::updateAllCounters(
+                            ['display_order' => 1],
+                            [
+                                'AND',
+                                ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
+                                ['>=', 'display_order', $model_before->display_order],
+                                ['!=', 'navigation_id', $model->navigation_id]
+                            ]
+                        );
+                    }
+                } else {
+                    $maxOrder = AdminNavigation::find()
+                        ->where(['AND', ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id], ['!=', 'navigation_id', $model->navigation_id]])
+                        ->orderBy(['display_order' => SORT_DESC])
+                        ->one();
+                    $model->display_order = $maxOrder ? ($maxOrder->display_order + 1) : 1;
+//                    echo $model->display_order;
+//                    $transaction->rollBack();
+//                    exit();
+                    $model->save();
+                }
+
+
+                $transaction->commit();
+                Yii::$app->session->setFlash('highlight', $id);
+                return $this->redirect(['index']);
+            } catch (Exception $e) {
+                $transaction->rollBack();
+            }
         }
 
         $authItem = new AuthItem();
         $permission = $authItem->listPermissionTree('input');
-        $parents = $model->getAdminMenuOptions([$id => $id]);
 
         return $this->render('update', [
             'model' => $model,
-            'parents' => $parents,
             'permission' => $permission
         ]);
     }
@@ -197,48 +294,54 @@ class AdminNavigationController extends Controller
         $model = $this->findModel($id);
 
         if ($type == 'up') {
-            if ($model->display_order <= 0) {
-                return $this->redirect(Yii::$app->request->referrer);
-            }
-
             $changeItems = AdminNavigation::find()
-                ->where(['AND', ['menu_group' => $model->menu_group, 'level' => $model->level], ['<', 'display_order', $model->display_order]])
+                ->where(['AND', ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id], ['<', 'display_order', $model->display_order]])
                 ->orderBy(['display_order' => SORT_DESC])
                 ->one();
-
-            if ($changeItems === null) {
-                $model->display_order -= 1;
-            } else {
-                $currentOrder = $model->display_order;
-                $model->display_order = $changeItems->display_order;
-                $changeItems->display_order = $currentOrder;
-            }
         } else {
             $changeItems = AdminNavigation::find()
-                ->where(['AND', ['menu_group' => $model->menu_group, 'level' => $model->level], ['>', 'display_order', $model->display_order]])
+                ->where(['AND', ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id], ['>', 'display_order', $model->display_order]])
                 ->orderBy(['display_order' => SORT_ASC])
                 ->one();
-
-            if ($changeItems === null) {
-                $model->display_order += 1;
-            } else {
-                $currentOrder = $model->display_order;
-                $model->display_order = $changeItems->display_order;
-                $changeItems->display_order = $currentOrder;
-            }
         }
 
         if ($changeItems !== null) {
-            $changeItems->save(false, ['display_order']);
-        }
+            $currentOrder = $model->display_order;
+            $model->display_order = $changeItems->display_order;
+            $changeItems->display_order = $currentOrder;
 
-        if ($model->save(false, ['display_order'])) {
-            Yii::$app->session->setFlash('highlight', $id);
-            Yii::$app->session->setFlash('success', 'Successfully');
-        } else {
-            Yii::$app->session->setFlash('error', $model->errors);
+            $transaction = Yii::$app->getDb()->beginTransaction();
+            try {
+                $changeItems->save(false, ['display_order']);
+                $model->save(false, ['display_order']);
+                $transaction->commit();
+                Yii::$app->session->setFlash('highlight', $id);
+                Yii::$app->session->setFlash('success', 'Successfully');
+            } catch (Exception $e) {
+                $transaction->rollBack();
+                Yii::$app->session->setFlash('error', $model->errors);
+            }
         }
 
         return $this->redirect(Yii::$app->request->referrer);
+    }
+
+    public function actionListMenuParent($group, $q ='', $id='')
+    {
+        $model = new AdminNavigation();
+        $array_id = $id ? [$id => $id] : [];
+        $data = $model->getAdminMenuOptions($q, $group, $array_id);
+        $out['results'] = array_values($data);
+
+        return $this->responseJSON($out);
+    }
+
+    public function actionListMenuChild($parent_id)
+    {
+        $model = new AdminNavigation();
+        $data = $model->getAdminMenuChilds($parent_id);
+        $out['results'] = array_values($data);
+
+        return $this->responseJSON($out);
     }
 }
