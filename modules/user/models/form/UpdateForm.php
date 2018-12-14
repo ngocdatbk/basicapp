@@ -117,7 +117,7 @@ class UpdateForm extends User
         return null;
     }
 
-    public function findModel($id)
+    public static function findModel($id)
     {
         if (($model = UpdateForm::findOne($id)) !== null) {
             $model->roles = AuthAssignment::find()->where(['user_id' => $model->user_id])->column();

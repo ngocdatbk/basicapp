@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'is_admin',
                 'value' => function ($model){
-                    if ($model->is_active)
+                    if ($model->is_admin)
                         return Yii::t("app.global",'Admin');
                     else
                         return '';

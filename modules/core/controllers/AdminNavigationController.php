@@ -97,33 +97,29 @@ class AdminNavigationController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {
-                $model->save();
-                $model_before = $this->findModel($model->display_before);
-                if ($model->display_order < $model_before->display_order) {
-                    AdminNavigation::updateAllCounters(
-                        ['display_order' => -1],
-                        [
-                            'AND',
-                            ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
-                            ['>', 'display_order', $model->display_order],
-                            ['<', 'display_order', $model_before->display_order]
-                        ]
-                    );
-                    $model->display_order = $model_before->display_order;
-                    $model->save();
-                } elseif ($model->display_order > $model_before->display_order) {
+                $model->parent_id = $model->parent_id ? $model->parent_id : '0';
+                if ($model->display_before) {
+                    $model_before = $this->findModel($model->display_before);
+                    $display_before = $model_before->display_order;
+
                     AdminNavigation::updateAllCounters(
                         ['display_order' => 1],
                         [
                             'AND',
                             ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
-                            ['>=', 'display_order', $model_before->display_order],
-                            ['<', 'display_order', $model->display_order]
+                            ['>=', 'display_order', $display_before],
                         ]
                     );
-                    $model->display_order = $model_before->display_order;
-                    $model->save();
+                    $model->display_order = $display_before;
+                } else {
+                    $maxOrder = AdminNavigation::find()
+                        ->where(['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id])
+                        ->orderBy(['display_order' => SORT_DESC])
+                        ->one();
+                    $model->display_order = $maxOrder ? ($maxOrder->display_order + 1) : 0;
                 }
+
+                $model->save();
                 $transaction->commit();
                 return $this->redirect(['index']);
             } catch (Exception $e) {
@@ -158,45 +154,40 @@ class AdminNavigationController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {
-                unset($model->display_order);
-                $model->save();
+                $model->parent_id = $model->parent_id ? $model->parent_id : '0';
                 if ($model->display_before) {
                     $model_before = $this->findModel($model->display_before);
-                    if ($model->display_order < $model_before->display_order) {
+                    $display_before = $model_before->display_order;
+
+                    if ($model->display_order < $display_before) {
                         AdminNavigation::updateAllCounters(
                             ['display_order' => -1],
                             [
                                 'AND',
                                 ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
-                                ['>=', 'display_order', $model->display_order],
-                                ['<=', 'display_order', $model_before->display_order],
-                                ['!=', 'navigation_id', $model->navigation_id],
-                                ['!=', 'navigation_id', $model_before->navigation_id]
-
+                                ['>', 'display_order', $model->display_order],
+                                ['<', 'display_order', $display_before],
                             ]
                         );
-                        $model->display_order = $model_before->display_order;
-                        $model->save();
-                    } elseif ($model->display_order > $model_before->display_order) {
+                        $model->display_order = $display_before-1;
+                    } elseif ($model->display_order > $display_before) {
                         AdminNavigation::updateAllCounters(
                             ['display_order' => 1],
                             [
                                 'AND',
                                 ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
-                                ['>=', 'display_order', $model_before->display_order],
-                                ['<=', 'display_order', $model->display_order],
-                                ['!=', 'navigation_id', $model->navigation_id]
+                                ['>=', 'display_order', $display_before],
+                                ['<', 'display_order', $model->display_order],
                             ]
                         );
-                        $model->display_order = $model_before->display_order;
-                        $model->save();
+                        $model->display_order = $display_before;
                     } else {
                         AdminNavigation::updateAllCounters(
                             ['display_order' => 1],
                             [
                                 'AND',
                                 ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id],
-                                ['>=', 'display_order', $model_before->display_order],
+                                ['>=', 'display_order', $display_before],
                                 ['!=', 'navigation_id', $model->navigation_id]
                             ]
                         );
@@ -206,14 +197,10 @@ class AdminNavigationController extends Controller
                         ->where(['AND', ['menu_group' => $model->menu_group, 'parent_id' => $model->parent_id], ['!=', 'navigation_id', $model->navigation_id]])
                         ->orderBy(['display_order' => SORT_DESC])
                         ->one();
-                    $model->display_order = $maxOrder ? ($maxOrder->display_order + 1) : 1;
-//                    echo $model->display_order;
-//                    $transaction->rollBack();
-//                    exit();
-                    $model->save();
+                    $model->display_order = $maxOrder ? ($maxOrder->display_order + 1) : 0;
                 }
 
-
+                $model->save();
                 $transaction->commit();
                 Yii::$app->session->setFlash('highlight', $id);
                 return $this->redirect(['index']);

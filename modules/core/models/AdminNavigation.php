@@ -4,7 +4,7 @@ namespace app\modules\core\models;
 
 use app\helpers\ArrayHelper;
 use app\helpers\Php;
-use app\modules\permission\models\Permission;
+use app\modules\permission\models\AuthItem;
 use Yii;
 use yii\helpers\Html;
 use app\components\Model;
@@ -257,7 +257,7 @@ class AdminNavigation extends Model
      */
     public function getPermissionItems()
     {
-        return $this->hasOne(Permission::className(), ['permission_id' => 'permission']);
+        return $this->hasOne(AuthItem::className(), ['permission_id' => 'name']);
     }
 
     public function getChildrenMenu ()
@@ -430,23 +430,20 @@ class AdminNavigation extends Model
             'parent_id' => $item['parent_id'],
             'id' => $item['navigation_id'],
             'label' => $this->getLabel($item['label_type'], $item['label']),
+            'url' => $item['url'],
+            'icon' => $item['icon']
         ];
-
-        //Heading sidebar menu item
-        if (empty($item['url'])) {
-            $menuItem['url'] = false;
-            $menuItem['icon'] = $item['icon'];
-
-            return $menuItem;
-        }
-
-        $menuItem['url'] = [$item['url']];
-        $menuItem['icon'] = $item['icon'];
-        $menuItem['options'] = ['class' => 'navTab'];
 
         if (!empty($item['permission_type'])) {
             $menuItem['visible'] = $this->checkPermission($item);
         }
+
+        //Heading sidebar menu item
+        if (empty($item['url'])) {
+            $menuItem['url'] = false;
+            return $menuItem;
+        }
+        $menuItem['options'] = ['class' => 'navTab'];
 
         return $menuItem;
     }

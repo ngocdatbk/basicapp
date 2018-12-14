@@ -55,10 +55,7 @@ class UserController extends Controller
 
         $authItem = new AuthItem();
         $listPermission = $authItem->listPermissionOfUser($id);
-//        echo "<pre>";
-//        var_dump($listPermission);
-//        echo "<pre>";
-//        exit();
+
         $dataProvider = new ArrayDataProvider([
             'allModels' => $listPermission,
             'pagination' => false

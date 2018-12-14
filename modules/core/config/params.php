@@ -5,8 +5,8 @@ return [
         'callback' => 'Call Back'
     ],
     'group_menu' => [
-        'header_menu' => 'Header menu',
-        'sidebar_menu' => 'Sidebar menu'
+        'sidebar_menu' => 'Sidebar menu',
+        'header_menu' => 'Header menu'
     ],
     'label_type' => [
         'text' => 'Text',
