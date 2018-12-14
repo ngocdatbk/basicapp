@@ -430,15 +430,13 @@ class AdminNavigation extends Model
             'parent_id' => $item['parent_id'],
             'id' => $item['navigation_id'],
             'label' => $this->getLabel($item['label_type'], $item['label']),
-            'url' => $item['url'],
-            'icon' => $item['icon']
+            'icon' => $item['icon'],
+            'url' => [$item['url']]
         ];
-
         if (!empty($item['permission_type'])) {
             $menuItem['visible'] = $this->checkPermission($item);
         }
 
-        //Heading sidebar menu item
         if (empty($item['url'])) {
             $menuItem['url'] = false;
             return $menuItem;
