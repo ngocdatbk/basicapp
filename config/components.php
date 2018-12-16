@@ -107,6 +107,9 @@ return [
             ]
         ],
     ],
+    'dataRegistry' => [
+        'class' => 'app\modules\core\components\DataRegistry',
+    ],
     'formatter' => [
         'dateFormat' => 'dd.MM.yyyy',
         'decimalSeparator' => '.',

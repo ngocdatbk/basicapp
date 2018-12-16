@@ -138,6 +138,27 @@ class UserController extends Controller
      * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    public function actionListUser()
+    {
+        $q = Yii::$app->request->get('q');
+        $query = new \yii\db\Query;
+        $query->select('user_id as id, fullname as text')
+            ->from('user')
+            ->where(['is_active' => 1])
+            ->limit(20);
+
+        if (!empty($q)) {
+            $query->andWhere(['like', 'fullname', trim($q)]);
+        }
+
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+
+        $out['results'] = array_values($data);
+
+        return $this->responseJSON($out);
+    }
     protected function findModel($id)
     {
         if (($model = User::findOne($id)) !== null) {

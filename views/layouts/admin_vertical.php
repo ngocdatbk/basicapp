@@ -71,6 +71,7 @@ AppAsset::register($this);
                     </aside>
 
                     <div class="container-fluid content_body dis-cell">
+                        <?= app\widgets\ViewAs::widget() ?>
                         <?= Breadcrumbs::widget([
                             'homeLink' => [
                                 'label' => 'Home',  // required

@@ -16,6 +16,7 @@ use yii\rbac\Item;
 use yii\db\Exception;
 use yii\data\ArrayDataProvider;
 use yii\filters\AccessControl;
+use yii\web\ForbiddenHttpException;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.
@@ -61,6 +62,69 @@ class PermissionController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function actionViewAs($id = 0)
+    {
+        if ($id === 0) {
+            if (!Yii::$app->user->can('viesAsPermisson')) {
+                throw new ForbiddenHttpException(Yii::t('permission.global', 'You can not access this feature.'));
+            }
+
+            Yii::$app->session->set('loggedUserId', Yii::$app->user->id);
+
+            $viewAsData = Yii::$app->dataRegistry->get('viewAsUser');
+            $viewAsData[Yii::$app->user->id] = [
+                'loggedUserId' => Yii::$app->user->id,
+            ];
+
+            Yii::$app->dataRegistry->set('viewAsUser', $viewAsData);
+        }
+
+        if (!Yii::$app->session->get('loggedUserId')) {
+            throw new ForbiddenHttpException(Yii::t('permission.global', 'You can not access this feature.'));
+        }
+
+        $loggedUserId = Yii::$app->session->get('loggedUserId');
+
+        if ($id && $loggedUserId) {
+            $viewAsData = Yii::$app->dataRegistry->get('viewAsUser');
+
+            if (empty($viewAsData) || !isset($viewAsData[$loggedUserId])) {
+                $viewAsData[$loggedUserId] = [
+                    'loggedUserId' => $loggedUserId,
+                ];
+            }
+
+            $viewAsData[$loggedUserId]['viewAsUserId'] = $id;
+
+            Yii::$app->dataRegistry->set('viewAsUser', $viewAsData);
+        }
+
+        $loginRedirect = \app\helpers\ArrayHelper::getValue(Yii::$app->params, 'loginRedirect');
+
+        return !empty($loginRedirect) ? $this->redirect($loginRedirect) : $this->goHome();
+    }
+
+    public function actionReset($redirect = '')
+    {
+        $loggedUserId = Yii::$app->session->get('loggedUserId');
+        $viewAsData = Yii::$app->dataRegistry->get('viewAsUser');
+        $redirect = !empty($redirect) ? $redirect : Yii::$app->request->referrer;
+
+        if(isset($viewAsData[$loggedUserId])) {
+            unset($viewAsData[$loggedUserId]);
+        }
+
+        if(!empty($viewAsData)) {
+            Yii::$app->dataRegistry->set('viewAsUser', $viewAsData);
+        } else {
+            Yii::$app->dataRegistry->delete('viewAsUser');
+        }
+
+        Yii::$app->session->set('loggedUserId', null);
+
+        return !empty($redirect) ? $this->redirect($redirect) : $this->goHome();
     }
 
     /**
