@@ -66,27 +66,35 @@ class AuthController extends \yii\web\Controller
 
     public function actionAuthSuccess($client)
     {
-        try {
-            $attributes = $client->getUserAttributes();
-            $email = ArrayHelper::getValue($attributes, 'emails')[0]['value'];
-        } catch (Exception $exc) {
-            Yii::$app->getSession()->setFlash('error', Yii::t('user.message', 'Authentication error.'));
-            return $this->redirect(['/user/auth/login']);
+        if (Yii::$app->user->isGuest) {
+            try {
+                $attributes = $client->getUserAttributes();
+                $email = ArrayHelper::getValue($attributes, 'emails')[0]['value'];
+
+                if (empty($email)) {
+                    Yii::$app->getSession()->setFlash('error', Yii::t('user.message', 'Authentication error.'));
+                    return $this->redirect(['/user/auth/login']);
+                }
+
+                $user = User::findOne(['email' => $email]);
+
+                if ($user === null) {
+                    $model = new SignupForm();
+                    $model->email = $email;
+                    $model->password = Yii::$app->security->generateRandomString(6);
+                    $model->password = $model->password_repeat;
+
+                    $user = $model->signup(false);
+                    Yii::$app->getUser()->login($user);
+                    Yii::$app->getSession()->setFlash('success', Yii::t('user.message', 'Your have been created new account'));
+                } else
+                    Yii::$app->getUser()->login($user);
+            } catch (Exception $exc) {
+                Yii::$app->getSession()->setFlash('error', Yii::t('user.message', 'Authentication error.'));
+                return $this->redirect(['/user/auth/login']);
+            }
         }
 
-        if (empty($email)) {
-            Yii::$app->getSession()->setFlash('error', Yii::t('user.message', 'Authentication error.'));
-            return $this->redirect(['/user/auth/login']);
-        }
-
-        $user = User::findOne(['email' => $email]);
-
-        if ($user === null) {
-            Yii::$app->getSession()->setFlash('error', Yii::t('user.message', 'Your email does not exist.'));
-            return $this->redirect(['/user/auth/login', 'model' => $user]);
-        }
-
-        Yii::$app->getUser()->login($user);
         return $this->redirect('/dashboard');
 
 //        return $this->goHome();

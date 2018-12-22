@@ -64,15 +64,16 @@ class SignupForm extends \yii\base\Model
      *
      * @return User|null the saved model or null if saving fails
      */
-    public function signup()
+    public function signup($validate = true)
     {
-        if ($this->validate()) {
+        $validate = $validate ? $this->validate() : true;
+        if ($validate) {
             $transaction = Yii::$app->getDb()->beginTransaction();
             try {
                 $user = new User();
                 $user->username = $this->email;
                 $user->email = $this->email;
-                $user->fullname = $this->fullname;
+                $user->fullname = $this->fullname ? $this->fullname : '--';
                 $user->is_active = 1;
 
                 if ($user->save()) {
