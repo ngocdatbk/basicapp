@@ -66,6 +66,7 @@ class CreateForm extends User
                 $userAuth->user_id = $this->user_id;
                 $userAuth->setPassword($this->password);
                 $userAuth->generateAuthKey();
+                $userAuth->generateAccessToken();
                 $userAuth->save();
 
                 if ($this->roles) {

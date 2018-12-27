@@ -83,7 +83,7 @@ class RoleController extends Controller
         $listPermission = $model->listPermissionWithAssigned();
 
         if (Yii::$app->request->post()) {
-            $new_permission = array_keys(Yii::$app->request->post('permission'));
+            $new_permission = Yii::$app->request->post('permission') ? array_keys(Yii::$app->request->post('permission')) : [];
             $old_permission = AuthItemChild::find()
                 ->innerJoin(AuthItem::tableName(),'auth_item.name = auth_item_child.child')
                 ->select(['child','parent'])

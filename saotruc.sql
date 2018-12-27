@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 16, 2018 at 03:57 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 27, 2018 lúc 09:02 AM
+-- Phiên bản máy phục vụ: 10.1.28-MariaDB
+-- Phiên bản PHP: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `saotruc`
+-- Cơ sở dữ liệu: `saotruc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_navigation`
+-- Cấu trúc bảng cho bảng `admin_navigation`
 --
 
 CREATE TABLE `admin_navigation` (
@@ -50,7 +50,7 @@ CREATE TABLE `admin_navigation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin_navigation`
+-- Đang đổ dữ liệu cho bảng `admin_navigation`
 --
 
 INSERT INTO `admin_navigation` (`navigation_id`, `label`, `icon`, `url`, `menu_group`, `parent_id`, `level`, `label_type`, `permission_type`, `permission`, `debug_only`, `display_order`, `created_date`, `created_by`, `updated_date`, `updated_by`, `display_f`, `module_id`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `admin_navigation` (`navigation_id`, `label`, `icon`, `url`, `menu_g
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_assignment`
+-- Cấu trúc bảng cho bảng `auth_assignment`
 --
 
 CREATE TABLE `auth_assignment` (
@@ -84,18 +84,19 @@ CREATE TABLE `auth_assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_assignment`
+-- Đang đổ dữ liệu cho bảng `auth_assignment`
 --
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('Admin', '5', 1544436446),
+('Api', '11', 1545885231),
 ('Modarator', '1', 1544518164),
 ('Sale', '8', 1544518175);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_item`
+-- Cấu trúc bảng cho bảng `auth_item`
 --
 
 CREATE TABLE `auth_item` (
@@ -109,11 +110,12 @@ CREATE TABLE `auth_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_item`
+-- Đang đổ dữ liệu cho bảng `auth_item`
 --
 
 INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
 ('Admin', 1, 'Admin', NULL, NULL, 1542959944, 1544413393),
+('Api', 1, 'Api', NULL, NULL, 1545885177, 1545885246),
 ('CreateCronTask', 2, 'Create Cron Task', NULL, NULL, 1544516838, 1544516838),
 ('CreateOrder', 2, 'Create Order', NULL, NULL, 1544516696, 1544516696),
 ('CreatePermission', 2, 'Create Permission', NULL, NULL, 1544517120, 1544517120),
@@ -123,7 +125,7 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 ('CreateRule', 2, 'Create Rule', NULL, NULL, 1544517246, 1544517246),
 ('CreateSetting', 2, 'Create Setting', NULL, NULL, 1544429235, 1544429235),
 ('CreateUser', 2, 'Create User', NULL, NULL, 1544412139, 1544412139),
-('CronTask', 2, 'Cron Task', NULL, NULL, 1544516812, 1544516812),
+('CronTask', 2, 'Cron Task', NULL, NULL, 1544516812, 1545896926),
 ('DeleteCronTask', 2, 'Delete Cron Task', NULL, NULL, 1544516882, 1544516882),
 ('DeleteOrder', 2, 'Delete Order', NULL, NULL, 1544516754, 1544516754),
 ('DeletePermission', 2, 'Delete Permission', NULL, NULL, 1544517164, 1544517164),
@@ -133,19 +135,23 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 ('DeleteRule', 2, 'Delete Rule', NULL, NULL, 1544517282, 1544517282),
 ('DeleteSetting', 2, 'Delete Setting', NULL, NULL, 1544429277, 1544429277),
 ('DeleteUser', 2, 'Delete User', NULL, NULL, 1544413200, 1544413200),
-('MenuReport', 2, 'Menu Report', NULL, NULL, 1544433107, 1544516933),
-('MenuSetting', 2, 'Menu Setting', NULL, NULL, 1544517010, 1544517010),
-('MenuSystemTool', 2, 'Menu System Tool', NULL, NULL, 1544516781, 1544516952),
-('MenuUser', 2, 'Menu User', NULL, NULL, 1544516972, 1544516972),
+('ManagerSetting', 2, 'Manager Setting', NULL, NULL, 1545897322, 1545897322),
+('ManagerUser', 2, 'Manager User', NULL, NULL, 1545896876, 1545896876),
+('MenuReport', 2, 'Menu Report', NULL, NULL, 1544433107, 1545897119),
+('MenuSetting', 2, 'Menu Setting', NULL, NULL, 1545897478, 1545897478),
+('MenuSystemTool', 2, 'Menu System Tool', NULL, NULL, 1544516781, 1545897105),
+('MenuUser', 2, 'Menu User', NULL, NULL, 1544516972, 1545897095),
 ('Modarator', 1, 'Modarator', NULL, NULL, 1544433088, 1544433088),
-('Order', 2, 'Order', NULL, NULL, 1544516673, 1544516673),
-('Permission', 2, 'Permission', NULL, NULL, 1544517056, 1544816786),
-('Product', 2, 'Product', NULL, NULL, 1544381567, 1544816847),
-('ProductCategory', 2, 'Product Category', NULL, NULL, 1544516559, 1544816863),
-('Role', 2, 'Role', NULL, NULL, 1544517073, 1544816809),
-('Rule', 2, 'Rule', NULL, NULL, 1544517089, 1544816826),
+('Order', 2, 'Order', NULL, NULL, 1544516673, 1545896909),
+('Permission', 2, 'Permission', NULL, NULL, 1544517056, 1545896998),
+('Product', 2, 'Product', NULL, NULL, 1544381567, 1545897351),
+('ProductCategory', 2, 'Product Category', NULL, NULL, 1544516559, 1545897356),
+('Report', 2, 'Report', NULL, NULL, 1545896844, 1545896844),
+('Role', 2, 'Role', NULL, NULL, 1544517073, 1545896996),
+('Rule', 2, 'Rule', NULL, NULL, 1544517089, 1545896993),
 ('Sale', 1, 'Sale', NULL, NULL, 1542959944, 1544413370),
-('Setting', 2, 'Setting', NULL, NULL, 1544429151, 1544517024),
+('Setting', 2, 'Setting', NULL, NULL, 1544429151, 1545897362),
+('SystemTools', 2, 'System tools', NULL, NULL, 1545896862, 1545896862),
 ('UpdateCronTask', 2, 'Update Cron Task', NULL, NULL, 1544516857, 1544516857),
 ('UpdateOrder', 2, 'Update Order', NULL, NULL, 1544516723, 1544516723),
 ('UpdatePermission', 2, 'Update Permission', NULL, NULL, 1544517137, 1544517137),
@@ -155,13 +161,14 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 ('UpdateRule', 2, 'Update Rule', NULL, NULL, 1544517263, 1544517263),
 ('UpdateSetting', 2, 'Update Setting', NULL, NULL, 1544429261, 1544429261),
 ('UpdateUser', 2, 'Update User', NULL, NULL, 1544412159, 1544413165),
-('User', 2, 'User', NULL, NULL, 1544412120, 1544516986),
-('viesAsPermisson', 2, 'view As Permisson', NULL, NULL, 1544899092, 1544899092);
+('User', 2, 'User', NULL, NULL, 1544412120, 1545896989),
+('viesAsPermisson', 2, 'view As Permisson', NULL, NULL, 1544899092, 1544899092),
+('ViewProduct', 2, 'View Product', NULL, NULL, 1545889335, 1545889335);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_item_child`
+-- Cấu trúc bảng cho bảng `auth_item_child`
 --
 
 CREATE TABLE `auth_item_child` (
@@ -170,29 +177,30 @@ CREATE TABLE `auth_item_child` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_item_child`
+-- Đang đổ dữ liệu cho bảng `auth_item_child`
 --
 
 INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
-('Admin', 'MenuReport'),
-('Admin', 'MenuSetting'),
-('Admin', 'MenuSystemTool'),
-('Admin', 'MenuUser'),
+('Admin', 'ManagerSetting'),
+('Admin', 'ManagerUser'),
+('Admin', 'Report'),
+('Admin', 'SystemTools'),
+('Api', 'Product'),
 ('CronTask', 'CreateCronTask'),
 ('CronTask', 'DeleteCronTask'),
 ('CronTask', 'UpdateCronTask'),
-('MenuReport', 'Order'),
-('MenuSetting', 'Product'),
-('MenuSetting', 'ProductCategory'),
-('MenuSetting', 'Setting'),
-('MenuSystemTool', 'CronTask'),
-('MenuUser', 'Permission'),
-('MenuUser', 'Role'),
-('MenuUser', 'Rule'),
-('MenuUser', 'User'),
-('Modarator', 'MenuReport'),
-('Modarator', 'MenuSetting'),
-('Modarator', 'MenuSystemTool'),
+('ManagerSetting', 'MenuSetting'),
+('ManagerSetting', 'Product'),
+('ManagerSetting', 'ProductCategory'),
+('ManagerSetting', 'Setting'),
+('ManagerUser', 'MenuUser'),
+('ManagerUser', 'Permission'),
+('ManagerUser', 'Role'),
+('ManagerUser', 'Rule'),
+('ManagerUser', 'User'),
+('Modarator', 'ManagerSetting'),
+('Modarator', 'Report'),
+('Modarator', 'SystemTools'),
 ('Order', 'CreateOrder'),
 ('Order', 'DeleteOrder'),
 ('Order', 'UpdateOrder'),
@@ -203,9 +211,12 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 ('Product', 'CreateProduct'),
 ('Product', 'DeleteProduct'),
 ('Product', 'UpdateProduct'),
+('Product', 'ViewProduct'),
 ('ProductCategory', 'CreateProductCategory'),
 ('ProductCategory', 'DeleteProductCategory'),
 ('ProductCategory', 'UpdateProductCategory'),
+('Report', 'MenuReport'),
+('Report', 'Order'),
 ('Role', 'CreateRole'),
 ('Role', 'DeleteRole'),
 ('Role', 'UpdateRole'),
@@ -213,9 +224,12 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 ('Rule', 'DeleteRule'),
 ('Rule', 'UpdateRule'),
 ('Sale', 'MenuReport'),
+('Sale', 'UpdateOrder'),
 ('Setting', 'CreateSetting'),
 ('Setting', 'DeleteSetting'),
 ('Setting', 'UpdateSetting'),
+('SystemTools', 'CronTask'),
+('SystemTools', 'MenuSystemTool'),
 ('User', 'CreateUser'),
 ('User', 'DeleteUser'),
 ('User', 'UpdateUser');
@@ -223,7 +237,7 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_rule`
+-- Cấu trúc bảng cho bảng `auth_rule`
 --
 
 CREATE TABLE `auth_rule` (
@@ -234,7 +248,7 @@ CREATE TABLE `auth_rule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `auth_rule`
+-- Đang đổ dữ liệu cho bảng `auth_rule`
 --
 
 INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
@@ -243,7 +257,7 @@ INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cronjob`
+-- Cấu trúc bảng cho bảng `cronjob`
 --
 
 CREATE TABLE `cronjob` (
@@ -260,16 +274,16 @@ CREATE TABLE `cronjob` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `cronjob`
+-- Đang đổ dữ liệu cho bảng `cronjob`
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
-(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1544783111, 1544783171, 1, 1);
+(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1545897611, 1545897671, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cronjob_log`
+-- Cấu trúc bảng cho bảng `cronjob_log`
 --
 
 CREATE TABLE `cronjob_log` (
@@ -279,7 +293,7 @@ CREATE TABLE `cronjob_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `cronjob_log`
+-- Đang đổ dữ liệu cho bảng `cronjob_log`
 --
 
 INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
@@ -1012,12 +1026,884 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 ('SendMail', 1544782211, 'Success.'),
 ('SendMail', 1544782511, 'Success.'),
 ('SendMail', 1544782811, 'Success.'),
-('SendMail', 1544783111, 'Success.');
+('SendMail', 1544783111, 'Success.'),
+('SendMail', 1545014111, 'Success.'),
+('SendMail', 1545014411, 'Success.'),
+('SendMail', 1545014711, 'Success.'),
+('SendMail', 1545015011, 'Success.'),
+('SendMail', 1545015311, 'Success.'),
+('SendMail', 1545015611, 'Success.'),
+('SendMail', 1545015911, 'Success.'),
+('SendMail', 1545016211, 'Success.'),
+('SendMail', 1545016511, 'Success.'),
+('SendMail', 1545016811, 'Success.'),
+('SendMail', 1545017111, 'Success.'),
+('SendMail', 1545017411, 'Success.'),
+('SendMail', 1545017711, 'Success.'),
+('SendMail', 1545018011, 'Success.'),
+('SendMail', 1545018311, 'Success.'),
+('SendMail', 1545018611, 'Success.'),
+('SendMail', 1545018911, 'Success.'),
+('SendMail', 1545019211, 'Success.'),
+('SendMail', 1545019511, 'Success.'),
+('SendMail', 1545019811, 'Success.'),
+('SendMail', 1545020111, 'Success.'),
+('SendMail', 1545020410, 'Success.'),
+('SendMail', 1545020711, 'Success.'),
+('SendMail', 1545021011, 'Success.'),
+('SendMail', 1545021311, 'Success.'),
+('SendMail', 1545021611, 'Success.'),
+('SendMail', 1545021911, 'Success.'),
+('SendMail', 1545022211, 'Success.'),
+('SendMail', 1545022511, 'Success.'),
+('SendMail', 1545022811, 'Success.'),
+('SendMail', 1545023111, 'Success.'),
+('SendMail', 1545023411, 'Success.'),
+('SendMail', 1545023711, 'Success.'),
+('SendMail', 1545024011, 'Success.'),
+('SendMail', 1545024311, 'Success.'),
+('SendMail', 1545024611, 'Success.'),
+('SendMail', 1545024911, 'Success.'),
+('SendMail', 1545025211, 'Success.'),
+('SendMail', 1545025511, 'Success.'),
+('SendMail', 1545025811, 'Success.'),
+('SendMail', 1545026111, 'Success.'),
+('SendMail', 1545026411, 'Success.'),
+('SendMail', 1545026711, 'Success.'),
+('SendMail', 1545027011, 'Success.'),
+('SendMail', 1545027311, 'Success.'),
+('SendMail', 1545027611, 'Success.'),
+('SendMail', 1545027911, 'Success.'),
+('SendMail', 1545028211, 'Success.'),
+('SendMail', 1545028511, 'Success.'),
+('SendMail', 1545028811, 'Success.'),
+('SendMail', 1545029111, 'Success.'),
+('SendMail', 1545029411, 'Success.'),
+('SendMail', 1545029711, 'Success.'),
+('SendMail', 1545030011, 'Success.'),
+('SendMail', 1545030311, 'Success.'),
+('SendMail', 1545030611, 'Success.'),
+('SendMail', 1545030911, 'Success.'),
+('SendMail', 1545031211, 'Success.'),
+('SendMail', 1545031511, 'Success.'),
+('SendMail', 1545031811, 'Success.'),
+('SendMail', 1545032111, 'Success.'),
+('SendMail', 1545032411, 'Success.'),
+('SendMail', 1545032711, 'Success.'),
+('SendMail', 1545033011, 'Success.'),
+('SendMail', 1545033311, 'Success.'),
+('SendMail', 1545033611, 'Success.'),
+('SendMail', 1545033911, 'Success.'),
+('SendMail', 1545034211, 'Success.'),
+('SendMail', 1545034511, 'Success.'),
+('SendMail', 1545034811, 'Success.'),
+('SendMail', 1545035111, 'Success.'),
+('SendMail', 1545035411, 'Success.'),
+('SendMail', 1545035711, 'Success.'),
+('SendMail', 1545036011, 'Success.'),
+('SendMail', 1545036311, 'Success.'),
+('SendMail', 1545036611, 'Success.'),
+('SendMail', 1545036911, 'Success.'),
+('SendMail', 1545037211, 'Success.'),
+('SendMail', 1545037511, 'Success.'),
+('SendMail', 1545037811, 'Success.'),
+('SendMail', 1545038111, 'Success.'),
+('SendMail', 1545038411, 'Success.'),
+('SendMail', 1545038711, 'Success.'),
+('SendMail', 1545039011, 'Success.'),
+('SendMail', 1545039311, 'Success.'),
+('SendMail', 1545039611, 'Success.'),
+('SendMail', 1545039911, 'Success.'),
+('SendMail', 1545040211, 'Success.'),
+('SendMail', 1545040511, 'Success.'),
+('SendMail', 1545040811, 'Success.'),
+('SendMail', 1545041111, 'Success.'),
+('SendMail', 1545041411, 'Success.'),
+('SendMail', 1545041711, 'Success.'),
+('SendMail', 1545042011, 'Success.'),
+('SendMail', 1545042311, 'Success.'),
+('SendMail', 1545042611, 'Success.'),
+('SendMail', 1545042911, 'Success.'),
+('SendMail', 1545095717, 'Success.'),
+('SendMail', 1545096011, 'Success.'),
+('SendMail', 1545096311, 'Success.'),
+('SendMail', 1545096611, 'Success.'),
+('SendMail', 1545096911, 'Success.'),
+('SendMail', 1545097211, 'Success.'),
+('SendMail', 1545097511, 'Success.'),
+('SendMail', 1545097811, 'Success.'),
+('SendMail', 1545098111, 'Success.'),
+('SendMail', 1545098411, 'Success.'),
+('SendMail', 1545098711, 'Success.'),
+('SendMail', 1545099011, 'Success.'),
+('SendMail', 1545099311, 'Success.'),
+('SendMail', 1545099611, 'Success.'),
+('SendMail', 1545099911, 'Success.'),
+('SendMail', 1545100211, 'Success.'),
+('SendMail', 1545100511, 'Success.'),
+('SendMail', 1545100811, 'Success.'),
+('SendMail', 1545101111, 'Success.'),
+('SendMail', 1545101411, 'Success.'),
+('SendMail', 1545101711, 'Success.'),
+('SendMail', 1545102011, 'Success.'),
+('SendMail', 1545102311, 'Success.'),
+('SendMail', 1545102611, 'Success.'),
+('SendMail', 1545102911, 'Success.'),
+('SendMail', 1545103211, 'Success.'),
+('SendMail', 1545103511, 'Success.'),
+('SendMail', 1545103811, 'Success.'),
+('SendMail', 1545104111, 'Success.'),
+('SendMail', 1545104411, 'Success.'),
+('SendMail', 1545104711, 'Success.'),
+('SendMail', 1545105011, 'Success.'),
+('SendMail', 1545105311, 'Success.'),
+('SendMail', 1545105611, 'Success.'),
+('SendMail', 1545105911, 'Success.'),
+('SendMail', 1545106211, 'Success.'),
+('SendMail', 1545106511, 'Success.'),
+('SendMail', 1545106810, 'Success.'),
+('SendMail', 1545107112, 'Success.'),
+('SendMail', 1545107411, 'Success.'),
+('SendMail', 1545107711, 'Success.'),
+('SendMail', 1545108011, 'Success.'),
+('SendMail', 1545108311, 'Success.'),
+('SendMail', 1545108611, 'Success.'),
+('SendMail', 1545108911, 'Success.'),
+('SendMail', 1545109211, 'Success.'),
+('SendMail', 1545109511, 'Success.'),
+('SendMail', 1545109811, 'Success.'),
+('SendMail', 1545110111, 'Success.'),
+('SendMail', 1545110411, 'Success.'),
+('SendMail', 1545110711, 'Success.'),
+('SendMail', 1545111011, 'Success.'),
+('SendMail', 1545111311, 'Success.'),
+('SendMail', 1545111611, 'Success.'),
+('SendMail', 1545111911, 'Success.'),
+('SendMail', 1545112211, 'Success.'),
+('SendMail', 1545112511, 'Success.'),
+('SendMail', 1545112811, 'Success.'),
+('SendMail', 1545113111, 'Success.'),
+('SendMail', 1545113411, 'Success.'),
+('SendMail', 1545113711, 'Success.'),
+('SendMail', 1545114011, 'Success.'),
+('SendMail', 1545114311, 'Success.'),
+('SendMail', 1545114611, 'Success.'),
+('SendMail', 1545114911, 'Success.'),
+('SendMail', 1545115211, 'Success.'),
+('SendMail', 1545115511, 'Success.'),
+('SendMail', 1545115811, 'Success.'),
+('SendMail', 1545116111, 'Success.'),
+('SendMail', 1545116411, 'Success.'),
+('SendMail', 1545116711, 'Success.'),
+('SendMail', 1545117011, 'Success.'),
+('SendMail', 1545117311, 'Success.'),
+('SendMail', 1545117611, 'Success.'),
+('SendMail', 1545117911, 'Success.'),
+('SendMail', 1545118211, 'Success.'),
+('SendMail', 1545118511, 'Success.'),
+('SendMail', 1545118811, 'Success.'),
+('SendMail', 1545119111, 'Success.'),
+('SendMail', 1545119411, 'Success.'),
+('SendMail', 1545119711, 'Success.'),
+('SendMail', 1545120011, 'Success.'),
+('SendMail', 1545120311, 'Success.'),
+('SendMail', 1545120611, 'Success.'),
+('SendMail', 1545120911, 'Success.'),
+('SendMail', 1545121211, 'Success.'),
+('SendMail', 1545121511, 'Success.'),
+('SendMail', 1545121811, 'Success.'),
+('SendMail', 1545122111, 'Success.'),
+('SendMail', 1545122411, 'Success.'),
+('SendMail', 1545122711, 'Success.'),
+('SendMail', 1545123011, 'Success.'),
+('SendMail', 1545123311, 'Success.'),
+('SendMail', 1545123611, 'Success.'),
+('SendMail', 1545123911, 'Success.'),
+('SendMail', 1545124211, 'Success.'),
+('SendMail', 1545124511, 'Success.'),
+('SendMail', 1545124811, 'Success.'),
+('SendMail', 1545125111, 'Success.'),
+('SendMail', 1545125411, 'Success.'),
+('SendMail', 1545125711, 'Success.'),
+('SendMail', 1545126011, 'Success.'),
+('SendMail', 1545126311, 'Success.'),
+('SendMail', 1545126611, 'Success.'),
+('SendMail', 1545126911, 'Success.'),
+('SendMail', 1545127211, 'Success.'),
+('SendMail', 1545127511, 'Success.'),
+('SendMail', 1545127811, 'Success.'),
+('SendMail', 1545128111, 'Success.'),
+('SendMail', 1545128411, 'Success.'),
+('SendMail', 1545128711, 'Success.'),
+('SendMail', 1545129011, 'Success.'),
+('SendMail', 1545129311, 'Success.'),
+('SendMail', 1545129611, 'Success.'),
+('SendMail', 1545129911, 'Success.'),
+('SendMail', 1545182412, 'Success.'),
+('SendMail', 1545182711, 'Success.'),
+('SendMail', 1545183011, 'Success.'),
+('SendMail', 1545183311, 'Success.'),
+('SendMail', 1545183611, 'Success.'),
+('SendMail', 1545183911, 'Success.'),
+('SendMail', 1545184211, 'Success.'),
+('SendMail', 1545184511, 'Success.'),
+('SendMail', 1545184811, 'Success.'),
+('SendMail', 1545185111, 'Success.'),
+('SendMail', 1545185411, 'Success.'),
+('SendMail', 1545185711, 'Success.'),
+('SendMail', 1545186011, 'Success.'),
+('SendMail', 1545186311, 'Success.'),
+('SendMail', 1545186611, 'Success.'),
+('SendMail', 1545186911, 'Success.'),
+('SendMail', 1545187211, 'Success.'),
+('SendMail', 1545187511, 'Success.'),
+('SendMail', 1545187811, 'Success.'),
+('SendMail', 1545188111, 'Success.'),
+('SendMail', 1545188411, 'Success.'),
+('SendMail', 1545188711, 'Success.'),
+('SendMail', 1545189011, 'Success.'),
+('SendMail', 1545189311, 'Success.'),
+('SendMail', 1545189611, 'Success.'),
+('SendMail', 1545189911, 'Success.'),
+('SendMail', 1545190211, 'Success.'),
+('SendMail', 1545190511, 'Success.'),
+('SendMail', 1545190811, 'Success.'),
+('SendMail', 1545191111, 'Success.'),
+('SendMail', 1545191411, 'Success.'),
+('SendMail', 1545191711, 'Success.'),
+('SendMail', 1545192011, 'Success.'),
+('SendMail', 1545192311, 'Success.'),
+('SendMail', 1545192611, 'Success.'),
+('SendMail', 1545192911, 'Success.'),
+('SendMail', 1545193210, 'Success.'),
+('SendMail', 1545193511, 'Success.'),
+('SendMail', 1545193811, 'Success.'),
+('SendMail', 1545194111, 'Success.'),
+('SendMail', 1545194411, 'Success.'),
+('SendMail', 1545194711, 'Success.'),
+('SendMail', 1545195011, 'Success.'),
+('SendMail', 1545195311, 'Success.'),
+('SendMail', 1545195611, 'Success.'),
+('SendMail', 1545195911, 'Success.'),
+('SendMail', 1545196211, 'Success.'),
+('SendMail', 1545196511, 'Success.'),
+('SendMail', 1545196811, 'Success.'),
+('SendMail', 1545197111, 'Success.'),
+('SendMail', 1545197411, 'Success.'),
+('SendMail', 1545197711, 'Success.'),
+('SendMail', 1545198011, 'Success.'),
+('SendMail', 1545198311, 'Success.'),
+('SendMail', 1545198611, 'Success.'),
+('SendMail', 1545198911, 'Success.'),
+('SendMail', 1545199211, 'Success.'),
+('SendMail', 1545199511, 'Success.'),
+('SendMail', 1545199811, 'Success.'),
+('SendMail', 1545200111, 'Success.'),
+('SendMail', 1545200411, 'Success.'),
+('SendMail', 1545200711, 'Success.'),
+('SendMail', 1545201011, 'Success.'),
+('SendMail', 1545201311, 'Success.'),
+('SendMail', 1545201611, 'Success.'),
+('SendMail', 1545201911, 'Success.'),
+('SendMail', 1545202211, 'Success.'),
+('SendMail', 1545202511, 'Success.'),
+('SendMail', 1545202811, 'Success.'),
+('SendMail', 1545203111, 'Success.'),
+('SendMail', 1545203411, 'Success.'),
+('SendMail', 1545203711, 'Success.'),
+('SendMail', 1545204011, 'Success.'),
+('SendMail', 1545204311, 'Success.'),
+('SendMail', 1545204611, 'Success.'),
+('SendMail', 1545204911, 'Success.'),
+('SendMail', 1545205211, 'Success.'),
+('SendMail', 1545205511, 'Success.'),
+('SendMail', 1545205811, 'Success.'),
+('SendMail', 1545206111, 'Success.'),
+('SendMail', 1545206411, 'Success.'),
+('SendMail', 1545206711, 'Success.'),
+('SendMail', 1545207011, 'Success.'),
+('SendMail', 1545207311, 'Success.'),
+('SendMail', 1545207611, 'Success.'),
+('SendMail', 1545207911, 'Success.'),
+('SendMail', 1545208211, 'Success.'),
+('SendMail', 1545208511, 'Success.'),
+('SendMail', 1545208811, 'Success.'),
+('SendMail', 1545209111, 'Success.'),
+('SendMail', 1545209411, 'Success.'),
+('SendMail', 1545209711, 'Success.'),
+('SendMail', 1545210011, 'Success.'),
+('SendMail', 1545210311, 'Success.'),
+('SendMail', 1545210611, 'Success.'),
+('SendMail', 1545210911, 'Success.'),
+('SendMail', 1545211211, 'Success.'),
+('SendMail', 1545211511, 'Success.'),
+('SendMail', 1545211811, 'Success.'),
+('SendMail', 1545212111, 'Success.'),
+('SendMail', 1545212411, 'Success.'),
+('SendMail', 1545212711, 'Success.'),
+('SendMail', 1545213011, 'Success.'),
+('SendMail', 1545213311, 'Success.'),
+('SendMail', 1545213611, 'Success.'),
+('SendMail', 1545213911, 'Success.'),
+('SendMail', 1545214211, 'Success.'),
+('SendMail', 1545214511, 'Success.'),
+('SendMail', 1545214811, 'Success.'),
+('SendMail', 1545215111, 'Success.'),
+('SendMail', 1545215411, 'Success.'),
+('SendMail', 1545215711, 'Success.'),
+('SendMail', 1545216011, 'Success.'),
+('SendMail', 1545268812, 'Success.'),
+('SendMail', 1545269113, 'Success.'),
+('SendMail', 1545269411, 'Success.'),
+('SendMail', 1545269711, 'Success.'),
+('SendMail', 1545270011, 'Success.'),
+('SendMail', 1545270311, 'Success.'),
+('SendMail', 1545270611, 'Success.'),
+('SendMail', 1545270911, 'Success.'),
+('SendMail', 1545271211, 'Success.'),
+('SendMail', 1545271511, 'Success.'),
+('SendMail', 1545271811, 'Success.'),
+('SendMail', 1545272111, 'Success.'),
+('SendMail', 1545272411, 'Success.'),
+('SendMail', 1545272711, 'Success.'),
+('SendMail', 1545273011, 'Success.'),
+('SendMail', 1545273311, 'Success.'),
+('SendMail', 1545273611, 'Success.'),
+('SendMail', 1545273911, 'Success.'),
+('SendMail', 1545274211, 'Success.'),
+('SendMail', 1545274511, 'Success.'),
+('SendMail', 1545274811, 'Success.'),
+('SendMail', 1545275111, 'Success.'),
+('SendMail', 1545275411, 'Success.'),
+('SendMail', 1545275711, 'Success.'),
+('SendMail', 1545276011, 'Success.'),
+('SendMail', 1545276311, 'Success.'),
+('SendMail', 1545276611, 'Success.'),
+('SendMail', 1545276911, 'Success.'),
+('SendMail', 1545277211, 'Success.'),
+('SendMail', 1545277511, 'Success.'),
+('SendMail', 1545277811, 'Success.'),
+('SendMail', 1545278111, 'Success.'),
+('SendMail', 1545278411, 'Success.'),
+('SendMail', 1545278711, 'Success.'),
+('SendMail', 1545279011, 'Success.'),
+('SendMail', 1545279311, 'Success.'),
+('SendMail', 1545279610, 'Success.'),
+('SendMail', 1545279911, 'Success.'),
+('SendMail', 1545280211, 'Success.'),
+('SendMail', 1545280511, 'Success.'),
+('SendMail', 1545280811, 'Success.'),
+('SendMail', 1545281111, 'Success.'),
+('SendMail', 1545281411, 'Success.'),
+('SendMail', 1545281711, 'Success.'),
+('SendMail', 1545282011, 'Success.'),
+('SendMail', 1545282311, 'Success.'),
+('SendMail', 1545282611, 'Success.'),
+('SendMail', 1545282911, 'Success.'),
+('SendMail', 1545283211, 'Success.'),
+('SendMail', 1545283511, 'Success.'),
+('SendMail', 1545283811, 'Success.'),
+('SendMail', 1545284111, 'Success.'),
+('SendMail', 1545284411, 'Success.'),
+('SendMail', 1545284711, 'Success.'),
+('SendMail', 1545285011, 'Success.'),
+('SendMail', 1545285311, 'Success.'),
+('SendMail', 1545285611, 'Success.'),
+('SendMail', 1545285911, 'Success.'),
+('SendMail', 1545286211, 'Success.'),
+('SendMail', 1545286511, 'Success.'),
+('SendMail', 1545286811, 'Success.'),
+('SendMail', 1545287111, 'Success.'),
+('SendMail', 1545287411, 'Success.'),
+('SendMail', 1545287711, 'Success.'),
+('SendMail', 1545288011, 'Success.'),
+('SendMail', 1545288311, 'Success.'),
+('SendMail', 1545288611, 'Success.'),
+('SendMail', 1545288911, 'Success.'),
+('SendMail', 1545289211, 'Success.'),
+('SendMail', 1545289511, 'Success.'),
+('SendMail', 1545289811, 'Success.'),
+('SendMail', 1545290111, 'Success.'),
+('SendMail', 1545290411, 'Success.'),
+('SendMail', 1545290711, 'Success.'),
+('SendMail', 1545291011, 'Success.'),
+('SendMail', 1545291311, 'Success.'),
+('SendMail', 1545291611, 'Success.'),
+('SendMail', 1545291911, 'Success.'),
+('SendMail', 1545292211, 'Success.'),
+('SendMail', 1545292511, 'Success.'),
+('SendMail', 1545292811, 'Success.'),
+('SendMail', 1545293111, 'Success.'),
+('SendMail', 1545293411, 'Success.'),
+('SendMail', 1545293711, 'Success.'),
+('SendMail', 1545294011, 'Success.'),
+('SendMail', 1545294311, 'Success.'),
+('SendMail', 1545294611, 'Success.'),
+('SendMail', 1545294911, 'Success.'),
+('SendMail', 1545295211, 'Success.'),
+('SendMail', 1545295511, 'Success.'),
+('SendMail', 1545295811, 'Success.'),
+('SendMail', 1545296111, 'Success.'),
+('SendMail', 1545296411, 'Success.'),
+('SendMail', 1545296711, 'Success.'),
+('SendMail', 1545297011, 'Success.'),
+('SendMail', 1545297312, 'Success.'),
+('SendMail', 1545297611, 'Success.'),
+('SendMail', 1545297911, 'Success.'),
+('SendMail', 1545298211, 'Success.'),
+('SendMail', 1545298511, 'Success.'),
+('SendMail', 1545298811, 'Success.'),
+('SendMail', 1545299111, 'Success.'),
+('SendMail', 1545299411, 'Success.'),
+('SendMail', 1545299711, 'Success.'),
+('SendMail', 1545300011, 'Success.'),
+('SendMail', 1545300311, 'Success.'),
+('SendMail', 1545300611, 'Success.'),
+('SendMail', 1545300911, 'Success.'),
+('SendMail', 1545301211, 'Success.'),
+('SendMail', 1545301511, 'Success.'),
+('SendMail', 1545301811, 'Success.'),
+('SendMail', 1545302111, 'Success.'),
+('SendMail', 1545302411, 'Success.'),
+('SendMail', 1545354911, 'Success.'),
+('SendMail', 1545355211, 'Success.'),
+('SendMail', 1545355511, 'Success.'),
+('SendMail', 1545355811, 'Success.'),
+('SendMail', 1545356111, 'Success.'),
+('SendMail', 1545356411, 'Success.'),
+('SendMail', 1545356711, 'Success.'),
+('SendMail', 1545357011, 'Success.'),
+('SendMail', 1545357311, 'Success.'),
+('SendMail', 1545357611, 'Success.'),
+('SendMail', 1545357911, 'Success.'),
+('SendMail', 1545358211, 'Success.'),
+('SendMail', 1545358511, 'Success.'),
+('SendMail', 1545358811, 'Success.'),
+('SendMail', 1545359111, 'Success.'),
+('SendMail', 1545359411, 'Success.'),
+('SendMail', 1545359711, 'Success.'),
+('SendMail', 1545360011, 'Success.'),
+('SendMail', 1545360311, 'Success.'),
+('SendMail', 1545360611, 'Success.'),
+('SendMail', 1545360911, 'Success.'),
+('SendMail', 1545361211, 'Success.'),
+('SendMail', 1545361511, 'Success.'),
+('SendMail', 1545361811, 'Success.'),
+('SendMail', 1545362111, 'Success.'),
+('SendMail', 1545362411, 'Success.'),
+('SendMail', 1545362711, 'Success.'),
+('SendMail', 1545363011, 'Success.'),
+('SendMail', 1545363311, 'Success.'),
+('SendMail', 1545363611, 'Success.'),
+('SendMail', 1545363911, 'Success.'),
+('SendMail', 1545364211, 'Success.'),
+('SendMail', 1545364511, 'Success.'),
+('SendMail', 1545364811, 'Success.'),
+('SendMail', 1545365111, 'Success.'),
+('SendMail', 1545365411, 'Success.'),
+('SendMail', 1545365711, 'Success.'),
+('SendMail', 1545366010, 'Success.'),
+('SendMail', 1545366311, 'Success.'),
+('SendMail', 1545366611, 'Success.'),
+('SendMail', 1545366911, 'Success.'),
+('SendMail', 1545367211, 'Success.'),
+('SendMail', 1545367511, 'Success.'),
+('SendMail', 1545367811, 'Success.'),
+('SendMail', 1545368111, 'Success.'),
+('SendMail', 1545368411, 'Success.'),
+('SendMail', 1545368711, 'Success.'),
+('SendMail', 1545369011, 'Success.'),
+('SendMail', 1545369311, 'Success.'),
+('SendMail', 1545369611, 'Success.'),
+('SendMail', 1545369911, 'Success.'),
+('SendMail', 1545370211, 'Success.'),
+('SendMail', 1545370511, 'Success.'),
+('SendMail', 1545370811, 'Success.'),
+('SendMail', 1545371111, 'Success.'),
+('SendMail', 1545371411, 'Success.'),
+('SendMail', 1545371711, 'Success.'),
+('SendMail', 1545372011, 'Success.'),
+('SendMail', 1545372311, 'Success.'),
+('SendMail', 1545372611, 'Success.'),
+('SendMail', 1545372911, 'Success.'),
+('SendMail', 1545373211, 'Success.'),
+('SendMail', 1545373511, 'Success.'),
+('SendMail', 1545373811, 'Success.'),
+('SendMail', 1545374111, 'Success.'),
+('SendMail', 1545374411, 'Success.'),
+('SendMail', 1545374711, 'Success.'),
+('SendMail', 1545375011, 'Success.'),
+('SendMail', 1545375311, 'Success.'),
+('SendMail', 1545375611, 'Success.'),
+('SendMail', 1545375911, 'Success.'),
+('SendMail', 1545376211, 'Success.'),
+('SendMail', 1545376511, 'Success.'),
+('SendMail', 1545376811, 'Success.'),
+('SendMail', 1545377111, 'Success.'),
+('SendMail', 1545377411, 'Success.'),
+('SendMail', 1545377711, 'Success.'),
+('SendMail', 1545378011, 'Success.'),
+('SendMail', 1545378311, 'Success.'),
+('SendMail', 1545378611, 'Success.'),
+('SendMail', 1545378911, 'Success.'),
+('SendMail', 1545379211, 'Success.'),
+('SendMail', 1545379511, 'Success.'),
+('SendMail', 1545379811, 'Success.'),
+('SendMail', 1545380111, 'Success.'),
+('SendMail', 1545380411, 'Success.'),
+('SendMail', 1545380711, 'Success.'),
+('SendMail', 1545381011, 'Success.'),
+('SendMail', 1545381311, 'Success.'),
+('SendMail', 1545381611, 'Success.'),
+('SendMail', 1545381911, 'Success.'),
+('SendMail', 1545382211, 'Success.'),
+('SendMail', 1545382511, 'Success.'),
+('SendMail', 1545382811, 'Success.'),
+('SendMail', 1545383111, 'Success.'),
+('SendMail', 1545383411, 'Success.'),
+('SendMail', 1545383711, 'Success.'),
+('SendMail', 1545384011, 'Success.'),
+('SendMail', 1545384311, 'Success.'),
+('SendMail', 1545384611, 'Success.'),
+('SendMail', 1545384911, 'Success.'),
+('SendMail', 1545385211, 'Success.'),
+('SendMail', 1545385511, 'Success.'),
+('SendMail', 1545385811, 'Success.'),
+('SendMail', 1545386111, 'Success.'),
+('SendMail', 1545386411, 'Success.'),
+('SendMail', 1545386711, 'Success.'),
+('SendMail', 1545387011, 'Success.'),
+('SendMail', 1545387311, 'Success.'),
+('SendMail', 1545387611, 'Success.'),
+('SendMail', 1545387911, 'Success.'),
+('SendMail', 1545388211, 'Success.'),
+('SendMail', 1545388511, 'Success.'),
+('SendMail', 1545388811, 'Success.'),
+('SendMail', 1545441015, 'Success.'),
+('SendMail', 1545441311, 'Success.'),
+('SendMail', 1545441612, 'Success.'),
+('SendMail', 1545441911, 'Success.'),
+('SendMail', 1545442211, 'Success.'),
+('SendMail', 1545442511, 'Success.'),
+('SendMail', 1545442811, 'Success.'),
+('SendMail', 1545443111, 'Success.'),
+('SendMail', 1545443411, 'Success.'),
+('SendMail', 1545443711, 'Success.'),
+('SendMail', 1545444011, 'Success.'),
+('SendMail', 1545444311, 'Success.'),
+('SendMail', 1545444611, 'Success.'),
+('SendMail', 1545444911, 'Success.'),
+('SendMail', 1545445211, 'Success.'),
+('SendMail', 1545445511, 'Success.'),
+('SendMail', 1545445811, 'Success.'),
+('SendMail', 1545446111, 'Success.'),
+('SendMail', 1545446411, 'Success.'),
+('SendMail', 1545446711, 'Success.'),
+('SendMail', 1545447011, 'Success.'),
+('SendMail', 1545447311, 'Success.'),
+('SendMail', 1545447611, 'Success.'),
+('SendMail', 1545447911, 'Success.'),
+('SendMail', 1545448211, 'Success.'),
+('SendMail', 1545448511, 'Success.'),
+('SendMail', 1545448811, 'Success.'),
+('SendMail', 1545449111, 'Success.'),
+('SendMail', 1545449411, 'Success.'),
+('SendMail', 1545449711, 'Success.'),
+('SendMail', 1545450011, 'Success.'),
+('SendMail', 1545450311, 'Success.'),
+('SendMail', 1545450611, 'Success.'),
+('SendMail', 1545450911, 'Success.'),
+('SendMail', 1545451211, 'Success.'),
+('SendMail', 1545451511, 'Success.'),
+('SendMail', 1545451811, 'Success.'),
+('SendMail', 1545452111, 'Success.'),
+('SendMail', 1545452410, 'Success.'),
+('SendMail', 1545452711, 'Success.'),
+('SendMail', 1545453011, 'Success.'),
+('SendMail', 1545453311, 'Success.'),
+('SendMail', 1545453611, 'Success.'),
+('SendMail', 1545453911, 'Success.'),
+('SendMail', 1545454211, 'Success.'),
+('SendMail', 1545454511, 'Success.'),
+('SendMail', 1545454811, 'Success.'),
+('SendMail', 1545700512, 'Success.'),
+('SendMail', 1545700812, 'Success.'),
+('SendMail', 1545701111, 'Success.'),
+('SendMail', 1545701411, 'Success.'),
+('SendMail', 1545701711, 'Success.'),
+('SendMail', 1545702011, 'Success.'),
+('SendMail', 1545702311, 'Success.'),
+('SendMail', 1545702611, 'Success.'),
+('SendMail', 1545702911, 'Success.'),
+('SendMail', 1545703211, 'Success.'),
+('SendMail', 1545703511, 'Success.'),
+('SendMail', 1545703811, 'Success.'),
+('SendMail', 1545704111, 'Success.'),
+('SendMail', 1545704411, 'Success.'),
+('SendMail', 1545704711, 'Success.'),
+('SendMail', 1545705011, 'Success.'),
+('SendMail', 1545705311, 'Success.'),
+('SendMail', 1545705611, 'Success.'),
+('SendMail', 1545705911, 'Success.'),
+('SendMail', 1545706211, 'Success.'),
+('SendMail', 1545706511, 'Success.'),
+('SendMail', 1545706811, 'Success.'),
+('SendMail', 1545707111, 'Success.'),
+('SendMail', 1545707411, 'Success.'),
+('SendMail', 1545707711, 'Success.'),
+('SendMail', 1545708011, 'Success.'),
+('SendMail', 1545708311, 'Success.'),
+('SendMail', 1545708611, 'Success.'),
+('SendMail', 1545708911, 'Success.'),
+('SendMail', 1545709211, 'Success.'),
+('SendMail', 1545709511, 'Success.'),
+('SendMail', 1545709811, 'Success.'),
+('SendMail', 1545710111, 'Success.'),
+('SendMail', 1545710411, 'Success.'),
+('SendMail', 1545710711, 'Success.'),
+('SendMail', 1545711011, 'Success.'),
+('SendMail', 1545711311, 'Success.'),
+('SendMail', 1545711610, 'Success.'),
+('SendMail', 1545711911, 'Success.'),
+('SendMail', 1545712211, 'Success.'),
+('SendMail', 1545712511, 'Success.'),
+('SendMail', 1545712811, 'Success.'),
+('SendMail', 1545713111, 'Success.'),
+('SendMail', 1545713411, 'Success.'),
+('SendMail', 1545713711, 'Success.'),
+('SendMail', 1545714011, 'Success.'),
+('SendMail', 1545714311, 'Success.'),
+('SendMail', 1545714611, 'Success.'),
+('SendMail', 1545714911, 'Success.'),
+('SendMail', 1545715211, 'Success.'),
+('SendMail', 1545715511, 'Success.'),
+('SendMail', 1545715811, 'Success.'),
+('SendMail', 1545716111, 'Success.'),
+('SendMail', 1545716411, 'Success.'),
+('SendMail', 1545716711, 'Success.'),
+('SendMail', 1545717011, 'Success.'),
+('SendMail', 1545717311, 'Success.');
+INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
+('SendMail', 1545717611, 'Success.'),
+('SendMail', 1545717911, 'Success.'),
+('SendMail', 1545718211, 'Success.'),
+('SendMail', 1545718511, 'Success.'),
+('SendMail', 1545718811, 'Success.'),
+('SendMail', 1545719111, 'Success.'),
+('SendMail', 1545719411, 'Success.'),
+('SendMail', 1545719711, 'Success.'),
+('SendMail', 1545720011, 'Success.'),
+('SendMail', 1545720311, 'Success.'),
+('SendMail', 1545720611, 'Success.'),
+('SendMail', 1545720911, 'Success.'),
+('SendMail', 1545721211, 'Success.'),
+('SendMail', 1545721511, 'Success.'),
+('SendMail', 1545721811, 'Success.'),
+('SendMail', 1545722111, 'Success.'),
+('SendMail', 1545722411, 'Success.'),
+('SendMail', 1545722711, 'Success.'),
+('SendMail', 1545723011, 'Success.'),
+('SendMail', 1545723311, 'Success.'),
+('SendMail', 1545723611, 'Success.'),
+('SendMail', 1545723911, 'Success.'),
+('SendMail', 1545724211, 'Success.'),
+('SendMail', 1545724511, 'Success.'),
+('SendMail', 1545724811, 'Success.'),
+('SendMail', 1545725111, 'Success.'),
+('SendMail', 1545725411, 'Success.'),
+('SendMail', 1545725711, 'Success.'),
+('SendMail', 1545726011, 'Success.'),
+('SendMail', 1545726311, 'Success.'),
+('SendMail', 1545726611, 'Success.'),
+('SendMail', 1545726911, 'Success.'),
+('SendMail', 1545727211, 'Success.'),
+('SendMail', 1545727511, 'Success.'),
+('SendMail', 1545727811, 'Success.'),
+('SendMail', 1545728111, 'Success.'),
+('SendMail', 1545728411, 'Success.'),
+('SendMail', 1545728711, 'Success.'),
+('SendMail', 1545729011, 'Success.'),
+('SendMail', 1545729311, 'Success.'),
+('SendMail', 1545729611, 'Success.'),
+('SendMail', 1545729911, 'Success.'),
+('SendMail', 1545730211, 'Success.'),
+('SendMail', 1545730511, 'Success.'),
+('SendMail', 1545730811, 'Success.'),
+('SendMail', 1545731111, 'Success.'),
+('SendMail', 1545731411, 'Success.'),
+('SendMail', 1545731711, 'Success.'),
+('SendMail', 1545732011, 'Success.'),
+('SendMail', 1545732311, 'Success.'),
+('SendMail', 1545732611, 'Success.'),
+('SendMail', 1545732912, 'Success.'),
+('SendMail', 1545733211, 'Success.'),
+('SendMail', 1545733511, 'Success.'),
+('SendMail', 1545733811, 'Success.'),
+('SendMail', 1545734111, 'Success.'),
+('SendMail', 1545794711, 'Success.'),
+('SendMail', 1545795011, 'Success.'),
+('SendMail', 1545795311, 'Success.'),
+('SendMail', 1545795611, 'Success.'),
+('SendMail', 1545795911, 'Success.'),
+('SendMail', 1545796211, 'Success.'),
+('SendMail', 1545796511, 'Success.'),
+('SendMail', 1545796811, 'Success.'),
+('SendMail', 1545797111, 'Success.'),
+('SendMail', 1545797411, 'Success.'),
+('SendMail', 1545797711, 'Success.'),
+('SendMail', 1545798010, 'Success.'),
+('SendMail', 1545798311, 'Success.'),
+('SendMail', 1545798611, 'Success.'),
+('SendMail', 1545798911, 'Success.'),
+('SendMail', 1545799211, 'Success.'),
+('SendMail', 1545799511, 'Success.'),
+('SendMail', 1545799811, 'Success.'),
+('SendMail', 1545800111, 'Success.'),
+('SendMail', 1545800411, 'Success.'),
+('SendMail', 1545800711, 'Success.'),
+('SendMail', 1545801011, 'Success.'),
+('SendMail', 1545801311, 'Success.'),
+('SendMail', 1545801611, 'Success.'),
+('SendMail', 1545801911, 'Success.'),
+('SendMail', 1545802211, 'Success.'),
+('SendMail', 1545802511, 'Success.'),
+('SendMail', 1545802811, 'Success.'),
+('SendMail', 1545803111, 'Success.'),
+('SendMail', 1545803411, 'Success.'),
+('SendMail', 1545803711, 'Success.'),
+('SendMail', 1545804011, 'Success.'),
+('SendMail', 1545804311, 'Success.'),
+('SendMail', 1545804611, 'Success.'),
+('SendMail', 1545804911, 'Success.'),
+('SendMail', 1545805211, 'Success.'),
+('SendMail', 1545805511, 'Success.'),
+('SendMail', 1545805811, 'Success.'),
+('SendMail', 1545806111, 'Success.'),
+('SendMail', 1545806411, 'Success.'),
+('SendMail', 1545806711, 'Success.'),
+('SendMail', 1545807011, 'Success.'),
+('SendMail', 1545807311, 'Success.'),
+('SendMail', 1545807611, 'Success.'),
+('SendMail', 1545807911, 'Success.'),
+('SendMail', 1545808211, 'Success.'),
+('SendMail', 1545808511, 'Success.'),
+('SendMail', 1545808811, 'Success.'),
+('SendMail', 1545809111, 'Success.'),
+('SendMail', 1545809411, 'Success.'),
+('SendMail', 1545809711, 'Success.'),
+('SendMail', 1545810011, 'Success.'),
+('SendMail', 1545810311, 'Success.'),
+('SendMail', 1545810611, 'Success.'),
+('SendMail', 1545810911, 'Success.'),
+('SendMail', 1545811211, 'Success.'),
+('SendMail', 1545811511, 'Success.'),
+('SendMail', 1545811811, 'Success.'),
+('SendMail', 1545812111, 'Success.'),
+('SendMail', 1545812411, 'Success.'),
+('SendMail', 1545812711, 'Success.'),
+('SendMail', 1545813011, 'Success.'),
+('SendMail', 1545813311, 'Success.'),
+('SendMail', 1545813611, 'Success.'),
+('SendMail', 1545813911, 'Success.'),
+('SendMail', 1545814211, 'Success.'),
+('SendMail', 1545814511, 'Success.'),
+('SendMail', 1545814811, 'Success.'),
+('SendMail', 1545815111, 'Success.'),
+('SendMail', 1545815411, 'Success.'),
+('SendMail', 1545815711, 'Success.'),
+('SendMail', 1545816011, 'Success.'),
+('SendMail', 1545816311, 'Success.'),
+('SendMail', 1545816611, 'Success.'),
+('SendMail', 1545816911, 'Success.'),
+('SendMail', 1545817211, 'Success.'),
+('SendMail', 1545817511, 'Success.'),
+('SendMail', 1545817811, 'Success.'),
+('SendMail', 1545818111, 'Success.'),
+('SendMail', 1545818411, 'Success.'),
+('SendMail', 1545818711, 'Success.'),
+('SendMail', 1545874511, 'Success.'),
+('SendMail', 1545874811, 'Success.'),
+('SendMail', 1545875112, 'Success.'),
+('SendMail', 1545875411, 'Success.'),
+('SendMail', 1545875710, 'Success.'),
+('SendMail', 1545876011, 'Success.'),
+('SendMail', 1545876311, 'Success.'),
+('SendMail', 1545876610, 'Success.'),
+('SendMail', 1545876911, 'Success.'),
+('SendMail', 1545877211, 'Success.'),
+('SendMail', 1545877510, 'Success.'),
+('SendMail', 1545877811, 'Success.'),
+('SendMail', 1545878111, 'Success.'),
+('SendMail', 1545878410, 'Success.'),
+('SendMail', 1545878711, 'Success.'),
+('SendMail', 1545879011, 'Success.'),
+('SendMail', 1545879310, 'Success.'),
+('SendMail', 1545879611, 'Success.'),
+('SendMail', 1545879911, 'Success.'),
+('SendMail', 1545880210, 'Success.'),
+('SendMail', 1545880511, 'Success.'),
+('SendMail', 1545880811, 'Success.'),
+('SendMail', 1545881110, 'Success.'),
+('SendMail', 1545881411, 'Success.'),
+('SendMail', 1545881711, 'Success.'),
+('SendMail', 1545882010, 'Success.'),
+('SendMail', 1545882311, 'Success.'),
+('SendMail', 1545882611, 'Success.'),
+('SendMail', 1545882910, 'Success.'),
+('SendMail', 1545883211, 'Success.'),
+('SendMail', 1545883511, 'Success.'),
+('SendMail', 1545883810, 'Success.'),
+('SendMail', 1545884111, 'Success.'),
+('SendMail', 1545884410, 'Success.'),
+('SendMail', 1545884710, 'Success.'),
+('SendMail', 1545885011, 'Success.'),
+('SendMail', 1545885311, 'Success.'),
+('SendMail', 1545885610, 'Success.'),
+('SendMail', 1545885911, 'Success.'),
+('SendMail', 1545886211, 'Success.'),
+('SendMail', 1545886510, 'Success.'),
+('SendMail', 1545886811, 'Success.'),
+('SendMail', 1545887111, 'Success.'),
+('SendMail', 1545887411, 'Success.'),
+('SendMail', 1545887711, 'Success.'),
+('SendMail', 1545888011, 'Success.'),
+('SendMail', 1545888311, 'Success.'),
+('SendMail', 1545888611, 'Success.'),
+('SendMail', 1545888911, 'Success.'),
+('SendMail', 1545889211, 'Success.'),
+('SendMail', 1545889511, 'Success.'),
+('SendMail', 1545889811, 'Success.'),
+('SendMail', 1545890111, 'Success.'),
+('SendMail', 1545890411, 'Success.'),
+('SendMail', 1545890711, 'Success.'),
+('SendMail', 1545891011, 'Success.'),
+('SendMail', 1545891311, 'Success.'),
+('SendMail', 1545891611, 'Success.'),
+('SendMail', 1545891911, 'Success.'),
+('SendMail', 1545892211, 'Success.'),
+('SendMail', 1545892511, 'Success.'),
+('SendMail', 1545892811, 'Success.'),
+('SendMail', 1545893111, 'Success.'),
+('SendMail', 1545893411, 'Success.'),
+('SendMail', 1545893711, 'Success.'),
+('SendMail', 1545894011, 'Success.'),
+('SendMail', 1545894311, 'Success.'),
+('SendMail', 1545894611, 'Success.'),
+('SendMail', 1545894911, 'Success.'),
+('SendMail', 1545895211, 'Success.'),
+('SendMail', 1545895511, 'Success.'),
+('SendMail', 1545895811, 'Success.'),
+('SendMail', 1545896111, 'Success.'),
+('SendMail', 1545896411, 'Success.'),
+('SendMail', 1545896711, 'Success.'),
+('SendMail', 1545897011, 'Success.'),
+('SendMail', 1545897311, 'Success.'),
+('SendMail', 1545897611, 'Success.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_registry`
+-- Cấu trúc bảng cho bảng `data_registry`
 --
 
 CREATE TABLE `data_registry` (
@@ -1028,7 +1914,7 @@ CREATE TABLE `data_registry` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `email_queue`
+-- Cấu trúc bảng cho bảng `email_queue`
 --
 
 CREATE TABLE `email_queue` (
@@ -1047,7 +1933,7 @@ CREATE TABLE `email_queue` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration`
+-- Cấu trúc bảng cho bảng `migration`
 --
 
 CREATE TABLE `migration` (
@@ -1056,7 +1942,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `migration`
+-- Đang đổ dữ liệu cho bảng `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -1068,7 +1954,7 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration_module`
+-- Cấu trúc bảng cho bảng `migration_module`
 --
 
 CREATE TABLE `migration_module` (
@@ -1078,7 +1964,7 @@ CREATE TABLE `migration_module` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `migration_module`
+-- Đang đổ dữ liệu cho bảng `migration_module`
 --
 
 INSERT INTO `migration_module` (`version`, `apply_time`, `module`) VALUES
@@ -1096,7 +1982,7 @@ INSERT INTO `migration_module` (`version`, `apply_time`, `module`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
@@ -1117,7 +2003,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `order`
+-- Đang đổ dữ liệu cho bảng `order`
 --
 
 INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_email`, `user_receive_name`, `user_receive_phone`, `user_receive_email`, `user_receive_address`, `order_time`, `user_note`, `total`, `status`, `admin_note`, `deleted_f`) VALUES
@@ -1130,7 +2016,7 @@ INSERT INTO `order` (`id`, `user_order_name`, `user_order_phone`, `user_order_em
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_detail`
+-- Cấu trúc bảng cho bảng `order_detail`
 --
 
 CREATE TABLE `order_detail` (
@@ -1142,7 +2028,7 @@ CREATE TABLE `order_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `order_detail`
+-- Đang đổ dữ liệu cho bảng `order_detail`
 --
 
 INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted_f`) VALUES
@@ -1158,7 +2044,7 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `quantity`, `deleted
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -1173,7 +2059,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `code`, `name`, `info`, `price`, `image_main`, `category_id`, `deleted_f`) VALUES
@@ -1203,7 +2089,7 @@ INSERT INTO `product` (`id`, `code`, `name`, `info`, `price`, `image_main`, `cat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_category`
+-- Cấu trúc bảng cho bảng `product_category`
 --
 
 CREATE TABLE `product_category` (
@@ -1214,7 +2100,7 @@ CREATE TABLE `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product_category`
+-- Đang đổ dữ liệu cho bảng `product_category`
 --
 
 INSERT INTO `product_category` (`id`, `name`, `description`, `deleted_f`) VALUES
@@ -1225,7 +2111,7 @@ INSERT INTO `product_category` (`id`, `name`, `description`, `deleted_f`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_image`
+-- Cấu trúc bảng cho bảng `product_image`
 --
 
 CREATE TABLE `product_image` (
@@ -1237,7 +2123,7 @@ CREATE TABLE `product_image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 --
--- Dumping data for table `product_image`
+-- Đang đổ dữ liệu cho bảng `product_image`
 --
 
 INSERT INTO `product_image` (`id`, `product_id`, `image`, `description`, `is_main`) VALUES
@@ -1276,7 +2162,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `image`, `description`, `is_mai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting`
+-- Cấu trúc bảng cho bảng `setting`
 --
 
 CREATE TABLE `setting` (
@@ -1286,7 +2172,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `setting`
+-- Đang đổ dữ liệu cho bảng `setting`
 --
 
 INSERT INTO `setting` (`key`, `value`, `modified`) VALUES
@@ -1300,7 +2186,7 @@ INSERT INTO `setting` (`key`, `value`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -1316,41 +2202,48 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
 (1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 0, 1544818649),
-(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1544893381),
+(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1545895278),
 (6, 'khucngocdat1989', '', 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
-(8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 0, 1544817937);
+(8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 0, 1544817937),
+(9, 'phuteo@gmail.com', 'Unspecified', 'phuteo@gmail.com', NULL, 'phu teo', 1, 0, 1545272524),
+(10, 'teeshopno1@gmail.com', 'Unspecified', 'teeshopno1@gmail.com', NULL, '--', 1, 0, 1545273308),
+(11, 'api1', '', 'api1@gmail.com', '', 'api1', 1, 0, 1545895247);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_auth`
+-- Cấu trúc bảng cho bảng `user_auth`
 --
 
 CREATE TABLE `user_auth` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `auth_key` varchar(32) NOT NULL,
-  `password_hash` varchar(60) NOT NULL
+  `password_hash` varchar(60) NOT NULL,
+  `access_token` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user_auth`
+-- Đang đổ dữ liệu cho bảng `user_auth`
 --
 
-INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`) VALUES
-(1, 'nr2-PnAs9CpYIbJo3m-1HcsHzM9R-Bte', '$2y$13$U3gen9rZFvrOoh39lDNfO.4GYeU4KGTxEv27JuDg2i7PULZWraXKK'),
-(5, 'alsdm8kJ1FXg62Fi-hAeNnuL_3wXwOQo', '$2y$13$nLGbFp.ykqJCJcEId0NDqulkZkNEcIiK.ymFAIJIpXA9SVte5IjoO'),
-(6, '9i5e9bYVmnP6H6mPfNDXw8ko7CfWFNWx', '$2y$13$oSHSaNDYmmGb73lMNj.Ql.0qlkTIGEGfXfCWoph1x1KySsbsIIIbq'),
-(8, 'ECVM8FVob1yx3e3JEi7lrbe3jNKayjJG', '$2y$13$i1DrBuSq/.tcatqZIRUs8eU/yfE5GP9T4RZ4ULe5QDkIvpPIyNvxK');
+INSERT INTO `user_auth` (`user_id`, `auth_key`, `password_hash`, `access_token`) VALUES
+(1, 'nr2-PnAs9CpYIbJo3m-1HcsHzM9R-Bte', '$2y$13$U3gen9rZFvrOoh39lDNfO.4GYeU4KGTxEv27JuDg2i7PULZWraXKK', ''),
+(5, 'alsdm8kJ1FXg62Fi-hAeNnuL_3wXwOQo', '$2y$13$nLGbFp.ykqJCJcEId0NDqulkZkNEcIiK.ymFAIJIpXA9SVte5IjoO', ''),
+(6, '9i5e9bYVmnP6H6mPfNDXw8ko7CfWFNWx', '$2y$13$oSHSaNDYmmGb73lMNj.Ql.0qlkTIGEGfXfCWoph1x1KySsbsIIIbq', ''),
+(8, 'ECVM8FVob1yx3e3JEi7lrbe3jNKayjJG', '$2y$13$i1DrBuSq/.tcatqZIRUs8eU/yfE5GP9T4RZ4ULe5QDkIvpPIyNvxK', ''),
+(9, 'ArEfCyDtzkH-4P2y2_O_vF_HXFBwY50l', '$2y$13$Mm5xu9s4dHpm9LP1/yxyMOfo1OdfKJvxzW4sdEmBnrfe3G5KleBzq', ''),
+(10, 'k6fdPvERuTr1oCEo1QcApyb5Go5eolbC', '$2y$13$VnMzo2fL.1RE144s7YmEIO32cSFWVs3LfNO1dMhoiQF5E6qn8ED2e', ''),
+(11, 'LjeE6jkJsGPuwfmzOHToFmp-JU3isugf', '$2y$13$Z40pO24NFXjpcNIJhJyH2uR5Mkb/e2EEQkGNLuEhhQtYO3wvKmRDi', 'RwzEmEN-nMcEPsy6eB1o-msYqH6aWLwB');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_confirm`
+-- Cấu trúc bảng cho bảng `user_confirm`
 --
 
 CREATE TABLE `user_confirm` (
@@ -1363,7 +2256,7 @@ CREATE TABLE `user_confirm` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_login_attempts`
+-- Cấu trúc bảng cho bảng `user_login_attempts`
 --
 
 CREATE TABLE `user_login_attempts` (
@@ -1372,24 +2265,24 @@ CREATE TABLE `user_login_attempts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin_navigation`
+-- Chỉ mục cho bảng `admin_navigation`
 --
 ALTER TABLE `admin_navigation`
   ADD PRIMARY KEY (`navigation_id`);
 
 --
--- Indexes for table `auth_assignment`
+-- Chỉ mục cho bảng `auth_assignment`
 --
 ALTER TABLE `auth_assignment`
   ADD PRIMARY KEY (`item_name`,`user_id`),
   ADD KEY `auth_assignment_user_id_idx` (`user_id`);
 
 --
--- Indexes for table `auth_item`
+-- Chỉ mục cho bảng `auth_item`
 --
 ALTER TABLE `auth_item`
   ADD PRIMARY KEY (`name`),
@@ -1397,86 +2290,86 @@ ALTER TABLE `auth_item`
   ADD KEY `idx-auth_item-type` (`type`);
 
 --
--- Indexes for table `auth_item_child`
+-- Chỉ mục cho bảng `auth_item_child`
 --
 ALTER TABLE `auth_item_child`
   ADD PRIMARY KEY (`parent`,`child`),
   ADD KEY `child` (`child`);
 
 --
--- Indexes for table `auth_rule`
+-- Chỉ mục cho bảng `auth_rule`
 --
 ALTER TABLE `auth_rule`
   ADD PRIMARY KEY (`name`);
 
 --
--- Indexes for table `cronjob`
+-- Chỉ mục cho bảng `cronjob`
 --
 ALTER TABLE `cronjob`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `data_registry`
+-- Chỉ mục cho bảng `data_registry`
 --
 ALTER TABLE `data_registry`
   ADD PRIMARY KEY (`data_key`);
 
 --
--- Indexes for table `email_queue`
+-- Chỉ mục cho bảng `email_queue`
 --
 ALTER TABLE `email_queue`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migration`
+-- Chỉ mục cho bảng `migration`
 --
 ALTER TABLE `migration`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `migration_module`
+-- Chỉ mục cho bảng `migration_module`
 --
 ALTER TABLE `migration_module`
   ADD PRIMARY KEY (`version`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_detail`
+-- Chỉ mục cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_category`
+-- Chỉ mục cho bảng `product_category`
 --
 ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_image`
+-- Chỉ mục cho bảng `product_image`
 --
 ALTER TABLE `product_image`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setting`
+-- Chỉ mục cho bảng `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`key`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
@@ -1484,69 +2377,69 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `user_auth`
+-- Chỉ mục cho bảng `user_auth`
 --
 ALTER TABLE `user_auth`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `user_confirm`
+-- Chỉ mục cho bảng `user_confirm`
 --
 ALTER TABLE `user_confirm`
   ADD PRIMARY KEY (`confirm_key`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `cronjob`
+-- AUTO_INCREMENT cho bảng `cronjob`
 --
 ALTER TABLE `cronjob`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `email_queue`
+-- AUTO_INCREMENT cho bảng `email_queue`
 --
 ALTER TABLE `email_queue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'mã order', AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `order_detail`
+-- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT for table `product_category`
+-- AUTO_INCREMENT cho bảng `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `product_image`
+-- AUTO_INCREMENT cho bảng `product_image`
 --
 ALTER TABLE `product_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

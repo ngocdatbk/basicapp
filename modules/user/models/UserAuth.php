@@ -30,6 +30,7 @@ class UserAuth extends \yii\db\ActiveRecord
             [['user_id', 'auth_key', 'password_hash'], 'required'],
             [['user_id'], 'integer'],
             [['auth_key'], 'string', 'max' => 32],
+            [['access_token'], 'string', 'max' => 32],
             [['password_hash'], 'string', 'max' => 60],
             [['user_id'], 'unique'],
         ];
@@ -43,6 +44,7 @@ class UserAuth extends \yii\db\ActiveRecord
         return [
             'user_id' => 'User ID',
             'auth_key' => 'Auth Key',
+            'access_token' => 'Access Token',
             'password_hash' => 'Password Hash',
         ];
     }
@@ -80,6 +82,11 @@ class UserAuth extends \yii\db\ActiveRecord
     public function generateAuthKey()
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    public function generateAccessToken()
+    {
+        $this->access_token = Yii::$app->security->generateRandomString();
     }
 
     /**
