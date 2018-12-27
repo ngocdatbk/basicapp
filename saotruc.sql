@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 27, 2018 lúc 09:02 AM
+-- Thời gian đã tạo: Th12 27, 2018 lúc 09:37 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -278,7 +278,7 @@ CREATE TABLE `cronjob` (
 --
 
 INSERT INTO `cronjob` (`id`, `cronjob_id`, `name`, `class`, `module_id`, `run_rules`, `last_run`, `next_run`, `is_active`, `logging_f`) VALUES
-(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1545897611, 1545897671, 1, 1);
+(4, 'SendMail', 'SendMail', 'app\\modules\\email\\commands\\SendMail', 'email', 0x7b226d696e75746573223a5b222d31225d2c22686f757273223a5b222d31225d2c226461795f74797065223a22646f77222c22646f77223a5b222d31225d7d, 1545899711, 1545899771, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1898,7 +1898,14 @@ INSERT INTO `cronjob_log` (`cronjob_id`, `execution_time`, `status`) VALUES
 ('SendMail', 1545896711, 'Success.'),
 ('SendMail', 1545897011, 'Success.'),
 ('SendMail', 1545897311, 'Success.'),
-('SendMail', 1545897611, 'Success.');
+('SendMail', 1545897611, 'Success.'),
+('SendMail', 1545897911, 'Success.'),
+('SendMail', 1545898211, 'Success.'),
+('SendMail', 1545898511, 'Success.'),
+('SendMail', 1545898811, 'Success.'),
+('SendMail', 1545899111, 'Success.'),
+('SendMail', 1545899411, 'Success.'),
+('SendMail', 1545899711, 'Success.');
 
 -- --------------------------------------------------------
 
@@ -2198,21 +2205,23 @@ CREATE TABLE `user` (
   `fullname` varchar(100) NOT NULL,
   `is_active` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
   `is_admin` tinyint(1) UNSIGNED DEFAULT '0',
-  `last_login` int(10) UNSIGNED DEFAULT '0'
+  `last_login` int(10) UNSIGNED DEFAULT '0',
+  `allowance` int(6) DEFAULT NULL,
+  `allowance_updated_at` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`) VALUES
-(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 0, 1544818649),
-(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1545895278),
-(6, 'khucngocdat1989', '', 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229),
-(8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 0, 1544817937),
-(9, 'phuteo@gmail.com', 'Unspecified', 'phuteo@gmail.com', NULL, 'phu teo', 1, 0, 1545272524),
-(10, 'teeshopno1@gmail.com', 'Unspecified', 'teeshopno1@gmail.com', NULL, '--', 1, 0, 1545273308),
-(11, 'api1', '', 'api1@gmail.com', '', 'api1', 1, 0, 1545895247);
+INSERT INTO `user` (`user_id`, `username`, `gender`, `email`, `phone_number`, `fullname`, `is_active`, `is_admin`, `last_login`, `allowance`, `allowance_updated_at`) VALUES
+(1, 'datkhucngoc@admicro.vn', 'Male', 'datkhucngoc@admicro.vn', '', 'Khúc Ngọc Đạt', 1, 0, 1544818649, NULL, NULL),
+(5, 'ngocdatbk@gmail.com', 'Male', 'ngocdatbk@gmail.com', '', 'khuc dat', 1, 0, 1545895278, NULL, NULL),
+(6, 'khucngocdat1989', '', 'khucngocdat1989@gmail.com', '03666040696', 'khuc dat', 1, 0, 1543388229, NULL, NULL),
+(8, 'khucphutue', 'Male', 'khucphutue@gmail.com', '03666040696', 'Phú Tuệ', 1, 0, 1544817937, NULL, NULL),
+(9, 'phuteo@gmail.com', 'Unspecified', 'phuteo@gmail.com', NULL, 'phu teo', 1, 0, 1545272524, NULL, NULL),
+(10, 'teeshopno1@gmail.com', 'Unspecified', 'teeshopno1@gmail.com', NULL, '--', 1, 0, 1545273308, NULL, NULL),
+(11, 'api1', '', 'api1@gmail.com', '', 'api1', 1, 0, 1545895247, NULL, NULL);
 
 -- --------------------------------------------------------
 
