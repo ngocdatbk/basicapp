@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2482" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2482-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2482-collapse" class="collapse navbar-collapse"><ul id="w2483" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2466" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2466" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2467" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2467" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2468" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2468" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2469" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2469" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2470" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2470" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2471" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2471" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2472" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2472" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2473" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2473" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2474" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2474" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2475" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2475" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2476" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2476" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2477" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2477" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2478" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2478" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2479" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2479" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2480" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2480" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2481" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2481" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Facebook <span id="facebook"></span><a href="#facebook" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#status">Status</a></li>
+<li><a href="#config">Config</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Provides testing for projects integrated with Facebook API.
+Relies on Facebook's tool Test User API.</p>
+<div class="alert alert-info">
+To use this module with Composer you need <em>"facebook/php-sdk4": "5.*"</em> package.
+</div>
+<h2>Status <span id="status"></span><a href="#status" class="hashlink">&para;</a></h2><p><a href="https://codeship.com/projects/160201"> <img src="https://codeship.com/projects/e4bc90d0-1ed5-0134-566c-1ed679ae6c9d/status?branch=2.2" alt="Facebook Status for Codeception/Codeception" /></a></p>
+<ul>
+<li>Stability: <strong>beta</strong></li>
+<li>Maintainer: <strong>tiger-seo</strong></li>
+<li>Contact: tiger.seo@codeception.com</li>
+</ul>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><ul>
+<li>app_id <em>required</em> - Facebook application ID</li>
+<li>secret <em>required</em> - Facebook application secret</li>
+<li>test_user - Facebook test user parameters:<ul>
+<li>name - You can specify a name for the test user you create. The specified name will also be used in the email address assigned to the test user.</li>
+<li>locale - You can specify a locale for the test user you create, the default is en_US. The list of supported locales is available at <a href="https://www.facebook.com/translations/FacebookLocales.xml">https://www.facebook.com/translations/FacebookLocales.xml</a></li>
+<li>permissions - An array of permissions. Your app is granted these permissions for the new test user. The full list of permissions is available at <a href="https://developers.facebook.com/docs/authentication/permissions">https://developers.facebook.com/docs/authentication/permissions</a></li>
+</ul>
+</li>
+</ul>
+<h3>Config example <span id="config-example"></span><a href="#config-example" class="hashlink">&para;</a></h3><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+    <span class="hljs-attribute">enabled</span>:
+        - <span class="hljs-attribute">Facebook</span>:
+            <span class="hljs-attribute">depends</span>: PhpBrowser
+            <span class="hljs-attribute">app_id</span>: <span class="hljs-number">412345678901234</span>
+            <span class="hljs-attribute">secret</span>: ccb79c1b0fdff54e4f7c928bf233aea5
+            <span class="hljs-attribute">test_user</span>:
+                <span class="hljs-attribute">name</span>: FacebookGuy
+                <span class="hljs-attribute">locale</span>: uk_UA
+                <span class="hljs-attribute">permissions</span>: [email, publish_stream]
+</code></pre>
+<h3>Test example: <span id="test-example"></span><a href="#test-example" class="hashlink">&para;</a></h3><pre><code class="language- php">&lt;?php
+$I = new ApiGuy($scenario);
+$I-&gt;am('Guest');
+$I-&gt;wantToTest('check-in to a place be published on the Facebook using API');
+$I-&gt;haveFacebookTestUserAccount();
+$accessToken = $I-&gt;grabFacebookTestUserAccessToken();
+$I-&gt;haveHttpHeader('Auth', 'FacebookToken ' . $accessToken);
+$I-&gt;amGoingTo('send request to the backend, so that it will publish on user\'s wall on Facebook');
+$I-&gt;sendPOST('/api/v1/some-api-endpoint');
+$I-&gt;seePostOnFacebookWithAttachedPlace('167724369950862');
+
+</code></pre>
+<pre><code class="language- php">&lt;?php
+$I = new WebGuy($scenario);
+$I-&gt;am('Guest');
+$I-&gt;wantToTest('log in to site using Facebook');
+$I-&gt;haveFacebookTestUserAccount(); // create facebook test user
+$I-&gt;haveTestUserLoggedInOnFacebook(); // so that facebook will not ask us for login and password
+$fbUserFirstName = $I-&gt;grabFacebookTestUserFirstName();
+$I-&gt;amOnPage('/welcome');
+$I-&gt;see('Welcome, Guest');
+$I-&gt;click('Login with Facebook');
+$I-&gt;see('Welcome, ' . $fbUserFirstName);
+
+</code></pre>
+<p>@since 1.6.3
+@author tiger.seo@gmail.com</p>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>grabFacebookTestUserAccessToken <span id="grabfacebooktestuseraccesstoken"></span><a href="#grabfacebooktestuseraccesstoken" class="hashlink">&para;</a></h3><p>Returns the test user access token.</p>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabFacebookTestUserEmail <span id="grabfacebooktestuseremail"></span><a href="#grabfacebooktestuseremail" class="hashlink">&para;</a></h3><p>Returns the test user email.</p>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabFacebookTestUserId <span id="grabfacebooktestuserid"></span><a href="#grabfacebooktestuserid" class="hashlink">&para;</a></h3><p>Returns the test user id.</p>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabFacebookTestUserLoginUrl <span id="grabfacebooktestuserloginurl"></span><a href="#grabfacebooktestuserloginurl" class="hashlink">&para;</a></h3><p>Returns URL for test user auto-login.</p>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabFacebookTestUserName <span id="grabfacebooktestusername"></span><a href="#grabfacebooktestusername" class="hashlink">&para;</a></h3><p>Returns the test user name.</p>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabFacebookTestUserPassword <span id="grabfacebooktestuserpassword"></span><a href="#grabfacebooktestuserpassword" class="hashlink">&para;</a></h3><p><strong>not documented</strong></p>
+<h3>haveFacebookTestUserAccount <span id="havefacebooktestuseraccount"></span><a href="#havefacebooktestuseraccount" class="hashlink">&para;</a></h3><p>Get facebook test user be created.</p>
+<p><em>Please, note that the test user is created only at first invoke, unless $renew arguments is true.</em></p>
+<ul>
+<li><code>param bool</code> $renew true if the test user should be recreated</li>
+</ul>
+<h3>haveTestUserLoggedInOnFacebook <span id="havetestuserloggedinonfacebook"></span><a href="#havetestuserloggedinonfacebook" class="hashlink">&para;</a></h3><p>Get facebook test user be logged in on facebook.
+This is done by going to facebook.com</p>
+<p>@throws ModuleConfigException</p>
+<h3>postToFacebookAsTestUser <span id="posttofacebookastestuser"></span><a href="#posttofacebookastestuser" class="hashlink">&para;</a></h3><p>Please, note that you must have publish_actions permission to be able to publish to user's feed.</p>
+<ul>
+<li><code>param array</code> $params</li>
+</ul>
+<h3>seePostOnFacebookWithAttachedPlace <span id="seepostonfacebookwithattachedplace"></span><a href="#seepostonfacebookwithattachedplace" class="hashlink">&para;</a></h3><p>Please, note that you must have publish_actions permission to be able to publish to user's feed.</p>
+<ul>
+<li><code>param string</code> $placeId Place identifier to be verified against user published posts</li>
+</ul>
+<h3>seePostOnFacebookWithMessage <span id="seepostonfacebookwithmessage"></span><a href="#seepostonfacebookwithmessage" class="hashlink">&para;</a></h3><p>Please, note that you must have publish_actions permission to be able to publish to user's feed.</p>
+<ul>
+<li><code>param string</code> $message published post to be verified against the actual post on facebook</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Facebook.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

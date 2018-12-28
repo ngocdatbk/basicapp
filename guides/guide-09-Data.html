@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2248" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2248-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2248-collapse" class="collapse navbar-collapse"><ul id="w2249" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2232" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2232" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2233" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2233" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2234" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2234" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2235" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2235" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2236" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2236" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2237" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2237" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2238" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2238" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2239" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2239" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2240" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2240" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2241" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2241" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2242" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2242" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2243" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2243" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2244" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2244" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2245" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2245" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2246" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2246" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2247" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2247" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Working with Data <span id="working-with-data"></span><a href="#working-with-data" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#db">Db</a></li>
+<li><a href="#orm-modules">ORM modules</a></li>
+<li><a href="#testing-dynamic-data-with-snapshots">Testing Dynamic Data with Snapshots</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>Tests should not affect each other. That's a rule of thumb. When tests interact with a database,
+they may change the data inside it, which would eventually lead to data inconsistency.
+A test may try to insert a record that has already been inserted, or retrieve a deleted record.
+To avoid test failures, the database should be brought back to its initial state before each test.
+Codeception has different methods and approaches to get your data cleaned.</p>
+<p>This chapter summarizes all of the notices on clean-ups from the previous chapters
+and suggests the best strategies of how to choose data storage backends.</p>
+<p>When we decide to clean up a database, we should make this cleaning as fast as possible. Tests should always run fast.
+Rebuilding the database from scratch is not the best way, but might be the only one. In any case,
+you should use a special test database for testing. <strong>Do not ever run tests on development or production databases!</strong></p>
+<h2>Db <span id="db"></span><a href="#db" class="hashlink">&para;</a></h2><p>Codeception has a <code>Db</code> module, which takes on most of the tasks of database interaction.</p>
+<pre><code class="language-yaml">modules:
+    config:
+        Db:
+            dsn: 'PDO DSN HERE'
+            user: 'root'
+            password:
+</code></pre>
+<div class="alert alert-notice">
+Use <a href="http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">module parameters</a>
+to set the database credentials from environment variables or from application configuration files.
+</div>
+<p>Db module can cleanup database between tests by loading a database dump. This can be done by parsing SQL file and
+executing its commands using current connection</p>
+<pre><code class="language-yaml">modules:
+    config:
+        Db:
+            dsn: 'PDO DSN HERE'
+            user: 'root'
+            password:
+            dump: tests/_data/your-dump-name.sql
+            cleanup: true # reload dump between tests
+            populate: true # load dump before all tests
+
+</code></pre>
+<p> Alternatively an external tool (like mysql client, or pg_restore) can be used. This approach is faster and won't produce parsing errors while loading a dump.
+ Use <code>populator</code> config option to specify the command. For MySQL it can look like this:</p>
+<pre><code class="language-yaml"> modules:
+    enabled:
+       - Db:
+          dsn: 'mysql:host=localhost;dbname=testdb'
+          user: 'root'
+          password: ''
+          cleanup: true # run populator before each test
+          populate: true # run populator before all test
+          populator: 'mysql -u $user $dbname &lt; tests/_data/dump.sql'
+</code></pre>
+<p>See the <a href="http://codeception.com/docs/modules/Db#SQL-data-dump">Db module reference</a> for more examples.</p>
+<p>To ensure database dump is loaded before all tests add <code>populate: true</code>. To clean current database and reload dump between tests use <code>cleanup: true</code>.</p>
+<div class="alert alert-notice">
+A full database clean-up can be painfully slow if you use large database dumps. It is recommended to do more data testing
+on the functional and integration levels, this way you can get performance bonuses from using ORM.
+</div>
+<p>In acceptance tests, your tests are interacting with the application through a web server. This means that the test
+and the application work with the same database. You should provide the same credentials in the Db module
+that your application uses, then you can access the database for assertions (<code>seeInDatabase</code> actions)
+and to perform automatic clean-ups.</p>
+<p>The Db module provides actions to create and verify data inside a database.</p>
+<p>If you want to create a special database record for one test,
+you can use <a href="http://codeception.com/docs/modules/Db#haveInDatabase"><code>haveInDatabase</code></a> method of <code>Db</code> module:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;haveInDatabase(<span class="hljs-string">'posts'</span>, [
+  <span class="hljs-string">'title'</span> =&gt; <span class="hljs-string">'Top 10 Testing Frameworks'</span>,
+  <span class="hljs-string">'body'</span> =&gt; <span class="hljs-string">'1. Codeception'</span>
+]);
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/posts'</span>);
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Top 10 Testing Frameworks'</span>);
+
+</code></pre>
+<p><code>haveInDatabase</code> inserts a row with the provided values into the database.
+All added records will be deleted at the end of the test.</p>
+<p>If you want to check that a table record was created
+use <a href="http://codeception.com/docs/modules/Db#haveInDatabase"><code>seeInDatabase</code></a> method:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/posts/1'</span>);
+<span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'comment'</span>, <span class="hljs-string">'This is nice!'</span>);
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Submit'</span>);
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'comments'</span>, [<span class="hljs-string">'body'</span> =&gt; <span class="hljs-string">'This is nice!'</span>]);
+</code></pre>
+<p>See the module <a href="http://codeception.com/docs/modules/Db">reference</a> for other methods you can use for database testing.</p>
+<p>There are also modules for <a href="http://codeception.com/docs/modules/MongoDb">MongoDb</a>,
+<a href="http://codeception.com/docs/modules/Redis">Redis</a>,
+and <a href="http://codeception.com/docs/modules/Memcache">Memcache</a> which behave in a similar manner.</p>
+<h3>Sequence <span id="sequence"></span><a href="#sequence" class="hashlink">&para;</a></h3><p>If the database clean-up takes too long, you can follow a different strategy: create new data for each test.
+This way, the only problem you might face is duplication of data records.
+<a href="http://codeception.com/docs/modules/Sequence">Sequence</a> was created to solve this.
+It provides the <code>sq()</code> function which generates unique suffixes for creating data in tests.</p>
+<h2>ORM modules <span id="orm-modules"></span><a href="#orm-modules" class="hashlink">&para;</a></h2><p>Your application is most likely using object-relational mapping (ORM) to work with the database. In this case,
+Codeception allows you to use the ORM methods to work with the database, instead of accessing the database directly.
+This way you can work with models and entities of a domain, and not on tables and rows.</p>
+<p>By using ORM in functional and integration tests, you can also improve performance of your tests.
+Instead of cleaning up the database after each test, the ORM module will wrap all the database actions into transactions
+and roll it back at the end. This way, no actual data will be written to the database.
+This clean-up strategy is enabled by default,
+you can disable it by setting <code>cleanup: false</code> in the configuration of any ORM module.</p>
+<h3>ActiveRecord <span id="activerecord"></span><a href="#activerecord" class="hashlink">&para;</a></h3><p>Popular frameworks like Laravel, Yii, and Phalcon include an ActiveRecord data layer by default.
+Because of this tight integration, you just need to enable the framework module, and use its configuration for database access.</p>
+<p>Corresponding framework modules provide similar methods for ORM access:</p>
+<ul>
+<li><code>haveRecord</code></li>
+<li><code>seeRecord</code></li>
+<li><code>dontSeeRecord</code></li>
+<li><code>grabRecord</code></li>
+</ul>
+<p>They allow you to create and check data by model name and field names in the model. Here is the example in Laravel:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// create record and get its id</span>
+<span class="hljs-variable">$id</span> = <span class="hljs-variable">$I</span>-&gt;haveRecord(<span class="hljs-string">'posts'</span>, [<span class="hljs-string">'body'</span> =&gt; <span class="hljs-string">'My first blogpost'</span>, <span class="hljs-string">'user_id'</span> =&gt; <span class="hljs-number">1</span>]);
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/posts/'</span>.<span class="hljs-variable">$id</span>);
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'My first blogpost'</span>, <span class="hljs-string">'article'</span>);
+<span class="hljs-comment">// check record exists</span>
+<span class="hljs-variable">$I</span>-&gt;seeRecord(<span class="hljs-string">'posts'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$id</span>]);
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Delete'</span>);
+<span class="hljs-comment">// record was deleted</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeRecord(<span class="hljs-string">'posts'</span>, [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-variable">$id</span>]);
+</code></pre>
+<div class="alert alert-notice">
+Laravel5 module also provides `haveModel`, `makeModel` methods which use factories to generate models with fake data.
+</div>
+<p>If you want to use ORM for integration testing only, you should enable the framework module with only the <code>ORM</code> part enabled:</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - Laravel5:
+            - part: ORM
+</code></pre>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - Yii2:
+            - part: ORM
+</code></pre>
+<p>This way no web actions will be added to <code>$I</code> object.</p>
+<p>If you want to use ORM to work with data inside acceptance tests, you should also include only the ORM part of a module.
+Please note that inside acceptance tests, web applications work inside a webserver, so any test data can't be cleaned up
+by rolling back transactions. You will need to disable cleaning up,
+and use the <code>Db</code> module to clean the database up between tests. Here is a sample config:</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - WebDriver:
+            url: http://localhost
+            browser: firefox
+        - Laravel5:
+            cleanup: false
+        - Db
+</code></pre>
+<h3>DataMapper <span id="datamapper"></span><a href="#datamapper" class="hashlink">&para;</a></h3><p>Doctrine is also a popular ORM, unlike some others it implements the DataMapper pattern and is not bound to any framework.
+The <a href="http://codeception.com/docs/modules/Doctrine2">Doctrine2</a> module requires an <code>EntityManager</code> instance to work with.
+It can be obtained from a Symfony framework or Zend Framework (configured with Doctrine):</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - Symfony
+        - Doctrine2:
+            depends: Symfony
+</code></pre>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - ZF2
+        - Doctrine2:
+            depends: ZF2
+</code></pre>
+<p>If no framework is used with Doctrine you should provide the <code>connection_callback</code> option
+with a valid callback to a function which returns an <code>EntityManager</code> instance.</p>
+<p>Doctrine2 also provides methods to create and check data:</p>
+<ul>
+<li><code>haveInRepository</code></li>
+<li><code>grabFromRepository</code></li>
+<li><code>grabEntitiesFromRepository</code></li>
+<li><code>seeInRepository</code></li>
+<li><code>dontSeeInRepository</code></li>
+</ul>
+<h3>DataFactory <span id="datafactory"></span><a href="#datafactory" class="hashlink">&para;</a></h3><p>Preparing data for testing is a very creative, although boring, task. If you create a record,
+you need to fill in all the fields of the model. It is much easier to use <a href="https://github.com/fzaninotto/Faker">Faker</a>
+for this task, which is more effective to set up data generation rules for models.
+Such a set of rules is called <em>factories</em>
+and are provided by the <a href="http://codeception.com/docs/modules/DataFactory">DataFactory</a> module.</p>
+<p>Once configured, it can create records with ease:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// creates a new user</span>
+<span class="hljs-variable">$user_id</span> = <span class="hljs-variable">$I</span>-&gt;have(<span class="hljs-string">'App\Model\User'</span>);
+<span class="hljs-comment">// creates 3 posts</span>
+<span class="hljs-variable">$I</span>-&gt;haveMultiple(<span class="hljs-string">'App\Model\Post'</span>, <span class="hljs-number">3</span>);
+</code></pre>
+<p>Created records will be deleted at the end of a test.
+The DataFactory module only works with ORM, so it requires one of the ORM modules to be enabled:</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - Yii2:
+            configFile: path/to/config.php
+        - DataFactory:
+            depends: Yii2
+</code></pre>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - Symfony
+        - Doctrine2:
+            depends: Symfony
+        - DataFactory:
+            depends: Doctrine2
+</code></pre>
+<p>DataFactory provides a powerful solution for managing data in integration/functional/acceptance tests.
+Read the <a href="http://codeception.com/docs/modules/DataFactory">full reference</a> to learn how to set this module up.</p>
+<h2>Testing Dynamic Data with Snapshots <span id="testing-dynamic-data-with-snapshots"></span><a href="#testing-dynamic-data-with-snapshots" class="hashlink">&para;</a></h2><p>What if you deal with data which you don't own? For instance, the page look depends on number of categories in database, 
+and categories are set by admin user. How would you test that the page is still valid?  </p>
+<p>There is a way to get it tested as well. Codeception allows you take a snapshot of a data on first run and compare with on next executions.
+This principle is so general that it can work for testing APIs, items on a web page, etc.</p>
+<p>Let's check that list of categories on a page is the same it was before.  <br />
+Create a snapshot class:</p>
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> vendor/bin/codecept g:snapshot Categories
+</code></pre>
+<p>Inject an actor class via constructor and implement <code>fetchData</code> method which should return a data set from a test.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Snapshot</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Categories</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Snapshot</span>
+</span>{
+    <span class="hljs-comment">/** <span class="hljs-doctag">@var</span> \AcceptanceTester */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$i</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;i = <span class="hljs-variable">$I</span>;
+    }
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-comment">// fetch texts from all 'a.category' elements on a page        </span>
+        <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;i-&gt;grabMultiple(<span class="hljs-string">'a.category'</span>);
+    }
+}
+</code></pre>
+<p>Inside a test you can inject the snapshot class and call <code>assert</code> method on it:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testCategoriesAreTheSame</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>, \Snapshot\Categories <span class="hljs-variable">$snapshot</span>)</span>
+</span>{
+    <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/categories'</span>);
+    <span class="hljs-comment">// if previously saved array of users does not match current set, test will fail</span>
+    <span class="hljs-comment">// to update data in snapshot run test with --debug flag</span>
+    <span class="hljs-variable">$snapshot</span>-&gt;assert();
+}
+</code></pre>
+<p>On the first run, data will be obtained via <code>fetchData</code> method and saved to <code>tests/_data</code> directory in json format.
+On next execution the obtained data will be compared with previously saved snapshot.</p>
+<p><strong>To update a snapshot with a new data run tests in <code>--debug</code> mode.</strong></p>
+<p>By default Snapshot uses <code>assertEquals</code> assertion, however this can be customized by overriding <code>assertData</code> method.</p>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>Codeception also assists the developer when dealing with data. Tools for database population
+and cleaning up are bundled within the <code>Db</code> module. If you use ORM, you can use one of the provided framework modules
+to operate with database through a data abstraction layer, and use the DataFactory module to generate new records with ease.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

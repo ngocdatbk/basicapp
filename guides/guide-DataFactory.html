@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2428" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2428-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2428-collapse" class="collapse navbar-collapse"><ul id="w2429" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2412" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2412" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2413" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2413" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2414" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2414" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2415" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2415" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2416" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2416" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2417" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2417" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2418" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2418" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2419" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2419" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2420" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2420" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2421" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2421" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2422" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2422" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2423" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2423" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2424" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2424" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2425" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2425" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2426" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2426" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2427" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2427" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>DataFactory <span id="datafactory"></span><a href="#datafactory" class="hashlink">&para;</a></h1><p>DataFactory allows you to easily generate and create test data using <a href="https://github.com/thephpleague/factory-muffin"><strong>FactoryMuffin</strong></a>.
+DataFactory uses an ORM of your application to define, save and cleanup data. Thus, should be used with ORM or Framework modules.</p>
+<p>This module requires packages installed:</p>
+<pre><code class="hljs json language-json">{
+ "<span class="hljs-attribute">league/factory-muffin</span>": <span class="hljs-value"><span class="hljs-string">"^3.0"</span></span>,
+}
+</code></pre>
+<p>Generation rules can be defined in a factories file. You will need to create <code>factories.php</code> (it is recommended to store it in <code>_support</code> dir)
+Follow <a href="https://github.com/thephpleague/factory-muffin">FactoryMuffin documentation</a> to set valid rules.
+Random data provided by <a href="https://github.com/fzaninotto/Faker">Faker</a> library.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">League</span>\<span class="hljs-title">FactoryMuffin</span>\<span class="hljs-title">Faker</span>\<span class="hljs-title">Facade</span> <span class="hljs-title">as</span> <span class="hljs-title">Faker</span>;
+
+<span class="hljs-variable">$fm</span>-&gt;define(User::class)-&gt;setDefinitions([
+ <span class="hljs-string">'name'</span>   =&gt; Faker::name(),
+
+    <span class="hljs-comment">// generate email</span>
+   <span class="hljs-string">'email'</span>  =&gt; Faker::email(),
+   <span class="hljs-string">'body'</span>   =&gt; Faker::text(),
+
+   <span class="hljs-comment">// generate a profile and return its Id</span>
+   <span class="hljs-string">'profile_id'</span> =&gt; <span class="hljs-string">'factory|Profile'</span>
+]);
+</code></pre>
+<p>Configure this module to load factory definitions from a directory.
+You should also specify a module with an ORM as a dependency.</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - Yii2:
+            configFile: path/to/config.php
+        - DataFactory:
+            factories: tests/_support/factories
+            depends: Yii2
+</code></pre>
+<p>(you can also use Laravel5 and Phalcon).</p>
+<p>In this example factories are loaded from <code>tests/_support/factories</code> directory. Please note that this directory is relative from the codeception.yml file (so for Yii2 it would be codeception/_support/factories).
+You should create this directory manually and create PHP files in it with factories definitions following <a href="https://github.com/thephpleague/factory-muffin#usage">official documentation</a>.</p>
+<p>In cases you want to use data from database inside your factory definitions you can define them in Helper.
+For instance, if you use Doctrine, this allows you to access <code>EntityManager</code> inside a definition.</p>
+<p>To proceed you should create Factories helper via <code>generate:helper</code> command and enable it:</p>
+<pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+    <span class="hljs-attribute">enabled</span>:
+        - <span class="hljs-attribute">DataFactory</span>:
+            <span class="hljs-attribute">depends</span>: Doctrine2
+        - \Helper\Factories
+
+</code></pre>
+<p>In this case you can define factories from a Helper class with <code>_define</code> method.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_beforeSuite</span><span class="hljs-params">()</span>
+</span>{
+     <span class="hljs-variable">$factory</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'DataFactory'</span>);
+     <span class="hljs-comment">// let us get EntityManager from Doctrine</span>
+     <span class="hljs-variable">$em</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Doctrine2'</span>)-&gt;_getEntityManager();
+
+     <span class="hljs-variable">$factory</span>-&gt;_define(User::class, [
+
+         <span class="hljs-comment">// generate random user name</span>
+         <span class="hljs-comment">// use League\FactoryMuffin\Faker\Facade as Faker;</span>
+         <span class="hljs-string">'name'</span> =&gt; Faker::name(),
+
+         <span class="hljs-comment">// get real company from database</span>
+         <span class="hljs-string">'company'</span> =&gt; <span class="hljs-variable">$em</span>-&gt;getRepository(Company::class)-&gt;find(),
+
+         <span class="hljs-comment">// let's generate a profile for each created user</span>
+         <span class="hljs-comment">// receive an entity and set it via `setProfile` method</span>
+         <span class="hljs-comment">// UserProfile factory should be defined as well</span>
+         <span class="hljs-string">'profile'</span> =&gt; <span class="hljs-string">'entity|'</span>.UserProfile::class
+     ]);
+}
+</code></pre>
+<p>Factory Definitions are described in official <a href="https://github.com/thephpleague/factory-muffin">Factory Muffin Documentation</a></p>
+<h3>Related Models Generators <span id="related-models-generators"></span><a href="#related-models-generators" class="hashlink">&para;</a></h3><p>If your module relies on other model you can generate them both.
+To create a related module you can use either <code>factory</code> or <code>entity</code> prefix, depending on ORM you use.</p>
+<p>In case your ORM expects an Id of a related record (Eloquent) to be set use <code>factory</code> prefix:</p>
+<pre><code class="hljs php language-php"><span class="hljs-string">'user_id'</span> =&gt; <span class="hljs-string">'factory|User'</span>
+</code></pre>
+<p>In case your ORM expects a related record itself (Doctrine) then you should use <code>entity</code> prefix:</p>
+<pre><code class="hljs php language-php"><span class="hljs-string">'user'</span> =&gt; <span class="hljs-string">'entity|User'</span>
+</code></pre>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>have <span id="have"></span><a href="#have" class="hashlink">&para;</a></h3><p>Generates and saves a record,.</p>
+<pre><code class="hljs php language-php"><span class="hljs-variable">$I</span>-&gt;have(<span class="hljs-string">'User'</span>); <span class="hljs-comment">// creates user</span>
+<span class="hljs-variable">$I</span>-&gt;have(<span class="hljs-string">'User'</span>, [<span class="hljs-string">'is_active'</span> =&gt; <span class="hljs-keyword">true</span>]); <span class="hljs-comment">// creates active user</span>
+</code></pre>
+<p>Returns an instance of created user.</p>
+<ul>
+<li><code>param string</code> $name</li>
+<li><p><code>param array</code> $extraAttrs</p>
+</li>
+<li><p><code>return</code> object</p>
+</li>
+</ul>
+<h3>haveMultiple <span id="havemultiple"></span><a href="#havemultiple" class="hashlink">&para;</a></h3><p>Generates and saves a record multiple times.</p>
+<pre><code class="hljs php language-php"><span class="hljs-variable">$I</span>-&gt;haveMultiple(<span class="hljs-string">'User'</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// create 10 users</span>
+<span class="hljs-variable">$I</span>-&gt;haveMultiple(<span class="hljs-string">'User'</span>, <span class="hljs-number">10</span>, [<span class="hljs-string">'is_active'</span> =&gt; <span class="hljs-keyword">true</span>]); <span class="hljs-comment">// create 10 active users</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $name</li>
+<li><code>param int</code> $times</li>
+<li><p><code>param array</code> $extraAttrs</p>
+</li>
+<li><p><code>return</code> \object[]</p>
+</li>
+</ul>
+<h3>make <span id="make"></span><a href="#make" class="hashlink">&para;</a></h3><p>Generates a record instance.</p>
+<p>This does not save it in the database. Use <code>have</code> for that.</p>
+<pre><code class="hljs php language-php"><span class="hljs-variable">$user</span> = <span class="hljs-variable">$I</span>-&gt;make(<span class="hljs-string">'User'</span>); <span class="hljs-comment">// return User instance</span>
+<span class="hljs-variable">$activeUser</span> = <span class="hljs-variable">$I</span>-&gt;make(<span class="hljs-string">'User'</span>, [<span class="hljs-string">'is_active'</span> =&gt; <span class="hljs-keyword">true</span>]); <span class="hljs-comment">// return active user instance</span>
+</code></pre>
+<p>Returns an instance of created user without creating a record in database.</p>
+<ul>
+<li><code>param string</code> $name</li>
+<li><p><code>param array</code> $extraAttrs</p>
+</li>
+<li><p><code>return</code> object</p>
+</li>
+</ul>
+<h3>onReconfigure <span id="onreconfigure"></span><a href="#onreconfigure" class="hashlink">&para;</a></h3><p>@throws ModuleException</p>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/DataFactory.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

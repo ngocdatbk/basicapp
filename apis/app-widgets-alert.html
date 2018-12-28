@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>Alert, app\widgets\Alert - Yii Framework 2.0 API Documentation</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w6708" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w6708-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Yii Framework 2.0 API Documentation</a></div><div id="w6708-collapse" class="collapse navbar-collapse"><ul id="w6709" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-6655" data-toggle="collapse" data-parent="#navigation">app\assets <b class="caret"></b></a><div id="navigation-6655" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-assets-appasset.html">AppAsset</a>
+<a class="list-group-item" href="./app-assets-fontawesomeasset.html">FontAwesomeAsset</a>
+<a class="list-group-item" href="./app-assets-layoutadminasset.html">LayoutAdminAsset</a></div>
+<a class="list-group-item" href="#navigation-6656" data-toggle="collapse" data-parent="#navigation">app\commands <b class="caret"></b></a><div id="navigation-6656" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-commands-appmigratecontroller.html">AppMigrateController</a>
+<a class="list-group-item" href="./app-commands-cronabstractcontroller.html">CronAbstractController</a>
+<a class="list-group-item" href="./app-commands-croncontroller.html">CronController</a>
+<a class="list-group-item" href="./app-commands-hellocontroller.html">HelloController</a>
+<a class="list-group-item" href="./app-commands-rbaccontroller.html">RbacController</a></div>
+<a class="list-group-item" href="#navigation-6657" data-toggle="collapse" data-parent="#navigation">app\components <b class="caret"></b></a><div id="navigation-6657" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-components-controller.html">Controller</a>
+<a class="list-group-item" href="./app-components-model.html">Model</a></div>
+<a class="list-group-item" href="#navigation-6658" data-toggle="collapse" data-parent="#navigation">app\controllers <b class="caret"></b></a><div id="navigation-6658" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-controllers-sitecontroller.html">SiteController</a></div>
+<a class="list-group-item" href="#navigation-6659" data-toggle="collapse" data-parent="#navigation">app\helpers <b class="caret"></b></a><div id="navigation-6659" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-helpers-apihelper.html">ApiHelper</a>
+<a class="list-group-item" href="./app-helpers-applocale.html">AppLocale</a>
+<a class="list-group-item" href="./app-helpers-applicationhelper.html">ApplicationHelper</a>
+<a class="list-group-item" href="./app-helpers-arrayhelper.html">ArrayHelper</a>
+<a class="list-group-item" href="./app-helpers-cookiehelper.html">CookieHelper</a>
+<a class="list-group-item" href="./app-helpers-denormalization.html">Denormalization</a>
+<a class="list-group-item" href="./app-helpers-exporthelper.html">ExportHelper</a>
+<a class="list-group-item" href="./app-helpers-gmailapi.html">GmailApi</a>
+<a class="list-group-item" href="./app-helpers-googleapi.html">GoogleApi</a>
+<a class="list-group-item" href="./app-helpers-googlehelper.html">GoogleHelper</a>
+<a class="list-group-item" href="./app-helpers-htmlhelper.html">HtmlHelper</a>
+<a class="list-group-item" href="./app-helpers-languagetranslatehelper.html">LanguageTranslateHelper</a>
+<a class="list-group-item" href="./app-helpers-mailhelper.html">MailHelper</a>
+<a class="list-group-item" href="./app-helpers-php.html">Php</a>
+<a class="list-group-item" href="./app-helpers-renderhtmlwidget.html">RenderHtmlWidget</a>
+<a class="list-group-item" href="./app-helpers-responsehelper.html">ResponseHelper</a>
+<a class="list-group-item" href="./app-helpers-stringhelper.html">StringHelper</a>
+<a class="list-group-item" href="./app-helpers-urlhelper.html">UrlHelper</a></div>
+<a class="list-group-item" href="#navigation-6660" data-toggle="collapse" data-parent="#navigation">app\models <b class="caret"></b></a><div id="navigation-6660" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-models-contactform.html">ContactForm</a>
+<a class="list-group-item" href="./app-models-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./app-models-user.html">User</a></div>
+<a class="list-group-item" href="#navigation-6661" data-toggle="collapse" data-parent="#navigation">app\modules\admin <b class="caret"></b></a><div id="navigation-6661" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6662" data-toggle="collapse" data-parent="#navigation">app\modules\admin\assets <b class="caret"></b></a><div id="navigation-6662" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-assets-productasset.html">ProductAsset</a></div>
+<a class="list-group-item" href="#navigation-6663" data-toggle="collapse" data-parent="#navigation">app\modules\admin\controllers <b class="caret"></b></a><div id="navigation-6663" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-admin-controllers-productcategorycontroller.html">ProductCategoryController</a>
+<a class="list-group-item" href="./app-modules-admin-controllers-productcontroller.html">ProductController</a></div>
+<a class="list-group-item" href="#navigation-6664" data-toggle="collapse" data-parent="#navigation">app\modules\admin\models <b class="caret"></b></a><div id="navigation-6664" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-models-product.html">Product</a>
+<a class="list-group-item" href="./app-modules-admin-models-productcategory.html">ProductCategory</a>
+<a class="list-group-item" href="./app-modules-admin-models-productimage.html">ProductImage</a>
+<a class="list-group-item" href="./app-modules-admin-models-productimageupload.html">ProductImageUpload</a></div>
+<a class="list-group-item" href="#navigation-6665" data-toggle="collapse" data-parent="#navigation">app\modules\admin\models\search <b class="caret"></b></a><div id="navigation-6665" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-models-search-productsearch.html">ProductSearch</a></div>
+<a class="list-group-item" href="#navigation-6666" data-toggle="collapse" data-parent="#navigation">app\modules\core <b class="caret"></b></a><div id="navigation-6666" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6667" data-toggle="collapse" data-parent="#navigation">app\modules\core\assets <b class="caret"></b></a><div id="navigation-6667" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-assets-adminnavigationasset.html">AdminNavigationAsset</a></div>
+<a class="list-group-item" href="#navigation-6668" data-toggle="collapse" data-parent="#navigation">app\modules\core\components <b class="caret"></b></a><div id="navigation-6668" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-components-dataregistry.html">DataRegistry</a></div>
+<a class="list-group-item" href="#navigation-6669" data-toggle="collapse" data-parent="#navigation">app\modules\core\controllers <b class="caret"></b></a><div id="navigation-6669" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-controllers-adminnavigationcontroller.html">AdminNavigationController</a>
+<a class="list-group-item" href="./app-modules-core-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-6670" data-toggle="collapse" data-parent="#navigation">app\modules\core\models <b class="caret"></b></a><div id="navigation-6670" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-models-adminnavigation.html">AdminNavigation</a>
+<a class="list-group-item" href="./app-modules-core-models-dataregistry.html">DataRegistry</a></div>
+<a class="list-group-item" href="#navigation-6671" data-toggle="collapse" data-parent="#navigation">app\modules\core\widgets <b class="caret"></b></a><div id="navigation-6671" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-widgets-sidebarnavigationwidget.html">SidebarNavigationWidget</a></div>
+<a class="list-group-item" href="#navigation-6672" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob <b class="caret"></b></a><div id="navigation-6672" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6673" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\assets <b class="caret"></b></a><div id="navigation-6673" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-assets-cronjobasset.html">CronjobAsset</a></div>
+<a class="list-group-item" href="#navigation-6674" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\controllers <b class="caret"></b></a><div id="navigation-6674" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-controllers-cronjobcontroller.html">CronjobController</a>
+<a class="list-group-item" href="./app-modules-cronjob-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-6675" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\helpers <b class="caret"></b></a><div id="navigation-6675" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-helpers-cronhelper.html">CronHelper</a></div>
+<a class="list-group-item" href="#navigation-6676" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\models <b class="caret"></b></a><div id="navigation-6676" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-models-cronjob.html">Cronjob</a>
+<a class="list-group-item" href="./app-modules-cronjob-models-cronjoblog.html">CronjobLog</a></div>
+<a class="list-group-item" href="#navigation-6677" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\models\search <b class="caret"></b></a><div id="navigation-6677" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-models-search-cronjobsearch.html">CronjobSearch</a></div>
+<a class="list-group-item" href="#navigation-6678" data-toggle="collapse" data-parent="#navigation">app\modules\dashboard <b class="caret"></b></a><div id="navigation-6678" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-dashboard-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6679" data-toggle="collapse" data-parent="#navigation">app\modules\dashboard\controllers <b class="caret"></b></a><div id="navigation-6679" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-dashboard-controllers-dashboardcontroller.html">DashboardController</a>
+<a class="list-group-item" href="./app-modules-dashboard-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-6680" data-toggle="collapse" data-parent="#navigation">app\modules\email <b class="caret"></b></a><div id="navigation-6680" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6681" data-toggle="collapse" data-parent="#navigation">app\modules\email\commands <b class="caret"></b></a><div id="navigation-6681" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-commands-sendmail.html">SendMail</a></div>
+<a class="list-group-item" href="#navigation-6682" data-toggle="collapse" data-parent="#navigation">app\modules\email\controllers <b class="caret"></b></a><div id="navigation-6682" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-email-controllers-emailqueuecontroller.html">EmailQueueController</a></div>
+<a class="list-group-item" href="#navigation-6683" data-toggle="collapse" data-parent="#navigation">app\modules\email\models <b class="caret"></b></a><div id="navigation-6683" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-models-emailqueue.html">EmailQueue</a></div>
+<a class="list-group-item" href="#navigation-6684" data-toggle="collapse" data-parent="#navigation">app\modules\permission <b class="caret"></b></a><div id="navigation-6684" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6685" data-toggle="collapse" data-parent="#navigation">app\modules\permission\controllers <b class="caret"></b></a><div id="navigation-6685" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-permissioncontroller.html">PermissionController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-rolecontroller.html">RoleController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-rulecontroller.html">RuleController</a></div>
+<a class="list-group-item" href="#navigation-6686" data-toggle="collapse" data-parent="#navigation">app\modules\permission\models <b class="caret"></b></a><div id="navigation-6686" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-models-authassignment.html">AuthAssignment</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitem.html">AuthItem</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitemchild.html">AuthItemChild</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitemsearch.html">AuthItemSearch</a>
+<a class="list-group-item" href="./app-modules-permission-models-authrule.html">AuthRule</a>
+<a class="list-group-item" href="./app-modules-permission-models-createpermissionform.html">CreatePermissionForm</a>
+<a class="list-group-item" href="./app-modules-permission-models-editrule.html">EditRule</a></div>
+<a class="list-group-item" href="#navigation-6687" data-toggle="collapse" data-parent="#navigation">app\modules\pub <b class="caret"></b></a><div id="navigation-6687" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6688" data-toggle="collapse" data-parent="#navigation">app\modules\pub\assets <b class="caret"></b></a><div id="navigation-6688" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-assets-cartasset.html">CartAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-layoutpubasset.html">LayoutPubAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-orderasset.html">OrderAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-productasset.html">ProductAsset</a></div>
+<a class="list-group-item" href="#navigation-6689" data-toggle="collapse" data-parent="#navigation">app\modules\pub\controllers <b class="caret"></b></a><div id="navigation-6689" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-controllers-cartcontroller.html">CartController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-dashboardcontroller.html">DashboardController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-ordercontroller.html">OrderController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-productcontroller.html">ProductController</a></div>
+<a class="list-group-item" href="#navigation-6690" data-toggle="collapse" data-parent="#navigation">app\modules\report <b class="caret"></b></a><div id="navigation-6690" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6691" data-toggle="collapse" data-parent="#navigation">app\modules\report\assets <b class="caret"></b></a><div id="navigation-6691" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-assets-orderasset.html">OrderAsset</a></div>
+<a class="list-group-item" href="#navigation-6692" data-toggle="collapse" data-parent="#navigation">app\modules\report\controllers <b class="caret"></b></a><div id="navigation-6692" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-report-controllers-ordercontroller.html">OrderController</a>
+<a class="list-group-item" href="./app-modules-report-controllers-orderdetailcontroller.html">OrderDetailController</a></div>
+<a class="list-group-item" href="#navigation-6693" data-toggle="collapse" data-parent="#navigation">app\modules\report\models <b class="caret"></b></a><div id="navigation-6693" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-models-order.html">Order</a>
+<a class="list-group-item" href="./app-modules-report-models-orderdetail.html">OrderDetail</a>
+<a class="list-group-item" href="./app-modules-report-models-ordersearch.html">OrderSearch</a></div>
+<a class="list-group-item" href="#navigation-6694" data-toggle="collapse" data-parent="#navigation">app\modules\setting <b class="caret"></b></a><div id="navigation-6694" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6695" data-toggle="collapse" data-parent="#navigation">app\modules\setting\assets <b class="caret"></b></a><div id="navigation-6695" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-assets-settingasset.html">SettingAsset</a></div>
+<a class="list-group-item" href="#navigation-6696" data-toggle="collapse" data-parent="#navigation">app\modules\setting\components <b class="caret"></b></a><div id="navigation-6696" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-components-settings.html">Settings</a></div>
+<a class="list-group-item" href="#navigation-6697" data-toggle="collapse" data-parent="#navigation">app\modules\setting\controllers <b class="caret"></b></a><div id="navigation-6697" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-setting-controllers-settingcontroller.html">SettingController</a></div>
+<a class="list-group-item" href="#navigation-6698" data-toggle="collapse" data-parent="#navigation">app\modules\setting\models <b class="caret"></b></a><div id="navigation-6698" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-models-setting.html">Setting</a>
+<a class="list-group-item" href="./app-modules-setting-models-settingmodel.html">SettingModel</a></div>
+<a class="list-group-item" href="#navigation-6699" data-toggle="collapse" data-parent="#navigation">app\modules\user <b class="caret"></b></a><div id="navigation-6699" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6700" data-toggle="collapse" data-parent="#navigation">app\modules\user\assets <b class="caret"></b></a><div id="navigation-6700" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-assets-authasset.html">AuthAsset</a></div>
+<a class="list-group-item" href="#navigation-6701" data-toggle="collapse" data-parent="#navigation">app\modules\user\components <b class="caret"></b></a><div id="navigation-6701" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-components-user.html">User</a></div>
+<a class="list-group-item" href="#navigation-6702" data-toggle="collapse" data-parent="#navigation">app\modules\user\controllers <b class="caret"></b></a><div id="navigation-6702" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-controllers-authcontroller.html">AuthController</a>
+<a class="list-group-item" href="./app-modules-user-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-user-controllers-usercontroller.html">UserController</a></div>
+<a class="list-group-item" href="#navigation-6703" data-toggle="collapse" data-parent="#navigation">app\modules\user\models <b class="caret"></b></a><div id="navigation-6703" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-models-user.html">User</a>
+<a class="list-group-item" href="./app-modules-user-models-userauth.html">UserAuth</a>
+<a class="list-group-item" href="./app-modules-user-models-userconfirm.html">UserConfirm</a>
+<a class="list-group-item" href="./app-modules-user-models-userloginattempts.html">UserLoginAttempts</a>
+<a class="list-group-item" href="./app-modules-user-models-usersearch.html">UserSearch</a></div>
+<a class="list-group-item" href="#navigation-6704" data-toggle="collapse" data-parent="#navigation">app\modules\user\models\form <b class="caret"></b></a><div id="navigation-6704" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-models-form-createform.html">CreateForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-forgotpasswordform.html">ForgotPasswordForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-resetpassword.html">ResetPassword</a>
+<a class="list-group-item" href="./app-modules-user-models-form-signupform.html">SignupForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-updateform.html">UpdateForm</a></div>
+<a class="list-group-item" href="#navigation-6705" data-toggle="collapse" data-parent="#navigation">app\rbac <b class="caret"></b></a><div id="navigation-6705" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-rbac-authorrule.html">AuthorRule</a></div>
+<a class="list-group-item active" href="#navigation-6706" data-toggle="collapse" data-parent="#navigation">app\widgets <b class="caret"></b></a><div id="navigation-6706" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./app-widgets-alert.html">Alert</a>
+<a class="list-group-item" href="./app-widgets-imagegallery.html">ImageGallery</a>
+<a class="list-group-item" href="./app-widgets-viewas.html">ViewAs</a></div>
+<a class="list-group-item" href="#navigation-6707" data-toggle="collapse" data-parent="#navigation">app\widgets\assets <b class="caret"></b></a><div id="navigation-6707" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-widgets-assets-imagegalleryasset.html">ImageGalleryAsset</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Class app\widgets\Alert</h1>
+<div class="top-nav">
+    <a href="index.html">All Classes</a>
+            | <a href="#properties">Properties</a>
+                | <a href="#methods">Methods</a>
+            </div>
+
+<table class="summaryTable docClass table table-bordered">
+    <colgroup>
+        <col class="col-name" />
+        <col class="col-value" />
+    </colgroup>
+            <tr><th>Inheritance</th><td><a href="app-widgets-alert.html">app\widgets\Alert</a> &raquo;
+yii\bootstrap\Widget</td></tr>
+                                        </table>
+
+<div class="class-description">
+    <p><strong>Alert widget renders a message from session flash. All flash messages are displayed
+in the sequence they were assigned using setFlash. You can set message as following:</strong></p>
+    <pre><code class="hljs php language-php">Yii::<span class="hljs-variable">$app</span>-&gt;session-&gt;setFlash(<span class="hljs-string">'error'</span>, <span class="hljs-string">'This is the message'</span>);
+Yii::<span class="hljs-variable">$app</span>-&gt;session-&gt;setFlash(<span class="hljs-string">'success'</span>, <span class="hljs-string">'This is the message'</span>);
+Yii::<span class="hljs-variable">$app</span>-&gt;session-&gt;setFlash(<span class="hljs-string">'info'</span>, <span class="hljs-string">'This is the message'</span>);
+</code></pre>
+<p>Multiple messages could be set as follows:</p>
+<pre><code class="hljs php language-php">Yii::<span class="hljs-variable">$app</span>-&gt;session-&gt;setFlash(<span class="hljs-string">'error'</span>, [<span class="hljs-string">'Error 1'</span>, <span class="hljs-string">'Error 2'</span>]);
+</code></pre>
+
+    </div>
+
+<a id="properties"></a>
+
+<div class="summary doc-property">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-property" />
+    <col class="col-type" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="$alertTypes">
+        <td><a href="app-widgets-alert.html#$alertTypes-detail">$alertTypes</a></td>
+        <td><a href="http://www.php.net/language.types.array">array</a></td>
+        <td>The alert types configuration for the flash messages.</td>
+        <td><a href="app-widgets-alert.html">app\widgets\Alert</a></td>
+    </tr>
+            <tr id="$closeButton">
+        <td><a href="app-widgets-alert.html#$closeButton-detail">$closeButton</a></td>
+        <td><a href="http://www.php.net/language.types.array">array</a></td>
+        <td>The options for rendering the close button tag.</td>
+        <td><a href="app-widgets-alert.html">app\widgets\Alert</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="methods"></a>
+
+<div class="summary doc-method">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="run()">
+        <td><a href="app-widgets-alert.html#run()-detail">run()</a></td>
+        <td></td>
+        <td><a href="app-widgets-alert.html">app\widgets\Alert</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="events"></a>
+
+<a id="constants"></a>
+
+<h2>Property Details</h2>
+
+<div class="property-doc">
+
+    <div class="detail-header h3" id="$alertTypes-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-widgets-alert.html#$alertTypes-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $alertTypes        <span class="detail-header-tag small">
+            public                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p>The alert types configuration for the flash messages.
+This array is setup as $key =&gt; $value, where:</p>
+<ul>
+<li>key: the name of the session flash variable</li>
+<li>value: the bootstrap alert type (i.e. danger, success, info, warning)</li>
+</ul>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <a href="app-widgets-alert.html#$alertTypes-detail">$alertTypes</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'error'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'alert-danger'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'danger'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'alert-danger'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'success'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'alert-success'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'info'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'alert-info'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'warning'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'alert-warning'</span><span style="color: #007700">]</span></div>
+
+
+    <div class="detail-header h3" id="$closeButton-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-widgets-alert.html#$closeButton-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $closeButton        <span class="detail-header-tag small">
+            public                                                property
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p>The options for rendering the close button tag.
+Array will be passed to <span class="broken-link">\yii\bootstrap\Alert::closeButton</span>.</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <a href="app-widgets-alert.html#$closeButton-detail">$closeButton</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;[]</span></div>
+
+</div>
+<h2>Method Details</h2>
+
+<div class="method-doc">
+
+    <div class="detail-header h3" id="run()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-widgets-alert.html#run()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        run()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="app-widgets-alert.html#run()-detail">run</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+</div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:29:16 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

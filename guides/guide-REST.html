@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2680" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2680-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2680-collapse" class="collapse navbar-collapse"><ul id="w2681" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2664" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2664" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2665" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2665" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2666" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2666" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2667" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2667" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2668" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2668" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2669" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2669" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2670" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2670" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2671" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2671" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2672" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2672" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2673" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2673" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2674" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2674" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2675" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2675" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2676" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2676" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2677" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2677" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2678" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2678" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2679" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2679" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>REST <span id="rest"></span><a href="#rest" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#configuration">Configuration</a></li>
+<li><a href="#public-properties">Public Properties</a></li>
+<li><a href="#parts">Parts</a></li>
+<li><a href="#conflicts">Conflicts</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Module for testing REST WebService.</p>
+<p>This module can be used either with frameworks or PHPBrowser.
+If a framework module is connected, the testing will occur in the application directly.
+Otherwise, a PHPBrowser should be specified as a dependency to send requests and receive responses from a server.</p>
+<h2>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h2><ul>
+<li>url <em>optional</em> - the url of api</li>
+</ul>
+<p>This module requires PHPBrowser or any of Framework modules enabled.</p>
+<h3>Example <span id="example"></span><a href="#example" class="hashlink">&para;</a></h3><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>:
+       - <span class="hljs-attribute">REST</span>:
+           <span class="hljs-attribute">depends</span>: PhpBrowser
+           <span class="hljs-attribute">url</span>: <span class="hljs-string">'http://serviceapp/api/v1/'</span>
+</code></pre>
+<h2>Public Properties <span id="public-properties"></span><a href="#public-properties" class="hashlink">&para;</a></h2><ul>
+<li>headers - array of headers going to be sent.</li>
+<li>params - array of sent data</li>
+<li>response - last response (string)</li>
+</ul>
+<h2>Parts <span id="parts"></span><a href="#parts" class="hashlink">&para;</a></h2><ul>
+<li>Json - actions for validating Json responses (no Xml responses)</li>
+<li>Xml - actions for validating XML responses (no Json responses)</li>
+</ul>
+<h2>Conflicts <span id="conflicts"></span><a href="#conflicts" class="hashlink">&para;</a></h2><p>Conflicts with SOAP module</p>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>amAWSAuthenticated <span id="amawsauthenticated"></span><a href="#amawsauthenticated" class="hashlink">&para;</a></h3><p>Allows to send REST request using AWS Authorization</p>
+<p>Only works with PhpBrowser
+Example Config:
+<code>`</code>yml
+modules:</p>
+<pre><code class="hljs less"> <span class="hljs-attribute">enabled</span>:
+     - <span class="hljs-attribute">REST</span>:
+         <span class="hljs-attribute">aws</span>:
+             <span class="hljs-attribute">key</span>: accessKey
+             <span class="hljs-attribute">secret</span>: accessSecret
+             <span class="hljs-attribute">service</span>: awsService
+             <span class="hljs-attribute">region</span>: awsRegion
+</code></pre>
+<pre><code class="hljs twig"><span class="xml">Code:
+```php
+<span class="php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;amAWSAuthenticated();
+<span class="hljs-preprocessor">?&gt;</span></span>
+</span></code></pre>
+<ul>
+<li><code>param array</code> $additionalAWSConfig
+@throws ModuleException</li>
+</ul>
+<h3>amBearerAuthenticated <span id="ambearerauthenticated"></span><a href="#ambearerauthenticated" class="hashlink">&para;</a></h3><p>Adds Bearer authentication via access token.</p>
+<ul>
+<li><code>param</code> $accessToken</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>amDigestAuthenticated <span id="amdigestauthenticated"></span><a href="#amdigestauthenticated" class="hashlink">&para;</a></h3><p>Adds Digest authentication via username/password.</p>
+<ul>
+<li><code>param</code> $username</li>
+<li><code>param</code> $password</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>amHttpAuthenticated <span id="amhttpauthenticated"></span><a href="#amhttpauthenticated" class="hashlink">&para;</a></h3><p>Adds HTTP authentication via username/password.</p>
+<ul>
+<li><code>param</code> $username</li>
+<li><code>param</code> $password</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>amNTLMAuthenticated <span id="amntlmauthenticated"></span><a href="#amntlmauthenticated" class="hashlink">&para;</a></h3><p>Adds NTLM authentication via username/password.
+Requires client to be Guzzle &gt;=6.3.0
+Out of scope for functional modules.</p>
+<p>Example:
+<code>`</code>php
+&lt;?php
+$I-&gt;amNTLMAuthenticated('jon_snow', 'targaryen');
+?&gt;
+<code>`</code></p>
+<ul>
+<li><code>param</code> $username</li>
+<li><code>param</code> $password
+@throws ModuleException</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>deleteHeader <span id="deleteheader"></span><a href="#deleteheader" class="hashlink">&para;</a></h3><p>Deletes the header with the passed name.  Subsequent requests
+will not have the deleted header in its request.</p>
+<p>Example:
+<code>`</code>php
+&lt;?php
+$I-&gt;haveHttpHeader('X-Requested-With', 'Codeception');
+$I-&gt;sendGET('test-headers.php');
+// ...
+$I-&gt;deleteHeader('X-Requested-With');
+$I-&gt;sendPOST('some-other-page.php');
+?&gt;
+<code>`</code></p>
+<ul>
+<li><code>param string</code> $name the name of the header to delete.</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>dontSeeBinaryResponseEquals <span id="dontseebinaryresponseequals"></span><a href="#dontseebinaryresponseequals" class="hashlink">&para;</a></h3><p>Checks if the hash of a binary response is not the same as provided.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeBinaryResponseEquals(<span class="hljs-string">"8c90748342f19b195b9c6b4eff742ded"</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>Opposite to <code>seeBinaryResponseEquals</code></p>
+<ul>
+<li><code>param</code> $hash the hashed data response expected</li>
+<li><code>param</code> $algo the hash algorithm to use. Default md5.</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>dontSeeHttpHeader <span id="dontseehttpheader"></span><a href="#dontseehttpheader" class="hashlink">&para;</a></h3><p>Checks over the given HTTP header and (optionally)
+its value, asserting that are not there</p>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>param</code> $value</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>dontSeeResponseCodeIs <span id="dontseeresponsecodeis"></span><a href="#dontseeresponsecodeis" class="hashlink">&para;</a></h3><p>Checks that response code is not equal to provided value.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeResponseCodeIs(<span class="hljs-number">200</span>);
+
+<span class="hljs-comment">// preferred to use \Codeception\Util\HttpCode</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+</code></pre>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+<li><code>param</code> $code</li>
+</ul>
+<h3>dontSeeResponseContains <span id="dontseeresponsecontains"></span><a href="#dontseeresponsecontains" class="hashlink">&para;</a></h3><p>Checks whether last response do not contain text.</p>
+<ul>
+<li><code>param</code> $text</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>dontSeeResponseContainsJson <span id="dontseeresponsecontainsjson"></span><a href="#dontseeresponsecontainsjson" class="hashlink">&para;</a></h3><p>Opposite to seeResponseContainsJson</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>param array</code> $json</li>
+</ul>
+<h3>dontSeeResponseJsonMatchesJsonPath <span id="dontseeresponsejsonmatchesjsonpath"></span><a href="#dontseeresponsejsonmatchesjsonpath" class="hashlink">&para;</a></h3><p>Opposite to seeResponseJsonMatchesJsonPath</p>
+<ul>
+<li><code>param string</code> $jsonPath</li>
+<li><code>[Part]</code> json</li>
+</ul>
+<h3>dontSeeResponseJsonMatchesXpath <span id="dontseeresponsejsonmatchesxpath"></span><a href="#dontseeresponsejsonmatchesxpath" class="hashlink">&para;</a></h3><p>Opposite to seeResponseJsonMatchesXpath</p>
+<ul>
+<li><code>param string</code> $xpath</li>
+<li><code>[Part]</code> json</li>
+</ul>
+<h3>dontSeeResponseMatchesJsonType <span id="dontseeresponsematchesjsontype"></span><a href="#dontseeresponsematchesjsontype" class="hashlink">&para;</a></h3><p>Opposite to <code>seeResponseMatchesJsonType</code>.</p>
+<ul>
+<li><code>[Part]</code> json
+@see seeResponseMatchesJsonType</li>
+<li><code>param</code> $jsonType jsonType structure</li>
+<li><code>param null</code> $jsonPath optionally set specific path to structure with JsonPath</li>
+<li><code>Available since</code> 2.1.3</li>
+</ul>
+<h3>dontSeeXmlResponseEquals <span id="dontseexmlresponseequals"></span><a href="#dontseexmlresponseequals" class="hashlink">&para;</a></h3><p>Checks XML response does not equal to provided XML.
+Comparison is done by canonicalizing both xml`s.</p>
+<p>Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<ul>
+<li><code>param</code> $xml</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>dontSeeXmlResponseIncludes <span id="dontseexmlresponseincludes"></span><a href="#dontseexmlresponseincludes" class="hashlink">&para;</a></h3><p>Checks XML response does not include provided XML.
+Comparison is done by canonicalizing both xml`s.
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<ul>
+<li><code>param</code> $xml</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>dontSeeXmlResponseMatchesXpath <span id="dontseexmlresponsematchesxpath"></span><a href="#dontseexmlresponsematchesxpath" class="hashlink">&para;</a></h3><p>Checks whether XML response does not match XPath</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeXmlResponseMatchesXpath(<span class="hljs-string">'//root/user[@id=1]'</span>);
+</code></pre>
+<ul>
+<li><code>[Part]</code> xml</li>
+<li><code>param</code> $xpath</li>
+</ul>
+<h3>grabAttributeFromXmlElement <span id="grabattributefromxmlelement"></span><a href="#grabattributefromxmlelement" class="hashlink">&para;</a></h3><p>Finds and returns attribute of element.
+Element is matched by either CSS or XPath</p>
+<ul>
+<li><code>param</code> $cssOrXPath</li>
+<li><code>param</code> $attribute</li>
+<li><code>return</code> string</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>grabDataFromJsonResponse <span id="grabdatafromjsonresponse"></span><a href="#grabdatafromjsonresponse" class="hashlink">&para;</a></h3><p>Deprecated since 2.0.9 and removed since 2.1.0</p>
+<ul>
+<li><code>param</code> $path
+@throws ModuleException
+@deprecated</li>
+</ul>
+<h3>grabDataFromResponseByJsonPath <span id="grabdatafromresponsebyjsonpath"></span><a href="#grabdatafromresponsebyjsonpath" class="hashlink">&para;</a></h3><p>Returns data from the current JSON response using <a href="http://goessner.net/articles/JsonPath/">JSONPath</a> as selector.
+JsonPath is XPath equivalent for querying Json structures.
+Try your JsonPath expressions <a href="http://jsonpath.curiousconcept.com/">online</a>.
+Even for a single value an array is returned.</p>
+<p>This method <strong>require <a href="https://github.com/FlowCommunications/JSONPath/"><code>flow/jsonpath</code> &gt; 0.2</a> library to be installed</strong>.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+// match the first `user.id` in json
+$firstUserId = $I-&gt;grabDataFromResponseByJsonPath('$..users[0].id');
+$I-&gt;sendPUT('/user', array('id' =&gt; $firstUserId[0], 'name' =&gt; 'davert'));
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $jsonPath</li>
+<li><code>return</code> array Array of matching items</li>
+<li><code>Available since</code> 2.0.9
+@throws \Exception</li>
+<li><code>[Part]</code> json</li>
+</ul>
+<h3>grabHttpHeader <span id="grabhttpheader"></span><a href="#grabhttpheader" class="hashlink">&para;</a></h3><p>Returns the value of the specified header name</p>
+<ul>
+<li><code>param</code> $name</li>
+<li><p><code>param Boolean</code> $first Whether to return the first value or all header values</p>
+</li>
+<li><code>return string|array The first header value if</code> $first is true, an array of values otherwise</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>grabResponse <span id="grabresponse"></span><a href="#grabresponse" class="hashlink">&para;</a></h3><p>Returns current response so that it can be used in next scenario steps.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$user_id = $I-&gt;grabResponse();
+$I-&gt;sendPUT('/user', array('id' =&gt; $user_id, 'name' =&gt; 'davert'));
+?&gt;
+</code></pre>
+<ul>
+<li><code>Available since</code> 1.1</li>
+<li><code>return</code> string</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>grabTextContentFromXmlElement <span id="grabtextcontentfromxmlelement"></span><a href="#grabtextcontentfromxmlelement" class="hashlink">&para;</a></h3><p>Finds and returns text contents of element.
+Element is matched by either CSS or XPath</p>
+<ul>
+<li><code>param</code> $cssOrXPath</li>
+<li><code>return</code> string</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>haveHttpHeader <span id="havehttpheader"></span><a href="#havehttpheader" class="hashlink">&para;</a></h3><p>Sets HTTP header valid for all next requests. Use <code>deleteHeader</code> to unset it</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;haveHttpHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
+<span class="hljs-comment">// all next requests will contain this header</span>
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>param</code> $value</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeBinaryResponseEquals <span id="seebinaryresponseequals"></span><a href="#seebinaryresponseequals" class="hashlink">&para;</a></h3><p>Checks if the hash of a binary response is exactly the same as provided.
+Parameter can be passed as any hash string supported by hash(), with an
+optional second parameter to specify the hash type, which defaults to md5.</p>
+<p>Example: Using md5 hash key</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeBinaryResponseEquals(<span class="hljs-string">"8c90748342f19b195b9c6b4eff742ded"</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>Example: Using md5 for a file contents</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$fileData</span> = file_get_contents(<span class="hljs-string">"test_file.jpg"</span>);
+<span class="hljs-variable">$I</span>-&gt;seeBinaryResponseEquals(md5(<span class="hljs-variable">$fileData</span>));
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>Example: Using sha256 hash</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$fileData</span> = <span class="hljs-string">'/9j/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/yQALCAABAAEBAREA/8wABgAQEAX/2gAIAQEAAD8A0s8g/9k='</span>; <span class="hljs-comment">// very small jpeg</span>
+<span class="hljs-variable">$I</span>-&gt;seeBinaryResponseEquals(hash(<span class="hljs-string">"sha256"</span>, base64_decode(<span class="hljs-variable">$fileData</span>)), <span class="hljs-string">'sha256'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param</code> $hash the hashed data response expected</li>
+<li><code>param</code> $algo the hash algorithm to use. Default md5.</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeHttpHeader <span id="seehttpheader"></span><a href="#seehttpheader" class="hashlink">&para;</a></h3><p>Checks over the given HTTP header and (optionally)
+its value, asserting that are there</p>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>param</code> $value</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeHttpHeaderOnce <span id="seehttpheaderonce"></span><a href="#seehttpheaderonce" class="hashlink">&para;</a></h3><p>Checks that http response header is received only once.
+HTTP RFC2616 allows multiple response headers with the same name.
+You can check that you didn't accidentally sent the same header twice.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeHttpHeaderOnce('Cache-Control');
+?&gt;&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseCodeIs <span id="seeresponsecodeis"></span><a href="#seeresponsecodeis" class="hashlink">&para;</a></h3><p>Checks response code equals to provided value.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseCodeIs(<span class="hljs-number">200</span>);
+
+<span class="hljs-comment">// preferred to use \Codeception\Util\HttpCode</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseCodeIs(\Codeception\Util\HttpCode::OK);
+</code></pre>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+<li><code>param</code> $code</li>
+</ul>
+<h3>seeResponseCodeIsClientError <span id="seeresponsecodeisclienterror"></span><a href="#seeresponsecodeisclienterror" class="hashlink">&para;</a></h3><p>Checks that the response code is 4xx</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseCodeIsRedirection <span id="seeresponsecodeisredirection"></span><a href="#seeresponsecodeisredirection" class="hashlink">&para;</a></h3><p>Checks that the response code 3xx</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseCodeIsServerError <span id="seeresponsecodeisservererror"></span><a href="#seeresponsecodeisservererror" class="hashlink">&para;</a></h3><p>Checks that the response code is 5xx</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseCodeIsSuccessful <span id="seeresponsecodeissuccessful"></span><a href="#seeresponsecodeissuccessful" class="hashlink">&para;</a></h3><p>Checks that the response code is 2xx</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseContains <span id="seeresponsecontains"></span><a href="#seeresponsecontains" class="hashlink">&para;</a></h3><p>Checks whether the last response contains text.</p>
+<ul>
+<li><code>param</code> $text</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseContainsJson <span id="seeresponsecontainsjson"></span><a href="#seeresponsecontainsjson" class="hashlink">&para;</a></h3><p>Checks whether the last JSON response contains provided array.
+The response is converted to array with json_decode($response, true)
+Thus, JSON is represented by associative array.
+This method matches that response array contains provided array.</p>
+<p>Examples:</p>
+<pre><code class="language- php">&lt;?php
+// response: {name: john, email: john@gmail.com}
+$I-&gt;seeResponseContainsJson(array('name' =&gt; 'john'));
+
+// response {user: john, profile: { email: john@gmail.com }}
+$I-&gt;seeResponseContainsJson(array('email' =&gt; 'john@gmail.com'));
+
+?&gt;
+</code></pre>
+<p>This method recursively checks if one array can be found inside of another.</p>
+<ul>
+<li><code>param array</code> $json</li>
+<li><code>[Part]</code> json</li>
+</ul>
+<h3>seeResponseEquals <span id="seeresponseequals"></span><a href="#seeresponseequals" class="hashlink">&para;</a></h3><p>Checks if response is exactly the same as provided.</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+<li><code>param</code> $response</li>
+</ul>
+<h3>seeResponseIsJson <span id="seeresponseisjson"></span><a href="#seeresponseisjson" class="hashlink">&para;</a></h3><p>Checks whether last response was valid JSON.
+This is done with json_last_error function.</p>
+<ul>
+<li><code>[Part]</code> json</li>
+</ul>
+<h3>seeResponseIsXml <span id="seeresponseisxml"></span><a href="#seeresponseisxml" class="hashlink">&para;</a></h3><p>Checks whether last response was valid XML.
+This is done with libxml_get_last_error function.</p>
+<ul>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeResponseJsonMatchesJsonPath <span id="seeresponsejsonmatchesjsonpath"></span><a href="#seeresponsejsonmatchesjsonpath" class="hashlink">&para;</a></h3><p>Checks if json structure in response matches <a href="http://goessner.net/articles/JsonPath/">JsonPath</a>.
+JsonPath is XPath equivalent for querying Json structures.
+Try your JsonPath expressions <a href="http://jsonpath.curiousconcept.com/">online</a>.
+This assertion allows you to check the structure of response json.</p>
+<p>This method <strong>require <a href="https://github.com/FlowCommunications/JSONPath/"><code>flow/jsonpath</code> &gt; 0.2</a> library to be installed</strong>.</p>
+<pre><code class="hljs json language-json">  { "<span class="hljs-attribute">store</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">book</span>": <span class="hljs-value">[
+        { "<span class="hljs-attribute">category</span>": <span class="hljs-value"><span class="hljs-string">"reference"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Nigel Rees"</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Sayings of the Century"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">8.95</span>
+        </span>},
+        { "<span class="hljs-attribute">category</span>": <span class="hljs-value"><span class="hljs-string">"fiction"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Evelyn Waugh"</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Sword of Honour"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">12.99</span>
+        </span>}
+   ]</span>,
+      "<span class="hljs-attribute">bicycle</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"red"</span></span>,
+        "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">19.95</span>
+      </span>}
+    </span>}
+  </span>}
+</code></pre>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// at least one book in store has author</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseJsonMatchesJsonPath(<span class="hljs-string">'$.store.book[*].author'</span>);
+<span class="hljs-comment">// first book in store has author</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseJsonMatchesJsonPath(<span class="hljs-string">'$.store.book[0].author'</span>);
+<span class="hljs-comment">// at least one item in store has price</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseJsonMatchesJsonPath(<span class="hljs-string">'$.store..price'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $jsonPath</li>
+<li><code>[Part]</code> json</li>
+<li><code>Available since</code> 2.0.9</li>
+</ul>
+<h3>seeResponseJsonMatchesXpath <span id="seeresponsejsonmatchesxpath"></span><a href="#seeresponsejsonmatchesxpath" class="hashlink">&para;</a></h3><p>Checks if json structure in response matches the xpath provided.
+JSON is not supposed to be checked against XPath, yet it can be converted to xml and used with XPath.
+This assertion allows you to check the structure of response json.</p>
+<pre><code class="hljs markdown"><span class="hljs-bullet">*
+</span></code></pre>
+<pre><code class="hljs json language-json">  { "<span class="hljs-attribute">store</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">book</span>": <span class="hljs-value">[
+        { "<span class="hljs-attribute">category</span>": <span class="hljs-value"><span class="hljs-string">"reference"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Nigel Rees"</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Sayings of the Century"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">8.95</span>
+        </span>},
+        { "<span class="hljs-attribute">category</span>": <span class="hljs-value"><span class="hljs-string">"fiction"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Evelyn Waugh"</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Sword of Honour"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">12.99</span>
+        </span>}
+   ]</span>,
+      "<span class="hljs-attribute">bicycle</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">color</span>": <span class="hljs-value"><span class="hljs-string">"red"</span></span>,
+        "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">19.95</span>
+      </span>}
+    </span>}
+  </span>}
+</code></pre>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// at least one book in store has author</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseJsonMatchesXpath(<span class="hljs-string">'//store/book/author'</span>);
+<span class="hljs-comment">// first book in store has author</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseJsonMatchesXpath(<span class="hljs-string">'//store/book[1]/author'</span>);
+<span class="hljs-comment">// at least one item in store has price</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseJsonMatchesXpath(<span class="hljs-string">'/store//price'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $xpath</li>
+<li><code>[Part]</code> json</li>
+<li><code>Available since</code> 2.0.9</li>
+</ul>
+<h3>seeResponseMatchesJsonType <span id="seeresponsematchesjsontype"></span><a href="#seeresponsematchesjsontype" class="hashlink">&para;</a></h3><p>Checks that Json matches provided types.
+In case you don't know the actual values of JSON data returned you can match them by type.
+Starts check with a root element. If JSON data is array it will check the first element of an array.
+You can specify the path in the json which should be checked with JsonPath</p>
+<p>Basic example:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// {'user_id': 1, 'name': 'davert', 'is_active': false}</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseMatchesJsonType([
+     <span class="hljs-string">'user_id'</span> =&gt; <span class="hljs-string">'integer'</span>,
+     <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'string|null'</span>,
+     <span class="hljs-string">'is_active'</span> =&gt; <span class="hljs-string">'boolean'</span>
+]);
+
+<span class="hljs-comment">// narrow down matching with JsonPath:</span>
+<span class="hljs-comment">// {"users": [{ "name": "davert"}, {"id": 1}]}</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseMatchesJsonType([<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'string'</span>], <span class="hljs-string">'$.users[0]'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>In this case you can match that record contains fields with data types you expected.
+The list of possible data types:</p>
+<ul>
+<li>string</li>
+<li>integer</li>
+<li>float</li>
+<li>array (json object is array as well)</li>
+<li>boolean</li>
+</ul>
+<p>You can also use nested data type structures:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// {'user_id': 1, 'name': 'davert', 'company': {'name': 'Codegyre'}}</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseMatchesJsonType([
+     <span class="hljs-string">'user_id'</span> =&gt; <span class="hljs-string">'integer|string'</span>, <span class="hljs-comment">// multiple types</span>
+     <span class="hljs-string">'company'</span> =&gt; [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'string'</span>]
+]);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>You can also apply filters to check values. Filter can be applied with <code>:</code> char after the type declaration.</p>
+<p>Here is the list of possible filters:</p>
+<ul>
+<li><code>integer:&gt;{val}</code> - checks that integer is greater than {val} (works with float and string types too).</li>
+<li><code>integer:&lt;{val}</code> - checks that integer is lower than {val} (works with float and string types too).</li>
+<li><code>string:url</code> - checks that value is valid url.</li>
+<li><code>string:date</code> - checks that value is date in JavaScript format: <a href="https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates">https://weblog.west-wind.com/posts/2014/Jan/06/JavaScript-JSON-Date-Parsing-and-real-Dates</a></li>
+<li><code>string:email</code> - checks that value is a valid email according to <a href="http://emailregex.com/">http://emailregex.com/</a></li>
+<li><code>string:regex({val})</code> - checks that string matches a regex provided with {val}</li>
+</ul>
+<p>This is how filters can be used:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// {'user_id': 1, 'email' =&gt; 'davert@codeception.com'}</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseMatchesJsonType([
+     <span class="hljs-string">'user_id'</span> =&gt; <span class="hljs-string">'string:&gt;0:&lt;1000'</span>, <span class="hljs-comment">// multiple filters can be used</span>
+     <span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'string:regex(~\@~)'</span> <span class="hljs-comment">// we just check that @ char is included</span>
+]);
+
+<span class="hljs-comment">// {'user_id': '1'}</span>
+<span class="hljs-variable">$I</span>-&gt;seeResponseMatchesJsonType([
+     <span class="hljs-string">'user_id'</span> =&gt; <span class="hljs-string">'string:&gt;0'</span>, <span class="hljs-comment">// works with strings as well</span>
+}
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>You can also add custom filters y accessing <code>JsonType::addCustomFilter</code> method.
+See <a href="http://codeception.com/docs/reference/JsonType">JsonType reference</a>.</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>Available since</code> 2.1.3</li>
+<li><code>param array</code> $jsonType</li>
+<li><code>param string</code> $jsonPath</li>
+</ul>
+<h3>seeXmlResponseEquals <span id="seexmlresponseequals"></span><a href="#seexmlresponseequals" class="hashlink">&para;</a></h3><p>Checks XML response equals provided XML.
+Comparison is done by canonicalizing both xml`s.</p>
+<p>Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<ul>
+<li><code>param</code> $xml</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeXmlResponseIncludes <span id="seexmlresponseincludes"></span><a href="#seexmlresponseincludes" class="hashlink">&para;</a></h3><p>Checks XML response includes provided XML.
+Comparison is done by canonicalizing both xml`s.
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeXmlResponseIncludes("&lt;result&gt;1&lt;/result&gt;");
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $xml</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>seeXmlResponseMatchesXpath <span id="seexmlresponsematchesxpath"></span><a href="#seexmlresponsematchesxpath" class="hashlink">&para;</a></h3><p>Checks whether XML response matches XPath</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeXmlResponseMatchesXpath(<span class="hljs-string">'//root/user[@id=1]'</span>);
+</code></pre>
+<ul>
+<li><code>[Part]</code> xml</li>
+<li><code>param</code> $xpath</li>
+</ul>
+<h3>sendDELETE <span id="senddelete"></span><a href="#senddelete" class="hashlink">&para;</a></h3><p>Sends DELETE request to given uri.</p>
+<ul>
+<li><code>param</code> $url</li>
+<li><code>param array</code> $params</li>
+<li><code>param array</code> $files</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendGET <span id="sendget"></span><a href="#sendget" class="hashlink">&para;</a></h3><p>Sends a GET request to given uri.</p>
+<ul>
+<li><code>param</code> $url</li>
+<li><code>param array</code> $params</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendHEAD <span id="sendhead"></span><a href="#sendhead" class="hashlink">&para;</a></h3><p>Sends a HEAD request to given uri.</p>
+<ul>
+<li><code>param</code> $url</li>
+<li><code>param array</code> $params</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendLINK <span id="sendlink"></span><a href="#sendlink" class="hashlink">&para;</a></h3><p>Sends LINK request to given uri.</p>
+<ul>
+<li><code>param</code>       $url</li>
+<li><code>param array</code> $linkEntries (entry is array with keys "uri" and "link-param")</li>
+</ul>
+<p>@link <a href="http://tools.ietf.org/html/rfc2068#section-19.6.2.4">http://tools.ietf.org/html/rfc2068#section-19.6.2.4</a></p>
+<p>@author samva.ua@gmail.com</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendOPTIONS <span id="sendoptions"></span><a href="#sendoptions" class="hashlink">&para;</a></h3><p>Sends an OPTIONS request to given uri.</p>
+<ul>
+<li><code>param</code> $url</li>
+<li><code>param array</code> $params</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendPATCH <span id="sendpatch"></span><a href="#sendpatch" class="hashlink">&para;</a></h3><p>Sends PATCH request to given uri.</p>
+<ul>
+<li><code>param</code>       $url</li>
+<li><code>param array</code> $params</li>
+<li><code>param array</code> $files</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendPOST <span id="sendpost"></span><a href="#sendpost" class="hashlink">&para;</a></h3><p>Sends a POST request to given uri. Parameters and files can be provided separately.</p>
+<p>Example:
+<code>`</code>php
+&lt;?php
+//simple POST call
+$I-&gt;sendPOST('/message', ['subject' => 'Read this!', 'to' => 'johndoe@example.com']);
+//simple upload method
+$I-&gt;sendPOST('/message/24', ['inline' => 0], ['attachmentFile' => codecept_data_dir('sample_file.pdf')]);
+//uploading a file with a custom name and mime-type. This is also useful to simulate upload errors.
+$I-&gt;sendPOST('/message/24', ['inline' => 0], [</p>
+<pre><code class="hljs php"><span class="hljs-string">'attachmentFile'</span> =&gt; [
+     <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'document.pdf'</span>,
+     <span class="hljs-string">'type'</span> =&gt; <span class="hljs-string">'application/pdf'</span>,
+     <span class="hljs-string">'error'</span> =&gt; UPLOAD_ERR_OK,
+     <span class="hljs-string">'size'</span> =&gt; filesize(codecept_data_dir(<span class="hljs-string">'sample_file.pdf'</span>)),
+     <span class="hljs-string">'tmp_name'</span> =&gt; codecept_data_dir(<span class="hljs-string">'sample_file.pdf'</span>)
+]
+</code></pre>
+<p>]);
+<code>`</code></p>
+<ul>
+<li><code>param</code> $url</li>
+<li><code>param array|\JsonSerializable</code> $params</li>
+<li><code>param array</code> $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following<pre><code class="hljs javascript">             keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
+             <span class="hljs-keyword">as</span> the <span class="hljs-string">"name"</span> attribute <span class="hljs-keyword">of</span> a file input field.
+</code></pre>
+</li>
+</ul>
+<p>@see <a href="http://php.net/manual/en/features.file-upload.post-method.php">http://php.net/manual/en/features.file-upload.post-method.php</a>
+@see codecept_data_dir()</p>
+<ul>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendPUT <span id="sendput"></span><a href="#sendput" class="hashlink">&para;</a></h3><p>Sends PUT request to given uri.</p>
+<ul>
+<li><code>param</code> $url</li>
+<li><code>param array</code> $params</li>
+<li><code>param array</code> $files</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>sendUNLINK <span id="sendunlink"></span><a href="#sendunlink" class="hashlink">&para;</a></h3><p>Sends UNLINK request to given uri.</p>
+<ul>
+<li><code>param</code>       $url</li>
+<li><code>param array</code> $linkEntries (entry is array with keys "uri" and "link-param")
+@link <a href="http://tools.ietf.org/html/rfc2068#section-19.6.2.4">http://tools.ietf.org/html/rfc2068#section-19.6.2.4</a>
+@author samva.ua@gmail.com</li>
+<li><code>[Part]</code> json</li>
+<li><code>[Part]</code> xml</li>
+</ul>
+<h3>startFollowingRedirects <span id="startfollowingredirects"></span><a href="#startfollowingredirects" class="hashlink">&para;</a></h3><p>Enables automatic redirects to be followed by the client</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;startFollowingRedirects();
+</code></pre>
+<ul>
+<li><code>[Part]</code> xml</li>
+<li><code>[Part]</code> json</li>
+</ul>
+<h3>stopFollowingRedirects <span id="stopfollowingredirects"></span><a href="#stopfollowingredirects" class="hashlink">&para;</a></h3><p>Prevents automatic redirects to be followed by the client</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;stopFollowingRedirects();
+</code></pre>
+<ul>
+<li><code>[Part]</code> xml</li>
+<li><code>[Part]</code> json</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/REST.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

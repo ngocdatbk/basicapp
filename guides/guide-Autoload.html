@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2896" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2896-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2896-collapse" class="collapse navbar-collapse"><ul id="w2897" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2880" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2880" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2881" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2881" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2882" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2882" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2883" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2883" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2884" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2884" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2885" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2885" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2886" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2886" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2887" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2887" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2888" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2888" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2889" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2889" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2890" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2890" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2891" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2891" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2892" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2892" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2893" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2893" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2894" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2894" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2895" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2895" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h2>Codeception\Util\Autoload <span id="codeceptionutilautoload"></span><a href="#codeceptionutilautoload" class="hashlink">&para;</a></h2><p>Autoloader, which is fully compatible with PSR-4,
+and can be used to autoload your <code>Helper</code>, <code>Page</code>, and <code>Step</code> classes.</p>
+<h4>__construct() <span id="construct"></span><a href="#construct" class="hashlink">&para;</a></h4><p> <em>private</em> __construct() </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L18">See source</a></p>
+<h4>addNamespace() <span id="addnamespace"></span><a href="#addnamespace" class="hashlink">&para;</a></h4><p> <em>public static</em> addNamespace($prefix, $base_dir, $prepend = null) </p>
+<p>Adds a base directory for a namespace prefix.</p>
+<p>Example:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// app\Codeception\UserHelper will be loaded from '/path/to/helpers/UserHelper.php'</span>
+Autoload::addNamespace(<span class="hljs-string">'app\Codeception'</span>, <span class="hljs-string">'/path/to/helpers'</span>);
+
+<span class="hljs-comment">// LoginPage will be loaded from '/path/to/pageobjects/LoginPage.php'</span>
+Autoload::addNamespace(<span class="hljs-string">''</span>, <span class="hljs-string">'/path/to/pageobjects'</span>);
+
+Autoload::addNamespace(<span class="hljs-string">'app\Codeception'</span>, <span class="hljs-string">'/path/to/controllers'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $prefix The namespace prefix.</li>
+<li><code>param string</code> $base_dir A base directory for class files in the namespace.</li>
+<li><code>param bool</code> $prepend If true, prepend the base directory to the stack instead of appending it;<pre><code class="hljs nginx">              <span class="hljs-title">this</span> causes it to be searched first rather than <span class="hljs-built_in">last</span>.
+</code></pre>
+</li>
+<li><code>return</code> void</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L45">See source</a></p>
+<h4>load() <span id="load"></span><a href="#load" class="hashlink">&para;</a></h4><p> <em>public static</em> load($class) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L88">See source</a></p>
+<h4>loadMappedFile() <span id="loadmappedfile"></span><a href="#loadmappedfile" class="hashlink">&para;</a></h4><p> <em>protected static</em> loadMappedFile($prefix, $relative_class) </p>
+<p>Load the mapped file for a namespace prefix and relative class.</p>
+<ul>
+<li><code>param string</code> $prefix The namespace prefix.</li>
+<li><code>param string</code> $relative_class The relative class name.</li>
+<li><code>return</code> mixed Boolean false if no mapped file can be loaded, or the name of the mapped file that was loaded.</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L136">See source</a></p>
+<h4>register() <span id="register"></span><a href="#register" class="hashlink">&para;</a></h4><p> <em>public static</em> register($namespace, $suffix, $path) </p>
+<ul>
+<li><code>deprecated</code> Use self::addNamespace() instead.</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L75">See source</a></p>
+<h4>registerSuffix() <span id="registersuffix"></span><a href="#registersuffix" class="hashlink">&para;</a></h4><p> <em>public static</em> registerSuffix($suffix, $path) </p>
+<ul>
+<li><code>deprecated</code> Use self::addNamespace() instead.</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L83">See source</a></p>
+<h4>requireFile() <span id="requirefile"></span><a href="#requirefile" class="hashlink">&para;</a></h4><p> <em>protected static</em> requireFile($file) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Autoload.php#L156">See source</a></p>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.5/src//Codeception/Util/Autoload.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

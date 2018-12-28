@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w8008" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w8008-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w8008-collapse" class="collapse navbar-collapse"><ul id="w8009" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-7992" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-7992" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7993" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-7993" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7994" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-7994" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7995" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-7995" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7996" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-7996" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7997" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-7997" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7998" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-7998" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7999" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-7999" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8000" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-8000" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8001" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-8001" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8002" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-8002" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8003" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-8003" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8004" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-8004" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8005" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-8005" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8006" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-8006" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8007" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-8007" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Upgrading Instructions for Yii Framework v2 AuthClient Extension <span id="upgrading-instructions-for-yii-framework-v2-authclient-extension"></span><a href="#upgrading-instructions-for-yii-framework-v2-authclient-extension" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#upgrade-from-yii2-authclient-210">Upgrade from yii2-authclient 2.1.0</a></li>
+<li><a href="#upgrade-from-yii2-authclient-206">Upgrade from yii2-authclient 2.0.6</a></li></ol></div>
+<p>!!!IMPORTANT!!!</p>
+<p>The following upgrading instructions are cumulative. That is,
+if you want to upgrade from version A to version C and there is
+version B between A and C, you need to following the instructions
+for both A and B.</p>
+<h2>Upgrade from yii2-authclient 2.1.0 <span id="upgrade-from-yii2-authclient-210"></span><a href="#upgrade-from-yii2-authclient-210" class="hashlink">&para;</a></h2><ul>
+<li>The signature of the <code>yii\authclient\BaseOAuth::saveAccessToken()</code> method has been changed.
+In case you are extending related class and override this method, you should check, if it matches parent declaration.</li>
+</ul>
+<h2>Upgrade from yii2-authclient 2.0.6 <span id="upgrade-from-yii2-authclient-206"></span><a href="#upgrade-from-yii2-authclient-206" class="hashlink">&para;</a></h2><ul>
+<li><p>Class <code>yii\authclient\clients\GoogleOAuth</code> has been renamed to <code>yii\authclient\clients\Google</code>.
+Make sure you are using correct name for this class.</p>
+</li>
+<li><p>Class <code>yii\authclient\clients\YandexOAuth</code> has been renamed to <code>yii\authclient\clients\Yandex</code>.
+Make sure you are using correct name for this class.</p>
+</li>
+<li><p>The signature of the following methods has been changed: <code>yii\authclient\BaseOAuth::sendRequest()</code>, <code>yii\authclient\BaseOAuth::api()</code>,
+<code>yii\authclient\OAuth1::composeSignatureKey()</code>, <code>yii\authclient\OAuth1::composeAuthorizationHeader()</code>, <code>yii\authclient\OAuth1::fetchAccessToken()</code>,
+<code>yii\authclient\widgets\AuthChoice::createClientUrl()</code>. Make sure you invoke those methods correctly.
+In case you are extending related classes, you should check, if overridden methods match parent declaration.</p>
+</li>
+<li><p>Virtual property <code>yii\authclient\BaseOAuth::curlOptions</code> and related methods have been removed -
+use <code>yii\authclient\BaseOAuth::requestOptions</code> instead.</p>
+</li>
+<li><p>Following methods have been removed: <code>yii\authclient\OAuth1::sendSignedRequest()</code>, <code>yii\authclient\BaseOAuth::processResponse()</code>,
+<code>yii\authclient\BaseOAuth::apiInternal()</code>, <code>yii\authclient\BaseOAuth::convertXmlToArray()</code>, <code>yii\authclient\BaseOAuth::determineContentTypeByHeaders()</code>,
+<code>yii\authclient\BaseOAuth::determineContentTypeByRaw()</code>.
+Make sure you do not invoke them.</p>
+</li>
+<li><p>Class <code>yii\authclient\InvalidResponseException</code> reworked: fields <code>responseHeaders</code> and <code>responseBody</code> have been removed,
+field <code>response</code> added instead, holding <code>yii\httpclient\Response</code> instance. Class constructor adjusted accordingly.
+Make sure you throw and process this exception correctly.</p>
+</li>
+<li><p>Method <code>yii\authclient\BaseClient::initUserAttributes()</code> has been made abstract.
+If you extend <code>yii\authclient\BaseClient</code> class, make sure you provide implementation for this method,
+or declare your class as abstract.</p>
+</li>
+<li><p>Classes <code>yii\authclient\OAuth1</code> and <code>yii\authclient\OAuth2</code> have been made abstract.
+Make sure you do not instantiate these classes.</p>
+</li>
+<li><p>Classes <code>yii\authclient\clients\GoogleOpenId</code> and <code>yii\authclient\clients\YandexOpenId</code> have been removed,
+since Google and Yandex no longer supports OpenID protocol. Make sure you do not use or refer these classes.</p>
+</li>
+<li><p>Methods <code>clientLink()</code> and <code>renderMainContent()</code> of <code>yii\authclient\widgets\AuthChoice</code> has been changed to return
+the generated HTML instead of echo it. Make sure you invoke or override these methods correctly.</p>
+</li>
+<li><p>Markup generated by <code>yii\authclient\widgets\AuthChoice</code> and related CSS has been simplified.
+In case you customize styles or HTML for <code>AuthChoice</code>, you should check it to produce valid widget appearance.</p>
+</li>
+<li><p>Automatic auth 'state' validation added to <code>yii\authclient\OAuth2</code>.
+In case state validation is not supported or not desirable for your particular client, you should disabled it
+setting <code>yii\authclient\OAuth2::validateAuthState</code> to <code>false</code>.</p>
+</li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:28:04 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

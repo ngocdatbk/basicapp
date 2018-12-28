@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2284" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2284-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2284-collapse" class="collapse navbar-collapse"><ul id="w2285" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2268" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2268" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2269" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2269" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2270" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2270" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2271" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2271" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2272" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2272" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2273" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2273" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2274" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2274" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2275" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2275" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2276" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2276" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2277" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2277" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2278" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2278" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2279" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2279" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2280" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2280" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2281" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2281" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2282" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2282" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2283" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2283" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Code Coverage <span id="code-coverage"></span><a href="#code-coverage" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#local-codecoverage">Local CodeCoverage</a></li>
+<li><a href="#remote-codecoverage">Remote CodeCoverage</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>At some point you want to review which parts of your application are tested well and which are not.
+Just for this case the <a href="http://en.wikipedia.org/wiki/Code_coverage">CodeCoverage</a> is used. When you execute your tests to collect coverage report,
+you will receive statistics of all classes, methods, and lines triggered by these tests.
+The ratio between all lines in script and all touched lines is a main coverage criterion. In the ideal world you should get 100% code coverage, but in reality 80% is really enough. Because even 100% code coverage rate doesn't save you from fatal errors and crashes.</p>
+<p>*To collect coverage information <code>xdebug</code> is required**.</p>
+<p><img src="http://codeception.com/images/coverage.png" alt="Code Coverage Example" /></p>
+<p>Coverage data can be collected manually for both local and remote tests. Remote tests may be executed on different nodes,
+or locally but running through web server. It may look hard to collect code coverage for Selenium tests or PhpBrowser tests. But Codeception supports remote codecoverage as well as local.</p>
+<h3>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h3><p>To enable code coverage put these lines in the global configuration file <code>codeception.yml</code>:</p>
+<pre><code class="language- yaml">coverage:
+    enabled: true
+</code></pre>
+<p>That's ok for now. But what files should be present in final coverage report?
+Pass an array of files or directory to include/exclude sections. The path ending with '*' matches the directory.
+Also you can use '*' mask in a file name, i.e. <code>app/models/*Model.php</code> to match all models.</p>
+<p>There is a shortcut if you don't need that complex filters:</p>
+<pre><code class="language- yaml">coverage:
+    enabled: true
+    include:
+        - app/*
+    exclude:
+        - app/cache/*
+</code></pre>
+<p>Include and exclude options can be redefined for each suite in corresponding config files.</p>
+<p>By default, if coverage is reported to be &lt; 35% it is marked as low, and &gt;70% is high coverage.
+You can also define high and low boundaries with <code>low_limit</code> and <code>high_limit</code> config options:</p>
+<pre><code class="language-yaml">coverage:
+    enabled: true
+    low_limit: 30
+    high_limit: 60
+</code></pre>
+<p>By default, show all whitelisted files in <code>--coverage-text</code> output not just the ones with coverage information is set to false, config option:</p>
+<pre><code class="language-yaml">coverage:
+    enabled: true
+    show_uncovered: false
+</code></pre>
+<p>By default, show only the coverage report summary in <code>--coverage-text</code> output is set to false, config option:</p>
+<pre><code class="language-yaml">coverage:
+    enabled: true
+    show_only_summary: false
+</code></pre>
+<p>For further information please refer to the <a href="https://phpunit.readthedocs.io/en/latest/configuration.html">PHPUnit configuration docs</a></p>
+<h2>Local CodeCoverage <span id="local-codecoverage"></span><a href="#local-codecoverage" class="hashlink">&para;</a></h2><p>The basic codecoverage can be collected for functional and unit tests.
+If you performed configuration steps from above, you are ready to go.
+All you need is to execute codeception with <code>--coverage</code> option.</p>
+<p>To generate a clover xml report or a tasty html report append also <code>--coverage-xml</code> and <code>--coverage-html</code> options.</p>
+<pre><code class="language- yaml">codecept run --coverage --coverage-xml --coverage-html
+</code></pre>
+<p>XML and HTML reports are stored to the <code>_output</code> directory. The best way to review report is to open <code>index.html</code> from <code>tests/_output/coverage</code> in your browser.
+XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration servers (like Jenkins).</p>
+<h2>Remote CodeCoverage <span id="remote-codecoverage"></span><a href="#remote-codecoverage" class="hashlink">&para;</a></h2><h3>Local Server <span id="local-server"></span><a href="#local-server" class="hashlink">&para;</a></h3><p>If you run your application via Webserver (Apache, Nginx, PHP WebServer) you don't have a direct access to tested code,
+so collecting coverage becomes a non-trivial task. The same goes for scripts that are tested on different nodes.
+To get access to this code you need <code>xdebug</code> installed with <code>remote_enable</code> option turned on.
+Codeception also requires a little spy to interact with your application. As your application runs standalone,
+without even knowing it is being tested, a small file should be included in order to collect coverage info.</p>
+<p>This file is called <code>c3.php</code> and is <a href="https://github.com/Codeception/c3">available on GitHub</a>.
+<code>c3.php</code> should be downloaded and included in your application at the very first line from controller.
+By sending special headers Codeception will command your application when to start codecoverage collection and when to stop it.
+After the suite is finished, a report will be stored and Codeception will grab it from your application.</p>
+<p>Please, follow installation instructions described in a <a href="https://github.com/Codeception/c3">readme file</a>.</p>
+<p>To connect to <code>c3</code> Codeception uses url config from PhpBrowser or WebDriver module.
+But URL of index with <code>c3.php</code> included can be specified explicitly with <code>c3_url</code> parameter defined:</p>
+<pre><code class="language- yaml">coverage:
+    # url of file which includes c3 router.
+    c3_url: 'http://127.0.0.1:8000/index-test.php/'
+</code></pre>
+<blockquote class="note"><p><strong>Note: </strong>we can't have multiple <code>c3_url</code> on same host difference only by port. Please, use alias of domain 
+(i.e. <code>frontend.dev:8000</code>,<code>backend.dev:8080</code>) instead.</p>
+</blockquote>
+<p>After the <code>c3.php</code> file is included in application you can start gather coverage.
+In case you execute your application locally there is nothing to be changed in config.
+All codecoverage reports will be collected as usual and merged afterwards.
+Think of it: Codeception runs remote coverage in the same way as local.</p>
+<h3>Remote Server <span id="remote-server"></span><a href="#remote-server" class="hashlink">&para;</a></h3><p>But if you run tests on different server (or your webserver doesn't use code from current directory) a single option <code>remote</code> should be added to config.
+For example, let's turn on remote coverage for acceptance suite in <code>acceptance.suite.yml</code>:</p>
+<pre><code class="language- yaml">coverage:
+    remote: true
+</code></pre>
+<p>In this case remote Code Coverage results won't be merged with local ones, if this option is enabled.
+Merging is possible only in case a remote and local files have the same path.
+But in case of running tests on a remote server we are not sure of it.</p>
+<p>CodeCoverage results from remote server will be saved to <code>tests/_output</code> directory. Please note that remote codecoverage results won't be displayed in console by the reason mentioned above: local and remote results can't be merged, and console displays results for local codecoverage.</p>
+<h3>Working Directory (Docker/Shared Mounts) <span id="working-directory-dockershared-mounts"></span><a href="#working-directory-dockershared-mounts" class="hashlink">&para;</a></h3><p>If your remote server is accessed through a shared mount, or a mounted folder (IE: Docker Volumes), you can still get merged coverage details.
+Use the <code>work_dir</code> option to specify the work directory. When CodeCoverage runs, Codeception will update any path that matches the <code>work_dir</code> option to match the local current project directory.</p>
+<p>Given a docker command similar to:
+<code>`</code>bash
+docker run -v $(pwd):/workdir -w /workdir...
+<code>`</code></p>
+<p>Use the below configuration to allow coverage mergers.
+<code>`</code>yaml
+coverage:</p>
+<pre><code class="hljs http"><span class="hljs-attribute">remote</span>: <span class="hljs-string">false</span>
+<span class="hljs-attribute">work_dir</span>: <span class="hljs-string">/workdir</span>
+</code></pre>
+<pre><code class="hljs sql">
+### Remote Context Options
+
+HTML report generation can at times take a little more time than the default 30 second timeout. Or maybe you want to <span class="hljs-operator"><span class="hljs-keyword">alter</span> SSL <span class="hljs-keyword">settings</span> (verify_peer, <span class="hljs-keyword">for</span> example)
+<span class="hljs-keyword">To</span> <span class="hljs-keyword">alter</span> the way c3 sends it<span class="hljs-string">'s service requests to your webserver (be it a local or a remote one), you can use the `remote_context_options` key in `coverage` settings.
+
+``` yaml
+coverage:
+    remote_context_options:
+        http:
+            timeout: 60
+        ssl:
+            verify_peer: false
+</span></span></code></pre>
+<p>Context stream options are <a href="http://php.net/manual/en/context.php">well documented at php.net</a></p>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>It's never been easier to setup local and remote code coverage. Just one config and one additional file to include!
+<strong>With Codeception you can easily generate CodeCoverage reports for your Selenium tests</strong> (or other acceptance or api tests). Mixing reports for <code>acceptance</code>, <code>functional</code>, and <code>unit</code> suites provides you with the most complete information on which parts of your applications are tested and which are not.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w1960" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w1960-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w1960-collapse" class="collapse navbar-collapse"><ul id="w1961" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-1944" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-1944" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1945" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-1945" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1946" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-1946" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1947" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-1947" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1948" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-1948" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1949" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-1949" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1950" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-1950" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1951" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-1951" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1952" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-1952" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1953" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-1953" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1954" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-1954" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1955" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-1955" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1956" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-1956" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1957" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-1957" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1958" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-1958" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1959" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-1959" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h4>2.1.11 <span id="2111"></span><a href="#2111" class="hashlink">&para;</a></h4><ul>
+<li>[Yii1] Improved Yii connector. AR metadata is cleaned up between requests. <code>regenerateId</code> of session is disabled.</li>
+<li>[REST][InnerBrowser] redirect is not triggered when Location header is set but response code is not 3xx. By @Naktibalda. Fixes #3171.</li>
+<li>[PhpBrowser][Frameworks] checkboxes can be located by label by @dizzy7. See #3237</li>
+<li>[PhpBrowser][Frameworks] field can be matched by its trimmed label value. See #3209. By @dizzy7</li>
+<li>[WebDriver] fixed URL matching in WebDriver::seeLink</li>
+<li>[WebDriver][InnerBrowser] Improved error messages of <code>seeLink</code> and <code>dontSeeLink</code></li>
+</ul>
+<h4>2.1.10 <span id="2110"></span><a href="#2110" class="hashlink">&para;</a></h4><ul>
+<li>PHPUnit version locked to &lt;5.4</li>
+<li>[Db] Added missing support for LIKE condition to SqlSrv driver</li>
+</ul>
+<h4>2.1.9 <span id="219"></span><a href="#219" class="hashlink">&para;</a></h4><ul>
+<li>PHPUnit 5.4 compatibility for creating mocks using <code>Codeception\Util\Stub</code> by @davertmik. See #3093 and #3080</li>
+<li>Updated dependencies to support Symfony 3.1</li>
+<li>[Laravel5] Fixed issue where non-existing services were called in _before and _after methods. See #3028.</li>
+<li>Fix self-update command to update only to stable versions by @MAXakaWIZARD</li>
+<li>Added <code>settings: backup_global</code> to config, to disable backup_global option of PHPUnit by @mkeasling. See #3045. Fixes #3044</li>
+<li>[PhpBrowser][Frameworks] <code>see</code> matches UTF-8 text case-insensitively by @Naktibalda. Fixes #3114</li>
+<li>Fixed page object generation with namespaces by @eugene-manuilov and @Naktibalda. See #3126 Fixes #3012</li>
+<li><code>--steps</code> will not disable code coverage. By @Naktibalda. Fixes #2620</li>
+<li>Suppress console coverage report with <code>--quiet</code> by @EspadaV8. See #2370</li>
+<li>Improved multibyte output in console by @kt81. See #3130</li>
+<li>[Lumen] Fixed: <code>initializeLumen()</code> method has been called twice on start by @kt81. See #3124 #2607</li>
+<li>[Db] Allow INT Parameter SQL Binding by @davidcochrum . Fixes #3118</li>
+<li>[Db] Support LIKE conditions in assertions.</li>
+<li>[Db] Improved regex for parsing comments by @dima-stefantsov. See #3138</li>
+<li>[Dbh] Fix <code>seeInDatabase</code> and <code>dontSeeInDatabase</code> with empty criteria. Closes #3116</li>
+<li>[Symfony] Improve fail messages on seeInCurrentRoute and seeCurrentRouteIs</li>
+<li>[Symfony] Improve route comparison on seeInCurrentRoute and seeCurrentRouteIs</li>
+<li>[WebDriver] multi session testing with friends improved by @eXorus. Webdriver sessions are finished correctly; <code>leave()</code> method added to Friend class. See #3068</li>
+<li>[PhpBrowser] added <code>handler</code> and <code>middleware</code> config options to customize Guzzle handlers and middleware</li>
+<li>Added full support of phpunit-bridge features.</li>
+<li>[Laravel] Fixed issue where non-existing services were called in _before and _after methods. See #3028.</li>
+<li>[WebDriver] fixed using <code>saveSessionSnapshot</code> with codecoverage. Closes #2923</li>
+<li>[ZF2] create new instance of Application for each request</li>
+</ul>
+<h4>2.1.8 <span id="218"></span><a href="#218" class="hashlink">&para;</a></h4><ul>
+<li><code>Util\Locator</code> added methods to create locators to match element at their position: <code>elementAt</code>, <code>firstElement</code>, <code>lastElement</code></li>
+<li>[Symfony] Refactor to unify service retrieval, avoid memleaks and reduce memory footprint. Closes #2938 and #2954.</li>
+<li>[Symfony] New optoin <code>rebootable_client</code> that reboots client's kernel before each request.</li>
+<li>[WebDriver] fixed <code>seeInField</code> for textarea with whitespaces before and after string. Closes #2921</li>
+<li>[Symfony] Deprecated <code>grabServiceFromContainer</code> use <code>grabService</code> instead. For consistency with other frameworks.</li>
+<li>[Asserts] More <code>assert*</code> methods from PHPUnit added</li>
+<li>[Asserts] Added <code>expectException</code> method</li>
+<li><code>codecept self-update</code> works with proxy by @gr1ev0us</li>
+<li>[Phalcon1 add params support for method amOnRoute by @MelnykDmitro</li>
+</ul>
+<h4>2.1.7 <span id="217"></span><a href="#217" class="hashlink">&para;</a></h4><ul>
+<li><strong>PHPUnit 5.x support</strong></li>
+<li>Global Bootstrap, Suite Bootstrap, Module Initialization happens before test loading. Fixes issues of autoloading TestCase classes introduced in 2.1.5, see #2872</li>
+<li>Added option to skip PHP files validation in <code>codeception.yml</code> - <code>settings: lint: false</code></li>
+<li>[Facebook] Updated to  facebook/php-sdk-v4 version 5 by @orhan-swe and @tigerseo #2828 #2415</li>
+<li>[WebDriver] Added <code>scrollTo</code> action by @javigomez and @davertmik #2844</li>
+<li>Fix encoding problems in PHP prior to 5.6 by @pejaycz. See #2831</li>
+<li>[Queue] Fixed <code>clearQueue</code> for AmazonSQS by @mikitu #2805</li>
+<li>[Db] Fixed loading files in Sqlite @mcustiel See #2812</li>
+<li>[PhpBrowser] <code>amHttpAuthenticated</code> allows null, null as parameters to unset authentication. #2896</li>
+<li><code>Util\Locator</code> added <code>contains</code> method to easily locate any element containing a text.</li>
+<li>[Laravel5] Added <code>guard</code> parameters to <code>seeAuthentication</code> and <code>dontSeeAuthentication</code> methods. By @janhenkgerritsen. See #2876</li>
+<li>[Laravel5] Added functionality to disable/enable Laravel's exception handling. By @janhenkgerritsen. See #2763</li>
+<li>[Laravel5] Authentication now persists between requests when calling <code>amLoggedAs</code> with an instance of <code>Authenticable</code>. See #2795</li>
+<li>[REST] Fixed dontSeeXmlResponseMatchesXpath method #2825 by @mangust404</li>
+<li>[ZF2] Fixed POST parameters #2814 by @Naktibalda</li>
+<li>[ZF1] Call Zend_Registry::_unsetInstance in _after #2863 by @Naktibalda</li>
+</ul>
+<h4>2.1.6 <span id="216"></span><a href="#216" class="hashlink">&para;</a></h4><ul>
+<li>Starting from 2.1.6 you can <strong>download PHP 5.4 compatible phar build</strong> at <a href="http://codeception.com/php54/codecept.phar">http://codeception.com/php54/codecept.phar</a> by @Naktibalda. See <a href="http://codeception.com/install">installation guide</a>.</li>
+<li>[WebDriver] Fixed uploading files with <strong>PhantomJS</strong> #1823 by @DavertMik and @Naktibalda. Please specify your browser name as <code>phantom</code> in WebDriver config in order to use PhantomJS-specific hooks.</li>
+<li>Fixed parsing PHP files with spaces in name on PHP&lt;7 by @acuthbert. Fixes #2647</li>
+<li>[WebDriver] Fixed proxy error when using with Chrome #2651 by @vaikla</li>
+<li>[Laravel5] Allow Laravel5 application URL to be set through config. By @gmhenderson. See #2676</li>
+<li>[Laravel5] Mocked events should also return an array. Fix by @devinfd</li>
+<li>Fixed using codecoverage with environments #2634</li>
+<li>Various HHVM improvements by @Naktibalda, for instance, Asserts module issues has been fixed.</li>
+<li>[REST] Fixes #2775 <code>seeResponseJsonMatchesXpath</code> when JSON contains ampersand. By @Naktibalda.</li>
+<li>[Filesystem] Added <code>seeNumberNewLines</code> method to check the number of new lines in opened file. By @sergeyklay</li>
+<li>[Symfony2] Added <code>seeCurrentRouteMatches</code> action by @laszlo-karpati See #2665</li>
+<li>[Sequence] Added <code>sqs</code> function to generate unique sequences per suite. #2766 by @johnatannvmd</li>
+<li>[FTP] Fixed various bugs by @k-serenade. See #2755</li>
+<li>[Frameworks][PhpBrowser] Fixed #2733: <code>seeOptionIsSelected</code> sees first option as selected if none is selected by @Naktibalda</li>
+<li>[Symfony2] Removed 'localhost' from getInternalDomains by @Naktibalda. Fixed #2717</li>
+<li>Bugfix for using groups by directory on Windows by @tortuetorche See #2550 and #2551</li>
+<li>[REST] Fixed failed message for <code>seeHttpHeader</code> and <code>dontSeeHttpHeader</code> from null to expected value #2697 by @zondor</li>
+<li>[REST] Added methods to control redirect: <code>stopFollowingRedirects</code> and <code>startFollowingRedirects</code> by @brutuscat</li>
+<li>[Recorder Extension] Added <code>animate_slides</code> config to disable left-right sliding animation between screenshots by @vml-rmott</li>
+</ul>
+<h4>2.1.5 <span id="215"></span><a href="#215" class="hashlink">&para;</a></h4><ul>
+<li><strong>PHP7 support</strong></li>
+<li><strong>Symfony3 support</strong></li>
+<li>[ZendExpressive] <strong>module added</strong> by @Naktibalda</li>
+<li>[Frameworks] <strong>Internal Domains</strong>: Framework modules now throw an <code>ExternalUrlException</code> when a test tries to open a URL that is not handled by the framework, i.e. an external URL. See #2396</li>
+<li>Syntax check for tests. If PHP7 is used, <code>ParseException</code> handles syntax error, otherwise linting happens with <code>php -l</code>. @davertmik</li>
+<li>Fixed Cest generation to not include "use" statements if no namespaces set</li>
+<li>[REST] Modified JsonArray::sequentialArrayIntersect to return complete matches only by @Naktibalda. Fixes #2635</li>
+<li>[REST] Fixes validation of several types with filters. See #2581 By @davertmik</li>
+<li>[REST] JsonType improved URL filter to use <code>filter_var($value, FILTER_VALIDATE_URL)</code></li>
+<li>[REST] JsonType to support collections: all items in an array will be validates against JsonType. By @davertmik</li>
+<li>[REST] Various fixes to JsonType: #2555 #2548 #2542</li>
+<li>[REST] Hides binary request data in debug by @codemedic. Fixed #1884, See #2552</li>
+<li>[WebDriver] Allow <code>appendField</code> to work with content editable div by @nsanden #2588</li>
+<li>[WebDriver] Allows adding ssl proxy settings by @mjntan35.</li>
+<li>[Symfony2] Config option <code>cache_router</code> added (disabled by default) by @raistlin.</li>
+<li>[Doctrine] Fixed #2060: Too many connections error by @dranzd</li>
+<li>[Symfony2] <code>services</code> part added to allow access Symfony DIC while wokring with WebDriver or PhpBrowser by @laszlo-karpati See #2629</li>
+<li>[WebDriver][PhpBrowser] Unified setCookie "expires" param name by @davertmik. See #2582</li>
+<li>[Memcache] add adaptive close call on <code>_after</code> by @pfz. See #2572</li>
+<li>[Symfony2] Move kernel booting and container set up into _initialize() method by @Franua  #2491</li>
+<li>[WebDriver] Fixed <code>seeInField</code> for textareas by @nsanden</li>
+<li>[Yii2][REST] Fixed using Yii2 as dependency for REST by @Naktibalda. See #2562</li>
+<li>[Laravel5] Removed <code>enableMiddleware</code> and <code>enableEvents</code> methods. See #2602. By @janhenkgerritsen</li>
+<li>[Laravel] Refactored modules. See #2602. By @janhenkgerritsen</li>
+<li>[Laravel5] Fix bug for <code>seeCurrentRouteIs</code> when routes don't match. See #2593. By @maddhatter</li>
+<li>[PhpBrowser] Set curl options for Guzzle6 correctly. See #2533. By @Naktibalda</li>
+<li>Fixed usage of GroupObject by unit tests. GroupObjects can skip tests by @davetmik. See #2617</li>
+</ul>
+<h4>2.1.4 <span id="214"></span><a href="#214" class="hashlink">&para;</a></h4><ul>
+<li>[PhpBrowser][Frameworks] Added <code>_getResponseContent</code> hidden method. By @Naktibalda</li>
+<li>[PhpBrowser][Frameworks] Added <code>moveBack</code> method. By @Naktibalda</li>
+<li>[WebDriver][PhpBrowser][Frameworks] Added <code>seeInSource</code>, <code>dontSeeInSource</code> methods to check raw HTML instead of stripped text in <code>see</code>/<code>dontSee</code>. By @zbateson in #2465</li>
+<li>[WebDriver] print Selenium WebDriver logs on failure or manually with <code>debugWebDriverLogs</code> in debug mode. Config option <code>debug_log_entries</code> added. See #2471 By @MasonM and @DavertMik.</li>
+<li>[ZF2] grabs service from container without reinitializing it. Fixes #2519 where Doctrine2 gets different instances of the entity manager everytime grabServiceFromContainer is called. By @dranzd</li>
+<li>[REST] fixed usage of JsonArray and <code>json_last_error_msg</code> function on PHP 5.4. See #2535. By @Naktibalda</li>
+<li>[REST] <code>seeResponseIsJsonType</code> can now validate emails with <code>string:email</code> definition. By @DavertMik</li>
+<li>[REST] <code>seeResponseIsJsonType</code>: <code>string|null</code> as well as <code>null|string</code> can be used to match null type. #2522 #2500 By @vslovik</li>
+<li>[REST] REST methods can be used to inspect result of the last request made by PhpBrowser or framework module. see #2507. By @Naktibalda</li>
+<li>[Silex] Doctrine provider added. Doctrine2 module can be connected to Silex app with <code>depends: Silex</code> in config. By @arduanov #2503</li>
+<li>[Laravel5] Removed <code>expectEvents</code> and added <code>seeEventTriggered</code> and <code>dontSeeEventTriggered</code>. By @janhenkgerritsen</li>
+<li>[Laravel5] Fixed fatal error in <code>seeCurrentRouteIs</code> and <code>seeCurrentActionIs</code> methods. See #2517. By @janhenkgerritsen</li>
+<li>[Laravel5] Improved the error messages for several methods. See #2476. By @janhenkgerritsen</li>
+<li>[Laravel5] Improved form error methods. See #2432. By @janhenkgerritsen</li>
+<li>[Laravel5] Added wrapper methods for Laravel 5 model factories. See #2442. By @janhenkgerritsen</li>
+<li>[Phalcon] Added <code>amOnRoute</code> and <code>seeCurrentRouteIs</code> methods by @sergeyklay</li>
+<li>[Phalcon] Added <code>seeSessionHasValues</code> by @sergeyklay</li>
+<li>[Phalcon] Added <code>getApplication()</code> method by @sergeyklay</li>
+<li>[Symfony2] Sets <code>xdebug.max_nesting_level</code> to 200 only if it is lower. Fixes error hiding #2462 by @mhightower</li>
+<li>[Db] Save the search path when importing Postgres dumps #2441 by @EspadaV8</li>
+<li>[Yii2] Fixed problems with transaction rollbacks when using the <code>cleanup</code> flag. See #2488. By @ivokund</li>
+<li>[Yii2] Clean up previously uploaded files between tests by @tibee</li>
+<li>Actor classes generation improved by @codemedic #2453</li>
+<li>Added support for nested helper by @luka-zitnik #2494</li>
+<li>Make <code>generate:suite</code> respect bootstrap setting in #2512. By @dmitrivereshchagin</li>
+</ul>
+<h4>2.1.3 <span id="213"></span><a href="#213" class="hashlink">&para;</a></h4><ul>
+<li>[REST] <strong>Added matching data types</strong> by with new methods <code>seeResponseMatchesJsonType</code> and <code>dontSeeResponseMatchesJsonType</code>. See #2391</li>
+<li>[PhpBrowser][Frameworks] added <code>_request</code> and <code>_loadPage</code> hidden API methods for performing arbitrary requests.</li>
+<li>[PhpBrowser][Frameworks] Fixed <code>seeInField</code>, <code>dontSeeInField</code> for disabled fields #2378. See #2414.</li>
+<li>Environment files can now be located in subfolders of <code>tests/_env</code> by @Zifius</li>
+<li>[Symfony2] Fixed issue when accessing profiler when no request has been performed #652.</li>
+<li>[Symfony2] Added <code>amOnRoute</code> and <code>seeCurrentRouteIs</code> methods  by @raistlin</li>
+<li>[ZF2] Added <code>amOnRoute</code> and <code>seeCurrentRouteIs</code> methods module, by @Naktibalda</li>
+<li>Fixed issue with trailing slashes in <code>seeCurrentUrlEquals</code> and <code>dontSeeCurrentUrlEquals</code> methods #2324. By @janhenkgerritsen</li>
+<li>Warning is displayed once using unconfigured environment.</li>
+<li>Fixed loading environment configurations for Cept files by @splinter89</li>
+<li>Fixed bootstrap with namespaces to inject namespaced actor classes properly.</li>
+<li>[PhpBrowser][Frameworks] added hidden <code>_request()</code> method to send requests to backend from Helper classes.</li>
+<li>[Laravel5] Added <code>disableEvents()</code>, <code>enableEvents()</code> and <code>expectEvents()</code> methods. By @janhenkgerritsen</li>
+<li>[Laravel5] Added <code>dontSeeFormErrors()</code> method. By @janhenkgerritsen</li>
+<li>[Db] Deleted Oracle driver (it existed by mistake, the real driver is Oci). By @Naktibalda</li>
+<li>[Db] Implemented getPrimaryKey method for Sqlite, Mysql, Postgresql, Oracle and MsSql. By @Naktibalda</li>
+<li>[Db] Implemented support for composite primary keys and tables without primary keys. By @Naktibalda</li>
+<li>Fixed the scalarizeArray to be aware of NULL fields #2264. By @fbidu</li>
+<li>[Soap] Fixed SOAP module #2296. By @relaxart</li>
+<li>Fixed a bug where blank lines in a groups file would run every test in the project #2297. By @imjoehaines</li>
+<li>[WebDriver] seeNumberOfElements should only count visible elements #2303. By @sascha-egerer</li>
+<li>[PhpBrowser][Frameworks] Verbose output for all HTTP requests. By @Naktibalda</li>
+<li>[PhpBrowser][Frameworks] Throw <code>Codeception\Exception\ExternalUrlException</code> when framework module tries to open an external URL #2328. By @Naktibalda</li>
+<li>[PhpBrowser][Frameworks] Added <code>switchToIframe</code> method. By @Naktibalda</li>
+<li>[Dbh] module deprecated</li>
+</ul>
+<h4>2.1.2 <span id="212"></span><a href="#212" class="hashlink">&para;</a></h4><ul>
+<li><strong>Updated to PHPUnit 4.8</strong></li>
+<li>Enhancement: <strong>Wildcard includes enabled when testing <a href="http://codeception.com/docs/08-Customization#One-Runner-for-Multiple-Applications">multiple applications</a></strong>. See #2016 By @nzod</li>
+<li>[Symfony2] fixed Doctrine2 integration: Doctrine transactions will start before each test and rollback afterwards. <em>2015-08-08</em></li>
+<li>[Doctrine2] establishing connection and starting transaction is moved to <code>_before</code>. <em>2015-08-08</em></li>
+<li>[PhpBrowser] Removed disabled and file fields from form values. By @Naktibalda <em>2015-08-08</em></li>
+<li>[ZF2] Added grabServiceFromContainer function. By InVeX  <em>2015-08-08</em></li>
+<li>[PhpBrowser][Guzzle6] Disabled strict mode of CookieJar #2234 By @Naktibalda <em>2015-08-04</em></li>
+<li>[Laravel5] Added <code>disableMiddleware()</code> and <code>enableMiddleware()</code> methods. By @janhenkgerritsen <em>2015-08-07</em></li>
+<li>Enhancement: If a specific *ActorActions trait does not exist in <code>tests/_support/_generated</code> directory, it will be created automatically before run.</li>
+<li>Enhancement: do not execute all included suites if you run one specific suite <em>2015-08-08</em></li>
+<li><code>Extension\Recorder</code> navigate over slides with left and right arrow keys, do not create screenshots for comment steps.</li>
+<li><code>Extension\Recorder</code> generates index html for all saved records.</li>
+<li><code>Extension\Recorder</code> fixed for creating directories twice. Fixed #2216</li>
+<li><code>Extension\Logger</code> fixed #2216</li>
+<li>Fixed injection of Helpers into Cest and Test files. See #2222</li>
+<li><code>Stub::makeEmpty</code> on interfaces works again by @Naktibalda</li>
+<li>Command <code>generate:scenarios</code> fixed for Cest files by @mkudenko See #1962</li>
+<li>[Db] Quoted table name in Db::select, removed identical methods from child classes by @Naktibalda. See #2231</li>
+<li>[WebDriver] added support for running tests on a remote server behind a proxy with <code>http_proxy</code> and <code>http_proxy_port</code> config options by @jdq22 <em>2015-07-29</em></li>
+<li>[Laravel] Fixed issue with error handling for <code>haveRecord()</code> method in Laravel modules #2217 by @janhenkgerritsen <em>2015-07-28</em></li>
+<li>Fixed displayed XML/HTML report path #2187 by @Naktibalda <em>2015-07-27</em></li>
+<li>[WebDriver] Fixed <code>waitForElementChange</code> fatal error by @stipsan</li>
+<li>[Db] Enhanced dollar quoting ($$) processing in PostgreSQL driver by @YasserHassan <em>2015-07-20</em></li>
+<li>[REST] Created tests for file-upload with REST module. By @Naktibalda <em>2015-08-08</em></li>
+<li>[Lumen] Fixed issue where wrong request object was passed to the Lumen application by @janhenkgerritsen <em>2015-07-18</em></li>
+</ul>
+<h4>2.1.1 <span id="211"></span><a href="#211" class="hashlink">&para;</a></h4><ul>
+<li>[WebDriver] <strong>Upgraded to facebook/webdriver 1.0</strong> <em>2015-07-11</em>
+WebDriver classes were moved to <code>Facebook\WebDriver</code> namespace. Please take that into account when using WebDriver API directly.
+Till 2.2 Codeception will keep non-namespaced aliases of WebDriver classes.</li>
+<li>Module Reference now contains documentation for hidden API methods which should be used in Helper classes</li>
+<li>Skipped and Incomplete tests won't fire <code>test.before</code> and <code>test.after</code> events. For instance, WebDriver browser won't be started and Db cleanups won't be executed on incomplete or skipped tests.</li>
+<li>Annotations <code>skip</code> and <code>incomplete</code> enabled in Cest files #2131</li>
+<li>[WebDriver][PhpBrowser][Frameworks] <code>_findElements($locator)</code> method added to use in Helper classes <em>2015-07-11</em>
+Now you can use <code>$this-&gt;getModule('WebDriver')-&gt;findElements('.user');</code> in Helpers to match all elements with <code>user</code> class using WebDriver module</li>
+<li>[PhpBrowser] Fixed <code>amOnUrl</code> method to open absolute URLs.</li>
+<li>[PhpBrowser][Frameworks] Fix for <code>fillField</code> using values that contain ampersands by @GawainLynch and @zbateson Issue #2132</li>
+<li>[WebDriver][PhpBrowser][Frameworks] Fixed missing HTTPS when trying to access protected pages #2141</li>
+</ul>
+<h4>2.1.0 <span id="210"></span><a href="#210" class="hashlink">&para;</a></h4><ul>
+<li><a href="https://github.com/Codeception/Codeception/tree/master/ext#codeceptionextensionrecorder">Recorder</a> extension added. Shows acceptance test progress with a recorded slideshow.</li>
+<li><strong>Updated to Guzzle 6</strong>. Codeception can now work both with Guzzle v5 and Guzzle v6. PhpBrowser chooses right connector depending on Guzzle version installed. By @davertmik and @enumag</li>
+<li>Annotations in Cept files.
+Instead of calling <code>$scenario-&gt;skip()</code>, <code>$scenario-&gt;group('firefox')</code>, etc, it is recommended to set scenario metadata with annotations <code>// @skip</code>, <code>// @group firefox</code>.
+Annotations can be parsed from line or block comments. <code>$scenario-&gt;skip()</code> and <code>$scenario-&gt;incomplete()</code> are still valid and can be executed inside conditional statements:<pre><code class="hljs php"><span class="hljs-keyword">if</span> (!extension_loaded(<span class="hljs-string">'xdebug'</span>)) <span class="hljs-variable">$scenario</span>-&gt;skip(<span class="hljs-string">'Xdebug required'</span>)
+</code></pre>
+</li>
+<li><strong>PSR-4</strong>: all support classes moved to <code>tests/_support</code> by default. Actors, Helpers, PageObjects, StepObjects, GroupObjects to follow PSR-4 naming style. Autoloader implemented by @splinter89.</li>
+<li><strong>Dependency Injection</strong>: support classes can be injected into tests. Support classes can be injected into each other too. This happens by implementing method <code>_inject</code> and explicitly specifying class names as parameters. Implemented by @splinter89.</li>
+<li><strong>Actor classes can be extended</strong>, their generated parts were moved to special traits in <code>_generated</code> namespace. Each *Tester class can be updated with custom methods.</li>
+<li><strong>Module config simplified</strong>: Modules can be configured in <code>enabled</code> section of suite config.</li>
+<li><strong>Conflicts</strong>: module can define conflicts with each other by implementing <code>_conflicts</code> method</li>
+<li><strong>Dependencies</strong>: module can explicitly define dependencies and expect their injection by implementing <code>_inject</code> and <code>_depends</code> methods and relying on dependency injection container.</li>
+<li><strong>Current</strong> modules, environment, and test name can be received in scenario. Example: <code>$scenario-&gt;current('env')</code> returns current environment name. Fixes #1251</li>
+<li><strong>Environment Matrix</strong>: environments can be merged. Environment configs can be created in <code>tests/_envs</code>, environment generator added. Implemented by By @sjableka. See #1747</li>
+<li><strong>Custom Printers</strong>: XML, JSON, TAP, Report printers can be redefined in configuration. See #1425</li>
+<li>[Db] Added <code>reconnect</code> option for long running tests, which will connect to database before the test and disconnect after. By @Naktibalda</li>
+<li>Module parts. Actions of modules can be loaded partially in order to disable actions which are not used in current tests. For instance, disable web actions of framework modules in unit testsing.</li>
+<li><strong>Kohana</strong>, <strong>Symfony1</strong>, <strong>Doctrine1</strong> modules considered deprecated and moved to standalone packages.</li>
+<li><code>shuffle</code> added to settings. Randomizes order of running tests. See #1504</li>
+<li>Console output improved: scenario stack traces contain files and lines of fail.</li>
+<li>[Doctrine2][Symfony2] <code>symfony_em_service</code> config option moved from Doctrine2 to Symfony2 module and renamed to <code>em_service</code> <em>2015-06-03</em></li>
+<li>[PhpBrowser][Frameworks] Fixed cloning form nodes <code>Codeception\Lib\InnerBrowser::getFormFromCrawler(): ID XXX already defined</code> <em>2015-05-13</em></li>
+<li>[WebDriver] session snapshot implemented, allows to store cookies and load them, i.e., to keep user session between testss.</li>
+<li>[WebDriver][PhpBrowser][Frameworks] Malformed XPath locators wil throw an exception #1441</li>
+<li><code>MODULE_INIT</code> event is fired before initializing modules #1370</li>
+<li>Graceful tests termination using <code>pcntl_signal</code>. See #1286</li>
+<li>Group classes renamed to GroupObjects; Base GroupObject class renamed to <code>Codeception\GroupObject</code></li>
+<li>Official extensions moved to <code>ext</code> dir; Base Extension class renamed to <code>Codeception\Extension</code></li>
+<li>Duplicate environment options won't cause Codeception to run environment tests twice</li>
+<li>[Phalcon1] <code>haveServiceInDi</code> method implemented by @sergeyklay</li>
+<li>[Db] <code>seeNumRecords</code> method added by @sergeyklay</li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

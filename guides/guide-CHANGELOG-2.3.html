@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w1996" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w1996-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w1996-collapse" class="collapse navbar-collapse"><ul id="w1997" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-1980" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-1980" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1981" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-1981" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1982" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-1982" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1983" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-1983" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1984" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-1984" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1985" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-1985" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1986" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-1986" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1987" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-1987" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1988" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-1988" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1989" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-1989" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1990" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-1990" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1991" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-1991" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1992" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-1992" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1993" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-1993" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1994" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-1994" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-1995" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-1995" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h4>2.3.9 <span id="239"></span><a href="#239" class="hashlink">&para;</a></h4><ul>
+<li>Added <code>Codeception\Step\Argument\PasswordArgument</code> to pass sensitive data into tests:</li>
+</ul>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Step</span>\<span class="hljs-title">Argument</span>\<span class="hljs-title">PasswordArgument</span>;
+
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/form/password_argument'</span>);
+<span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'password'</span>, <span class="hljs-keyword">new</span> PasswordArgument(<span class="hljs-string">'thisissecret'</span>));
+</code></pre>
+<ul>
+<li>[WebDriver] added <code>clearField</code> method to clean up input fields by @eknej </li>
+<li>[DataFactory] added <code>make</code> method to create instances without saving them to database. But @ibpavlov </li>
+<li>[REST] Fixed passing a file to <code>sendPOST()</code> without name, size or type parameter. BY @zebraf1</li>
+<li>[REST] Add missing / to relative url from config by @bscheshirwork </li>
+<li>Fixed HTML Report marks tests as succeeded by @mpgo13</li>
+<li><code>clean</code> command works recursively with included setups. By @davidnewcomb </li>
+</ul>
+<h4>2.3.8 <span id="238"></span><a href="#238" class="hashlink">&para;</a></h4><ul>
+<li><code>Codeception\Util\Stub</code> moved to standalone package <a href="https://github.com/Codeception/Stub">Codeception\Stub</a>:<ul>
+<li>Use <code>Codeception\Stub</code> instead of <code>Codeception\Util\Stub</code></li>
+<li>Mocking methods <code>::once</code>, <code>::never</code>, etc moved to <code>Codeception\Stub\Expected</code> class</li>
+<li>Calling mocking methods from <code>Codeception\Util\Stub</code> provides deprecation warning.</li>
+<li>Non-static API is <a href="http://codeception.com/docs/05-UnitTests">recommended to use for mocking</a> </li>
+</ul>
+</li>
+<li>[WebDriver] Added <code>executeAsyncJS</code> action to run asynchronous scripts.</li>
+<li>[WebDriver] Added second parameter to <code>executeJS</code> to pass additional arguments into JavaScript function. </li>
+<li>[Yii2] <code>setCookie</code> signs cookies when signing enabled. #4656 By @SamMousa</li>
+<li>[Yii2] Method <code>createAndSetCsrfCookie</code> added. #4656 By @SamMousa</li>
+<li>Compatibility with phpunit-mock-objects 5.* by @Naktibalda</li>
+<li>[DataFactory] Removed dependency to <code>league/factory-muffin-faker</code> by @Naktibalda and @Insolita</li>
+<li>Fixed auto-rebuilding Actor classes when dependencies are used. See #4694 by @stefankleff. </li>
+<li>[Symfony] allows to use Symfony Dotenv component to parse <code>.env</code> files. Fix by @ebuildy</li>
+<li>Added the ability to export the code coverage data in PHPUnit xml format by @tobiasstadler <ul>
+<li><code>--coverage-phpunit</code> option added </li>
+<li>Allows to use mutation testing with <a href="https://infection.github.io">Inflection</a></li>
+</ul>
+</li>
+<li>[ZendExpressive] Added Doctrine2 integration by @artmnv</li>
+<li>[PhpBrowser][Frameworks] Added <code>_getResponseStatusCode</code> hidden method for using in helpers. By @FanchTheSystem</li>
+<li>[Yii2] Use Yii DI to instantiate record class. Fixes #4762. By @bscheshirwork</li>
+<li>Remote Code Coverage improvements #4768 by @bscheshirwork <ul>
+<li>Remove <code>:port</code> for cookie domain; </li>
+<li><code>-&gt;amOnPage('/');</code> executed when running code coverage with WebDriver</li>
+</ul>
+</li>
+<li>Fixed running single test with <code>include</code> config parameter. Fixes #4733 by @ppetpadriew</li>
+<li>Fixed running single test when a custom suite path is configured (For instance, in single-suite setups).</li>
+<li><code>generate:test</code> command won't include <code>tester</code> property if actor is not set for this config.</li>
+<li>[Facebook] Module is not maintained and is deprecated. If you are using it and you want to keep it, please contact us.</li>
+</ul>
+<h4>2.3.7 <span id="237"></span><a href="#237" class="hashlink">&para;</a></h4><ul>
+<li><strong>Symfony 4 support</strong> implemented by @VolCh.<ul>
+<li>Dependencies updated to support Symfony 4.x components.</li>
+<li>[Symfony] Support for Symfony Flex directory and namespace structure</li>
+<li><a href="https://github.com/Codeception/symfony-demo">Demo application</a> was updated to Symfony 4.0</li>
+</ul>
+</li>
+<li>[Db] <code>seeInDatabse</code>, <code>dontSeeInDatabase</code>, <code>grabFromDatabase</code> and other methods to support SQL comparison operators: <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>like</code>. Thanks @susgo and @Naktibalda.</li>
+<li>[Db] Fixed quoting around schema identifiers in MSSQL by @Naktibalda. See #4542.</li>
+<li>[Db] Added SSL options for connection. Thanks @kossi84</li>
+<li>[Db] Fix getting Database name from DSN in MSSQL by @yesdevnull.</li>
+<li>[PhpBrowser] Fixed setting <code>User-Agent</code> in config via <code>headers</code>. Fixed #4576 by @Naktibalda.</li>
+<li>[WebDriver] Implemented <code>dontSeeInPopup</code> by @kpascal.</li>
+<li>[WebDriver] Allow to click a button located by its <code>title</code> attribute. See #4586 by @gimler.</li>
+<li>[Silex] <code>app</code> property added to public API. Thanks @sky003</li>
+<li>[Yii2] Pass DB to Yii application as early as possible to reuse old connection. By @SilverFire. See #4601</li>
+<li>[Yii2] Resetting global event handlers after a test. See #4621 by @SamMousa</li>
+<li>[Yii2] Recreate request object to reset headers and cookies before each request. Fixes #4587 by @erickskrauch</li>
+<li>[MongoDb] Allowing <code>.tgz</code> files to be accepted for database dumps. #4611 by @Lukazar</li>
+<li>[PhpBrowser][Frameworks] Fixed usage of <code>see</code> when source code contains <code>&lt;=</code> JS operator. By @tobias-kuendig Fixes #4509.</li>
+<li>[Queue] Added configuration parameter <code>endpoint</code> for AmazonSQS by @gitis.</li>
+<li>Fixed signature error in <code>DummyCodeCoverage::stop</code> See #4665 by @network-spy</li>
+<li>Throw exception if <code>exit(0)</code> was accidentally called. Fixes false-positive test reports. See #4604 by Fenikkusu.</li>
+<li>Fixed using <code>path: tests: .</code> in configuration. Fixes #4432 by @marcovtwout</li>
+<li>Fixed suite name containing slash in remote code coverage. #4612 by @bscheshirwork</li>
+<li>Improved generated actions file by removing redundant <code>use</code> section. #4614 by @bscheshirwork</li>
+<li>Don't skip last test if some test has missing dependency by @Naktibalda. Fixes #4598</li>
+<li>Improved PHP 7.2 compatibility by @FanchTheSystem. See #4557</li>
+<li>Implemented <code>Descriptor::getTestSignatureUnique</code> to create unique names for tests. See #4673 by @Tenzian. Fixes #4672</li>
+<li>Fixed <code>setExpectedException()</code> default value for PHPUnit 5.7.23 by @MilesChou. See #4566</li>
+<li>Fixed printing wrong failed step by @eXorus. See #4654</li>
+<li>Fixed undefined <code>argv</code> warnings, added check for <code>register_argc_argv</code>. Fixes #4595 by @Naktibalda</li>
+<li>Added <code>init</code> command to <code>codecept.phar</code> by @Naktibalda.</li>
+</ul>
+<p>And many thanks to our awesome contributors! Thanks to @VolCh for upgrading to Symfony 4, thanks @Naktibalda for patches and reviews and
+thanks to @carusogabriel for refactoring tests.</p>
+<h4>2.3.6 <span id="236"></span><a href="#236" class="hashlink">&para;</a></h4><ul>
+<li><strong>Laravel 5.5 compatibility</strong>. Laravel5 module documentation updated.</li>
+<li>[Doctrine2][DataFactory] Fixes using Doctrine2 with DataFactory module. See #4529. Fix by @samusenkoiv</li>
+<li>[REST] Fixed JsonType crash when key 0 is not an array. Fixes #4517 by @Naktibalda</li>
+<li>[PhpBrowser][Frameworks] <code>haveHttpHeader</code> enhanced to handle special characters. #4541 by @bnpatel1990</li>
+<li>[WebDriver] Delete all cookies before loading session snapshot. Fix by @eXorus. See #4487</li>
+<li>Added <code>suite_namespace</code> config option to suite config. Allows to set custom namespace for tests per suite. #4525 by @pohnean</li>
+<li>[Db] Module enhancements by @eXorus:<ul>
+<li>added <code>updateInDatabase</code> method</li>
+<li>added hidden <code>_insertInDatabase</code> to insert record without cleanup</li>
+</ul>
+</li>
+<li>[Yii2] Set transaction also in <code>backupConfig</code> when initializing yii2 module</li>
+<li>[Yii2] Unload fixtures after rolling back database transaction. By @devonliu02  (#4497)</li>
+<li>[Yii2] Use <code>andWhere</code> instead of <code>where</code> in Yii module's <code>findRecord()</code> by @SamMousa. See #4482</li>
+<li>[REST] Added <code>amNTLMAuthenticated</code> for NTLM authentication using PhpBrowser. By @Tenzian</li>
+<li>Inject exception file and line number frame into stack trace in case it is missing. By @rhl-jfm at #4491)</li>
+<li><code>Extension\RunFailed</code>. Added <code>fail-group</code> parameter to customize name of a failed group. By @ maxgorovenko</li>
+<li>Added <code>\Codeception\Util\Fixtures::exists()</code> method by @eXorus</li>
+<li>Added line number to <code>TestParseException</code> exception message by @gaainf. See #4446</li>
+<li>Fixed <code>init</code> command: create the <code>_generated</code> folder before writing a <code>.gitignore</code> file there by @nstapelbroek. See #4449</li>
+<li>Better failure messages for <code>@dataProvider</code> by @sh41. See #4439</li>
+<li>Fixed aliasing issue with <code>Codeception/Verify</code> by @ddinchev</li>
+</ul>
+<h4>2.3.5 <span id="235"></span><a href="#235" class="hashlink">&para;</a></h4><ul>
+<li>Fixed HTML report with unencoded HTML code by @mpgo13. See #3819 #4423</li>
+<li>Made <code>assertArraySubset</code> protected across all modules by @guidocella</li>
+<li>[WebDriver][PhpBrowser][Frameworks] Added support for associative arrays in <code>seeInFormFields</code> by @guidocella</li>
+<li>[PhpBrowser][Frameworks] Submit default values of checkboxes. See #4411 by @guidocella</li>
+<li>[PhpBrowser][Frameworks] Make <code>seeInField</code> check options' texts and trimmed texts. By @guidocella</li>
+<li>[PhpBrowser] Prevents <code>submitForm</code> to submit inputs in disabled fieldsets. Fixes #4426 by @moebrowne</li>
+<li>[PhpBrowser] Fixed <code>amOnUrl</code> with empty path component. If path component was empty, it used previous url. Fixes #4383 by @Naktibalda</li>
+<li>[Db] Improved postgres cleanup (recreate schema) by @samusenkoiv</li>
+<li>[Laravel5] Don't duplicate associative array fields on form submission. See #4414 by @guidocella</li>
+<li>[WebDriver] Fixed <code>webDriver-&gt;getCapabilities()</code> for <code>facebook/php-webdriver</code> &lt; 1.3 (could happen on PHP 5.4, 5.5). Fixes #4435</li>
+<li>[WebDriver] Make <code>wait</code> accept fractional amount of seconds to wait for less than a second. By @gvlasov</li>
+<li>[Laravel5] Changing params loader to use <code>$_SERVER</code> global instead of <code>$_ENV</code>. See #4401 by @EricTendian</li>
+<li>[Mongo] Fixes <code>haveInCollection</code> using <code>__toString</code>. See #4442 by @samusenkoiv</li>
+<li>Dereferencing variables for Steps output. Fixes #4402 by @alambe</li>
+<li>[Symfony] Load persistent services before loading profiler. See #4437 by @samusenkoiv</li>
+</ul>
+<h4>2.3.4 <span id="234"></span><a href="#234" class="hashlink">&para;</a></h4><ul>
+<li>Added <code>@prepare</code> annotation to make realtime configuration for tests in Cest and Test classes. <a href="http://codeception.com/docs/06-ModulesAndHelpers#Runtime-Configuration-of-a-Test">See documentation</a>.</li>
+</ul>
+<p> Example: disabling Doctrine2 database transaction for a test</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/**<span class="hljs-doctag">@prepare</span> disableTransactions */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testDoctrine</span><span class="hljs-params">()</span>
+</span>{
+}
+
+<span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">disableTransactions</span><span class="hljs-params">(Doctrine2 <span class="hljs-variable">$module</span>)</span>
+</span>{
+   <span class="hljs-variable">$module</span>-&gt;_reconfigure([<span class="hljs-string">'cleanup'</span> =&gt; <span class="hljs-keyword">false</span>]);
+}
+</code></pre>
+<ul>
+<li>[WebDriver] <strong>SmartWait</strong>. Automatically waits for a few extra seconds for element to appear on a page before failing. Can reduce high usage of <code>wait*</code> methods. <a href="http://codeception.com/docs/03-AcceptanceTests#SmartWait">See Documentation</a></li>
+<li>Added <a href="http://codeception.com/extensions#RunProcess">RunProcess extension</a>. Use it to start/stop Selenium (or other process) automatically for a test suite.</li>
+<li>[WebDriver] Customization improvements:<ul>
+<li>added <code>start</code> option to disable autostart of a browser for tests. (can be useful for Cloud testing setups)</li>
+<li>added <code>_capabilities</code> method for setting desired capabilities in runtime (can be combined with <code>@prepare</code> annotation)</li>
+<li><code>_initializeSession</code> and <code>_closeSession</code> can be used in Helpers to start and stop browser manually (combine with <code>start: false</code> config)</li>
+</ul>
+</li>
+<li>Fixed running a single test from a global config when using included configs. See #4366 by @zebraf1 (improves PhpStorm integration)</li>
+<li>[Doctrine2][Laravel5][Yii2][Phalcon] Print debug information for started/stopped transactions in tests. See #4352</li>
+<li>[PhpBrowser][Frameworks] click with context respects base tag #4330 by @Naktibalda.</li>
+<li>[Yii2] Split <code>cleanup</code> configuration option (backward-compatible): (#4379 by @leandrogehlen)<ul>
+<li><code>cleanup</code> - to cleanup loaded fixtures</li>
+<li><code>transaction</code> - wrap tes into transaction</li>
+</ul>
+</li>
+<li>[Asserts] Added <code>assertStringStartsWith</code> and <code>assertArraySubset</code> by @guidocella</li>
+<li>[Db] Added <code>updateInDatabase</code> method by @eXorus. See #4385</li>
+<li>In helpers and modules to check <code>$module::$excludeActions</code> property for existence before accessing it. Fixes #4381 by @CactusCoder</li>
+<li>[Symfony] Fixed printing debug response when <code>Symfony::extractRawRoles()</code> failed on security collector (Symfony &gt;= 3.3) #4309 by @Basster</li>
+<li>[Laravel5] Fixed bug with <code>disable_exception_handling</code> functionality. See #4370. By @janhenkgerritsen</li>
+<li>[Db] Added <code>grabColumnFromDatabase</code> to fetches values from the column in database. By @RebOOter</li>
+</ul>
+<h4>2.3.3 <span id="233"></span><a href="#233" class="hashlink">&para;</a></h4><ul>
+<li>Fixed running with <code>--coverage</code>, <code>--xml</code>, <code>--html</code> options without parameters (Symfony Console 3.3 compatibility).</li>
+<li>Removed <code>files</code> section from <code>composer.json</code> (regression from 2.3.2) to avoid unintentionally loading shim files. Fixes <a href="https://github.com/yiisoft/yii2/issues/14226">Yii migration issue</a>.</li>
+<li>[WebDriver] <code>saveScreenshot</code> allows to save screenshots with no name passed in. See #4263 by @eXorus</li>
+<li>[REST][PhpBrowser] Fixed #4287, using empty values for headers by @tobiastom.</li>
+<li>Phar <code>self-update</code> downloads php5.4 build if php version &lt;7.0. Fixes #4269</li>
+</ul>
+<h4>2.3.2 <span id="232"></span><a href="#232" class="hashlink">&para;</a></h4><ul>
+<li>[Db] Fixed: Database has been cleaned up between tests even with <code>cleanup: false</code>.</li>
+<li>[Db] Made <code>dump</code> optional if <code>populator</code> is set. Fixes #4247</li>
+<li>Fixed <code>generate:suite</code> command to create a directory for the suite. Fixes #4251</li>
+<li>Fixed composer autoloading with PHPUnit 6 by @enumag. See #4262</li>
+</ul>
+<h4>2.3.1 <span id="231"></span><a href="#231" class="hashlink">&para;</a></h4><ul>
+<li>Updated composer constraints to include PHPUnit 6.x</li>
+</ul>
+<h4>2.3.0 <span id="230"></span><a href="#230" class="hashlink">&para;</a></h4><ul>
+<li><strong>PHPUnit 6.x</strong> support #4142 by @MontealegreLuis. Class aliases are used, so PHPUnit 4.x and 5.x (for PHP &lt;7) are still supported as well.</li>
+<li>Suite customization. <a href="/05-22-2017/codeception-2-3.html#configuration-improvements">Announcement</a></li>
+<li>Installation Templates. <a href="/05-22-2017/codeception-2-3.html#installation-templates">Announcement</a></li>
+<li>DotReporter introduced. Use it with<pre><code class="hljs nginx"><span class="hljs-title">codecept</span> run --ext DotReporter
+</code></pre>
+</li>
+<li><code>--ext</code> parameter added to load extensions dynamically.</li>
+<li>Db Populator <a href="/05-22-2017/codeception-2-3.html#db-populator">Announcement</a> by @brutuscat</li>
+<li>[Db] New configuration defaults, cleanups are disabled: <code>cleanup: false</code>, <code>populate: false</code>. Enable them to load dumps between tests.</li>
+<li>[Redis] New configuration defaults, cleanups are disabled: <code>cleanupBefore: 'never'</code> by @hchonan</li>
+<li>Command <code>generate:phpunit</code> removed.</li>
+<li>Bootstrap <code>_bootstrap.php</code> files are disabled by default.</li>
+<li>Configuration changes: <code>actor</code> replaced with <code>actor_suffix</code> in global config</li>
+<li>Configuration changes: <code>class_name</code> replaced with <code>actor</code> in suite config</li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

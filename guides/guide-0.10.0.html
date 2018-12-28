@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w484" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w484-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w484-collapse" class="collapse navbar-collapse"><ul id="w485" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-468" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-468" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-469" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-469" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-470" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-470" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-471" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-471" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-472" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-472" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-473" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-473" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-474" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-474" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-475" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-475" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-476" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-476" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-477" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-477" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-478" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-478" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-479" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-479" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-480" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-480" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-481" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-481" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-482" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-482" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-483" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-483" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Migrating to typeahead.js v0.10.0 <span id="migrating-to-typeaheadjs-v0100"></span><a href="#migrating-to-typeaheadjs-v0100" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#preamble">Preamble</a></li>
+<li><a href="#notable-changes">Notable Changes</a></li>
+<li><a href="#something-missing">Something Missing?</a></li></ol></div>
+<h2>Preamble <span id="preamble"></span><a href="#preamble" class="hashlink">&para;</a></h2><p>v0.10.0 of typeahead.js ended up being almost a complete rewrite. Many things 
+stayed the same, but there were a handful of changes you need to be aware of 
+if you plan on upgrading from an older version. This document aims to call out 
+those changes and explain what you need to do in order to have an painless 
+upgrade.</p>
+<h2>Notable Changes <span id="notable-changes"></span><a href="#notable-changes" class="hashlink">&para;</a></h2><h3>First Argument to the jQuery Plugin <span id="first-argument-to-the-jquery-plugin"></span><a href="#first-argument-to-the-jquery-plugin" class="hashlink">&para;</a></h3><p>In v0.10.0, the first argument to <code>jQuery#typeahead</code> is an options hash that
+can be used to configure the behavior of the typeahead. This is in contrast
+to previous versions where <code>jQuery#typeahead</code> expected just a series of datasets
+to be passed to it:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// pre-v0.10.0</span>
+$(<span class="hljs-string">'.typeahead'</span>).typeahead(myDataset);
+
+<span class="hljs-comment">// v0.10.0</span>
+$(<span class="hljs-string">'.typeahead'</span>).typeahead({
+  highlight: <span class="hljs-literal">true</span>,
+  hint: <span class="hljs-literal">false</span>
+}, myDataset);
+</code></pre>
+<p>If you're fine with the default configuration, you can just pass <code>null</code> as the 
+first argument:</p>
+<pre><code class="hljs javascript language-javascript">$(<span class="hljs-string">'.typeahead'</span>).typeahead(<span class="hljs-literal">null</span>, myDataset);
+</code></pre>
+<h3>Bloodhound Suggestion Engine <span id="bloodhound-suggestion-engine"></span><a href="#bloodhound-suggestion-engine" class="hashlink">&para;</a></h3><p>The most notable change in v0.10.0 is that typeahead.js has been decomposed into
+a suggestion engine and a UI view. As part of this change, the way you configure
+datasets has changed. Previously, a dataset config would have looked like:</p>
+<pre><code class="hljs javascript language-javascript">{
+  valueKey: <span class="hljs-string">'num'</span>,
+  local: [{ num: <span class="hljs-string">'one'</span> }, { num: <span class="hljs-string">'two'</span> }, { num: <span class="hljs-string">'three'</span> }],
+  prefetch: <span class="hljs-string">'/prefetch'</span>,
+  remote: <span class="hljs-string">'/remote?q=%QUERY'</span>
+}
+</code></pre>
+<p>In v0.10.0, an equivalent dataset config would look like:</p>
+<pre><code class="hljs javascript language-javascript">{
+ displayKey: <span class="hljs-string">'num'</span>,
+ source: mySource
+}
+</code></pre>
+<p>As you can see, <code>local</code>, <code>prefetch</code>, and <code>remote</code> are no longer defined at the 
+dataset level. Instead, all you set in a dataset config is <code>source</code>. <code>source</code> is
+expected to be a function with the signature <code>function(query, callback)</code>. When a
+typeahead's query changes, suggestions will be requested from  <code>source</code>. It's
+expected <code>source</code> will compute the suggestion set and invoke <code>callback</code> with an array
+of suggestion objects. The typeahead will then go on to render those suggestions.</p>
+<p>If you're wondering if you can still configure <code>local</code>, <code>prefetch</code>, and 
+<code>remote</code>, don't worry, that's where the Bloodhound suggestion engine comes in.
+Here's how you would define <code>mySource</code> which was referenced in the previous 
+code snippet:</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mySource = <span class="hljs-keyword">new</span> Bloodhound({
+  datumTokenizer: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">d</span>) </span>{ 
+    <span class="hljs-keyword">return</span> Bloodhound.tokenizers.whitespace(d.num); 
+  },
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  local: [{ num: <span class="hljs-string">'one'</span> }, { num: <span class="hljs-string">'two'</span> }, { num: <span class="hljs-string">'three'</span> }],
+  prefetch: <span class="hljs-string">'/prefetch'</span>,
+  remote: <span class="hljs-string">'/remote?q=%QUERY'</span>
+});
+
+<span class="hljs-comment">// this kicks off the loading and processing of local and prefetch data</span>
+<span class="hljs-comment">// the suggestion engine will be useless until it is initialized</span>
+mySource.initialize();
+</code></pre>
+<p>In the above snippet, a Bloodhound suggestion engine is initialized and that's 
+what will be used as the source of your dataset. There's still one last thing
+that needs to be done before you can use a Bloodhound suggestion engine as the 
+source of a dataset. Because datasets expect <code>source</code> to be function, the 
+Bloodhound instance needs to be wrapped in an adapter so it can meet that 
+expectation.</p>
+<pre><code class="hljs nginx"><span class="hljs-title">mySource</span> = mySource.ttAdapter();
+</code></pre>
+<p>Put it all together:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> mySource = <span class="hljs-keyword">new</span> Bloodhound({
+  datumTokenizer: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">d</span>) </span>{ 
+    <span class="hljs-keyword">return</span> Bloodhound.tokenizers.whitespace(d.num); 
+  },
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  local: [{ num: <span class="hljs-string">'one'</span> }, { num: <span class="hljs-string">'two'</span> }, { num: <span class="hljs-string">'three'</span> }],
+  prefetch: <span class="hljs-string">'/prefetch'</span>,
+  remote: <span class="hljs-string">'/remote?q=%QUERY'</span>
+});
+
+mySource.initialize();
+
+$(<span class="hljs-string">'.typeahead'</span>).typeahead(<span class="hljs-literal">null</span>, {
+  displayKey: <span class="hljs-string">'num'</span>,
+  source: mySource.ttAdapter()
+});
+</code></pre>
+<h3>Tokenization Methods Must Be Provided <span id="tokenization-methods-must-be-provided"></span><a href="#tokenization-methods-must-be-provided" class="hashlink">&para;</a></h3><p>The Bloodhound suggestion engine is token-based, so how datums and queries are
+tokenized plays a vital role in the quality of search results. Pre-v0.10.0,
+it was not possible to configure the tokenization method. Starting in v0.10.0,
+you <strong>must</strong> specify how you want datums and queries tokenized. </p>
+<p>The most common tokenization methods split a given string on whitespace or 
+non-word characters. Bloodhound provides implementations for those methods
+out of the box:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// returns ['one', 'two', 'twenty-five']</span>
+Bloodhound.tokenizers.whitespace(<span class="hljs-string">'  one two  twenty-five'</span>);
+
+<span class="hljs-comment">// returns ['one', 'two', 'twenty', 'five']</span>
+Bloodhound.tokenizers.nonword(<span class="hljs-string">'  one two  twenty-five'</span>);
+</code></pre>
+<p>For query tokenization, you'll probably want to use one of the above methods.
+For datum tokenization, this is where you may want to do something a tad bit
+more advanced.</p>
+<p>For datums, sometimes you want tokens to be dervied from more than one property. 
+For example, if you were building a search engine for GitHub repositories, it'd 
+probably be wise to have tokens derived from the repo's name, owner, and 
+primary language:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> repos = [
+  { name: <span class="hljs-string">'example'</span>, owner: <span class="hljs-string">'John Doe'</span>, language: <span class="hljs-string">'JavaScript'</span> },
+  { name: <span class="hljs-string">'another example'</span>, owner: <span class="hljs-string">'Joe Doe'</span>, language: <span class="hljs-string">'Scala'</span> }
+];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">customTokenizer</span>(<span class="hljs-params">datum</span>) </span>{
+  <span class="hljs-keyword">var</span> nameTokens = Bloodhound.tokenizers.whitespace(datum.name);
+  <span class="hljs-keyword">var</span> ownerTokens = Bloodhound.tokenizers.whitespace(datum.owner);
+  <span class="hljs-keyword">var</span> languageTokens = Bloodhound.tokenizers.whitespace(datum.language);
+
+  <span class="hljs-keyword">return</span> nameTokens.concat(ownerTokens).concat(languageTokens);
+}
+</code></pre>
+<p>There may also be the scenario where you want datum tokenization to be performed
+on the backend. The best way to do that is to just add a property to your datums 
+that contains those tokens. You can then provide a tokenizer that just returns 
+the already existing tokens:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> sports = [
+  { value: <span class="hljs-string">'football'</span>, tokens: [<span class="hljs-string">'football'</span>, <span class="hljs-string">'pigskin'</span>] },
+  { value: <span class="hljs-string">'basketball'</span>, tokens: [<span class="hljs-string">'basketball'</span>, <span class="hljs-string">'bball'</span>] }
+];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">customTokenizer</span>(<span class="hljs-params">datum</span>) </span>{ <span class="hljs-keyword">return</span> datum.tokens; }
+</code></pre>
+<p>There are plenty of other ways you could go about tokenizing datums, it really
+just depends on what you are trying to accomplish.</p>
+<h3>String Datums Are No Longer Supported <span id="string-datums-are-no-longer-supported"></span><a href="#string-datums-are-no-longer-supported" class="hashlink">&para;</a></h3><p>Dropping support for string datums was a difficult choice, but in the end it
+made sense for a number of reasons. If you still want to hydrate the suggestion 
+engine with string datums, you'll need to use the <code>filter</code> function:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> engine = <span class="hljs-keyword">new</span> Bloodhound({
+  prefetch: {
+    url: <span class="hljs-string">'/data'</span>,
+    filter: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+      <span class="hljs-comment">// assume data is an array of strings e.g. ['one', 'two', 'three']</span>
+      <span class="hljs-keyword">return</span> $.map(data, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str</span>) </span>{ <span class="hljs-keyword">return</span> { value: str }; });
+    },
+    datumTokenizer: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">d</span>) </span>{ 
+      <span class="hljs-keyword">return</span> Bloodhound.tokenizers.whitespace(d.value); 
+    },
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+  }
+});
+</code></pre>
+<h3>Precompiled Templates Are Now Required <span id="precompiled-templates-are-now-required"></span><a href="#precompiled-templates-are-now-required" class="hashlink">&para;</a></h3><p>In previous versions of typeahead.js, you could specify a string template along
+with the templating engine that should be used to compile/render it. In 
+v0.10.0, you can no longer specify templating engines; instead you must provide
+precompiled templates. Precompiled templates are functions that take one 
+argument: the context the template should be rendered with. </p>
+<p>Most of the popular templating engines allow for the creation of precompiled 
+templates. For example, you can generate one using Handlebars by doing the
+following:</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> precompiledTemplate = Handlebars.compile(<span class="hljs-string">'&lt;p&gt;{{value}}&lt;/p&gt;'</span>);
+</code></pre>
+<h3>CSS Class Changes <span id="css-class-changes"></span><a href="#css-class-changes" class="hashlink">&para;</a></h3><p><code>tt-is-under-cursor</code> is now <code>tt-cursor</code> - Applied to a hovered-on suggestion (either via cursor or arrow key).</p>
+<p><code>tt-query</code> is now <code>tt-input</code> - Applied to the typeahead input field.</p>
+<h2>Something Missing? <span id="something-missing"></span><a href="#something-missing" class="hashlink">&para;</a></h2><p>If something is missing from this migration guide, pull requests are accepted :)</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:55 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

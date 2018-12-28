@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w3004" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w3004-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w3004-collapse" class="collapse navbar-collapse"><ul id="w3005" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2988" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2988" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2989" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2989" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2990" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2990" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2991" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2991" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2992" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2992" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2993" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2993" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2994" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2994" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2995" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2995" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2996" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2996" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2997" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2997" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2998" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2998" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2999" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2999" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3000" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-3000" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3001" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-3001" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3002" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-3002" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3003" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-3003" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h2>Codeception\InitTemplate <span id="codeceptioninittemplate"></span><a href="#codeceptioninittemplate" class="hashlink">&para;</a></h2><ul>
+<li><em>Uses</em> <code>Codeception\Command\Shared\FileSystem</code>, <code>Codeception\Command\Shared\Style</code></li>
+</ul>
+<p>Codeception templates allow creating a customized setup and configuration for your project.
+An abstract class for installation template. Each init template should extend it and implement a <code>setup</code> method.
+Use it to build a custom setup class which can be started with <code>codecept init</code> command.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Codeception</span>\<span class="hljs-title">Template</span>; <span class="hljs-comment">// it is important to use this namespace so codecept init could locate this template</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomInstall</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">InitTemplate</span>
+</span>{
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span>
+     </span>{
+        <span class="hljs-comment">// implement this</span>
+     }
+}
+</code></pre>
+<p>This class provides various helper methods for building customized setup</p>
+<h4>__construct() <span id="construct"></span><a href="#construct" class="hashlink">&para;</a></h4><p> <em>public</em> __construct($input, $output) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L65">See source</a></p>
+<h4>addStyles() <span id="addstyles"></span><a href="#addstyles" class="hashlink">&para;</a></h4><p> <em>public</em> addStyles($output) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Command/Shared/Style.php#L9">See source</a></p>
+<h4>ask() <span id="ask"></span><a href="#ask" class="hashlink">&para;</a></h4><p> <em>protected</em> ask($question, $answer = null) </p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// propose firefox as default browser</span>
+<span class="hljs-variable">$this</span>-&gt;ask(<span class="hljs-string">'select the browser of your choice'</span>, <span class="hljs-string">'firefox'</span>);
+
+<span class="hljs-comment">// propose firefox or chrome possible options</span>
+<span class="hljs-variable">$this</span>-&gt;ask(<span class="hljs-string">'select the browser of your choice'</span>, [<span class="hljs-string">'firefox'</span>, <span class="hljs-string">'chrome'</span>]);
+
+<span class="hljs-comment">// ask true/false question</span>
+<span class="hljs-variable">$this</span>-&gt;ask(<span class="hljs-string">'do you want to proceed (y/n)'</span>, <span class="hljs-keyword">true</span>);
+</code></pre>
+<ul>
+<li><code>param</code> $question</li>
+<li><code>param null</code> $answer</li>
+<li><code>return</code> mixed|string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L107">See source</a></p>
+<h4>breakParts() <span id="breakparts"></span><a href="#breakparts" class="hashlink">&para;</a></h4><p> <em>protected</em> breakParts($class) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Namespaces.php#L6">See source</a></p>
+<h4>checkInstalled() <span id="checkinstalled"></span><a href="#checkinstalled" class="hashlink">&para;</a></h4><p> <em>protected</em> checkInstalled($dir = null) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L208">See source</a></p>
+<h4>completeSuffix() <span id="completesuffix"></span><a href="#completesuffix" class="hashlink">&para;</a></h4><p> <em>protected</em> completeSuffix($filename, $suffix) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Command/Shared/FileSystem.php#L25">See source</a></p>
+<h4>createActor() <span id="createactor"></span><a href="#createactor" class="hashlink">&para;</a></h4><p> <em>protected</em> createActor($name, $directory, $suiteConfig) </p>
+<p>Create an Actor class and generate actions for it.
+Requires a suite config as array in 3rd parameter.</p>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>param</code> $directory</li>
+<li><code>param</code> $suiteConfig</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L223">See source</a></p>
+<h4>createDirectoryFor() <span id="createdirectoryfor"></span><a href="#createdirectoryfor" class="hashlink">&para;</a></h4><p> <em>protected</em> createDirectoryFor($basePath, $className = null) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Command/Shared/FileSystem.php#L10">See source</a></p>
+<h4>createEmptyDirectory() <span id="createemptydirectory"></span><a href="#createemptydirectory" class="hashlink">&para;</a></h4><p> <em>protected</em> createEmptyDirectory($dir) </p>
+<p>Create an empty directory and add a placeholder file into it</p>
+<ul>
+<li><code>param</code> $dir</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L195">See source</a></p>
+<h4>createFile() <span id="createfile"></span><a href="#createfile" class="hashlink">&para;</a></h4><p> <em>protected</em> createFile($filename, $contents, $force = null, $flags = null) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Command/Shared/FileSystem.php#L46">See source</a></p>
+<h4>createHelper() <span id="createhelper"></span><a href="#createhelper" class="hashlink">&para;</a></h4><p> <em>protected</em> createHelper($name, $directory) </p>
+<p>Create a helper class inside a directory</p>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>param</code> $directory</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L174">See source</a></p>
+<h4>getNamespaceHeader() <span id="getnamespaceheader"></span><a href="#getnamespaceheader" class="hashlink">&para;</a></h4><p> <em>protected</em> getNamespaceHeader($class) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Namespaces.php#L31">See source</a></p>
+<h4>getNamespaceString() <span id="getnamespacestring"></span><a href="#getnamespacestring" class="hashlink">&para;</a></h4><p> <em>protected</em> getNamespaceString($class) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Namespaces.php#L25">See source</a></p>
+<h4>getNamespaces() <span id="getnamespaces"></span><a href="#getnamespaces" class="hashlink">&para;</a></h4><p> <em>protected</em> getNamespaces($class) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Namespaces.php#L40">See source</a></p>
+<h4>getShortClassName() <span id="getshortclassname"></span><a href="#getshortclassname" class="hashlink">&para;</a></h4><p> <em>protected</em> getShortClassName($class) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Namespaces.php#L19">See source</a></p>
+<h4>gitIgnore() <span id="gitignore"></span><a href="#gitignore" class="hashlink">&para;</a></h4><p> <em>protected</em> gitIgnore($path) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L201">See source</a></p>
+<h4>initDir() <span id="initdir"></span><a href="#initdir" class="hashlink">&para;</a></h4><p> <em>public</em> initDir($workDir) </p>
+<p>Change the directory where Codeception should be installed.</p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L75">See source</a></p>
+<h4>removeSuffix() <span id="removesuffix"></span><a href="#removesuffix" class="hashlink">&para;</a></h4><p> <em>protected</em> removeSuffix($classname, $suffix) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Command/Shared/FileSystem.php#L40">See source</a></p>
+<h4>say() <span id="say"></span><a href="#say" class="hashlink">&para;</a></h4><p> <em>protected</em> say($message = null) </p>
+<p>Print a message to console.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$this</span>-&gt;say(<span class="hljs-string">'Welcome to Setup'</span>);
+</code></pre>
+<ul>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L136">See source</a></p>
+<h4>sayInfo() <span id="sayinfo"></span><a href="#sayinfo" class="hashlink">&para;</a></h4><p> <em>protected</em> sayInfo($message) </p>
+<p>Print info message</p>
+<ul>
+<li><code>param</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L163">See source</a></p>
+<h4>saySuccess() <span id="saysuccess"></span><a href="#saysuccess" class="hashlink">&para;</a></h4><p> <em>protected</em> saySuccess($message) </p>
+<p>Print a successful message</p>
+<ul>
+<li><code>param</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L145">See source</a></p>
+<h4>sayWarning() <span id="saywarning"></span><a href="#saywarning" class="hashlink">&para;</a></h4><p> <em>protected</em> sayWarning($message) </p>
+<p>Print warning message</p>
+<ul>
+<li><code>param</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L154">See source</a></p>
+<h4>setup() <span id="setup"></span><a href="#setup" class="hashlink">&para;</a></h4><p> <em>abstract public</em> setup() </p>
+<p>Override this class to create customized setup.</p>
+<ul>
+<li><code>return</code> mixed</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php#L88">See source</a></p>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/InitTemplate.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:59 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

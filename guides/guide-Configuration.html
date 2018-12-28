@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2932" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2932-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2932-collapse" class="collapse navbar-collapse"><ul id="w2933" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2916" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2916" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2917" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2917" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2918" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2918" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2919" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2919" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2920" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2920" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2921" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2921" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2922" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2922" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2923" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2923" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2924" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2924" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2925" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2925" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2926" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2926" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2927" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2927" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2928" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2928" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2929" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2929" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2930" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2930" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2931" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2931" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#global-configuration">Global Configuration</a></li>
+<li><a href="#suite-configuration">Suite Configuration</a></li>
+<li><a href="#config-templates-dist">Config Templates (dist)</a></li></ol></div>
+<h2>Global Configuration <span id="global-configuration"></span><a href="#global-configuration" class="hashlink">&para;</a></h2><p>Configuration file <code>codeception.yml</code> is generated by <code>codecept bootstrap</code> command. It has preconfigured settings you can change.</p>
+<p>Here are global options you can change inside configuration:</p>
+<ul>
+<li><code>actor: Tester</code>: changes suffix for Actor classes. This defines a rule to generate new test suites. If you change <code>Tester</code> to <code>Ninja</code>, and generate new <code>api</code> test suite, you will get <code>ApiNinja</code> actor class.</li>
+<li><code>namespace</code>: set a namespace for tests. All new tests and support classes will be generated under that namespace. Allows to configure <a href="http://codeception.com/docs/08-Customization#Namespaces">multiple test setups for one runner</a>.</li>
+<li><code>include: []</code>: include additional Codeception configurations for <a href="http://codeception.com/docs/08-Customization#Namespaces">multiple applications setup</a>.</li>
+<li><code>paths</code> directories used by Codeception. Default values are:</li>
+</ul>
+<pre><code class="language-yaml">paths:
+    # where the tests stored
+    tests: tests
+
+    # directory for fixture data
+    data: tests/_data
+
+    # directory for support code
+    support: tests/_support
+
+    # directory for output
+    output: tests/_output
+
+    # directory for environment configuration
+    envs: tests/_envs
+</code></pre>
+<ul>
+<li><code>settings</code>: provide additional options for test runner. They may dramatically change the way Codeception is executed. For instance, take a note of <code>shuffle</code> option which allows to randomize tests execution order and <code>lint</code> option that toggles parsing a test file (using <code>php -l</code>) before loading it.</li>
+</ul>
+<pre><code class="language-yaml">settings:
+
+    # name of bootstrap that will be used
+    # each bootstrap file should be
+    # inside a suite directory.
+    bootstrap: _bootstrap.php
+
+    # enable/disable syntax of test files before loading
+    # for php &lt; 7 exec('php -l') is used
+    # disable if you need to speed up tests execution
+    lint: true
+
+    # randomize test order
+    shuffle: true
+
+    # by default it's false on Windows
+    # use [ANSICON](https://github.com/adoxa/ansicon) to colorize output.
+    colors: true
+
+    # Generate XML JUnit report using strict schema
+    # Avoid putting additional report fields like steps or scenario names tot it
+    # Required for XML reports on Jenkins CI
+    strict_xml: false
+
+    # Tests (especially functional) can take a lot of memory
+    # We set a high limit for them by default.
+    memory_limit: 1024M
+
+    # This value controls whether PHPUnit attempts to backup global variables
+    # See https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
+    backup_globals: true
+
+    # PHPUnit can be strict about tests that do not test anything
+    # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
+    report_useless_tests: false
+
+    # PHPUnit can be strict about output during tests.
+    # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
+    disallow_test_output: false
+
+    # PHPUnit can be strict about tests that manipulate global state.
+    # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
+    be_strict_about_changes_to_global_state: false
+
+    # Log the incomplete and skipped tests into junit report
+    # See https://phpunit.de/manual/current/en/appendixes.configuration.html
+    # Section logging &gt; junit
+    log_incomplete_skipped: false
+</code></pre>
+<ul>
+<li><code>modules</code>: allows to create shared module configuration for all included suites.</li>
+</ul>
+<pre><code class="language-yaml">modules:
+    config:
+        Db:
+            dsn: ''
+            user: ''
+            password: ''
+            dump: tests/_data/dump.sql
+</code></pre>
+<ul>
+<li><code>extends</code>: allows you to specify a file (relative to the <code>codeception.yml</code> file) that holds some already pre-defined values. This can be used to always use the same configuration for modules or whatever.</li>
+<li><code>extensions</code>: allows to enable and configure <a href="http://codeception.com/docs/08-Customization#Extension">Codeception extensions</a>, <a href="http://codeception.com/docs/08-Customization#Group-Objects">Group Objects</a>, and <a href="http://codeception.com/docs/08-Customization#Custom-Commands">Custom Commands</a>.</li>
+<li><code>reporters</code>: allows to <a href="http://codeception.com/docs/08-Customization#Custom-Reporters">change default reporters</a> of Codeception</li>
+<li><code>coverage</code>: <a href="http://codeception.com/docs/11-Codecoverage#Configuration">CodeCoverage</a> settings.</li>
+<li><code>params</code>: allows to pass <a href="http://codeception.com/docs/06-ModulesAndHelpers#Dynamic-Configuration-With-Params">external parameters</a> into module configuration.</li>
+<li><code>gherkin</code>: BDD-specific <a href="http://codeception.com/docs/07-BDD#Configuration">Gherkin options</a>.</li>
+</ul>
+<h2>Suite Configuration <span id="suite-configuration"></span><a href="#suite-configuration" class="hashlink">&para;</a></h2><p>Each generated suite have its own configuration inside directory set by <code>paths: tests: </code> configuration option in <code>codeception.yml</code>. Each suite configuration is named like <code>suitename.suite.yml</code>. It allows to enable and configure modules, and more.</p>
+<ul>
+<li><code>actor</code>: name of the actor class for current suite.</li>
+<li><code>modules</code>: list of enabled modules with their configuration.</li>
+</ul>
+<pre><code class="language-yaml">modules:
+    # enabled modules and helpers
+    enabled:
+        # built-in modules are listed by their names
+        - PhpBrowser:
+            # module configuration
+            url: http://localhost
+        # this module is pre-configured in global config
+        - Db
+
+        # helper names are listed by their class names
+        # by convention their names start with \
+        - \Helper\Acceptance
+
+    # additional modules configuration
+    # can be used for modules which are not currently enabled
+    config:
+        WebDriver:
+            browser: firefox
+
+    # list of modules disabled for this suite
+    disabled:
+        - WebDriver
+
+</code></pre>
+<ul>
+<li><code>extends</code>: allows you to specify a file (relative to the <code>*.suite.yml</code> file) that holds some already pre-defined values. This can be used to always use the same configuration for modules or whatever.</li>
+<li><code>namespace</code>: default namespace of actor, support classes and tests.</li>
+<li><code>suite_namespace</code>: default namespace for new tests of this suite (ignores <code>namespace</code> option)</li>
+<li><code>env</code>: override any configuration per <a href="http://codeception.com/docs/07-AdvancedUsage#Environments">environment</a>.</li>
+<li><code>groups</code>: <a href="http://codeception.com/docs/07-AdvancedUsage#Groups">groups</a> with the list of tests of for corresponding group.</li>
+<li><code>formats</code>: <a href="http://codeception.com/docs/07-AdvancedUsage#Formats">formats</a> with the list of extra test format classes.</li>
+<li><code>coverage</code>: pre suite <a href="http://codeception.com/docs/11-Codecoverage#Configuration">CodeCoverage</a> settings.</li>
+<li><code>gherkin</code>: per suite <a href="http://codeception.com/docs/07-BDD#Configuration">BDD Gherkin</a> settings.</li>
+<li><code>error_level</code>: <a href="http://codeception.com/docs/04-FunctionalTests#Error-Reporting">error level</a> for runner in current suite. Should be specified for unit, integration, functional tests. Passes value to <code>error_reporting</code> function.</li>
+</ul>
+<h2>Config Templates (dist) <span id="config-templates-dist"></span><a href="#config-templates-dist" class="hashlink">&para;</a></h2><p>To provide the same configuration template for your development team, you can create a <code>codeception.dist.yml</code> config file, which will be loaded before <code>codeception.yml</code>. The dist config provides shared options, while local <code>codeception.yml</code> files override them on a per-installation basis. Therefore, <code>codeception.yml</code> should be ignored by your VCS system.</p>
+<p>Config templates can also be used for suite configuration, by creating a <code>suitename.suite.dist.yml</code> file.</p>
+<p>Configuration loading order:</p>
+<ol>
+<li><code>codeception.dist.yml</code></li>
+<li><code>codeception.yml</code></li>
+<li><code>acceptance.suite.dist.yml</code></li>
+<li><code>acceptance.suite.yml</code></li>
+<li>environment config</li>
+</ol>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:59 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

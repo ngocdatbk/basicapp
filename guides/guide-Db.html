@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2446" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2446-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2446-collapse" class="collapse navbar-collapse"><ul id="w2447" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2430" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2430" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2431" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2431" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2432" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2432" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2433" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2433" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2434" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2434" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2435" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2435" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2436" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2436" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2437" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2437" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2438" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2438" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2439" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2439" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2440" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2440" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2441" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2441" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2442" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2442" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2443" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2443" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2444" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2444" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2445" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2445" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Db <span id="db"></span><a href="#db" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#config">Config</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#example-with-multi-dumps">Example with multi-dumps</a></li>
+<li><a href="#example-with-multi-databases">Example with multi-databases</a></li>
+<li><a href="#sql-data-dump">SQL data dump</a></li>
+<li><a href="#query-generation">Query generation</a></li>
+<li><a href="#public-properties">Public Properties</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Access a database.</p>
+<p>The most important function of this module is to clean a database before each test.
+This module also provides actions to perform checks in a database, e.g. <a href="http://codeception.com/docs/modules/Db#seeInDatabase">seeInDatabase()</a></p>
+<p>In order to have your database populated with data you need a raw SQL dump.
+Simply put the dump in the <code>tests/_data</code> directory (by default) and specify the path in the config.
+The next time after the database is cleared, all your data will be restored from the dump.
+Don't forget to include <code>CREATE TABLE</code> statements in the dump.</p>
+<p>Supported and tested databases are:</p>
+<ul>
+<li>MySQL</li>
+<li>SQLite (i.e. just one file)</li>
+<li>PostgreSQL</li>
+</ul>
+<p>Also available:</p>
+<ul>
+<li>MS SQL</li>
+<li>Oracle</li>
+</ul>
+<p>Connection is done by database Drivers, which are stored in the <code>Codeception\Lib\Driver</code> namespace.
+<a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Lib/Driver">Check out the drivers</a>
+if you run into problems loading dumps and cleaning databases.</p>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><ul>
+<li>dsn <em>required</em> - PDO DSN</li>
+<li>user <em>required</em> - username to access database</li>
+<li>password <em>required</em> - password</li>
+<li>dump - path to database dump</li>
+<li>populate: false - whether the the dump should be loaded before the test suite is started</li>
+<li>cleanup: false - whether the dump should be reloaded before each test</li>
+<li>reconnect: false - whether the module should reconnect to the database before each test</li>
+<li>waitlock: 0 - wait lock (in seconds) that the database session should use for DDL statements</li>
+<li>ssl_key - path to the SSL key (MySQL specific, @see <a href="http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-key">http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-key</a>)</li>
+<li>ssl_cert - path to the SSL certificate (MySQL specific, @see <a href="http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-cert">http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-cert</a>)</li>
+<li>ssl_ca - path to the SSL certificate authority (MySQL specific, @see <a href="http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca">http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-ssl-ca</a>)</li>
+<li>ssl_verify_server_cert - disables certificate CN verification (MySQL specific, @see <a href="http://php.net/manual/de/ref.pdo-mysql.php">http://php.net/manual/de/ref.pdo-mysql.php</a>)</li>
+<li>ssl_cipher - list of one or more permissible ciphers to use for SSL encryption (MySQL specific, @see <a href="http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher">http://php.net/manual/de/ref.pdo-mysql.php#pdo.constants.mysql-attr-cipher</a>)</li>
+<li>databases - include more database configs and switch between them in tests.</li>
+</ul>
+<h2>Example <span id="example"></span><a href="#example" class="hashlink">&para;</a></h2><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>:
+      - <span class="hljs-attribute">Db</span>:
+         <span class="hljs-attribute">dsn</span>: <span class="hljs-string">'mysql:host=localhost;dbname=testdb'</span>
+         <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">password</span>: <span class="hljs-string">''</span>
+         <span class="hljs-attribute">dump</span>: <span class="hljs-string">'tests/_data/dump.sql'</span>
+         <span class="hljs-attribute">populate</span>: true
+         <span class="hljs-attribute">cleanup</span>: true
+         <span class="hljs-attribute">reconnect</span>: true
+         <span class="hljs-attribute">waitlock</span>: <span class="hljs-number">10</span>
+         <span class="hljs-attribute">ssl_key</span>: <span class="hljs-string">'/path/to/client-key.pem'</span>
+         <span class="hljs-attribute">ssl_cert</span>: <span class="hljs-string">'/path/to/client-cert.pem'</span>
+         <span class="hljs-attribute">ssl_ca</span>: <span class="hljs-string">'/path/to/ca-cert.pem'</span>
+         <span class="hljs-attribute">ssl_verify_server_cert</span>: false
+         <span class="hljs-attribute">ssl_cipher</span>: <span class="hljs-string">'AES256-SHA'</span>
+</code></pre>
+<h2>Example with multi-dumps <span id="example-with-multi-dumps"></span><a href="#example-with-multi-dumps" class="hashlink">&para;</a></h2><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+     <span class="hljs-attribute">enabled</span>:
+        - <span class="hljs-attribute">Db</span>:
+           <span class="hljs-attribute">dsn</span>: <span class="hljs-string">'mysql:host=localhost;dbname=testdb'</span>
+           <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>
+           <span class="hljs-attribute">password</span>: <span class="hljs-string">''</span>
+           <span class="hljs-attribute">dump</span>:
+              - <span class="hljs-string">'tests/_data/dump.sql'</span>
+              - <span class="hljs-string">'tests/_data/dump-2.sql'</span>
+</code></pre>
+<h2>Example with multi-databases <span id="example-with-multi-databases"></span><a href="#example-with-multi-databases" class="hashlink">&para;</a></h2><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>:
+      - <span class="hljs-attribute">Db</span>:
+         <span class="hljs-attribute">dsn</span>: <span class="hljs-string">'mysql:host=localhost;dbname=testdb'</span>
+         <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">password</span>: <span class="hljs-string">''</span>
+         <span class="hljs-attribute">databases</span>:
+            <span class="hljs-attribute">db2</span>:
+               <span class="hljs-attribute">dsn</span>: <span class="hljs-string">'mysql:host=localhost;dbname=testdb2'</span>
+               <span class="hljs-attribute">user</span>: <span class="hljs-string">'userdb2'</span>
+               <span class="hljs-attribute">password</span>: <span class="hljs-string">''</span>
+</code></pre>
+<h2>SQL data dump <span id="sql-data-dump"></span><a href="#sql-data-dump" class="hashlink">&para;</a></h2><p>There are two ways of loading the dump into your database:</p>
+<h3>Populator <span id="populator"></span><a href="#populator" class="hashlink">&para;</a></h3><p>The recommended approach is to configure a <code>populator</code>, an external command to load a dump. Command parameters like host, username, password, database
+can be obtained from the config and inserted into placeholders:</p>
+<p>For MySQL:</p>
+<pre><code class="language-yaml">modules:
+   enabled:
+      - Db:
+         dsn: 'mysql:host=localhost;dbname=testdb'
+         user: 'root'
+         password: ''
+         dump: 'tests/_data/dump.sql'
+         populate: true # run populator before all tests
+         cleanup: true # run populator before each test
+         populator: 'mysql -u $user -h $host $dbname &lt; $dump'
+</code></pre>
+<p>For PostgreSQL (using pg_restore)</p>
+<pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>:
+      - <span class="hljs-attribute">Db</span>:
+         <span class="hljs-attribute">dsn</span>: <span class="hljs-string">'pgsql:host=localhost;dbname=testdb'</span>
+         <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">password</span>: <span class="hljs-string">''</span>
+         <span class="hljs-attribute">dump</span>: <span class="hljs-string">'tests/_data/db_backup.dump'</span>
+         <span class="hljs-attribute">populate</span>: true # run populator before all tests
+         <span class="hljs-attribute">cleanup</span>: true # run populator before each test
+         <span class="hljs-attribute">populator</span>: <span class="hljs-string">'pg_restore -u $user -h $host -D $dbname &lt; $dump'</span>
+</code></pre>
+<p> Variable names are being taken from config and DSN which has a <code>keyword=value</code> format, so you should expect to have a variable named as the
+ keyword with the full value inside it.</p>
+<p> PDO dsn elements for the supported drivers:</p>
+<ul>
+<li>MySQL: <a href="https://secure.php.net/manual/en/ref.pdo-mysql.connection.php">PDO_MYSQL DSN</a></li>
+<li>SQLite: <a href="https://secure.php.net/manual/en/ref.pdo-sqlite.connection.php">PDO_SQLITE DSN</a></li>
+<li>PostgreSQL: <a href="https://secure.php.net/manual/en/ref.pdo-pgsql.connection.php">PDO_PGSQL DSN</a></li>
+<li>MSSQL: <a href="https://secure.php.net/manual/en/ref.pdo-sqlsrv.connection.php">PDO_SQLSRV DSN</a></li>
+<li>Oracle: <a href="https://secure.php.net/manual/en/ref.pdo-oci.connection.php">PDO_OCI DSN</a></li>
+</ul>
+<h3>Dump <span id="dump"></span><a href="#dump" class="hashlink">&para;</a></h3><p>Db module by itself can load SQL dump without external tools by using current database connection.
+This approach is system-independent, however, it is slower than using a populator and may have parsing issues (see below).</p>
+<p>Provide a path to SQL file in <code>dump</code> config option:</p>
+<pre><code class="language-yaml">modules:
+   enabled:
+      - Db:
+         dsn: 'mysql:host=localhost;dbname=testdb'
+         user: 'root'
+         password: ''
+         populate: true # load dump before all tests
+         cleanup: true # load dump for each test
+         dump: 'tests/_data/dump.sql'
+</code></pre>
+<p> To parse SQL Db file, it should follow this specification:</p>
+<ul>
+<li>Comments are permitted.</li>
+<li>The <code>dump.sql</code> may contain multiline statements.</li>
+<li>The delimiter, a semi-colon in this case, must be on the same line as the last statement:</li>
+</ul>
+<pre><code class="hljs sql language-sql"><span class="hljs-comment">-- Add a few contacts to the table.</span>
+<span class="hljs-operator"><span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`Contacts`</span> (<span class="hljs-string">`created`</span>, <span class="hljs-string">`modified`</span>, <span class="hljs-string">`status`</span>, <span class="hljs-string">`contact`</span>, <span class="hljs-string">`first`</span>, <span class="hljs-string">`last`</span>) <span class="hljs-keyword">VALUES</span>
+(<span class="hljs-keyword">NOW</span>(), <span class="hljs-keyword">NOW</span>(), <span class="hljs-number">1</span>, <span class="hljs-string">'Bob Ross'</span>, <span class="hljs-string">'Bob'</span>, <span class="hljs-string">'Ross'</span>),
+(<span class="hljs-keyword">NOW</span>(), <span class="hljs-keyword">NOW</span>(), <span class="hljs-number">1</span>, <span class="hljs-string">'Fred Flintstone'</span>, <span class="hljs-string">'Fred'</span>, <span class="hljs-string">'Flintstone'</span>);</span>
+
+<span class="hljs-comment">-- Remove existing orders for testing.</span>
+<span class="hljs-operator"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> <span class="hljs-string">`Order`</span>;</span>
+</code></pre>
+<h2>Query generation <span id="query-generation"></span><a href="#query-generation" class="hashlink">&para;</a></h2><p><code>seeInDatabase</code>, <code>dontSeeInDatabase</code>, <code>seeNumRecords</code>, <code>grabFromDatabase</code> and <code>grabNumRecords</code> methods
+accept arrays as criteria. WHERE condition is generated using item key as a field name and
+item value as a field value.</p>
+<p>Example:
+<code>`</code>php
+&lt;?php
+$I-&gt;seeInDatabase('users', ['name' => 'Davert', 'email' => 'davert@mail.com']);</p>
+<pre><code class="hljs sql">Will generate:
+
+```sql
+<span class="hljs-operator"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">FROM</span> <span class="hljs-string">`users`</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-string">`name`</span> = <span class="hljs-string">'Davert'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">`email`</span> = <span class="hljs-string">'davert@mail.com'</span>
+</span></code></pre>
+<p>Since version 2.1.9 it's possible to use LIKE in a condition, as shown here:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Davert'</span>, <span class="hljs-string">'email like'</span> =&gt; <span class="hljs-string">'davert%'</span>]);
+
+</code></pre>
+<p>Will generate:</p>
+<pre><code class="hljs sql language-sql"><span class="hljs-operator"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">FROM</span> <span class="hljs-string">`users`</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-string">`name`</span> = <span class="hljs-string">'Davert'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">`email`</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'davert%'</span>
+</span></code></pre>
+<h2>Public Properties <span id="public-properties"></span><a href="#public-properties" class="hashlink">&para;</a></h2><ul>
+<li>dbh - contains the PDO connection</li>
+<li>driver - contains the Connection Driver</li>
+</ul>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>amConnectedToDatabase <span id="amconnectedtodatabase"></span><a href="#amconnectedtodatabase" class="hashlink">&para;</a></h3><p>Make sure you are connected to the right database.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeNumRecords(<span class="hljs-number">2</span>, <span class="hljs-string">'users'</span>);   <span class="hljs-comment">//executed on default database</span>
+<span class="hljs-variable">$I</span>-&gt;amConnectedToDatabase(<span class="hljs-string">'db_books'</span>);
+<span class="hljs-variable">$I</span>-&gt;seeNumRecords(<span class="hljs-number">30</span>, <span class="hljs-string">'books'</span>);  <span class="hljs-comment">//executed on db_books database</span>
+<span class="hljs-comment">//All the next queries will be on db_books</span>
+</code></pre>
+<ul>
+<li><code>param</code> $databaseKey
+@throws ModuleConfigException</li>
+</ul>
+<h3>dontSeeInDatabase <span id="dontseeindatabase"></span><a href="#dontseeindatabase" class="hashlink">&para;</a></h3><p>Effect is opposite to -&gt;seeInDatabase</p>
+<p>Asserts that there is no record with the given column values in a database.
+Provide table name and column values.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;dontSeeInDatabase('users', ['name' =&gt; 'Davert', 'email' =&gt; 'davert@mail.com']);
+</code></pre>
+<p>Fails if such user was found.</p>
+<p>Comparison expressions can be used as well:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeInDatabase(<span class="hljs-string">'posts'</span>, [<span class="hljs-string">'num_comments &gt;='</span> =&gt; <span class="hljs-string">'0'</span>]);
+<span class="hljs-variable">$I</span>-&gt;dontSeeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'email like'</span> =&gt; <span class="hljs-string">'miles%'</span>]);
+</code></pre>
+<p>Supported operators: <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>like</code>.</p>
+<ul>
+<li><code>param string</code> $table</li>
+<li><code>param array</code> $criteria</li>
+</ul>
+<h3>grabColumnFromDatabase <span id="grabcolumnfromdatabase"></span><a href="#grabcolumnfromdatabase" class="hashlink">&para;</a></h3><p>Fetches all values from the column in database.
+Provide table name, desired column and criteria.</p>
+<pre><code class="language- php">&lt;?php
+$mails = $I-&gt;grabColumnFromDatabase('users', 'email', array('name' =&gt; 'RebOOter'));
+</code></pre>
+<ul>
+<li><code>param string</code> $table</li>
+<li><code>param string</code> $column</li>
+<li><p><code>param array</code> $criteria</p>
+</li>
+<li><p><code>return</code> array</p>
+</li>
+</ul>
+<h3>grabFromDatabase <span id="grabfromdatabase"></span><a href="#grabfromdatabase" class="hashlink">&para;</a></h3><p>Fetches all values from the column in database.
+Provide table name, desired column and criteria.</p>
+<pre><code class="language- php">&lt;?php
+$mails = $I-&gt;grabFromDatabase('users', 'email', array('name' =&gt; 'RebOOter'));
+</code></pre>
+<ul>
+<li><code>param string</code> $table</li>
+<li><code>param string</code> $column</li>
+<li><p><code>param array</code>  $criteria</p>
+</li>
+<li><p><code>return</code> array</p>
+</li>
+</ul>
+<h3>grabNumRecords <span id="grabnumrecords"></span><a href="#grabnumrecords" class="hashlink">&para;</a></h3><p>Returns the number of rows in a database</p>
+<ul>
+<li><code>param string</code> $table    Table name</li>
+<li><p><code>param array</code>  $criteria Search criteria [Optional]</p>
+</li>
+<li><p><code>return</code> int</p>
+</li>
+</ul>
+<h3>haveInDatabase <span id="haveindatabase"></span><a href="#haveindatabase" class="hashlink">&para;</a></h3><p>Inserts an SQL record into a database. This record will be erased after the test.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;haveInDatabase(<span class="hljs-string">'users'</span>, <span class="hljs-keyword">array</span>(<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'miles'</span>, <span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'miles@davis.com'</span>));
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $table</li>
+<li><p><code>param array</code> $data</p>
+</li>
+<li><p><code>return integer</code> $id</p>
+</li>
+</ul>
+<h3>isPopulated <span id="ispopulated"></span><a href="#ispopulated" class="hashlink">&para;</a></h3><p><strong>not documented</strong></p>
+<h3>performInDatabase <span id="performindatabase"></span><a href="#performindatabase" class="hashlink">&para;</a></h3><p>Can be used with a callback if you don't want to change the current database in your test.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeNumRecords(<span class="hljs-number">2</span>, <span class="hljs-string">'users'</span>);   <span class="hljs-comment">//executed on default database</span>
+<span class="hljs-variable">$I</span>-&gt;performInDatabase(<span class="hljs-string">'db_books'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(<span class="hljs-variable">$I</span>)</span> </span>{
+    <span class="hljs-variable">$I</span>-&gt;seeNumRecords(<span class="hljs-number">30</span>, <span class="hljs-string">'books'</span>);  <span class="hljs-comment">//executed on db_books database</span>
+});
+<span class="hljs-variable">$I</span>-&gt;seeNumRecords(<span class="hljs-number">2</span>, <span class="hljs-string">'users'</span>);  <span class="hljs-comment">//executed on default database</span>
+</code></pre>
+<p>List of actions can be pragmatically built using <code>Codeception\Util\ActionSequence</code>:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;performInDatabase(<span class="hljs-string">'db_books'</span>, ActionSequence::build()
+    -&gt;seeNumRecords(<span class="hljs-number">30</span>, <span class="hljs-string">'books'</span>)
+);
+</code></pre>
+<p>Alternatively an array can be used:</p>
+<pre><code class="hljs php language-php"><span class="hljs-variable">$I</span>-&gt;performInDatabase(<span class="hljs-string">'db_books'</span>, [<span class="hljs-string">'seeNumRecords'</span> =&gt; [<span class="hljs-number">30</span>, <span class="hljs-string">'books'</span>]]);
+</code></pre>
+<p>Choose the syntax you like the most and use it,</p>
+<p>Actions executed from array or ActionSequence will print debug output for actions, and adds an action name to
+exception on failure.</p>
+<ul>
+<li><code>param</code> $databaseKey</li>
+<li><code>param \Codeception\Util\ActionSequence|array|callable</code> $actions
+@throws ModuleConfigException</li>
+</ul>
+<h3>seeInDatabase <span id="seeindatabase"></span><a href="#seeindatabase" class="hashlink">&para;</a></h3><p>Asserts that a row with the given column values exists.
+Provide table name and column values.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Davert'</span>, <span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'davert@mail.com'</span>]);
+</code></pre>
+<p>Fails if no such user found.</p>
+<p>Comparison expressions can be used as well:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'posts'</span>, [<span class="hljs-string">'num_comments &gt;='</span> =&gt; <span class="hljs-string">'0'</span>]);
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'email like'</span> =&gt; <span class="hljs-string">'miles@davis.com'</span>]);
+</code></pre>
+<p>Supported operators: <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>like</code>.</p>
+<ul>
+<li><code>param string</code> $table</li>
+<li><code>param array</code> $criteria</li>
+</ul>
+<h3>seeNumRecords <span id="seenumrecords"></span><a href="#seenumrecords" class="hashlink">&para;</a></h3><p>Asserts that the given number of records were found in the database.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeNumRecords(<span class="hljs-number">1</span>, <span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'davert'</span>])
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param int</code> $expectedNumber Expected number</li>
+<li><code>param string</code> $table Table name</li>
+<li><code>param array</code> $criteria Search criteria [Optional]</li>
+</ul>
+<h3>updateInDatabase <span id="updateindatabase"></span><a href="#updateindatabase" class="hashlink">&para;</a></h3><p>Update an SQL record into a database.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;updateInDatabase(<span class="hljs-string">'users'</span>, <span class="hljs-keyword">array</span>(<span class="hljs-string">'isAdmin'</span> =&gt; <span class="hljs-keyword">true</span>), <span class="hljs-keyword">array</span>(<span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'miles@davis.com'</span>));
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $table</li>
+<li><code>param array</code> $data</li>
+<li><code>param array</code> $criteria</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Db.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

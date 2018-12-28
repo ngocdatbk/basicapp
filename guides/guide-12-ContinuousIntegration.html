@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2302" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2302-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2302-collapse" class="collapse navbar-collapse"><ul id="w2303" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2286" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2286" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2287" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2287" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2288" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2288" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2289" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2289" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2290" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2290" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2291" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2291" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2292" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2292" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2293" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2293" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2294" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2294" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2295" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2295" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2296" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2296" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2297" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2297" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2298" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2298" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2299" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2299" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2300" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2300" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2301" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2301" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Continuous Integration <span id="continuous-integration"></span><a href="#continuous-integration" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#jenkins">Jenkins</a></li>
+<li><a href="#teamcity">TeamCity</a></li>
+<li><a href="#travisci">TravisCI</a></li>
+<li><a href="#gitlab">GitLab</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>Once you get testing suite up and running you are interested in running your tests regularly. If you ensure that tests are running on every code change or at least once a day you can be sure that no regression is introduced. This allows to keep you system stable. But developers are not so passionate about running all tests manually, they also can forget to execute tests before pushing code to production... The solution is simple, test execution should be automated. Instead of running them locally it is better to have dedicated server responsible for running tests for a team. This way we can ensure that everyone's tests executed, which commit made a regression in codebase, and that we can deploy only once tests pass.</p>
+<p>There are many Continuous Integration Servers out there. We will try to list basic steps to setup Codeception tests with them. If your CI system is not mentioned, you can get the idea by analogy. Please also help us to extend this guide by adding instructions for different CIs.</p>
+<h2>Jenkins <span id="jenkins"></span><a href="#jenkins" class="hashlink">&para;</a></h2><p><img src="http://codeception.com/images/jenkins/Jenk1.png" alt="Jenkins" /></p>
+<p><a href="http://jenkins-ci.org/">Jenkins</a> is one of the most popular open-source solution on market. It is easy to setup and is easy to customize by applying various plugins.</p>
+<p><img src="http://codeception.com/images/jenkins/Jenk2.png" alt="Create new job in Jenkins" /></p>
+<h3>Preparing Jenkins <span id="preparing-jenkins"></span><a href="#preparing-jenkins" class="hashlink">&para;</a></h3><p>It is recommended to have the next plugins installed:</p>
+<ul>
+<li><strong>Git Plugin</strong> - for building tests for Git repo</li>
+<li><strong>Green Balls</strong> - to display success results in green.</li>
+<li><strong>xUnit Plugin</strong>, <strong>jUnit Plugin</strong> - to process and display Codeception XML reports</li>
+<li><strong>HTML Publisher Plugin</strong> - to process Codeception HTML reports</li>
+<li><strong>AnsiColor</strong> - to show colorized console output.</li>
+</ul>
+<p><img src="http://codeception.com/images/jenkins/Jenk3.png" alt="Jenkins Plugins" /></p>
+<h3>Basic Setup <span id="basic-setup"></span><a href="#basic-setup" class="hashlink">&para;</a></h3><p>At first we need to create build project. Depending on your needs you can set up periodical build or trigger build once the change is pushed to GitHub (you will need GitHub plugin for that).</p>
+<p>We need to define build steps. The most simple setup may look like this:</p>
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> vendor/bin/codecept run
+</code></pre>
+<p><img src="http://codeception.com/images/jenkins/Jenk5.png" alt="Jenkins Codeception Build Step" /></p>
+<p>Then we can start the very first job and check the execution progress. If tests fail we will see that in console:</p>
+<p><img src="http://codeception.com/images/jenkins/Jenk6.png" alt="Jenkins Console Output" /></p>
+<h3>XML Reports <span id="xml-reports"></span><a href="#xml-reports" class="hashlink">&para;</a></h3><p>But we don't want to analyze console output for each failing build. Especially If Jenkins can collect and display the results inside its web UI. Codeception can export its results using JUnit XML format. To generate XML report on each build we will need to append <code>--xml</code> option to Codeception execution command. Codeception will print <code>result.xml</code> file containing information about test status with steps and stack traces for failing tests.</p>
+<p>Now let's update our build step to generate xml:</p>
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> vendor/bin/codecept run --xml
+</code></pre>
+<p>and ask Jenkins to collect resulted XML. This can be done as part of Post-build actions. Let's add <em>Publish xUnit test result report</em> action and configure it to use with PHPUnit reports.</p>
+<p><img src="http://codeception.com/images/jenkins/Jenk7.png" alt="Use PHPUnit xUnit builder for Jenkins" /></p>
+<p>Now we should specify path to PHPUnit style XML reports. In case of standard Codeception setup we should specify <code>tests/_output/*.xml</code> as a pattern for matching resulted XMLs. Now we save the project and rebuild it.</p>
+<p><img src="http://codeception.com/images/jenkins/Jenk8.png" alt="Jenkins Result Trend" /></p>
+<p>Now for all builds we will see results trend graph that shows us percentage of passing and failing tests. We also will see a <strong>Latest Test Result</strong> link which will lead to to the page where all executed tests and their stats listed in a table.</p>
+<h3>HTML Reports <span id="html-reports"></span><a href="#html-reports" class="hashlink">&para;</a></h3><p>To get more details on steps executed you can generate HTML report and use Jenkins to display them.</p>
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> vendor/bin/codecept run --html
+</code></pre>
+<p>Now we need HTML Publisher plugin configured to display generated HTML files. It should be added as post-build action similar way we did it for XML reports.</p>
+<p><img src="http://codeception.com/images/jenkins/Jenk9.png" alt="Jenkins Codeception HTML Setup" /></p>
+<p>Jenkins should locate <code>report.html</code> at <code>tests/_output/</code>. Now Jenkins will display HTML reports for each build.</p>
+<p><img src="http://codeception.com/images/jenkins/Jenki10.png" alt="Jenkins HTML Report" />
+<img src="http://codeception.com/images/jenkins/Jenki11.png" alt="Jenkins Codeception HTML Results" /></p>
+<h2>TeamCity <span id="teamcity"></span><a href="#teamcity" class="hashlink">&para;</a></h2><p><img src="http://codeception.com/images/teamcity/logo.jpg" alt="TeamCity" /></p>
+<p>TeamCity is a hosted solution from JetBrains. The setup of it can be a bit tricky as TeamCity uses its own reporter format for parsing test results. PHPUnit since version 5.x has integrated support for this format, so does Codeception. What we need to do is to configure Codeception to use custom reporter. By default there is <code>--report</code> option which provides an alternative output. You can change the reporter class in <code>codeception.yml</code> configuration:</p>
+<pre><code class="language-yaml">reporters:
+  report: PHPUnit_Util_Log_TeamCity
+</code></pre>
+<p>As an alternative you can use 3rd-party <a href="https://github.com/neronmoon/TeamcityCodeception">TeamCity extension</a> for better reporting.</p>
+<p>After you create build project you should define build step with Codeception which is</p>
+<pre><code class="hljs nginx"><span class="hljs-title">php</span> vendor/bin/codecept run --report
+</code></pre>
+<p><img src="http://codeception.com/images/teamcity/build.png" alt="build step" /></p>
+<p>Once you execute your first build you should see detailed report inside TeamCity interface:</p>
+<p><img src="http://codeception.com/images/teamcity/report2.png" alt="report" /></p>
+<h2>TravisCI <span id="travisci"></span><a href="#travisci" class="hashlink">&para;</a></h2><p><img src="http://codeception.com/images/travis.png" alt="Travis CI" /></p>
+<p>Travis CI is popular service CI with good GitHub integration. Codeception is self-tested with Travis CI. There nothing special about configuration. Just add to the bottom line of travis configuration:</p>
+<pre><code class="language-yaml">php vendor/bin/codecept run
+</code></pre>
+<p>More details on configuration can be learned from Codeception's <a href="https://github.com/Codeception/Codeception/blob/master/.travis.yml"><code>.travis.yml</code></a>.</p>
+<p>Travis doesn't provide visualization for XML or HTML reports so you can't view reports in format any different than console output. However, Codeception produces nice console output with detailed error reports.</p>
+<h2>GitLab <span id="gitlab"></span><a href="#gitlab" class="hashlink">&para;</a></h2><p><img src="http://codeception.com/images/gitlab/logo.png" alt="report" /></p>
+<p>If a file <code>.gitlab-ci.yml</code> exists in the root of the git repository, GitLab will run a pipeline each time you push to the gitlab server. The file configures the docker image that will be called. Below is a sample which loads a php7 docker image, clones your files, installs composer dependencies, runs the built-in php webserver and finally runs codeception:</p>
+<pre><code class="language-yaml"># Select image from https://hub.docker.com/_/php/
+image: php:7.0
+
+# Select what we should cache
+cache:
+  paths:
+  - vendor/
+
+before_script:
+# Install git and unzip (composer will need them)
+- apt-get update &amp;&amp; apt-get install -qqy git unzip
+# Install composer
+- curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Install all project dependencies
+- composer install
+# Run webserver
+- php -S localhost:8085 --docroot public &amp;&gt;/dev/null&amp;
+
+# Test
+test:
+  script:
+  - vendor/bin/codecept run
+</code></pre>
+<p><img src="http://codeception.com/images/gitlab/build.png" alt="report" /></p>
+<p>For acceptance testing you can use <code>codeception/codeception</code> docker image as base.</p>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>It is highly recommended to use Continuous Integration system in development. Codeception is easy to install and run in any CI systems. However, each of them has their differences you should take into account. You can use different reporters to provide output in format expected by CI system.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

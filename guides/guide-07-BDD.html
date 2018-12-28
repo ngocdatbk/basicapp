@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2212" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2212-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2212-collapse" class="collapse navbar-collapse"><ul id="w2213" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2196" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2196" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2197" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2197" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2198" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2198" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2199" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2199" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2200" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2200" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2201" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2201" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2202" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2202" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2203" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2203" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2204" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2204" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2205" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2205" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2206" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2206" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2207" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2207" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2208" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2208" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2209" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2209" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2210" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2210" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2211" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2211" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Behavior Driven Development <span id="behavior-driven-development"></span><a href="#behavior-driven-development" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#what-is-behavior-driven-development">What is Behavior Driven Development</a></li>
+<li><a href="#gherkin">Gherkin</a></li>
+<li><a href="#testing-behavior">Testing Behavior</a></li>
+<li><a href="#advanced-gherkin">Advanced Gherkin</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#migrating-from-behat">Migrating From Behat</a></li>
+<li><a href="#tests-vs-features">Tests vs Features</a></li>
+<li><a href="#conclusions">Conclusions</a></li></ol></div>
+<p>Behavior Driven Development (BDD) is a popular software development methodology. BDD is considered an extension of TDD, and is greatly inspired by <a href="http://agilemanifesto.org/">Agile</a> practices. The primary reason to choose BDD as your development process is to break down communication barriers between business and technical teams. BDD encourages the use of automated testing to verify all documented features of a project from the very beginning. This is why it is common to talk about BDD in the context of test frameworks (like Codeception). The BDD approach, however, is about much more than testing - it is a common language for all team members to use during the development process.</p>
+<h2>What is Behavior Driven Development <span id="what-is-behavior-driven-development"></span><a href="#what-is-behavior-driven-development" class="hashlink">&para;</a></h2><p>BDD was introduced by <a href="https://dannorth.net/introducing-bdd/">Dan North</a>. He described it as:</p>
+<blockquote><p> outside-in, pull-based, multiple-stakeholder, multiple-scale, high-automation, agile methodology. It describes a cycle of interactions with well-defined outputs, resulting in the delivery of working, tested software that matters.</p>
+</blockquote>
+<p>BDD has its own evolution from the days it was born, started by replacing "test" to "should" in unit tests, and moving towards powerful tools like Cucumber and Behat, which made user stories (human readable text) to be executed as an acceptance test.</p>
+<p>The idea of story BDD can be narrowed to:</p>
+<ul>
+<li>describe features in a scenario with a formal text</li>
+<li>use examples to make abstract things concrete</li>
+<li>implement each step of a scenario for testing</li>
+<li>write actual code implementing the feature</li>
+</ul>
+<p>By writing every feature in User Story format that is automatically executable as a test we ensure that: business, developers, QAs and managers are in the same boat.</p>
+<p>BDD encourages exploration and debate in order to formalize the requirements and the features that needs to be implemented by requesting to write the User Stories in a way that everyone can understand.</p>
+<p>By making tests to be a part of User Story, BDD allows non-technical personnel to write (or edit) Acceptance tests.</p>
+<p>With this procedure we also ensure that everyone in a team knows what has been developed, what has not, what has been tested and what has not.</p>
+<h3>Ubiquitous Language <span id="ubiquitous-language"></span><a href="#ubiquitous-language" class="hashlink">&para;</a></h3><p>The ubiquitous language is always referred as <em>common</em> language. That is it's main benefit. It is not a couple of our business specification's words, and not a couple of developer's technical terms. It is a common words and terms that can be understood by people for whom we are building the software and should be understood by developers. Establishing correct communication between this two groups people is vital for building successful project that will fit the domain and fulfill all business needs.</p>
+<p>Each feature of a product should be born from a talk between</p>
+<ul>
+<li>business (analysts, product owner)</li>
+<li>developers</li>
+<li>QAs</li>
+</ul>
+<p>which are known in BDD as "three amigos".</p>
+<p>Such talks should produce written stories. There should be an actor that doing some things, the feature that should be fulfilled within the story and the result achieved.</p>
+<p>We can try to write such simple story:</p>
+<pre><code class="hljs nginx"><span class="hljs-title">As</span> a customer I want to buy several products
+I put first product with <span class="hljs-variable">$600</span> price to my cart
+And then another one with <span class="hljs-variable">$1000</span> price
+When I go to checkout process
+I should see that total number of products I want to buy is <span class="hljs-number">2</span>
+And my order amount is <span class="hljs-variable">$1600</span>
+</code></pre>
+<p>As we can see this simple story highlights core concepts that are called <em>contracts</em>. We should fulfill those contracts to model software correctly. But how we can verify that those contracts are being satisfied? <a href="http://cucumber.io">Cucumber</a> introduced a special language for such stories called <strong>Gherkin</strong>. Same story transformed to Gherkin will look like this:</p>
+<pre><code class="hljs gherkin language-gherkin"><span class="hljs-keyword">Feature</span>: checkout process
+  In order to buy products
+  As a customer
+  I want to be able to buy several products
+
+  <span class="hljs-keyword">Scenario</span>:
+    <span class="hljs-keyword">Given</span> I have product with $600 price in my cart
+    <span class="hljs-keyword">And</span> I have product with $1000 price
+    <span class="hljs-keyword">When</span> I go to checkout process
+    <span class="hljs-keyword">Then</span> I should see that total number of products is 2
+    <span class="hljs-keyword">And</span> my order amount is $1600
+</code></pre>
+<p>Cucumber, Behat, and sure, <strong>Codeception</strong> can execute this scenario step by step as an automated test.
+Every step in this scenario requires a code which defines it.</p>
+<h2>Gherkin <span id="gherkin"></span><a href="#gherkin" class="hashlink">&para;</a></h2><p>Let's learn some more about Gherkin format and then we will see how to execute it with Codeception:</p>
+<h3>Features <span id="features"></span><a href="#features" class="hashlink">&para;</a></h3><p>Whenever you start writing a story you are describing a specific feature of an application, with a set of scenarios and examples describing this feature.</p>
+<p>Feature file is written in Gherkin format. Codeception can generate a feature file for you.
+We will assume that we will use scenarios in feature files for acceptance tests, so feature files to be placed in <code>acceptance</code> suite directory:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept g:feature acceptance checkout
+</code></pre>
+<p>Generated template will look like this:</p>
+<pre><code class="hljs gherkin language-gherkin"><span class="hljs-keyword">Feature</span>: checkout
+  In order to ...
+  As a ...
+  I need to ...
+
+  <span class="hljs-keyword">Scenario</span>: try checkout
+</code></pre>
+<p>This template can be fulfilled by setting actor and goals:</p>
+<pre><code class="hljs gherkin language-gherkin"><span class="hljs-keyword">Feature</span>: checkout
+  In order to buy product
+  As a customer
+  I need to be able to checkout the selected products
+</code></pre>
+<p>Next, we will describe this feature by writing examples for it</p>
+<h4>Scenarios <span id="scenarios"></span><a href="#scenarios" class="hashlink">&para;</a></h4><p>Scenarios are live examples of feature usage. Inside a feature file it should be written inside a <em>Feature</em> block. Each scenario should contain its title:</p>
+<pre><code class="hljs gherkin language-gherkin"><span class="hljs-keyword">Feature</span>: checkout
+  In order to buy product
+  As a customer
+  I need to be able to checkout the selected products
+
+<span class="hljs-keyword">Scenario</span>: order several products
+</code></pre>
+<p>Scenarios are written in step-by-step manner using Given-When-Then approach. At start, scenario should describe its context with <strong>Given</strong> keyword:</p>
+<pre><code class="hljs gherkin language-gherkin">  <span class="hljs-keyword">Given</span> I have product with $600 price in my cart
+  <span class="hljs-keyword">And</span> I have product with $1000 price in my cart
+</code></pre>
+<p>Here we also use word <strong>And</strong> to extend the Given and not to repeat it in each line.</p>
+<p>This is how we described the initial conditions. Next, we perform some action. We use <strong>When</strong> keyword for it:</p>
+<pre><code class="hljs gherkin language-gherkin">  <span class="hljs-keyword">When</span> I go to checkout process
+</code></pre>
+<p>And in the end we are verifying our expectation using <strong>Then</strong> keyword. The action changed the initial given state, and produced some results. Let's check that those results are what we actually expect.</p>
+<pre><code class="hljs gherkin language-gherkin">  <span class="hljs-keyword">Then</span> I should see that total number of products is 2
+  <span class="hljs-keyword">And</span> my order amount is $1600
+</code></pre>
+<p>We can test this scenario by executing it in dry-run mode. In this mode test won't be executed (actually, we didn't define any step for it, so it won't be executed in any case).</p>
+<pre><code class="hljs bash language-bash">$ codecept dry-run acceptance checkout.feature
+</code></pre>
+<pre><code class="hljs bash language-bash">checkout: order several products
+Signature: checkout:order several products
+Test: tests/acceptance/checkout.feature:order several products
+Scenario --
+ In order to buy product
+ As a customer
+ I need to be able to checkout the selected products
+ Given i have product with <span class="hljs-variable">$600</span> price <span class="hljs-keyword">in</span> my cart
+ And i have product with <span class="hljs-variable">$1000</span> price <span class="hljs-keyword">in</span> my cart
+ When i go to checkout process
+ Then i should see that total number of products is <span class="hljs-number">2</span>
+ And my order amount is <span class="hljs-variable">$1600</span>
+
+ INCOMPLETE
+Step definition <span class="hljs-keyword">for</span> `I have product with <span class="hljs-variable">$600</span> price <span class="hljs-keyword">in</span> my cart` not found <span class="hljs-keyword">in</span> contexts
+Step definition <span class="hljs-keyword">for</span> `I have product with <span class="hljs-variable">$1000</span> price` not found <span class="hljs-keyword">in</span> contexts
+Step definition <span class="hljs-keyword">for</span> `I go to checkout process` not found <span class="hljs-keyword">in</span> contexts
+Step definition <span class="hljs-keyword">for</span> `I should see that total number of products is <span class="hljs-number">2</span>` not found <span class="hljs-keyword">in</span> contexts
+Step definition <span class="hljs-keyword">for</span> `my order amount is <span class="hljs-variable">$1600</span>` not found <span class="hljs-keyword">in</span> contexts
+Run gherkin:snippets to define missing steps
+</code></pre>
+<p>Besides the scenario steps listed we got the notification that our steps are not defined yet.
+We can define them easily by executing <code>gherkin:snippets</code> command for the given suite:</p>
+<pre><code class="hljs bash language-bash">codecept gherkin:snippets acceptance
+</code></pre>
+<p>This will produce code templates for all undefined steps in all feature files of this suite.
+Our next step will be to define those steps and transforming feature-file into valid test.</p>
+<h3>Step Definitions <span id="step-definitions"></span><a href="#step-definitions" class="hashlink">&para;</a></h3><p>To match steps from a feature file to PHP code we use annotation which are added to class methods.
+By default Codeception expects that all methods marked with <code>@Given</code>, <code>@When</code>, <code>@Then</code> annotation.
+Each annotation should contain a step string.</p>
+<pre><code class="hljs php"><span class="hljs-comment">/** <span class="hljs-doctag">@Given</span> I am logged as admin */</span>
+</code></pre>
+<p>Steps can also be matched with regex expressions. This way we can make more flexible steps</p>
+<pre><code class="hljs php"><span class="hljs-comment">/** <span class="hljs-doctag">@Given</span> /I am (logged|authorized) as admin/  */</span>
+</code></pre>
+<p>Please note that regular expressions should start and end with <code>/</code> char. Regex is also used to match parameters and pass them as arguments into methods.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@Given</span> /I am (?:logged|authorized) as "(\w+)"/  */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">amAuthorized</span><span class="hljs-params">(<span class="hljs-variable">$role</span>)</span>
+</span>{
+  <span class="hljs-comment">// logged or authorized does not matter to us</span>
+  <span class="hljs-comment">// so we added ?: for this capture group</span>
+}
+</code></pre>
+<p>Parameters can be also passed in non-regex strings using ":" params placeholder.</p>
+<pre><code class="hljs php"><span class="hljs-comment">/** <span class="hljs-doctag">@Given</span> I am logged in as :role */</span>
+</code></pre>
+<p>This will match any word (passed in double quotes) or a number passed:</p>
+<pre><code class="hljs javascript">Given I am logged <span class="hljs-keyword">in</span> <span class="hljs-keyword">as</span> <span class="hljs-string">"admin"</span>
+Given I am logged <span class="hljs-keyword">in</span> <span class="hljs-keyword">as</span> <span class="hljs-number">1</span>
+</code></pre>
+<p>Steps are defined in Context files. Default context is an actor class, i.e. for acceptance testing suite default context is <code>AcceptanceTester</code> class. However, you can define steps in any classes and include them as contexts. It is useful to define steps in StepObject and PageObject classes.</p>
+<p>To list all defined steps run <code>gherkin:steps</code> command:</p>
+<pre><code class="hljs bash language-bash">codecept gherkin:steps
+</code></pre>
+<h2>Testing Behavior <span id="testing-behavior"></span><a href="#testing-behavior" class="hashlink">&para;</a></h2><p>As it was mentioned, feature files is not just a user story.
+By writing features in formal language called Gherkin we can execute those scenarios as automated tests.
+There is no restrictions in the way how those scenarios are supposed to be tested. Tests can be executed at functional, acceptance, or domain level. However, we will concentrate on acceptance or UI tests in current guide.</p>
+<h3>Acceptance Testing <span id="acceptance-testing"></span><a href="#acceptance-testing" class="hashlink">&para;</a></h3><p>As we generated snippets for missing steps with <code>gherkin:snippets</code> command, we will define them in <code>AcceptanceTester</code> file.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AcceptanceTester</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Actor</span>
+</span>{
+    <span class="hljs-keyword">use</span> <span class="hljs-title">_generated</span>\<span class="hljs-title">AcceptanceTesterActions</span>;
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Given</span> I have product with :num1 price in my cart
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iHaveProductWithPriceInMyCart</span><span class="hljs-params">(<span class="hljs-variable">$num1</span>)</span>
+     </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \Codeception\<span class="hljs-keyword">Exception</span>\Incomplete(<span class="hljs-string">"Step `I have product with :num1 price in my cart` is not defined"</span>);
+     }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@When</span> I go to checkout process
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iGoToCheckoutProcess</span><span class="hljs-params">()</span>
+     </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \Codeception\<span class="hljs-keyword">Exception</span>\Incomplete(<span class="hljs-string">"Step `I go to checkout process` is not defined"</span>);
+     }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Then</span> I should see that total number of products is :num1
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iShouldSeeThatTotalNumberOfProductsIs</span><span class="hljs-params">(<span class="hljs-variable">$num1</span>)</span>
+     </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \Codeception\<span class="hljs-keyword">Exception</span>\Incomplete(<span class="hljs-string">"Step `I should see that total number of products is :num1` is not defined"</span>);
+     }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Then</span> my order amount is :num1
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myOrderAmountIs</span><span class="hljs-params">(<span class="hljs-variable">$num1</span>)</span>
+     </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \Codeception\<span class="hljs-keyword">Exception</span>\Incomplete(<span class="hljs-string">"Step `my order amount is :num1` is not defined"</span>);
+     }
+}
+</code></pre>
+<p>Please note that <code>:num1</code> placeholder can be used for strings and numbers (may contain currency sign).
+In current case <code>:num1</code> matches <code>$600</code> and <code>$num1</code> is assigned to be 600. If you need to receive exact string, wrap the value into quotes: <code>"600$"</code></p>
+<p>By default they throw Incomplete exceptions to ensure test with missing steps won't be accidentally marked as successful. We will need to implement those steps. As we are in acceptance suite we are probably using <a href="http://codeception.com/docs/modules/PhpBrowser">PHPBrowser</a> or <a href="http://codeception.com/docs/modules/WebDriver">WebDriver</a> modules. This means that we can use their methods inside Tester file, as we do with writing tests using <code>$I-&gt;</code>. You can use <code>amOnPage</code>, <code>click</code>, <code>see</code> methods inside a step definitions, so each Gherkin scenario step to be extended with basic Codeception steps. Let's show how it can be implemented in our case:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AcceptanceTester</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Actor</span>
+</span>{
+    <span class="hljs-keyword">use</span> <span class="hljs-title">_generated</span>\<span class="hljs-title">AcceptanceTesterActions</span>;
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Given</span> I have product with :num1 price in my cart
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iHaveProductWithPriceInMyCart</span><span class="hljs-params">(<span class="hljs-variable">$num1</span>)</span>
+     </span>{
+        <span class="hljs-comment">// haveRecord method is available in Laravel, Phalcon, Yii modules</span>
+        <span class="hljs-variable">$productId</span> = <span class="hljs-variable">$this</span>-&gt;haveRecord(<span class="hljs-string">'Product'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'randomProduct'</span>.uniqid(), <span class="hljs-string">'price'</span> =&gt; <span class="hljs-variable">$num1</span>]);
+        <span class="hljs-variable">$this</span>-&gt;amOnPage(<span class="hljs-string">"/item/$productId"</span>);
+        <span class="hljs-variable">$this</span>-&gt;click(<span class="hljs-string">'Order'</span>);
+     }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@When</span> I go to checkout process
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iGoToCheckoutProcess</span><span class="hljs-params">()</span>
+     </span>{
+        <span class="hljs-variable">$this</span>-&gt;amOnPage(<span class="hljs-string">'/checkout'</span>);
+     }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Then</span> I should see that total number of products is :num1
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iShouldSeeThatTotalNumberOfProductsIs</span><span class="hljs-params">(<span class="hljs-variable">$num1</span>)</span>
+     </span>{
+        <span class="hljs-variable">$this</span>-&gt;see(<span class="hljs-variable">$num1</span>, <span class="hljs-string">'.products-count'</span>);
+     }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Then</span> my order amount is :num1
+     */</span>
+     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myOrderAmountIs</span><span class="hljs-params">(<span class="hljs-variable">$num1</span>)</span>
+     </span>{
+        <span class="hljs-variable">$this</span>-&gt;see(<span class="hljs-variable">$num1</span>, <span class="hljs-string">'.total'</span>);
+     }
+}
+</code></pre>
+<p>To make testing more effective we assumed that we are using one of the ActiveRecord frameworks like Laravel, Yii, or Phalcon so we are able to dynamically create records in database with <code>haveRecord</code> method. After that we are opening browser and testing our web pages to see that after selecting those products we really see the price was calculated correctly.</p>
+<p>We can dry-run (or run) our feature file to see that Given/When/Then are expanded with substeps:</p>
+<pre><code class="hljs bash language-bash"> Given i have product with <span class="hljs-variable">$600</span> price <span class="hljs-keyword">in</span> my cart
+   I have record <span class="hljs-string">'Product'</span>,{<span class="hljs-string">"name"</span>:<span class="hljs-string">"randomProduct571fad4f88a04"</span>,<span class="hljs-string">"price"</span>:<span class="hljs-string">"600"</span>}
+   I am on page <span class="hljs-string">"/item/1"</span>
+   I click <span class="hljs-string">"Order"</span>
+ And i have product with <span class="hljs-variable">$1000</span> price <span class="hljs-keyword">in</span> my cart
+   I have record <span class="hljs-string">'Product'</span>,{<span class="hljs-string">"name"</span>:<span class="hljs-string">"randomProduct571fad4f88b14"</span>,<span class="hljs-string">"price"</span>:<span class="hljs-string">"1000"</span>}
+   I am on page <span class="hljs-string">"/item/2"</span>
+   I click <span class="hljs-string">"Order"</span>
+ When i go to checkout process
+   I am on page <span class="hljs-string">"/checkout"</span>
+ Then i should see that total number of products is <span class="hljs-number">2</span>
+   I see <span class="hljs-string">"2"</span>,<span class="hljs-string">".products-count"</span>
+ And my order amount is <span class="hljs-variable">$1600</span>
+   I see <span class="hljs-string">"1600"</span>,<span class="hljs-string">".total"</span>
+</code></pre>
+<p>This way feature file runs just the same as any other Codeception test. Substeps give us detailed information of how the scenario is being executed.</p>
+<p>One of the criticism for testing with Gherkin was that only technical team were aware of how the test scenario is executed. This could have lead to false-positive tests. Developers could have used empty steps for scenarios (or irrelevant ones) and produced invalid tests for valid scenarios. Codeception brings communication to a next level, everyone in a team can understand what happens on a lower (technical) level. Scenario expanding to substeps shows the actual test execution process. Anyone in a team can read the output, and invest their efforts into improving the test suite.</p>
+<h2>Advanced Gherkin <span id="advanced-gherkin"></span><a href="#advanced-gherkin" class="hashlink">&para;</a></h2><p>Let's improve our BDD suite by using the advanced features of Gherkin language.</p>
+<h3>Background <span id="background"></span><a href="#background" class="hashlink">&para;</a></h3><p>If a group of scenarios have the same initial steps, let's that for dashboard we need always need to be logged in as administrator. We can use <em>Background</em> section to do the required preparations and not to repeat same steps across scenarios.</p>
+<pre><code class="hljs gherkin language-gherkin"><span class="hljs-keyword">Feature</span>: Dashboard
+  In order to view current state of business
+  As an owner
+  I need to be able to see reports on dashboard
+
+  <span class="hljs-keyword">Background</span>:
+    <span class="hljs-keyword">Given</span> I am logged in as administrator
+    <span class="hljs-keyword">And</span> I open dashboard page
+</code></pre>
+<p>Steps in background are defined the same way as in scenarios.</p>
+<h3>Tables <span id="tables"></span><a href="#tables" class="hashlink">&para;</a></h3><p>Scenarios can become more descriptive when you represent repeating data as tables. Instead of writing several steps "I have product with :num1 $ price in my cart" we can have one step with multiple values in it.</p>
+<pre><code class="hljs gherkin language-gherkin">  <span class="hljs-keyword">Given</span> i have products in my cart
+    |<span class="hljs-string"> name         </span>|<span class="hljs-string"> category    </span>|<span class="hljs-string"> price  </span>|
+    |<span class="hljs-string"> Harry Potter </span>|<span class="hljs-string"> Books       </span>|<span class="hljs-string"> 5      </span>|
+    |<span class="hljs-string"> iPhone 5     </span>|<span class="hljs-string"> Smartphones </span>|<span class="hljs-string"> 1200   </span>|
+    |<span class="hljs-string"> Nuclear Bomb </span>|<span class="hljs-string"> Weapons     </span>|<span class="hljs-string"> 100000 </span>|
+</code></pre>
+<p>Tables is a recommended ways to pass arrays into test scenarios.
+Inside a step definition data is stored in argument passed as <code>\Behat\Gherkin\Node\TableNode</code> instance.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Given</span> i have products in my cart
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">iHaveProductsInCart</span><span class="hljs-params">(\Behat\Gherkin\Node\TableNode <span class="hljs-variable">$products</span>)</span>
+    </span>{
+        <span class="hljs-comment">// iterate over all rows</span>
+        <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$node</span>-&gt;getRows() <span class="hljs-keyword">as</span> <span class="hljs-variable">$index</span> =&gt; <span class="hljs-variable">$row</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-variable">$index</span> === <span class="hljs-number">0</span>) { <span class="hljs-comment">// first row to define fields</span>
+                <span class="hljs-variable">$keys</span> = <span class="hljs-variable">$row</span>;
+                <span class="hljs-keyword">continue</span>;
+            }
+            <span class="hljs-variable">$this</span>-&gt;haveRecord(<span class="hljs-string">'Product'</span>, array_combine(<span class="hljs-variable">$keys</span>, <span class="hljs-variable">$row</span>));
+        }
+    }
+</code></pre>
+<h3>Examples <span id="examples"></span><a href="#examples" class="hashlink">&para;</a></h3><p>In case scenarios represent the same logic but differ on data, we can use <em>Scenario Outline</em> to provide different examples for the same behavior. Scenario outline is just like a basic scenario with some values replaced with placeholders, which are filled from a table. Each set of values is executed as a different test.</p>
+<pre><code class="hljs gherkin language-gherkin">  <span class="hljs-keyword">Scenario</span> <span class="hljs-keyword">Outline</span>: order discount
+    <span class="hljs-keyword">Given</span> I have product with price <span class="hljs-variable">&lt;price&gt;</span>$ in my cart
+    <span class="hljs-keyword">And</span> discount for orders greater than $20 is 10 %
+    <span class="hljs-keyword">When</span> I go to checkout
+    <span class="hljs-keyword">Then</span> I should see overall price is <span class="hljs-string">"&lt;total&gt;"</span> $
+
+    <span class="hljs-keyword">Examples</span>:
+      |<span class="hljs-string"> price </span>|<span class="hljs-string"> total </span>|
+      |<span class="hljs-string"> 10    </span>|<span class="hljs-string"> 10    </span>|
+      |<span class="hljs-string"> 20    </span>|<span class="hljs-string"> 20    </span>|
+      |<span class="hljs-string"> 21    </span>|<span class="hljs-string"> 18.9  </span>|
+      |<span class="hljs-string"> 30    </span>|<span class="hljs-string"> 27    </span>|
+      |<span class="hljs-string"> 50    </span>|<span class="hljs-string"> 45    </span>|
+</code></pre>
+<h3>Long Strings <span id="long-strings"></span><a href="#long-strings" class="hashlink">&para;</a></h3><p>Text values inside a scenarios can be set inside a <code>"""</code> block:</p>
+<pre><code class="hljs gherkin language-gherkin">  <span class="hljs-keyword">Then</span> i see in file <span class="hljs-string">"codeception.yml"</span>
+<span class="hljs-string">"""
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+    envs: tests/_envs
+"""</span>
+</code></pre>
+<p>This string is passed as a standard PHP string parameter</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@Then</span> i see in file :filename
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">seeInFile</span><span class="hljs-params">(<span class="hljs-variable">$fileName</span>, <span class="hljs-variable">$fileContents</span>)</span>
+    </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag">note:</span> module "Asserts" is enabled in this suite</span>
+        <span class="hljs-keyword">if</span> (!file_exists(<span class="hljs-variable">$fileName</span>)) {
+            <span class="hljs-variable">$this</span>-&gt;fail(<span class="hljs-string">"File $fileName not found"</span>);
+        }
+        <span class="hljs-variable">$this</span>-&gt;assertEquals(file_get_contents(<span class="hljs-variable">$fileName</span>), <span class="hljs-variable">$fileContents</span>);
+    }
+</code></pre>
+<h3>Tags <span id="tags"></span><a href="#tags" class="hashlink">&para;</a></h3><p>Gherkin scenarios and features can contain tags marked with <code>@</code>. Tags are equal to groups in Codeception.
+This way if you define a feature with <code>@important</code> tag, you can execute it inside <code>important</code> group by running:</p>
+<pre><code class="hljs bash language-bash">codecept run -g important
+</code></pre>
+<p>Tag should be placed before <em>Scenario:</em> or before <em>Feature:</em> keyword. In the last case all scenarios of that feature will be added to corresponding group.</p>
+<h2>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h2><p>As we mentioned earlier, steps should be defined inside context classes. By default all the steps are defined inside an Actor class, for instance, <code>AcceptanceTester</code>. However, you can include more contexts. This can be configured inside global <code>codeception.yml</code> or suite configuration file:</p>
+<pre><code class="language-yaml">gherkin:
+    contexts:
+        default:
+            - AcceptanceTester
+            - AdditionalSteps
+</code></pre>
+<p><code>AdditionalSteps</code> file should be accessible by autoloader and can be created by <code>Codeception\Lib\Di</code>. This means that practically any class can be a context. If a class receives an actor class in constructor or in <code>_inject</code> method, DI can inject it into it.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AdditionalSteps</span>
+</span>{
+  <span class="hljs-keyword">protected</span> <span class="hljs-variable">$I</span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+  </span>{
+      <span class="hljs-variable">$this</span>-&gt;I = <span class="hljs-variable">$I</span>;
+  }
+
+  <span class="hljs-comment">/**
+   * <span class="hljs-doctag">@When</span> I do something
+   */</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">additionalActions</span><span class="hljs-params">()</span>
+  </span>{
+  }
+}
+</code></pre>
+<p>This way PageObjects, Helpers and StepObjects can become contexts as well. But more preferable to include context classes by their tags or roles.</p>
+<p>If you have <code>Step\Admin</code> class which defines only admin steps, it is a good idea to use it as context for all features containing with "As an admin". In this case "admin" is a role and we can configure it to use additional context.</p>
+<pre><code class="language-yaml">gherkin:
+    contexts:
+        role:
+            admin:
+                - "Step\Admin"
+</code></pre>
+<p>Contexts can be attached to tags as well. This may be useful if you want to redefine steps for some scenarios. Let's say we want to bypass login steps for some scenarios loading already defined session. In this case we can create <code>Step\FastLogin</code> class with redefined step "I am logged in as".</p>
+<pre><code class="language-yaml">gherkin:
+    contexts:
+        tag:
+            fastlogin:
+                - "Step\FastLogin"
+</code></pre>
+<h2>Migrating From Behat <span id="migrating-from-behat"></span><a href="#migrating-from-behat" class="hashlink">&para;</a></h2><p>While Behat is a great tool for Behavior Driven Development, you still may prefer to use Codeception as your primary testing framework. In case you want to unify all your tests (unit/functional/acceptance), and make them be executed with one runner, Codeception is a good choice. Also Codeception provides rich set of well-maintained modules for various testing backends like Selenium Webdriver, Symfony, Laravel, etc.</p>
+<p>If you decided to run your features with Codeception, we recommend to start with symlinking your <code>features</code> directory into one of the test suites:</p>
+<pre><code class="hljs bash language-bash">ln <span class="hljs-operator">-s</span> <span class="hljs-variable">$PWD</span>/features tests/acceptance
+</code></pre>
+<p>Then you will need to implement all step definitions. Run <code>gherkin:snippets</code> to generate stubs for them.
+By default it is recommended to place step definitions into actor class (Tester) and use its methods for steps implementation.</p>
+<h2>Tests vs Features <span id="tests-vs-features"></span><a href="#tests-vs-features" class="hashlink">&para;</a></h2><p>It is common to think that BDD scenario is equal to test. But it's actually not. Not every test should be described as a feature. Not every test is written to test real business value. For instance, regression tests or negative scenario tests are not bringing any value to business. Business analysts don't care about scenario reproducing bug #13, or what error message is displayed when user tries to enter wrong password on login screen. Writing all the tests inside a feature files creates informational overflow.</p>
+<p>In Codeception you can combine tests written in Gherkin format with tests written in Cept/Cest/Test formats. This way you can keep your feature files compact with minimal set of scenarios, and write regular tests to cover all cases.</p>
+<p>Corresponding features and tests can be attached to the same group. And what is more interesting, you can make tests to depend on feature scenarios. Let's say we have <code>login.feature</code> file with "Log regular user" scenario in it. In this case you can specify that every test which requires login to pass to depend on "Log regular user" scenario:</p>
+<pre><code class="hljs less"><span class="hljs-variable">@depends</span> <span class="hljs-attribute">login</span>:Log regular user
+</code></pre>
+<p>Inside <code>@depends</code> block you should use test signature. Execute your feature with <code>dry-run</code> to see  signatures for all scenarios in it. By marking tests with <code>@depends</code> you ensure that this test won't be executed before the test it depends on.</p>
+<h2>Conclusions <span id="conclusions"></span><a href="#conclusions" class="hashlink">&para;</a></h2><p>If you like the concept of Behavior Driven Development or prefer to keep test scenarios in human readable format, Codeception allows you to write and execute scenarios in Gherkin. Feature files is just another test format inside Codeception, so it can be combined with Cept and Cest files inside the same suite. Steps definitions of your scenarios can use all the power of Codeception modules, PageObjects, and StepObjects.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

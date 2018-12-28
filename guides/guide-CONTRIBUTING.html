@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w8422" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w8422-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w8422-collapse" class="collapse navbar-collapse"><ul id="w8423" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-8406" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-8406" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8407" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-8407" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8408" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-8408" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8409" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-8409" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8410" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-8410" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8411" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-8411" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8412" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-8412" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8413" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-8413" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8414" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-8414" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8415" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-8415" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8416" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-8416" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8417" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-8417" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8418" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-8418" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8419" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-8419" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8420" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-8420" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-8421" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-8421" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Contributing to Font Awesome <span id="contributing-to-font-awesome"></span><a href="#contributing-to-font-awesome" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#requesting-new-icons">Requesting new icons</a></li>
+<li><a href="#suggesting-icon-keyword-additionremoval">Suggesting icon keyword addition/removal</a></li>
+<li><a href="#reporting-issues">Reporting issues</a></li>
+<li><a href="#key-branches">Key branches</a></li>
+<li><a href="#notes-on-the-repo">Notes on the repo</a></li>
+<li><a href="#pull-requests">Pull requests</a></li>
+<li><a href="#coding-standards-html">Coding standards: HTML</a></li>
+<li><a href="#coding-standards-css">Coding standards: CSS</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#thanks">Thanks</a></li></ol></div>
+<p>Looking to contribute something to Font Awesome? <strong>Here's how you can help.</strong></p>
+<h2>Requesting new icons <span id="requesting-new-icons"></span><a href="#requesting-new-icons" class="hashlink">&para;</a></h2><p>New icons mostly start as requests by the <a href="../../issues">Font Awesome community on GitHub</a>. Want to request a new icon? Here are some things to keep in mind:</p>
+<ol>
+<li>Please be nice. Font Awesome is a happy place.</li>
+<li>Please do not request comprehensive sets of icons related to a very specific field.</li>
+<li>Please <a href="../../search?type=Issues">search</a> to see if your icon request already exists. If a request is found, please +1 that one.</li>
+<li>Please make requests for single icons, unless you are requesting a couple of strictly related icons (e.g., thumbs-up/thumbs-down).</li>
+<li>Please and thank you if you include the following:<ul>
+<li>Title your <a href="../../issues/new?title=Icon%20Request:%20icon-">new issue</a> <code>Icon request: icon-name</code> (e.g., <code>Icon request: icon-car</code>).</li>
+<li>Include a few use cases for your requested icon. How do you plan on using it?</li>
+<li>Attach a single color image or two that represent the idea you're going for.</li>
+<li>Request concrete objects: it's harder to make an icon to represent happiness, it's easier to make a smiley face. ☺</li>
+</ul>
+</li>
+</ol>
+<h2>Suggesting icon keyword addition/removal <span id="suggesting-icon-keyword-additionremoval"></span><a href="#suggesting-icon-keyword-additionremoval" class="hashlink">&para;</a></h2><p>Icon filters are maintained by the <a href="../../pulls?q=is%3Apr+label%3Adoc">Font Awesome community on GitHub</a>.</p>
+<p>If you feel that an icon</p>
+<ul>
+<li>is missing keyword(s)</li>
+<li>contains invalid keyword(s)</li>
+</ul>
+<p>please send a <a href="https://help.github.com/articles/using-pull-requests/">PR</a> to the <code>master</code> branch.</p>
+<h2>Reporting issues <span id="reporting-issues"></span><a href="#reporting-issues" class="hashlink">&para;</a></h2><p>We only accept issues that are icon requests, bug reports, or feature requests. Bugs must be isolated and reproducible problems that we can fix within the Font Awesome core. Please read the following guidelines to ensure you are the paragon of bug reporting.</p>
+<ol>
+<li><strong>Search for existing issues.</strong> We get a lot of duplicate issues, and you'd help us out a lot by first checking if someone else has reported the same issue. Moreover, the issue may have already been resolved with a fix available.</li>
+<li><strong>Create an isolated and reproducible test case.</strong> Be sure the problem exists in Font Awesome's code with a <a href="http://css-tricks.com/reduced-test-cases/">reduced test case</a> that should be included in each bug report.</li>
+<li><strong>Include a live example.</strong> Make use of jsFiddle, jsBin, or Codepen to share your isolated test cases.</li>
+<li><strong>Share as much information as possible.</strong> Include operating system and version, browser and version, version of Font Awesome, etc. where appropriate. Also include steps to reproduce the bug.</li>
+</ol>
+<h2>Key branches <span id="key-branches"></span><a href="#key-branches" class="hashlink">&para;</a></h2><ul>
+<li><code>master</code> is the latest, deployed version (use for pull request if they only affect the docs)</li>
+<li><code>gh-pages</code> is the hosted docs (not to be used for pull requests)</li>
+<li><code>*-wip</code> branches are the official work in progress branches for the next releases. All pull requests should be submitted against the appropriate branch</li>
+</ul>
+<h2>Notes on the repo <span id="notes-on-the-repo"></span><a href="#notes-on-the-repo" class="hashlink">&para;</a></h2><p>As of v3.2.0, Font Awesome's CSS, LESS, SCSS, and documentation are all powered by Jekyll templates and built before each commit and release.</p>
+<ul>
+<li><code>_config.yml</code> - much of the site is driven off variables from this file, including Font Awesome and Bootstrap versions</li>
+<li><code>src/</code> - All edits to documentation, LESS, SCSS, and CSS should be made to files and templates in this directory</li>
+<li><code>src/icons.yml</code> - all LESS, SCSS, and CSS icon definitions are driven off this single file</li>
+</ul>
+<h2>Pull requests <span id="pull-requests"></span><a href="#pull-requests" class="hashlink">&para;</a></h2><ul>
+<li>At the moment we are not accepting pull requests containing icons</li>
+<li>Submit all pull requests against the appropriate <code>*-wip</code> branch for easier merging</li>
+<li>If your PR only affect the docs, feel free to push against the <code>master</code> branch</li>
+<li>Any changes to the docs must be made to the Liquid templates in the <code>src</code> directory</li>
+<li>Any changes to the styles must be made to the .less and .scss files in the <code>src</code> directory</li>
+<li>If modifying the .less and .scss files, always recompile and commit the compiled files</li>
+<li>Try not to pollute your pull request with unintended changes--keep them simple and small</li>
+<li>Try to share which browsers your code has been tested in before submitting a pull request</li>
+</ul>
+<h2>Coding standards: HTML <span id="coding-standards-html"></span><a href="#coding-standards-html" class="hashlink">&para;</a></h2><ul>
+<li>Two spaces for indentation, never tabs</li>
+<li>Double quotes only, never single quotes</li>
+<li>Always use proper indentation</li>
+<li>Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags)</li>
+</ul>
+<h2>Coding standards: CSS <span id="coding-standards-css"></span><a href="#coding-standards-css" class="hashlink">&para;</a></h2><ul>
+<li>Adhere to the <a href="http://markdotto.com/2011/11/29/css-property-order/">Recess CSS property order</a></li>
+<li>Multiple-line approach (one property and value per line)</li>
+<li>Always a space after a property's colon (.e.g, <code>display: block;</code> and not <code>display:block;</code>)</li>
+<li>End all lines with a semi-colon</li>
+<li>For multiple, comma-separated selectors, place each selector on its own line</li>
+<li>Attribute selectors, like <code>input[type="text"]</code> should always wrap the attribute's value in double quotes, for consistency and safety (see this <a href="http://mathiasbynens.be/notes/unquoted-attribute-values">blog post on unquoted attribute values</a> that can lead to XSS attacks)</li>
+</ul>
+<h2>License <span id="license"></span><a href="#license" class="hashlink">&para;</a></h2><p>By contributing your code, you agree to license your contribution under the terms of the MIT License:</p>
+<ul>
+<li><a href="http://opensource.org/licenses/mit-license.html">http://opensource.org/licenses/mit-license.html</a></li>
+</ul>
+<h2>Thanks <span id="thanks"></span><a href="#thanks" class="hashlink">&para;</a></h2><p>Thanks to Bootstrap for their wonderful CONTRIBUTING.MD doc. It was modified to create this one.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:28:05 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

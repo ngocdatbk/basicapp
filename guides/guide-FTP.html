@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2518" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2518-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2518-collapse" class="collapse navbar-collapse"><ul id="w2519" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2502" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2502" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2503" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2503" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2504" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2504" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2505" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2505" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2506" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2506" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2507" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2507" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2508" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2508" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2509" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2509" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2510" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2510" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2511" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2511" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2512" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2512" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2513" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2513" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2514" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2514" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2515" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2515" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2516" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2516" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2517" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2517" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>FTP <span id="ftp"></span><a href="#ftp" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#status">Status</a></li>
+<li><a href="#config">Config</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Works with SFTP/FTP servers.</p>
+<p>In order to test the contents of a specific file stored on any remote FTP/SFTP system
+this module downloads a temporary file to the local system. The temporary directory is
+defined by default as <code>`</code>tests/_data<code>`</code> to specify a different directory set the tmp config
+option to your chosen path.</p>
+<p>Don't forget to create the folder and ensure its writable.</p>
+<p>Supported and tested FTP types are:</p>
+<ul>
+<li>FTP</li>
+<li>SFTP</li>
+</ul>
+<p>Connection uses php build in FTP client for FTP,
+connection to SFTP uses <a href="http://phpseclib.sourceforge.net/">phpseclib</a> pulled in using composer.</p>
+<p>For SFTP, add <a href="http://phpseclib.sourceforge.net/">phpseclib</a> to require list.
+<code>"require": {
+ "phpseclib/phpseclib": "0.3.6"
+}</code></p>
+<h2>Status <span id="status"></span><a href="#status" class="hashlink">&para;</a></h2><ul>
+<li>Maintainer: <strong>nathanmac</strong></li>
+<li>Stability:<ul>
+<li>FTP: <strong>stable</strong></li>
+<li>SFTP: <strong>stable</strong></li>
+</ul>
+</li>
+<li>Contact: nathan.macnamara@outlook.com</li>
+</ul>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><ul>
+<li>type: ftp - type of connection ftp/sftp (defaults to ftp).</li>
+<li>host <em>required</em> - hostname/ip address of the ftp server.</li>
+<li>port: 21 - port number for the ftp server</li>
+<li>timeout: 90 - timeout settings for connecting the ftp server.</li>
+<li>user: anonymous - user to access ftp server, defaults to anonymous authentication.</li>
+<li>password - password, defaults to empty for anonymous.</li>
+<li>key - path to RSA key for sftp.</li>
+<li>tmp - path to local directory for storing tmp files.</li>
+<li>passive: true - Turns on or off passive mode (FTP only)</li>
+<li>cleanup: true - remove tmp files from local directory on completion.</li>
+</ul>
+<h3>Example <span id="example"></span><a href="#example" class="hashlink">&para;</a></h3><h4>Example (FTP) <span id="example-ftp"></span><a href="#example-ftp" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [FTP]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">FTP</span>:
+         <span class="hljs-attribute">type</span>: ftp
+         <span class="hljs-attribute">host</span>: <span class="hljs-string">'127.0.0.1'</span>
+         <span class="hljs-attribute">port</span>: <span class="hljs-number">21</span>
+         <span class="hljs-attribute">timeout</span>: <span class="hljs-number">120</span>
+         <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">password</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">key</span>: ~/.ssh/id_rsa
+         <span class="hljs-attribute">tmp</span>: <span class="hljs-string">'tests/_data/ftp'</span>
+         <span class="hljs-attribute">passive</span>: true
+         <span class="hljs-attribute">cleanup</span>: false
+</code></pre>
+<h4>Example (SFTP) <span id="example-sftp"></span><a href="#example-sftp" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [FTP]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">FTP</span>:
+         <span class="hljs-attribute">type</span>: sftp
+         <span class="hljs-attribute">host</span>: <span class="hljs-string">'127.0.0.1'</span>
+         <span class="hljs-attribute">port</span>: <span class="hljs-number">22</span>
+         <span class="hljs-attribute">timeout</span>: <span class="hljs-number">120</span>
+         <span class="hljs-attribute">user</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">password</span>: <span class="hljs-string">'root'</span>
+         <span class="hljs-attribute">key</span>: <span class="hljs-string">''</span>
+         <span class="hljs-attribute">tmp</span>: <span class="hljs-string">'tests/_data/ftp'</span>
+         <span class="hljs-attribute">cleanup</span>: false
+</code></pre>
+<p>This module extends the Filesystem module, file contents methods are inherited from this module.</p>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>amInPath <span id="aminpath"></span><a href="#aminpath" class="hashlink">&para;</a></h3><p>Enters a directory on the ftp system - FTP root directory is used by default</p>
+<ul>
+<li><code>param</code> $path</li>
+</ul>
+<h3>cleanDir <span id="cleandir"></span><a href="#cleandir" class="hashlink">&para;</a></h3><p>Erases directory contents on the FTP/SFTP server</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;cleanDir('logs');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $dirname</li>
+</ul>
+<h3>copyDir <span id="copydir"></span><a href="#copydir" class="hashlink">&para;</a></h3><p>Currently not supported in this module, overwrite inherited method</p>
+<ul>
+<li><code>param</code> $src</li>
+<li><code>param</code> $dst</li>
+</ul>
+<h3>deleteDir <span id="deletedir"></span><a href="#deletedir" class="hashlink">&para;</a></h3><p>Deletes directory with all subdirectories on the remote FTP/SFTP server</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;deleteDir('vendor');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $dirname</li>
+</ul>
+<h3>deleteFile <span id="deletefile"></span><a href="#deletefile" class="hashlink">&para;</a></h3><p>Deletes a file on the remote FTP/SFTP system</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;deleteFile('composer.lock');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+</ul>
+<h3>deleteThisFile <span id="deletethisfile"></span><a href="#deletethisfile" class="hashlink">&para;</a></h3><p>Deletes a file</p>
+<h3>dontSeeFileFound <span id="dontseefilefound"></span><a href="#dontseefilefound" class="hashlink">&para;</a></h3><p>Checks if file does not exist in path on the remote FTP/SFTP system</p>
+<ul>
+<li><code>param</code> $filename</li>
+<li><code>param string</code> $path</li>
+</ul>
+<h3>dontSeeFileFoundMatches <span id="dontseefilefoundmatches"></span><a href="#dontseefilefoundmatches" class="hashlink">&para;</a></h3><p>Checks if file does not exist in path on the remote FTP/SFTP system, using regular expression as filename.
+DOES NOT OPEN the file when it's exists</p>
+<ul>
+<li><code>param</code> $regex</li>
+<li><code>param string</code> $path</li>
+</ul>
+<h3>dontSeeInThisFile <span id="dontseeinthisfile"></span><a href="#dontseeinthisfile" class="hashlink">&para;</a></h3><p>Checks If opened file doesn't contain <code>text</code> in it</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;openFile('composer.json');
+$I-&gt;dontSeeInThisFile('codeception/codeception');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $text</li>
+</ul>
+<h3>grabDirectory <span id="grabdirectory"></span><a href="#grabdirectory" class="hashlink">&para;</a></h3><p>Grabber method to return current working directory</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$pwd</span> = <span class="hljs-variable">$I</span>-&gt;grabDirectory();
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabFileCount <span id="grabfilecount"></span><a href="#grabfilecount" class="hashlink">&para;</a></h3><p>Grabber method for returning file/folders count in directory</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$count</span> = <span class="hljs-variable">$I</span>-&gt;grabFileCount();
+<span class="hljs-variable">$count</span> = <span class="hljs-variable">$I</span>-&gt;grabFileCount(<span class="hljs-string">'TEST'</span>, <span class="hljs-keyword">false</span>); <span class="hljs-comment">// Include . .. .thumbs.db</span>
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $path</li>
+<li><code>param bool</code> $ignore - suppress '.', '..' and '.thumbs.db'</li>
+<li><code>return</code> int</li>
+</ul>
+<h3>grabFileList <span id="grabfilelist"></span><a href="#grabfilelist" class="hashlink">&para;</a></h3><p>Grabber method for returning file/folders listing in an array</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$files</span> = <span class="hljs-variable">$I</span>-&gt;grabFileList();
+<span class="hljs-variable">$count</span> = <span class="hljs-variable">$I</span>-&gt;grabFileList(<span class="hljs-string">'TEST'</span>, <span class="hljs-keyword">false</span>); <span class="hljs-comment">// Include . .. .thumbs.db</span>
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $path</li>
+<li><code>param bool</code> $ignore - suppress '.', '..' and '.thumbs.db'</li>
+<li><code>return</code> array</li>
+</ul>
+<h3>grabFileModified <span id="grabfilemodified"></span><a href="#grabfilemodified" class="hashlink">&para;</a></h3><p>Grabber method to return last modified timestamp</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$time</span> = <span class="hljs-variable">$I</span>-&gt;grabFileModified(<span class="hljs-string">'test.txt'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+<li><code>return</code> bool</li>
+</ul>
+<h3>grabFileSize <span id="grabfilesize"></span><a href="#grabfilesize" class="hashlink">&para;</a></h3><p>Grabber method to return file size</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$size</span> = <span class="hljs-variable">$I</span>-&gt;grabFileSize(<span class="hljs-string">'test.txt'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+<li><code>return</code> bool</li>
+</ul>
+<h3>loginAs <span id="loginas"></span><a href="#loginas" class="hashlink">&para;</a></h3><p>Change the logged in user mid-way through your test, this closes the
+current connection to the server and initialises and new connection.</p>
+<p>On initiation of this modules you are automatically logged into
+the server using the specified config options or defaulted
+to anonymous user if not provided.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;loginAs('user','password');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param String</code> $user</li>
+<li><code>param String</code> $password</li>
+</ul>
+<h3>makeDir <span id="makedir"></span><a href="#makedir" class="hashlink">&para;</a></h3><p>Create a directory on the server</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;makeDir('vendor');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $dirname</li>
+</ul>
+<h3>openFile <span id="openfile"></span><a href="#openfile" class="hashlink">&para;</a></h3><p>Opens a file (downloads from the remote FTP/SFTP system to a tmp directory for processing)
+and stores it's content.</p>
+<p>Usage:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;openFile('composer.json');
+$I-&gt;seeInThisFile('codeception/codeception');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+</ul>
+<h3>renameDir <span id="renamedir"></span><a href="#renamedir" class="hashlink">&para;</a></h3><p>Rename/Move directory on the FTP/SFTP server</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;renameDir('vendor', 'vendor_old');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $dirname</li>
+<li><code>param</code> $rename</li>
+</ul>
+<h3>renameFile <span id="renamefile"></span><a href="#renamefile" class="hashlink">&para;</a></h3><p>Rename/Move file on the FTP/SFTP server</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;renameFile('composer.lock', 'composer_old.lock');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+<li><code>param</code> $rename</li>
+</ul>
+<h3>seeFileContentsEqual <span id="seefilecontentsequal"></span><a href="#seefilecontentsequal" class="hashlink">&para;</a></h3><p>Checks the strict matching of file contents.
+Unlike <code>seeInThisFile</code> will fail if file has something more than expected lines.
+Better to use with HEREDOC strings.
+Matching is done after removing "\r" chars from file content.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;openFile('process.pid');
+$I-&gt;seeFileContentsEqual('3192');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $text</li>
+</ul>
+<h3>seeFileFound <span id="seefilefound"></span><a href="#seefilefound" class="hashlink">&para;</a></h3><p>Checks if file exists in path on the remote FTP/SFTP system.
+DOES NOT OPEN the file when it's exists</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeFileFound('UserModel.php','app/models');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+<li><code>param string</code> $path</li>
+</ul>
+<h3>seeFileFoundMatches <span id="seefilefoundmatches"></span><a href="#seefilefoundmatches" class="hashlink">&para;</a></h3><p>Checks if file exists in path on the remote FTP/SFTP system, using regular expression as filename.
+DOES NOT OPEN the file when it's exists</p>
+<p> <code>php
+&lt;?php
+$I-&gt;seeFileFoundMatches('/^UserModel_([0-9]{6}).php$/','app/models');
+?&gt;</code></p>
+<ul>
+<li><code>param</code> $regex</li>
+<li><code>param string</code> $path</li>
+</ul>
+<h3>seeInThisFile <span id="seeinthisfile"></span><a href="#seeinthisfile" class="hashlink">&para;</a></h3><p>Checks If opened file has <code>text</code> in it.</p>
+<p>Usage:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;openFile('composer.json');
+$I-&gt;seeInThisFile('codeception/codeception');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $text</li>
+</ul>
+<h3>seeNumberNewLines <span id="seenumbernewlines"></span><a href="#seenumbernewlines" class="hashlink">&para;</a></h3><p>Checks If opened file has the <code>number</code> of new lines.</p>
+<p>Usage:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;openFile('composer.json');
+$I-&gt;seeNumberNewLines(5);
+?&gt;
+</code></pre>
+<ul>
+<li><code>param int</code> $number New lines</li>
+</ul>
+<h3>seeThisFileMatches <span id="seethisfilematches"></span><a href="#seethisfilematches" class="hashlink">&para;</a></h3><p>Checks that contents of currently opened file matches $regex</p>
+<ul>
+<li><code>param string</code> $regex</li>
+</ul>
+<h3>writeToFile <span id="writetofile"></span><a href="#writetofile" class="hashlink">&para;</a></h3><p>Saves contents to tmp file and uploads the FTP/SFTP system.
+Overwrites current file on server if exists.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;writeToFile('composer.json', 'some data here');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $filename</li>
+<li><code>param</code> $contents</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/FTP.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

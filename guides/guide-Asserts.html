@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2392" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2392-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2392-collapse" class="collapse navbar-collapse"><ul id="w2393" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2376" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2376" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2377" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2377" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2378" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2378" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2379" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2379" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2380" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2380" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2381" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2381" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2382" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2382" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2383" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2383" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2384" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2384" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2385" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2385" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2386" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2386" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2387" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2387" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2388" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2388" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2389" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2389" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2390" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2390" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2391" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2391" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Asserts <span id="asserts"></span><a href="#asserts" class="hashlink">&para;</a></h1><p>Special module for using asserts in your tests.</p>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>assertArrayHasKey <span id="assertarrayhaskey"></span><a href="#assertarrayhaskey" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $key</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertArrayNotHasKey <span id="assertarraynothaskey"></span><a href="#assertarraynothaskey" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $key</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertArraySubset <span id="assertarraysubset"></span><a href="#assertarraysubset" class="hashlink">&para;</a></h3><p>Checks that array contains subset.</p>
+<ul>
+<li><code>param array</code>  $subset</li>
+<li><code>param array</code>  $array</li>
+<li><code>param bool</code>   $strict</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertContains <span id="assertcontains"></span><a href="#assertcontains" class="hashlink">&para;</a></h3><p>Checks that haystack contains needle</p>
+<ul>
+<li><code>param</code>        $needle</li>
+<li><code>param</code>        $haystack</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertCount <span id="assertcount"></span><a href="#assertcount" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $expectedCount</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertEmpty <span id="assertempty"></span><a href="#assertempty" class="hashlink">&para;</a></h3><p>Checks that variable is empty.</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertEquals <span id="assertequals"></span><a href="#assertequals" class="hashlink">&para;</a></h3><p>Checks that two variables are equal. If you're comparing floating-point values,
+you can specify the optional "delta" parameter which dictates how great of a precision
+error are you willing to tolerate in order to consider the two values equal.</p>
+<p>Regular example:
+<code>`</code>php
+&lt;?php
+$I-&gt;assertEquals(5, $element-&gt;getChildrenCount());
+<code>`</code></p>
+<p>Floating-point example:
+<code>`</code>php
+&lt;?php
+$I-&gt;assertEquals(0.3, $calculator-&gt;add(0.1, 0.2), 'Calculator should add the two numbers correctly.', 0.01);
+<code>`</code></p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+<li><code>param float</code>  $delta</li>
+</ul>
+<h3>assertFalse <span id="assertfalse"></span><a href="#assertfalse" class="hashlink">&para;</a></h3><p>Checks that condition is negative.</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertFileExists <span id="assertfileexists"></span><a href="#assertfileexists" class="hashlink">&para;</a></h3><p>Checks if file exists</p>
+<ul>
+<li><code>param string</code> $filename</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertFileNotExists <span id="assertfilenotexists"></span><a href="#assertfilenotexists" class="hashlink">&para;</a></h3><p>Checks if file doesn't exist</p>
+<ul>
+<li><code>param string</code> $filename</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertGreaterOrEquals <span id="assertgreaterorequals"></span><a href="#assertgreaterorequals" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $expected</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertGreaterThan <span id="assertgreaterthan"></span><a href="#assertgreaterthan" class="hashlink">&para;</a></h3><p>Checks that actual is greater than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertGreaterThanOrEqual <span id="assertgreaterthanorequal"></span><a href="#assertgreaterthanorequal" class="hashlink">&para;</a></h3><p>Checks that actual is greater or equal than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertInstanceOf <span id="assertinstanceof"></span><a href="#assertinstanceof" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $class</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertInternalType <span id="assertinternaltype"></span><a href="#assertinternaltype" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $type</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertIsEmpty <span id="assertisempty"></span><a href="#assertisempty" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertLessOrEquals <span id="assertlessorequals"></span><a href="#assertlessorequals" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $expected</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertLessThan <span id="assertlessthan"></span><a href="#assertlessthan" class="hashlink">&para;</a></h3><p>Checks that actual is less than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertLessThanOrEqual <span id="assertlessthanorequal"></span><a href="#assertlessthanorequal" class="hashlink">&para;</a></h3><p>Checks that actual is less or equal than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotContains <span id="assertnotcontains"></span><a href="#assertnotcontains" class="hashlink">&para;</a></h3><p>Checks that haystack doesn't contain needle.</p>
+<ul>
+<li><code>param</code>        $needle</li>
+<li><code>param</code>        $haystack</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotEmpty <span id="assertnotempty"></span><a href="#assertnotempty" class="hashlink">&para;</a></h3><p>Checks that variable is not empty.</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotEquals <span id="assertnotequals"></span><a href="#assertnotequals" class="hashlink">&para;</a></h3><p>Checks that two variables are not equal. If you're comparing floating-point values,
+you can specify the optional "delta" parameter which dictates how great of a precision
+error are you willing to tolerate in order to consider the two values not equal.</p>
+<p>Regular example:
+<code>`</code>php
+&lt;?php
+$I-&gt;assertNotEquals(0, $element-&gt;getChildrenCount());
+<code>`</code></p>
+<p>Floating-point example:
+<code>`</code>php
+&lt;?php
+$I-&gt;assertNotEquals(0.4, $calculator-&gt;add(0.1, 0.2), 'Calculator should add the two numbers correctly.', 0.01);
+<code>`</code></p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+<li><code>param float</code>  $delta</li>
+</ul>
+<h3>assertNotFalse <span id="assertnotfalse"></span><a href="#assertnotfalse" class="hashlink">&para;</a></h3><p>Checks that the condition is NOT false (everything but false)</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotInstanceOf <span id="assertnotinstanceof"></span><a href="#assertnotinstanceof" class="hashlink">&para;</a></h3><ul>
+<li><code>param</code> $class</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<h3>assertNotNull <span id="assertnotnull"></span><a href="#assertnotnull" class="hashlink">&para;</a></h3><p>Checks that variable is not NULL</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotRegExp <span id="assertnotregexp"></span><a href="#assertnotregexp" class="hashlink">&para;</a></h3><p>Checks that string not match with pattern</p>
+<ul>
+<li><code>param string</code> $pattern</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotSame <span id="assertnotsame"></span><a href="#assertnotsame" class="hashlink">&para;</a></h3><p>Checks that two variables are not same</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNotTrue <span id="assertnottrue"></span><a href="#assertnottrue" class="hashlink">&para;</a></h3><p>Checks that the condition is NOT true (everything but true)</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertNull <span id="assertnull"></span><a href="#assertnull" class="hashlink">&para;</a></h3><p>Checks that variable is NULL</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertRegExp <span id="assertregexp"></span><a href="#assertregexp" class="hashlink">&para;</a></h3><p>Checks that string match with pattern</p>
+<ul>
+<li><code>param string</code> $pattern</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertSame <span id="assertsame"></span><a href="#assertsame" class="hashlink">&para;</a></h3><p>Checks that two variables are same</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertStringStartsNotWith <span id="assertstringstartsnotwith"></span><a href="#assertstringstartsnotwith" class="hashlink">&para;</a></h3><p>Checks that a string doesn't start with the given prefix.</p>
+<ul>
+<li><code>param string</code> $prefix</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertStringStartsWith <span id="assertstringstartswith"></span><a href="#assertstringstartswith" class="hashlink">&para;</a></h3><p>Checks that a string starts with the given prefix.</p>
+<ul>
+<li><code>param string</code> $prefix</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>assertTrue <span id="asserttrue"></span><a href="#asserttrue" class="hashlink">&para;</a></h3><p>Checks that condition is positive.</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<h3>expectException <span id="expectexception"></span><a href="#expectexception" class="hashlink">&para;</a></h3><p>Handles and checks exception called inside callback function.
+Either exception class name or exception instance should be provided.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;expectException(MyException::class, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-variable">$this</span>-&gt;doSomethingBad();
+});
+
+<span class="hljs-variable">$I</span>-&gt;expectException(<span class="hljs-keyword">new</span> MyException(), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-variable">$this</span>-&gt;doSomethingBad();
+});
+</code></pre>
+<p>If you want to check message or exception code, you can pass them with exception instance:
+<code>`</code>php
+&lt;?php
+// will check that exception MyException is thrown with "Don't do bad things" message
+$I-&gt;expectException(new MyException("Don't do bad things"), function() {</p>
+<pre><code class="hljs bash"><span class="hljs-variable">$this</span>-&gt;<span class="hljs-keyword">do</span>SomethingBad();
+</code></pre>
+<p>});
+<code>`</code></p>
+<ul>
+<li><code>param</code> $exception string or \Exception</li>
+<li><code>param</code> $callback</li>
+</ul>
+<p>@deprecated Use expectThrowable instead</p>
+<h3>expectThrowable <span id="expectthrowable"></span><a href="#expectthrowable" class="hashlink">&para;</a></h3><p>Handles and checks throwables (Exceptions/Errors) called inside the callback function.
+Either throwable class name or throwable instance should be provided.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;expectThrowable(MyThrowable::class, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-variable">$this</span>-&gt;doSomethingBad();
+});
+
+<span class="hljs-variable">$I</span>-&gt;expectThrowable(<span class="hljs-keyword">new</span> MyException(), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-variable">$this</span>-&gt;doSomethingBad();
+});
+</code></pre>
+<p>If you want to check message or throwable code, you can pass them with throwable instance:
+<code>`</code>php
+&lt;?php
+// will check that throwable MyError is thrown with "Don't do bad things" message
+$I-&gt;expectThrowable(new MyError("Don't do bad things"), function() {</p>
+<pre><code class="hljs bash"><span class="hljs-variable">$this</span>-&gt;<span class="hljs-keyword">do</span>SomethingBad();
+</code></pre>
+<p>});
+<code>`</code></p>
+<ul>
+<li><code>param</code> $throwable string or \Throwable</li>
+<li><code>param</code> $callback</li>
+</ul>
+<h3>fail <span id="fail"></span><a href="#fail" class="hashlink">&para;</a></h3><p>Fails the test with message.</p>
+<ul>
+<li><code>param</code> $message</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Asserts.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

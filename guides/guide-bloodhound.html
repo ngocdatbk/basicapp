@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w448" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w448-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w448-collapse" class="collapse navbar-collapse"><ul id="w449" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-432" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-432" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-433" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-433" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-434" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-434" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-435" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-435" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-436" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-436" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-437" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-437" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-438" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-438" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-439" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-439" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-440" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-440" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-441" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-441" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-442" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-442" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-443" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-443" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-444" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-444" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-445" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-445" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-446" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-446" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-447" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-447" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Bloodhound <span id="bloodhound"></span><a href="#bloodhound" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#usage">Usage</a></li></ol></div>
+<p>Bloodhound is the typeahead.js suggestion engine. Bloodhound is robust, 
+flexible, and offers advanced functionalities such as prefetching, intelligent
+caching, fast lookups, and backfilling with remote data.</p>
+<h2>Table of Contents <span id="table-of-contents"></span><a href="#table-of-contents" class="hashlink">&para;</a></h2><ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#api">API</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#prefetch">Prefetch</a></li>
+<li><a href="#remote">Remote</a></li>
+</ul>
+</li>
+</ul>
+<h2>Features <span id="features"></span><a href="#features" class="hashlink">&para;</a></h2><ul>
+<li>Works with hardcoded data</li>
+<li>Prefetches data on initialization to reduce suggestion latency</li>
+<li>Uses local storage intelligently to cut down on network requests</li>
+<li>Backfills suggestions from a remote source</li>
+<li>Rate-limits and caches network requests to remote sources to lighten the load</li>
+</ul>
+<h2>Usage <span id="usage"></span><a href="#usage" class="hashlink">&para;</a></h2><h3>API <span id="api"></span><a href="#api" class="hashlink">&para;</a></h3><ul>
+<li><a href="#new-bloodhoundoptions"><code>new Bloodhound(options)</code></a></li>
+<li><a href="#bloodhoundnoconflict"><code>Bloodhound.noConflict()</code></a></li>
+<li><a href="#bloodhoundinitializereinitialize"><code>Bloodhound#initialize(reinitialize)</code></a></li>
+<li><a href="#bloodhoundadddata"><code>Bloodhound#add(data)</code></a></li>
+<li><a href="#bloodhoundgetids"><code>Bloodhound#get(ids)</code></a></li>
+<li><a href="#bloodhoundsearchquery-sync-async"><code>Bloodhound#search(query, sync, async)</code></a></li>
+<li><a href="#bloodhoundclear"><code>Bloodhound#clear()</code></a></li>
+</ul>
+<h4>new Bloodhound(options) <span id="new-bloodhoundoptions"></span><a href="#new-bloodhoundoptions" class="hashlink">&para;</a></h4><p>The constructor function. It takes an <a href="#options">options hash</a> as its only 
+argument.</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> engine = <span class="hljs-keyword">new</span> Bloodhound({
+  local: [<span class="hljs-string">'dog'</span>, <span class="hljs-string">'pig'</span>, <span class="hljs-string">'moose'</span>],
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: Bloodhound.tokenizers.whitespace
+});
+</code></pre>
+<h4>Bloodhound.noConflict() <span id="bloodhoundnoconflict"></span><a href="#bloodhoundnoconflict" class="hashlink">&para;</a></h4><p>Returns a reference to <code>Bloodhound</code> and reverts <code>window.Bloodhound</code> to its 
+previous value. Can be used to avoid naming collisions. </p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> Dachshund = Bloodhound.noConflict();
+</code></pre>
+<h4>Bloodhound#initialize(reinitialize) <span id="bloodhoundinitializereinitialize"></span><a href="#bloodhoundinitializereinitialize" class="hashlink">&para;</a></h4><p>Kicks off the initialization of the suggestion engine. Initialization entails
+adding the data provided by <code>local</code> and <code>prefetch</code> to the internal search 
+index as well as setting up transport mechanism used by <code>remote</code>. Before 
+<code>#initialize</code> is called, the <code>#get</code> and <code>#search</code> methods will effectively be
+no-ops.</p>
+<p>Note, unless the <code>initialize</code> option is <code>false</code>, this method is implicitly
+called by the constructor.</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> engine = <span class="hljs-keyword">new</span> Bloodhound({
+  initialize: <span class="hljs-literal">false</span>,
+  local: [<span class="hljs-string">'dog'</span>, <span class="hljs-string">'pig'</span>, <span class="hljs-string">'moose'</span>],
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: Bloodhound.tokenizers.whitespace
+});
+
+<span class="hljs-keyword">var</span> promise = engine.initialize();
+
+promise
+.done(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ready to go!'</span>); })
+.fail(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'err, something went wrong :('</span>); });
+</code></pre>
+<p>After initialization, how subsequent invocations of <code>#initialize</code> behave 
+depends on the <code>reinitialize</code> argument. If <code>reinitialize</code> is falsy, the
+method will not execute the initialization logic and will just return the same 
+jQuery promise returned by the initial invocation. If <code>reinitialize</code> is truthy,
+the method will behave as if it were being called for the first time.</p>
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> promise1 = engine.initialize();
+<span class="hljs-keyword">var</span> promise2 = engine.initialize();
+<span class="hljs-keyword">var</span> promise3 = engine.initialize(<span class="hljs-literal">true</span>);
+
+assert(promise1 === promise2);
+assert(promise3 !== promise1 &amp;&amp; promise3 !== promise2);
+</code></pre>
+<!-- section links -->
+<h4>Bloodhound#add(data) <span id="bloodhoundadddata"></span><a href="#bloodhoundadddata" class="hashlink">&para;</a></h4><p>Takes one argument, <code>data</code>, which is expected to be an array. The data passed
+in will get added to the internal search index.</p>
+<pre><code class="hljs javascript language-javascript">engine.add([{ val: <span class="hljs-string">'one'</span> }, { val: <span class="hljs-string">'two'</span> }]);
+</code></pre>
+<h4>Bloodhound#get(ids) <span id="bloodhoundgetids"></span><a href="#bloodhoundgetids" class="hashlink">&para;</a></h4><p>Returns the data in the local search index corresponding to <code>ids</code>.</p>
+<pre><code class="hljs javascript language-javascript">  <span class="hljs-keyword">var</span> engine = <span class="hljs-keyword">new</span> Bloodhound({
+    local: [{ id: <span class="hljs-number">1</span>, name: <span class="hljs-string">'dog'</span> }, { id: <span class="hljs-number">2</span>, name: <span class="hljs-string">'pig'</span> }],
+    identify: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>{ <span class="hljs-keyword">return</span> obj.id; },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    datumTokenizer: Bloodhound.tokenizers.whitespace
+  });
+
+  engine.get([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [{ id: 1, name: 'dog' }, null]</span>
+</code></pre>
+<h4>Bloodhound#search(query, sync, async) <span id="bloodhoundsearchquery-sync-async"></span><a href="#bloodhoundsearchquery-sync-async" class="hashlink">&para;</a></h4><p>Returns the data that matches <code>query</code>. Matches found in the local search index
+will be passed to the <code>sync</code> callback. If the data passed to <code>sync</code> doesn't 
+contain at least <code>sufficient</code> number of datums, <code>remote</code> data will be requested 
+and then passed to the <code>async</code> callback.</p>
+<pre><code class="hljs javascript language-javascript">bloodhound.get(myQuery, sync, <span class="hljs-keyword">async</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sync</span>(<span class="hljs-params">datums</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'datums from `local`, `prefetch`, and `#add`'</span>);
+  <span class="hljs-built_in">console</span>.log(datums);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">async</span>(<span class="hljs-params">datums</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'datums from `remote`'</span>);
+  <span class="hljs-built_in">console</span>.log(datums);
+}
+</code></pre>
+<h4>Bloodhound#clear() <span id="bloodhoundclear"></span><a href="#bloodhoundclear" class="hashlink">&para;</a></h4><p>Clears the internal search index that's powered by <code>local</code>, <code>prefetch</code>, and 
+<code>#add</code>.</p>
+<pre><code class="hljs javascript language-javascript">engine.clear();
+</code></pre>
+<h3>Options <span id="options"></span><a href="#options" class="hashlink">&para;</a></h3><p>When instantiating a Bloodhound suggestion engine, there are a number of 
+options you can configure.</p>
+<ul>
+<li><p><code>datumTokenizer</code> – A function with the signature <code>(datum)</code> that transforms a
+datum into an array of string tokens. <strong>Required</strong>.</p>
+</li>
+<li><p><code>queryTokenizer</code> – A function with the signature <code>(query)</code> that transforms a
+query into an array of string tokens. <strong>Required</strong>.</p>
+</li>
+<li><p><code>initialize</code> – If set to <code>false</code>, the Bloodhound instance will not be 
+implicitly initialized by the constructor function. Defaults to <code>true</code>.</p>
+</li>
+<li><p><code>identify</code> – Given a datum, this function is expected to return a unique id
+for it. Defaults to <code>JSON.stringify</code>. Note that it is <strong>highly recommended</strong>
+to override this option.</p>
+</li>
+<li><p><code>sufficient</code> – If the number of datums provided from the internal search 
+index is less than <code>sufficient</code>, <code>remote</code> will be used to backfill search
+requests triggered by calling <code>#search</code>. Defaults to <code>5</code>.</p>
+</li>
+<li><p><code>sorter</code> – A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">compare function</a> used to sort data returned from the internal
+search index.</p>
+</li>
+<li><p><code>local</code> – An array of data or a function that returns an array of data. The 
+data will be added to the internal search index when <code>#initialize</code> is called.</p>
+</li>
+<li><p><code>prefetch</code> – Can be a URL to a JSON file containing an array of data or, if 
+more configurability is needed, a <a href="#prefetch">prefetch options hash</a>.</p>
+</li>
+<li><p><code>remote</code> – Can be a URL to fetch data from when the data provided by 
+the internal search index is insufficient or, if more configurability is 
+needed, a <a href="#remote">remote options hash</a>.</p>
+</li>
+</ul>
+<!-- section links -->
+<h3>Prefetch <span id="prefetch"></span><a href="#prefetch" class="hashlink">&para;</a></h3><p>Prefetched data is fetched and processed on initialization. If the browser 
+supports local storage, the processed data will be cached there to 
+prevent additional network requests on subsequent page loads.</p>
+<p><strong>WARNING:</strong> While it's possible to get away with it for smaller data sets, 
+prefetched data isn't meant to contain entire sets of data. Rather, it should 
+act as a first-level cache. Ignoring this warning means you'll run the risk of 
+hitting <a href="http://stackoverflow.com/a/2989317">local storage limits</a>.</p>
+<p>When configuring <code>prefetch</code>, the following options are available.</p>
+<ul>
+<li><p><code>url</code> – The URL prefetch data should be loaded from. <strong>Required.</strong></p>
+</li>
+<li><p><code>cache</code> – If <code>false</code>, will not attempt to read or write to local storage and
+will always load prefetch data from <code>url</code> on initialization.  Defaults to 
+<code>true</code>.</p>
+</li>
+<li><p><code>ttl</code> – The time (in milliseconds) the prefetched data should be cached in 
+local storage. Defaults to <code>86400000</code> (1 day).</p>
+</li>
+<li><p><code>cacheKey</code> – The key that data will be stored in local storage under. 
+Defaults to value of <code>url</code>.</p>
+</li>
+<li><p><code>thumbprint</code> – A string used for thumbprinting prefetched data. If this
+doesn't match what's stored in local storage, the data will be refetched.</p>
+</li>
+<li><p><code>prepare</code> – A function that provides a hook to allow you to prepare the 
+settings object passed to <code>transport</code> when a request is about to be made. 
+The function signature should be <code>prepare(settings)</code> where <code>settings</code> is the 
+default settings object created internally by the Bloodhound instance. The 
+<code>prepare</code> function should return a settings object. Defaults to the 
+<a href="http://en.wikipedia.org/wiki/Identity_function">identity function</a>.</p>
+</li>
+<li><p><code>transform</code> – A function with the signature <code>transform(response)</code> that allows
+you to transform the prefetch response before the Bloodhound instance operates 
+on it. Defaults to the <a href="http://en.wikipedia.org/wiki/Identity_function">identity function</a>.</p>
+</li>
+</ul>
+<!-- section links -->
+<h3>Remote <span id="remote"></span><a href="#remote" class="hashlink">&para;</a></h3><p>Bloodhound only goes to the network when the internal search engine cannot 
+provide a sufficient number of results. In order to prevent an obscene number 
+of requests being made to the remote endpoint, requests are rate-limited.</p>
+<p>When configuring <code>remote</code>, the following options are available.</p>
+<ul>
+<li><p><code>url</code> – The URL remote data should be loaded from. <strong>Required.</strong></p>
+</li>
+<li><p><code>prepare</code> – A function that provides a hook to allow you to prepare the 
+settings object passed to <code>transport</code> when a request is about to be made. 
+The function signature should be <code>prepare(query, settings)</code>, where <code>query</code> is
+the query <code>#search</code> was called with and <code>settings</code> is the default settings
+object created internally by the Bloodhound instance. The <code>prepare</code> function
+should return a settings object. Defaults to the <a href="http://en.wikipedia.org/wiki/Identity_function">identity function</a>.</p>
+</li>
+<li><p><code>wildcard</code> – A convenience option for <code>prepare</code>. If set, <code>prepare</code> will be a
+function that replaces the value of this option in <code>url</code> with the URI encoded
+query.</p>
+</li>
+<li><p><code>rateLimitBy</code> – The method used to rate-limit network requests. Can be either 
+<code>debounce</code> or <code>throttle</code>. Defaults to <code>debounce</code>.</p>
+</li>
+<li><p><code>rateLimitWait</code> – The time interval in milliseconds that will be used by 
+<code>rateLimitBy</code>. Defaults to <code>300</code>.</p>
+</li>
+<li><p><code>transform</code> – A function with the signature <code>transform(response)</code> that allows
+you to transform the remote response before the Bloodhound instance operates 
+on it. Defaults to the <a href="http://en.wikipedia.org/wiki/Identity_function">identity function</a>.</p>
+</li>
+</ul>
+<!-- section links -->
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:55 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

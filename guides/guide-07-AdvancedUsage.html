@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2194" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2194-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2194-collapse" class="collapse navbar-collapse"><ul id="w2195" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2178" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2178" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2179" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2179" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2180" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2180" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2181" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2181" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2182" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2182" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2183" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2183" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2184" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2184" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2185" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2185" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2186" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2186" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2187" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2187" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2188" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2188" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2189" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2189" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2190" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2190" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2191" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2191" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2192" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2192" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2193" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2193" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Advanced Usage <span id="advanced-usage"></span><a href="#advanced-usage" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#cest-classes">Cest Classes</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+<li><a href="#example-annotation">Example Annotation</a></li>
+<li><a href="#dataprovider-annotations">DataProvider Annotations</a></li>
+<li><a href="#beforeafter-annotations">Before/After Annotations</a></li>
+<li><a href="#environments">Environments</a></li>
+<li><a href="#interactive-console">Interactive Console</a></li>
+<li><a href="#running-from-different-folders">Running from different folders</a></li>
+<li><a href="#groups">Groups</a></li>
+<li><a href="#formats">Formats</a></li>
+<li><a href="#shell-auto-completion">Shell auto-completion</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>In this chapter we will cover some techniques and options that you can use to improve your testing experience
+and keep your project better organized.</p>
+<h2>Cest Classes <span id="cest-classes"></span><a href="#cest-classes" class="hashlink">&para;</a></h2><p>If you want to get a class-like structure for your Cepts, you can use the Cest format instead of plain PHP.
+It is very simple and is fully compatible with Cept scenarios. It means that if you feel that your test is long enough
+and you want to split it, you can easily move it into classes.</p>
+<p>You can create a Cest file by running the command:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept generate:cest suitename CestName
+</code></pre>
+<p>The generated file will look like this:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BasicCest</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_before</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_after</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// tests</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryToTest</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+    }
+}
+</code></pre>
+<p><strong>Each public method of Cest (except those starting with <code>_</code>) will be executed as a test</strong>
+and will receive an instance of the Actor class as the first parameter and the <code>$scenario</code> variable as the second one.</p>
+<p>In <code>_before</code> and <code>_after</code> methods you can use common setups and teardowns for the tests in the class.</p>
+<p>As you see, we are passing the Actor object into <code>tryToTest</code> method. This allows us to write scenarios the way we did before:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BasicCest</span>
+</span>{
+    <span class="hljs-comment">// test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryToTest</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Login'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'username'</span>, <span class="hljs-string">'john'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'password'</span>, <span class="hljs-string">'coltrane'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Enter'</span>);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Hello, John'</span>);
+        <span class="hljs-variable">$I</span>-&gt;seeInCurrentUrl(<span class="hljs-string">'/account'</span>);
+    }
+}
+</code></pre>
+<p>As you see, Cest classes have no parents.
+This is done intentionally. It allows you to extend your classes with common behaviors and workarounds
+that may be used in child classes. But don't forget to make these methods <code>protected</code> so they won't be executed as tests.</p>
+<p>Cest format also can contain hooks based on test results:</p>
+<ul>
+<li><code>_failed</code> will be executed on failed test</li>
+<li><code>_passed</code> will be executed on passed test</li>
+</ul>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_failed</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+</span>{
+    <span class="hljs-comment">// will be executed on test failure</span>
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_passed</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+</span>{
+    <span class="hljs-comment">// will be executed when test is successful</span>
+}
+</code></pre>
+<h2>Dependency Injection <span id="dependency-injection"></span><a href="#dependency-injection" class="hashlink">&para;</a></h2><p>Codeception supports simple dependency injection for Cest and \Codeception\TestCase\Test classes.
+It means that you can specify which classes you need as parameters of the special <code>_inject()</code> method,
+and Codeception will automatically create the respective objects and invoke this method,
+passing all dependencies as arguments. This may be useful when working with Helpers. Here's an example for Cest:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SignUpCest</span>
+</span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@var</span> Helper\SignUp
+     */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$signUp</span>;
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@var</span> Helper\NavBarHelper
+     */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$navBar</span>;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_inject</span><span class="hljs-params">(\Helper\SignUp <span class="hljs-variable">$signUp</span>, \Helper\NavBar <span class="hljs-variable">$navBar</span>)</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;signUp = <span class="hljs-variable">$signUp</span>;
+        <span class="hljs-variable">$this</span>-&gt;navBar = <span class="hljs-variable">$navBar</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">signUp</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;navBar-&gt;click(<span class="hljs-string">'Sign up'</span>);
+        <span class="hljs-variable">$this</span>-&gt;signUp-&gt;register([
+            <span class="hljs-string">'first_name'</span>            =&gt; <span class="hljs-string">'Joe'</span>,
+            <span class="hljs-string">'last_name'</span>             =&gt; <span class="hljs-string">'Jones'</span>,
+            <span class="hljs-string">'email'</span>                 =&gt; <span class="hljs-string">'joe@jones.com'</span>,
+            <span class="hljs-string">'password'</span>              =&gt; <span class="hljs-string">'1234'</span>,
+            <span class="hljs-string">'password_confirmation'</span> =&gt; <span class="hljs-string">'1234'</span>
+        ]);
+    }
+}
+</code></pre>
+<p>And for Test classes:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MathTest</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">TestCase</span>\<span class="hljs-title">Test</span>
+</span>{
+   <span class="hljs-comment">/**
+    * <span class="hljs-doctag">@var</span> \UnitTester
+    */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$tester</span>;
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@var</span> Helper\Math
+     */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$math</span>;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_inject</span><span class="hljs-params">(\Helper\Math <span class="hljs-variable">$math</span>)</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;math = <span class="hljs-variable">$math</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testAll</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-number">3</span>, <span class="hljs-variable">$this</span>-&gt;math-&gt;add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>));
+        <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-number">1</span>, <span class="hljs-variable">$this</span>-&gt;math-&gt;subtract(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>));
+    }
+}
+</code></pre>
+<p>However, Dependency Injection is not limited to this. It allows you to <strong>inject any class</strong>,
+which can be constructed with arguments known to Codeception.</p>
+<p>In order to make auto-wiring work, you will need to implement the <code>_inject()</code> method with the list of desired arguments.
+It is important to specify the type of arguments, so Codeception can guess which objects are expected to be received.
+The <code>_inject()</code> will only be invoked once, just after creation of the TestCase object (either Cest or Test).
+Dependency Injection will also work in a similar manner for Helper and Actor classes.</p>
+<p>Each test of a Cest class can declare its own dependencies and receive them from method arguments:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserCest</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateUser</span><span class="hljs-params">(\Helper\User <span class="hljs-variable">$u</span>, \AcceptanceTester <span class="hljs-variable">$I</span>, \Page\User <span class="hljs-variable">$userPage</span>)</span>
+    </span>{
+        <span class="hljs-variable">$user</span> = <span class="hljs-variable">$u</span>-&gt;createDummyUser();
+        <span class="hljs-variable">$userPage</span>-&gt;login(<span class="hljs-variable">$user</span>-&gt;getName(), <span class="hljs-variable">$user</span>-&gt;getPassword());
+        <span class="hljs-variable">$userPage</span>-&gt;updateProfile([<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Bill'</span>]);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Profile was saved'</span>);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Profile of Bill'</span>,<span class="hljs-string">'h1'</span>);
+    }
+}
+</code></pre>
+<p>Moreover, Codeception can resolve dependencies recursively (when <code>A</code> depends on <code>B</code>, and <code>B</code> depends on <code>C</code> etc.)
+and handle parameters of primitive types with default values (like <code>$param = 'default'</code>).
+Of course, you are not allowed to have <em>cyclic dependencies</em>.</p>
+<h2>Example Annotation <span id="example-annotation"></span><a href="#example-annotation" class="hashlink">&para;</a></h2><p>What if you want to execute the same test scenario with different data? In this case you can inject examples
+as <code>\Codeception\Example</code> instances.
+Data is defined via the <code>@example</code> annotation, using JSON or Doctrine-style notation (limited to a single line). Doctrine-style:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EndpointCest</span>
+</span>{
+ <span class="hljs-comment">/**
+  * <span class="hljs-doctag">@example</span> ["/api/", 200]
+  * <span class="hljs-doctag">@example</span> ["/api/protected", 401]
+  * <span class="hljs-doctag">@example</span> ["/api/not-found-url", 404]
+  * <span class="hljs-doctag">@example</span> ["/api/faulty", 500]
+  */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkEndpoints</span><span class="hljs-params">(ApiTester <span class="hljs-variable">$I</span>, \Codeception\Example <span class="hljs-variable">$example</span>)</span>
+  </span>{
+    <span class="hljs-variable">$I</span>-&gt;sendGET(<span class="hljs-variable">$example</span>[<span class="hljs-number">0</span>]);
+    <span class="hljs-variable">$I</span>-&gt;seeResponseCodeIs(<span class="hljs-variable">$example</span>[<span class="hljs-number">1</span>]);
+  }
+}
+</code></pre>
+<p>JSON:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageCest</span>
+</span>{
+ <span class="hljs-comment">/**
+  * <span class="hljs-doctag">@example</span> { "url": "/", "title": "Welcome" }
+  * <span class="hljs-doctag">@example</span> { "url": "/info", "title": "Info" }
+  * <span class="hljs-doctag">@example</span> { "url": "/about", "title": "About Us" }
+  * <span class="hljs-doctag">@example</span> { "url": "/contact", "title": "Contact Us" }
+  */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">staticPages</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>, \Codeception\Example <span class="hljs-variable">$example</span>)</span>
+  </span>{
+    <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-variable">$example</span>[<span class="hljs-string">'url'</span>]);
+    <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-variable">$example</span>[<span class="hljs-string">'title'</span>], <span class="hljs-string">'h1'</span>);
+    <span class="hljs-variable">$I</span>-&gt;seeInTitle(<span class="hljs-variable">$example</span>[<span class="hljs-string">'title'</span>]);
+  }
+}
+</code></pre>
+<div class="alert alert-info">
+If you use JSON notation please keep in mind that all string keys
+and values should be enclosed in double quotes (`"`) according to JSON standard.
+</div>
+<p>Key-value data in Doctrine-style annotation syntax:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageCest</span>
+</span>{
+ <span class="hljs-comment">/**
+  * <span class="hljs-doctag">@example</span>(url="/", title="Welcome")
+  * <span class="hljs-doctag">@example</span>(url="/info", title="Info")
+  * <span class="hljs-doctag">@example</span>(url="/about", title="About Us")
+  * <span class="hljs-doctag">@example</span>(url="/contact", title="Contact Us")
+  */</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">staticPages</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>, \Codeception\Example <span class="hljs-variable">$example</span>)</span>
+  </span>{
+    <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-variable">$example</span>[<span class="hljs-string">'url'</span>]);
+    <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-variable">$example</span>[<span class="hljs-string">'title'</span>], <span class="hljs-string">'h1'</span>);
+    <span class="hljs-variable">$I</span>-&gt;seeInTitle(<span class="hljs-variable">$example</span>[<span class="hljs-string">'title'</span>]);
+  }
+}
+</code></pre>
+<h2>DataProvider Annotations <span id="dataprovider-annotations"></span><a href="#dataprovider-annotations" class="hashlink">&para;</a></h2><p>You can also use the <code>@dataProvider</code> annotation for creating dynamic examples for <a href="#Cest-Classes">Cest classes</a>, using a <strong>protected method</strong> for providing example data:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageCest</span>
+</span>{
+   <span class="hljs-comment">/**
+    * <span class="hljs-doctag">@dataProvider</span> pageProvider
+    */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">staticPages</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>, \Codeception\Example <span class="hljs-variable">$example</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-variable">$example</span>[<span class="hljs-string">'url'</span>]);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-variable">$example</span>[<span class="hljs-string">'title'</span>], <span class="hljs-string">'h1'</span>);
+        <span class="hljs-variable">$I</span>-&gt;seeInTitle(<span class="hljs-variable">$example</span>[<span class="hljs-string">'title'</span>]);
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@return</span> array
+     */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pageProvider</span><span class="hljs-params">()</span> // <span class="hljs-title">alternatively</span>, <span class="hljs-title">if</span> <span class="hljs-title">you</span> <span class="hljs-title">want</span> <span class="hljs-title">the</span> <span class="hljs-title">function</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">public</span>, <span class="hljs-title">be</span> <span class="hljs-title">sure</span> <span class="hljs-title">to</span> <span class="hljs-title">prefix</span> <span class="hljs-title">it</span> <span class="hljs-title">with</span> `<span class="hljs-title">_</span>`
+    </span>{
+        <span class="hljs-keyword">return</span> [
+            [<span class="hljs-string">'url'</span>=&gt;<span class="hljs-string">"/"</span>, <span class="hljs-string">'title'</span>=&gt;<span class="hljs-string">"Welcome"</span>],
+            [<span class="hljs-string">'url'</span>=&gt;<span class="hljs-string">"/info"</span>, <span class="hljs-string">'title'</span>=&gt;<span class="hljs-string">"Info"</span>],
+            [<span class="hljs-string">'url'</span>=&gt;<span class="hljs-string">"/about"</span>, <span class="hljs-string">'title'</span>=&gt;<span class="hljs-string">"About Us"</span>],
+            [<span class="hljs-string">'url'</span>=&gt;<span class="hljs-string">"/contact"</span>, <span class="hljs-string">'title'</span>=&gt;<span class="hljs-string">"Contact Us"</span>]
+        ];
+    }
+}
+</code></pre>
+<p><code>@dataprovider</code> annotation is also available for <a href="https://codeception.com/docs/05-UnitTests">unit tests</a>, in this case the data provider <strong>method must be public</strong>.
+For more details about how to use data provider for unit tests, please refer to <a href="https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers">PHPUnit documentation</a>.</p>
+<h2>Before/After Annotations <span id="beforeafter-annotations"></span><a href="#beforeafter-annotations" class="hashlink">&para;</a></h2><p>You can control execution flow with <code>@before</code> and <code>@after</code> annotations. You may move common actions
+into protected (non-test) methods and invoke them before or after the test method by putting them into annotations.
+It is possible to invoke several methods by using more than one <code>@before</code> or <code>@after</code> annotation.
+Methods are invoked in order from top to bottom.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModeratorCest</span> </span>{
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">login</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/login'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'Username'</span>, <span class="hljs-string">'miles'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'Password'</span>, <span class="hljs-string">'davis'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Login'</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@before</span> login
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">banUser</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/users/charlie-parker'</span>);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Ban'</span>, <span class="hljs-string">'.button'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Ban'</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@before</span> login
+     * <span class="hljs-doctag">@before</span> cleanup
+     * <span class="hljs-doctag">@after</span> logout
+     * <span class="hljs-doctag">@after</span> close
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addUser</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/users/charlie-parker'</span>);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Ban'</span>, <span class="hljs-string">'.button'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Ban'</span>);
+    }
+}
+</code></pre>
+<h2>Environments <span id="environments"></span><a href="#environments" class="hashlink">&para;</a></h2><p>For cases where you need to run tests with different configurations you can define different config environments.
+The most typical use cases are running acceptance tests in different browsers,
+or running database tests using different database engines.</p>
+<p>Let's demonstrate the usage of environments for the browsers case.</p>
+<p>We need to add some new lines to <code>acceptance.suite.yml</code>:</p>
+<pre><code class="language- yaml">actor: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - \Helper\Acceptance
+    config:
+        WebDriver:
+            url: 'http://127.0.0.1:8000/'
+            browser: 'firefox'
+
+env:
+    phantom:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'phantomjs'
+
+    chrome:
+         modules:
+            config:
+                WebDriver:
+                    browser: 'chrome'
+
+    firefox:
+        # nothing changed
+</code></pre>
+<p>Basically you can define different environments inside the <code>env</code> root, name them (<code>phantom</code>, <code>chrome</code> etc.),
+and then redefine any configuration parameters that were set before.</p>
+<p>You can also define environments in separate configuration files placed in the directory specified by the <code>envs</code> option in
+the <code>paths</code> configuration:</p>
+<pre><code class="language-yaml">paths:
+    envs: tests/_envs
+</code></pre>
+<p>The names of these files are used as environments names
+(e.g. <code>chrome.yml</code> or <code>chrome.dist.yml</code> for an environment named <code>chrome</code>).
+You can generate a new file with this environment configuration by using the <code>generate:environment</code> command:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept g:env chrome
+</code></pre>
+<p>In that file you can specify just the options you wish to override:</p>
+<pre><code class="language-yaml">modules:
+    config:
+        WebDriver:
+            browser: 'chrome'
+</code></pre>
+<p>The environment configuration files are merged into the main configuration before the suite configuration is merged.</p>
+<p>You can easily switch between those configs by running tests with <code>--env</code> option.
+To run the tests only for PhantomJS you just need to pass <code>--env phantom</code> as an option:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept run acceptance --env phantom
+</code></pre>
+<p>To run the tests in all 3 browsers, list all the environments:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept run acceptance --env phantom --env chrome --env firefox
+</code></pre>
+<p>The tests will be executed 3 times, each time in a different browser.</p>
+<p>It's also possible to merge multiple environments into a single configuration by separating them with a comma:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept run acceptance --env dev,phantom --env dev,chrome --env dev,firefox
+</code></pre>
+<p>The configuration is merged in the order given.
+This way you can easily create multiple combinations of your environment configurations.</p>
+<p>Depending on the environment, you may choose which tests are to be executed.
+For example, you might need some tests to be executed in Firefox only, and some tests in Chrome only.</p>
+<p>The desired environments can be specified with the <code>@env</code> annotation for tests in Test and Cest formats:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserCest</span>
+</span>{
+    <span class="hljs-comment">/**
+     * This test will be executed only in 'firefox' and 'phantom' environments
+     *
+     * <span class="hljs-doctag">@env</span> firefox
+     * <span class="hljs-doctag">@env</span> phantom
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">webkitOnlyTest</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-comment">// I do something</span>
+    }
+}
+</code></pre>
+<p>For Cept you should use simple comments:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// @env firefox</span>
+<span class="hljs-comment">// @env phantom</span>
+</code></pre>
+<p>This way you can easily control which tests will be executed for each environment.</p>
+<h3>Current values <span id="current-values"></span><a href="#current-values" class="hashlink">&para;</a></h3><p>Sometimes you may need to change the test behavior in real time.
+For instance, the behavior of the same test may differ in Firefox and in Chrome.
+In runtime we can retrieve the current environment name, test name,
+or list of enabled modules by calling the <code>$scenario-&gt;current()</code> method.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// retrieve current environment</span>
+<span class="hljs-variable">$scenario</span>-&gt;current(<span class="hljs-string">'env'</span>);
+
+<span class="hljs-comment">// list of all enabled modules</span>
+<span class="hljs-variable">$scenario</span>-&gt;current(<span class="hljs-string">'modules'</span>);
+
+<span class="hljs-comment">// test name</span>
+<span class="hljs-variable">$scenario</span>-&gt;current(<span class="hljs-string">'name'</span>);
+
+<span class="hljs-comment">// browser name (if WebDriver module enabled)</span>
+<span class="hljs-variable">$scenario</span>-&gt;current(<span class="hljs-string">'browser'</span>);
+
+<span class="hljs-comment">// capabilities (if WebDriver module enabled)</span>
+<span class="hljs-variable">$scenario</span>-&gt;current(<span class="hljs-string">'capabilities'</span>);
+</code></pre>
+<p>You can access <code>\Codeception\Scenario</code> in the Cept and Cest formats.
+In Cept, the <code>$scenario</code> variable is available by default,
+while in Cest you should retrieve it through dependency injection:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myTest</span><span class="hljs-params">(\AcceptanceTester <span class="hljs-variable">$I</span>, \Codeception\Scenario <span class="hljs-variable">$scenario</span>)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable">$scenario</span>-&gt;current(<span class="hljs-string">'browser'</span>) == <span class="hljs-string">'phantomjs'</span>) {
+      <span class="hljs-comment">// emulate popups for PhantomJS</span>
+      <span class="hljs-variable">$I</span>-&gt;executeScript(<span class="hljs-string">'window.alert = function(){return true;}'</span>);
+    }
+}
+</code></pre>
+<p><code>Codeception\Scenario</code> is also available in Actor classes and StepObjects. You can access it with <code>$this-&gt;getScenario()</code>.</p>
+<h3>Dependencies <span id="dependencies"></span><a href="#dependencies" class="hashlink">&para;</a></h3><p>With the <code>@depends</code> annotation you can specify a test that should be passed before the current one.
+If that test fails, the current test will be skipped. You should pass the method name of the test you are relying on.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModeratorCest</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">login</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-comment">// logs moderator in</span>
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@depends</span> login
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">banUser</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-comment">// bans user</span>
+    }
+}
+</code></pre>
+<p><code>@depends</code> applies to the <code>Cest</code> and <code>Codeception\Test\Unit</code> formats. Dependencies can be set across different classes.
+To specify a dependent test from another file you should provide a <em>test signature</em>.
+Normally, the test signature matches the <code>className:methodName</code> format.
+But to get the exact test signature just run the test with the <code>--steps</code> option to see it:</p>
+<pre><code class="hljs http"><span class="hljs-attribute">Signature</span>: <span class="hljs-string">ModeratorCest:login`</span>
+</code></pre>
+<p>Codeception reorders tests so dependent tests will always be executed before the tests that rely on them.</p>
+<h3>Shuffle <span id="shuffle"></span><a href="#shuffle" class="hashlink">&para;</a></h3><p>By default Codeception runs tests in alphabetic order. 
+To ensure that tests are not depending on each other (unless explicitly declared via <code>@depends</code>) you can enable <code>shuffle</code> option.</p>
+<pre><code class="language-yaml"># inside codeception.yml
+settings:
+    shuffle: true
+</code></pre>
+<p>Alternatively, you may run tests in shuffle without changing the config:</p>
+<pre><code class="hljs nginx"><span class="hljs-title">codecept</span> run -o <span class="hljs-string">"settings: shuffle: true"</span>
+</code></pre>
+<p>Tests will be randomly reordered on each run. When tests executed in shuffle mode a seed value will be printed. 
+Copy this seed value from output to be able to rerun tests in the same order.</p>
+<pre><code class="hljs dockerfile">$ codecept <span class="hljs-built_ins">run</span> 
+Codeception PHP Testing Framework v2.4.5
+Powered by PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
+[Seed] 1872290562
+</code></pre>
+<p>Pass the copied seed into <code>--seed</code> option:  </p>
+<pre><code class="hljs nginx"><span class="hljs-title">codecept</span> run --seed <span class="hljs-number">1872290562</span>
+</code></pre>
+<h2>Interactive Console <span id="interactive-console"></span><a href="#interactive-console" class="hashlink">&para;</a></h2><p>The interactive console was added to try Codeception commands before executing them inside a test.</p>
+<p><img src="http://codeception.com/images/console.png" alt="console" /></p>
+<p>You can run the console with the following command:</p>
+<pre><code class="language- bash">$ php vendor/bin/codecept console suitename
+</code></pre>
+<p>Now you can execute all the commands of an appropriate Actor class and see the results immediately.
+This is especially useful when used with the <code>WebDriver</code> module. It always takes too long to launch Selenium
+and the browser for tests. But with the console you can try different selectors, and different commands,
+and then write a test that should pass when executed.</p>
+<p>And a special hint: show your boss how you can easily manipulate web pages with the console and Selenium.
+It will be easy to convince them to automate this step and introduce acceptance testing to the project.</p>
+<h2>Running from different folders <span id="running-from-different-folders"></span><a href="#running-from-different-folders" class="hashlink">&para;</a></h2><p>If you have several projects with Codeception tests, you can use a single <code>codecept</code> file to run all of your tests.
+You can pass the <code>-c</code> option to any Codeception command (except <code>bootstrap</code>), to execute Codeception in another directory:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept run -c ~/projects/ecommerce/
+$ php vendor/bin/codecept run -c ~/projects/drupal/
+$ php vendor/bin/codecept generate:cept acceptance CreateArticle -c ~/projects/drupal/
+</code></pre>
+<p>To create a project in directory different from the current one, just provide its path as a parameter:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept bootstrap ~/projects/drupal/
+</code></pre>
+<p>Also, the <code>-c</code> option allows you to specify another config file to be used.
+Thus, you can have several <code>codeception.yml</code> files for your test suite (e.g. to to specify different environments
+and settings). Just pass the <code>.yml</code> filename as the <code>-c</code> parameter to execute tests with specific config settings.</p>
+<h2>Groups <span id="groups"></span><a href="#groups" class="hashlink">&para;</a></h2><p>There are several ways to execute a bunch of tests. You can run tests from a specific directory:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept run tests/acceptance/admin
+</code></pre>
+<p>You can execute one (or several) specific groups of tests:</p>
+<pre><code class="hljs bash language-bash">$ php vendor/bin/codecept run -g admin -g editor
+</code></pre>
+<p>The concept of groups was taken from PHPUnit and behave in the same way.</p>
+<p>For Test and Cest files you can use the <code>@group</code> annotation to add a test to a group.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@group</span> admin
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testAdminUser</span><span class="hljs-params">()</span>
+</span>{
+}
+</code></pre>
+<p>For Cept files, use pseudo-annotations in comments:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// @group admin</span>
+<span class="hljs-comment">// @group editor</span>
+<span class="hljs-variable">$I</span> = <span class="hljs-keyword">new</span> AcceptanceTester(<span class="hljs-variable">$scenario</span>);
+<span class="hljs-variable">$I</span>-&gt;wantToTest(<span class="hljs-string">'admin area'</span>);
+</code></pre>
+<p>For <code>.feature</code>-files (Gherkin) use tags:</p>
+<pre><code class="hljs gherkin language-gherkin"><span class="hljs-comment">@admin @editor</span>
+<span class="hljs-keyword">Feature</span>: Admin area
+</code></pre>
+<h3>Group Files <span id="group-files"></span><a href="#group-files" class="hashlink">&para;</a></h3><p>Groups can be defined in global or suite configuration files.
+Tests for groups can be specified as an array of file names or directories containing them:</p>
+<pre><code class="language-yaml">groups:
+  # add 2 tests to db group
+  db: [tests/unit/PersistTest.php, tests/unit/DataTest.php]
+
+  # add all tests from a directory to api group
+  api: [tests/functional/api]
+</code></pre>
+<p>A list of tests for the group can be passed from a Group file. It should be defined in plain text with test names on separate lines:</p>
+<pre><code class="hljs bash language-bash">tests/unit/DbTest.php
+tests/unit/UserTest.php:create
+tests/unit/UserTest.php:update
+</code></pre>
+<p>A group file can be included by its relative filename:</p>
+<pre><code class="language-yaml">groups:
+  # requiring a group file
+  slow: tests/_data/slow.txt
+</code></pre>
+<p>You can create group files manually or generate them from third party applications.
+For example, you can write a script that updates the slow group by taking the slowest tests from xml report.</p>
+<p>You can even specify patterns for loading multiple group files with a single definition:</p>
+<pre><code class="language-yaml">groups:
+  p*: tests/_data/p*
+</code></pre>
+<p>This will load all found <code>p*</code> files in <code>tests/_data</code> as groups. Group names will be as follows p1,p2,...,pN.</p>
+<h2>Formats <span id="formats"></span><a href="#formats" class="hashlink">&para;</a></h2><p>In addition to the standard test formats (Cept, Cest, Unit, Gherkin) you can implement your own format classes to customise your test execution.
+Specify these in your suite configuration:</p>
+<pre><code class="language-yaml">formats:
+  - \My\Namespace\MyFormat
+</code></pre>
+<p>Then define a class which implements the LoaderInterface</p>
+<pre><code class="hljs php language-php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">My</span>\<span class="hljs-title">Namespace</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyFormat</span> <span class="hljs-keyword">implements</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Test</span>\<span class="hljs-title">Loader</span>\<span class="hljs-title">LoaderInterface</span>
+</span>{
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$tests</span>;
+    
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$settings</span>;
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$settings</span> = [])</span>
+    </span>{
+        <span class="hljs-comment">//These are the suite settings</span>
+        <span class="hljs-variable">$this</span>-&gt;settings = <span class="hljs-variable">$settings</span>;
+    }
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadTests</span><span class="hljs-params">(<span class="hljs-variable">$filename</span>)</span>
+    </span>{
+        <span class="hljs-comment">//Load file and create tests</span>
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTests</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;tests;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPattern</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'~Myformat\.php$~'</span>;
+    }
+}
+</code></pre>
+<h2>Shell auto-completion <span id="shell-auto-completion"></span><a href="#shell-auto-completion" class="hashlink">&para;</a></h2><p>For bash and zsh shells, you can use auto-completion for your Codeception projects by executing the following in your shell (or add it to your .bashrc/.zshrc):
+<code>`</code>bash</p>
+<h1>BASH ~4.x, ZSH <span id="bash-4x-zsh"></span><a href="#bash-4x-zsh" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#cest-classes">Cest Classes</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+<li><a href="#example-annotation">Example Annotation</a></li>
+<li><a href="#dataprovider-annotations">DataProvider Annotations</a></li>
+<li><a href="#beforeafter-annotations">Before/After Annotations</a></li>
+<li><a href="#environments">Environments</a></li>
+<li><a href="#interactive-console">Interactive Console</a></li>
+<li><a href="#running-from-different-folders">Running from different folders</a></li>
+<li><a href="#groups">Groups</a></li>
+<li><a href="#formats">Formats</a></li>
+<li><a href="#shell-auto-completion">Shell auto-completion</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>source &lt;([codecept location] _completion --generate-hook --program codecept --use-vendor-bin)</p>
+<h1>BASH ~3.x, ZSH <span id="bash-3x-zsh"></span><a href="#bash-3x-zsh" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#cest-classes">Cest Classes</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+<li><a href="#example-annotation">Example Annotation</a></li>
+<li><a href="#dataprovider-annotations">DataProvider Annotations</a></li>
+<li><a href="#beforeafter-annotations">Before/After Annotations</a></li>
+<li><a href="#environments">Environments</a></li>
+<li><a href="#interactive-console">Interactive Console</a></li>
+<li><a href="#running-from-different-folders">Running from different folders</a></li>
+<li><a href="#groups">Groups</a></li>
+<li><a href="#formats">Formats</a></li>
+<li><a href="#shell-auto-completion">Shell auto-completion</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>[codecept location] _completion --generate-hook --program codecept --use-vendor-bin | source /dev/stdin</p>
+<h1>BASH (any version) <span id="bash-any-version"></span><a href="#bash-any-version" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#cest-classes">Cest Classes</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+<li><a href="#example-annotation">Example Annotation</a></li>
+<li><a href="#dataprovider-annotations">DataProvider Annotations</a></li>
+<li><a href="#beforeafter-annotations">Before/After Annotations</a></li>
+<li><a href="#environments">Environments</a></li>
+<li><a href="#interactive-console">Interactive Console</a></li>
+<li><a href="#running-from-different-folders">Running from different folders</a></li>
+<li><a href="#groups">Groups</a></li>
+<li><a href="#formats">Formats</a></li>
+<li><a href="#shell-auto-completion">Shell auto-completion</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>eval $([codecept location] _completion --generate-hook --program codecept --use-vendor-bin)
+<code>`</code></p>
+<h3>Explanation <span id="explanation"></span><a href="#explanation" class="hashlink">&para;</a></h3><p>By using the above code in your shell, Codeception will try to autocomplete the following:</p>
+<ul>
+<li>Commands</li>
+<li>Suites</li>
+<li>Test paths</li>
+</ul>
+<p>Usage of <code>-use-vendor-bin</code> is optional. This option will work for most Codeception projects, where Codeception is located in your <code>vendor/bin</code> folder.
+But in case you are using a global Codeception installation for example, you wouldn't use this option.</p>
+<p>Note that with the <code>-use-vendor-bin</code> option, your commands will be completed using the Codeception binary located in your project's root.
+Without the option, it will use whatever Codeception binary you originally used to generate the completion script ('codecept location' in the above examples)</p>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>Codeception is a framework which may look simple at first glance
+but it allows you to build powerful tests with a single API, refactor them,
+and write them faster using the interactive console. Codeception tests can be easily organized in groups or Cest classes.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

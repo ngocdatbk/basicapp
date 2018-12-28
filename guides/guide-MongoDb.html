@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2590" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2590-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2590-collapse" class="collapse navbar-collapse"><ul id="w2591" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2574" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2574" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2575" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2575" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2576" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2576" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2577" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2577" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2578" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2578" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2579" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2579" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2580" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2580" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2581" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2581" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2582" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2582" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2583" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2583" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2584" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2584" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2585" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2585" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2586" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2586" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2587" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2587" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2588" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2588" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2589" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2589" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>MongoDb <span id="mongodb"></span><a href="#mongodb" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#status">Status</a></li>
+<li><a href="#config">Config</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Works with MongoDb database.</p>
+<p>The most important function of this module is cleaning database before each test.
+To have your database properly cleaned you should configure it to access the database.</p>
+<p>In order to have your database populated with data you need a valid js file with data (of the same style which can be fed up to mongo binary)
+File can be generated by RockMongo export command
+You can also use directory, generated by <code>`</code>mongodump<code>tool or it's</code>.tar.gz<code>archive (not available for Windows systems), generated by</code>tar -czf <archive_file_name>.tar.gz <path_to dump directory><code>`</code>.
+Just put it in <code>tests/_data</code> dir (by default) and specify path to it in config.
+Next time after database is cleared all your data will be restored from dump.
+The DB preparation should as following:</p>
+<ul>
+<li>clean database</li>
+<li>system collection system.users should contain the user which will be authenticated while script performs DB operations</li>
+</ul>
+<p>Connection is done by MongoDb driver, which is stored in Codeception\Lib\Driver namespace.
+Check out the driver if you get problems loading dumps and cleaning databases.</p>
+<p>HINT: This module can be used with <a href="https://github.com/mongofill/mongofill">Mongofill</a> library which is Mongo client written in PHP without extension.</p>
+<h2>Status <span id="status"></span><a href="#status" class="hashlink">&para;</a></h2><ul>
+<li>Maintainer: <strong>judgedim</strong>, <strong>davert</strong></li>
+<li>Stability: <strong>beta</strong></li>
+<li>Contact: davert@codeception.com</li>
+</ul>
+<p><em>Please review the code of non-stable modules and provide patches if you have issues.</em></p>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><ul>
+<li>dsn <em>required</em> - MongoDb DSN with the db name specified at the end of the host after slash</li>
+<li>user <em>required</em> - user to access database</li>
+<li>password <em>required</em> - password</li>
+<li>dump_type <em>required</em> - type of dump.
+One of 'js' (MongoDb::DUMP_TYPE_JS), 'mongodump' (MongoDb::DUMP_TYPE_MONGODUMP) or 'mongodump-tar-gz' (MongoDb::DUMP_TYPE_MONGODUMP_TAR_GZ).
+default: MongoDb::DUMP_TYPE_JS).</li>
+<li>dump - path to database dump</li>
+<li>populate: true - should the dump be loaded before test suite is started.</li>
+<li>cleanup: true - should the dump be reloaded after each test</li>
+</ul>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>dontSeeInCollection <span id="dontseeincollection"></span><a href="#dontseeincollection" class="hashlink">&para;</a></h3><p>Checks if collection doesn't contain an item.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;dontSeeInCollection('users', array('name' =&gt; 'miles'));
+</code></pre>
+<ul>
+<li><code>param</code> $collection</li>
+<li><code>param array</code> $criteria</li>
+</ul>
+<h3>grabCollectionCount <span id="grabcollectioncount"></span><a href="#grabcollectioncount" class="hashlink">&para;</a></h3><p>Grabs the documents count from a collection</p>
+<pre><code class="language- php">&lt;?php
+$count = $I-&gt;grabCollectionCount('users');
+// or
+$count = $I-&gt;grabCollectionCount('users', array('isAdmin' =&gt; true));
+</code></pre>
+<ul>
+<li><code>param</code> $collection</li>
+<li><code>param array</code> $criteria</li>
+<li><code>return</code> integer</li>
+</ul>
+<h3>grabFromCollection <span id="grabfromcollection"></span><a href="#grabfromcollection" class="hashlink">&para;</a></h3><p>Grabs a data from collection</p>
+<pre><code class="language- php">&lt;?php
+$user = $I-&gt;grabFromCollection('users', array('name' =&gt; 'miles'));
+</code></pre>
+<ul>
+<li><code>param</code> $collection</li>
+<li><code>param array</code> $criteria</li>
+<li><code>return</code> array</li>
+</ul>
+<h3>haveInCollection <span id="haveincollection"></span><a href="#haveincollection" class="hashlink">&para;</a></h3><p>Inserts data into collection</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;haveInCollection('users', array('name' =&gt; 'John', 'email' =&gt; 'john@coltrane.com'));
+$user_id = $I-&gt;haveInCollection('users', array('email' =&gt; 'john@coltrane.com'));
+</code></pre>
+<ul>
+<li><code>param</code> $collection</li>
+<li><code>param array</code> $data</li>
+</ul>
+<h3>seeElementIsArray <span id="seeelementisarray"></span><a href="#seeelementisarray" class="hashlink">&para;</a></h3><p>Asserts that an element in a collection exists and is an Array</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeElementIsArray('users', array('name' =&gt; 'John Doe') , 'data.skills');
+</code></pre>
+<ul>
+<li><code>param String</code> $collection</li>
+<li><code>param Array</code> $criteria</li>
+<li><code>param String</code> $elementToCheck</li>
+</ul>
+<h3>seeElementIsObject <span id="seeelementisobject"></span><a href="#seeelementisobject" class="hashlink">&para;</a></h3><p>Asserts that an element in a collection exists and is an Object</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeElementIsObject('users', array('name' =&gt; 'John Doe') , 'data');
+</code></pre>
+<ul>
+<li><code>param String</code> $collection</li>
+<li><code>param Array</code> $criteria</li>
+<li><code>param String</code> $elementToCheck</li>
+</ul>
+<h3>seeInCollection <span id="seeincollection"></span><a href="#seeincollection" class="hashlink">&para;</a></h3><p>Checks if collection contains an item.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeInCollection('users', array('name' =&gt; 'miles'));
+</code></pre>
+<ul>
+<li><code>param</code> $collection</li>
+<li><code>param array</code> $criteria</li>
+</ul>
+<h3>seeNumElementsInCollection <span id="seenumelementsincollection"></span><a href="#seenumelementsincollection" class="hashlink">&para;</a></h3><p>Count number of records in a collection</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeNumElementsInCollection('users', 2);
+$I-&gt;seeNumElementsInCollection('users', 1, array('name' =&gt; 'miles'));
+</code></pre>
+<ul>
+<li><code>param</code> $collection</li>
+<li><code>param integer</code> $expected</li>
+<li><code>param array</code> $criteria</li>
+</ul>
+<h3>useDatabase <span id="usedatabase"></span><a href="#usedatabase" class="hashlink">&para;</a></h3><p>Specify the database to use</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;useDatabase('db_1');
+</code></pre>
+<ul>
+<li><code>param</code> $dbName</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/MongoDb.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

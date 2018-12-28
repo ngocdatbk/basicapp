@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2032" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2032-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2032-collapse" class="collapse navbar-collapse"><ul id="w2033" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2016" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2016" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2017" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2017" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2018" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2018" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2019" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2019" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2020" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2020" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2021" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2021" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2022" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2022" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2023" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2023" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2024" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2024" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2025" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2025" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2026" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2026" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2027" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2027" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2028" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2028" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2029" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2029" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2030" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2030" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2031" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2031" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h4>2.5.1 <span id="251"></span><a href="#251" class="hashlink">&para;</a></h4><ul>
+<li>Recorder extension improvements by @OneEyedSpaceFish. See #5177:<ul>
+<li>HTML layout improvements</li>
+<li>Restructured tests to show nested output</li>
+<li>file operation exceptions / log them without throwing exceptions</li>
+<li>fix edge cases with file operations (too long wantTo, etc.)</li>
+<li>the ability to automatically purge old reports (from previous runs)</li>
+<li>display errors in the recorded page rather than saving it as error.png</li>
+<li>the ability not to display any Unicode characters if ANSI only output is requested</li>
+<li>the ability not to display any colors in output if no-colors is requested</li>
+<li>the ability to change colors in the generated list based on configuration</li>
+</ul>
+</li>
+<li>[Db] Made <code>_loadDump</code> unconditional like it was in 2.4. Fixed #5195 by @Naktibala</li>
+<li>[Db] Allows to specify more than one dump file. See #5220 by @Fenikkusu</li>
+<li>[WebDriver] Added <code>waitForElementClickable</code> by @FatBoyXPC </li>
+<li>Code coverage: added <code>work_dir</code> config option to map remote paths to local. See #5225 by @Fenikkusu </li>
+<li>[Lumen] Added Lumen 5.5+ support for getRoutes method by @lendormi</li>
+<li>[Yii2] Restored <code>getApplication()</code> API by @Slamdunk </li>
+<li>[Yii2] Added deprecation doc to <code>getApplication()</code> by @Slamdunks</li>
+<li>[Doctrine2] Reloading module on reconfigure to persist new configs. See #5241 by @joelmedeiros</li>
+<li>[Doctrine2] Rollback all nested transactions created within test by @Dukecz</li>
+<li>[DataFactory] Reloading module on reconfigure to persist new configs. See #5241 by @joelmedeiros</li>
+<li>[Phalcon] Allows null content in response. By @Fenikkusu</li>
+<li>[Phalcon] Added <code>session</code> config option to override session class. By @Fenikkusu</li>
+<li>[Asserts] Added <code>expectThrowable()</code> method by @burned42</li>
+<li>Use <code>*.yaml</code> for params loading</li>
+</ul>
+<h4>2.5.0 <span id="250"></span><a href="#250" class="hashlink">&para;</a></h4><ul>
+<li><a href="https://codeception.com/docs/09-Data#Testing-Dynamic-Data-with-Snapshots"><strong>Snapshot testing</strong></a> introduced. Test dynamic data sets by comparing current values with previously saved ones.</li>
+<li>[Db] <strong>Multi database support</strong>. See #4857 by @eXorus<ul>
+<li><code>amConnectedToDatabase</code> method added.</li>
+<li><code>performInDatabase</code> method added.</li>
+</ul>
+</li>
+<li>Rerun tests in <strong><a href="https://codeception.com/docs/07-AdvancedUsage#Shuffle">shuffle mode</a></strong> in the same order by setting seed value. By @SamMousa</li>
+<li>[PhpBrowser][Frameworks] <strong>Breaking Change</strong> <code>seeLink</code> now matches the end of a URL, instead of partial matching. By @Slamdunk<ul>
+<li>Previous: <code>$I-&gt;seeLink('Delete','/post/1');</code> matches <code>&lt;a href="/post/199"&gt;Delete&lt;/a&gt;</code></li>
+<li>Now: <code>$I-&gt;seeLink('Delete','/post/1');</code> does NOT match <code>&lt;a href="/post/199"&gt;Delete&lt;/a&gt;</code> </li>
+</ul>
+</li>
+<li>[WebDriver] Keep coverage cookies in <code>loadSessionSnapshot</code>. Fix by @rajras </li>
+<li>[Yii2] Prevent null pointer exception by @SilverFire. See #5136</li>
+<li>[Yii2] Fixed issue with empty response stream by @SamMousa.</li>
+<li>[Yii2] Fixed <code>Too many connections</code> issue #4926. By @roslov</li>
+<li>[Yii2] Fixed #4769: <code>amLoggedInAs()</code> throws TypeError. By @SamMousa</li>
+<li>[Recorder Extension] Fixing recorder extension issues caused by phpunit 7.2.7 update by @OneEyedSpaceFish</li>
+<li>[Logger Extension] Added <code>codecept_log</code> function to write to logs from any place. Fixes #3551 by @siad007  </li>
+<li>[WebDriver] Report correct strict locator in error message. When <code>see()</code> and <code>dontSee()</code> are used with array selector. Fix by @Naktibalda.</li>
+<li>[Phalcon] Use bind for find record. See #5158 by @Joilson</li>
+<li>[Phalcon] Add support for nullable fields in <code>findRecord()</code> by @arjanwestdorp </li>
+<li>Added <code>memory_limit</code> to <code>dry-run</code> command by @siad007. Fixes #5090</li>
+<li>Added ext-curl to the composer require section by @siad007</li>
+<li>Make <code>coverage: show_only_summary</code> configurable. See #5142 by @Quexer69</li>
+<li>Ensure php extension <code>mbstring</code> is available by @siad007. Fixes #4575 </li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

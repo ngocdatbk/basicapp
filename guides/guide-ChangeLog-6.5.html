@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w6442" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w6442-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w6442-collapse" class="collapse navbar-collapse"><ul id="w6443" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-6426" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-6426" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6427" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-6427" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6428" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-6428" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6429" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-6429" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6430" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-6430" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6431" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-6431" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6432" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-6432" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6433" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-6433" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6434" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-6434" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6435" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-6435" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6436" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-6436" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6437" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-6437" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6438" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-6438" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6439" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-6439" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6440" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-6440" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-6441" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-6441" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Changes in PHPUnit 6.5 <span id="changes-in-phpunit-65"></span><a href="#changes-in-phpunit-65" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#6513-2018-09-08">6.5.13 - 2018-09-08</a></li>
+<li><a href="#6512-2018-08-22">6.5.12 - 2018-08-22</a></li>
+<li><a href="#6511-2018-08-07">6.5.11 - 2018-08-07</a></li>
+<li><a href="#6510-2018-08-03">6.5.10 - 2018-08-03</a></li>
+<li><a href="#659-2018-07-03">6.5.9 - 2018-07-03</a></li>
+<li><a href="#658-2018-04-10">6.5.8 - 2018-04-10</a></li>
+<li><a href="#657-2018-02-26">6.5.7 - 2018-02-26</a></li>
+<li><a href="#656-2018-02-01">6.5.6 - 2018-02-01</a></li>
+<li><a href="#655-2017-12-17">6.5.5 - 2017-12-17</a></li>
+<li><a href="#654-2017-12-10">6.5.4 - 2017-12-10</a></li>
+<li><a href="#653-2017-12-06">6.5.3 - 2017-12-06</a></li>
+<li><a href="#652-2017-12-02">6.5.2 - 2017-12-02</a></li>
+<li><a href="#651-2017-12-01">6.5.1 - 2017-12-01</a></li>
+<li><a href="#650-2017-12-01">6.5.0 - 2017-12-01</a></li></ol></div>
+<p>All notable changes of the PHPUnit 6.5 release series are documented in this file using the <a href="http://keepachangelog.com/">Keep a CHANGELOG</a> principles.</p>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.12...6.5.13">6.5.13</a> - 2018-09-08 <span id="6513-2018-09-08"></span><a href="#6513-2018-09-08" class="hashlink">&para;</a></h2><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3181">#3181</a>: <code>--filter</code> should be case-insensitive</li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3234">#3234</a>: <code>assertArraySubset()</code> with <code>$strict=true</code> does not display differences properly</li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3254">#3254</a>: TextUI test runner cannot run a <code>Test</code> instance that is not a <code>TestSuite</code></li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.11...6.5.12">6.5.12</a> - 2018-08-22 <span id="6512-2018-08-22"></span><a href="#6512-2018-08-22" class="hashlink">&para;</a></h2><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3248">#3248</a> and <a href="https://github.com/sebastianbergmann/phpunit/issues/3233">#3233</a>: <code>phpunit.xsd</code> dictates element order where it should not</li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3251">#3251</a>: TeamCity result logger is missing test duration information</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.10...6.5.11">6.5.11</a> - 2018-08-07 <span id="6511-2018-08-07"></span><a href="#6511-2018-08-07" class="hashlink">&para;</a></h2><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3219">#3219</a>: <code>getMockFromWsdl()</code> generates invalid PHP code when WSDL filename contains special characters</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.9...6.5.10">6.5.10</a> - 2018-08-03 <span id="6510-2018-08-03"></span><a href="#6510-2018-08-03" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3209">#3209</a>: <code>Test::run()</code> and <code>TestCase::run()</code> interface contradiction</li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3218">#3218</a>: <code>prefix</code> attribute for <code>directory</code> node missing from <code>phpunit.xml</code> XSD</li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3225">#3225</a>: <code>coverage-php</code> missing from <code>phpunit.xsd</code></li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.8...6.5.9">6.5.9</a> - 2018-07-03 <span id="659-2018-07-03"></span><a href="#659-2018-07-03" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/3142">#3142</a>: Method-level annotations (<code>@backupGlobals</code>, <code>@backupStaticAttributes</code>, <code>@errorHandler</code>, <code>@preserveGlobalState</code>) do not override class-level annotations</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.7...6.5.8">6.5.8</a> - 2018-04-10 <span id="658-2018-04-10"></span><a href="#658-2018-04-10" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2830">#2830</a>: <code>@runClassInSeparateProcess</code> does not work for tests that use <code>@dataProvider</code></li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.6...6.5.7">6.5.7</a> - 2018-02-26 <span id="657-2018-02-26"></span><a href="#657-2018-02-26" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2974">#2974</a>: JUnit XML logfile contains invalid characters when test output contains binary data</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.5...6.5.6">6.5.6</a> - 2018-02-01 <span id="656-2018-02-01"></span><a href="#656-2018-02-01" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2236">#2236</a>: Exceptions in <code>tearDown()</code> do not affect <code>getStatus()</code></li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2950">#2950</a>: Class extending <code>PHPUnit\Framework\TestSuite</code> does not extend <code>PHPUnit\FrameworkTestCase</code></li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2972">#2972</a>: PHPUnit crashes when test suite contains both <code>.phpt</code> files and unconventionally named tests</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.4...6.5.5">6.5.5</a> - 2017-12-17 <span id="655-2017-12-17"></span><a href="#655-2017-12-17" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2922">#2922</a>: Test class is not discovered when there is a test class with <code>@group</code> and provider throwing exception in it, tests are run with <code>--exclude-group</code> for that group, there is another class called later (after the class from above), and the name of that another class does not match its filename</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.3...6.5.4">6.5.4</a> - 2017-12-10 <span id="654-2017-12-10"></span><a href="#654-2017-12-10" class="hashlink">&para;</a></h2><h3>Changed <span id="changed"></span><a href="#changed" class="hashlink">&para;</a></h3><ul>
+<li>Require version 5.0.5 of <code>phpunit/phpunit-mock-objects</code> for <a href="https://github.com/sebastianbergmann/phpunit-mock-objects/issues/394">phpunit-mock-objects#394</a></li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.2...6.5.3">6.5.3</a> - 2017-12-06 <span id="653-2017-12-06"></span><a href="#653-2017-12-06" class="hashlink">&para;</a></h2><h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed an issue with PHPT tests when <code>forceCoversAnnotation="true"</code> is configured</li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.1...6.5.2">6.5.2</a> - 2017-12-02 <span id="652-2017-12-02"></span><a href="#652-2017-12-02" class="hashlink">&para;</a></h2><h3>Changed <span id="changed"></span><a href="#changed" class="hashlink">&para;</a></h3><ul>
+<li>Require version 5.0.4 of <code>phpunit/phpunit-mock-objects</code> for <a href="https://github.com/sebastianbergmann/phpunit-mock-objects/issues/388">phpunit-mock-objects#388</a></li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.5.0...6.5.1">6.5.1</a> - 2017-12-01 <span id="651-2017-12-01"></span><a href="#651-2017-12-01" class="hashlink">&para;</a></h2><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/pull/2886">#2886</a>: Forced environment variables do not affect <code>getenv()</code></li>
+</ul>
+<h2><a href="https://github.com/sebastianbergmann/phpunit/compare/6.4...6.5.0">6.5.0</a> - 2017-12-01 <span id="650-2017-12-01"></span><a href="#650-2017-12-01" class="hashlink">&para;</a></h2><h3>Added <span id="added"></span><a href="#added" class="hashlink">&para;</a></h3><ul>
+<li>Implemented <a href="https://github.com/sebastianbergmann/phpunit/issues/2286">#2286</a>: Optional <code>$exit</code> parameter for <code>PHPUnit\TextUI\TestRunner::run()</code></li>
+<li>Implemented <a href="https://github.com/sebastianbergmann/phpunit/issues/2496">#2496</a>: Allow shallow copy of dependencies</li>
+</ul>
+<h3>Fixed <span id="fixed"></span><a href="#fixed" class="hashlink">&para;</a></h3><ul>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/issues/2654">#2654</a>: Problems with <code>assertJsonStringEqualsJsonString()</code></li>
+<li>Fixed <a href="https://github.com/sebastianbergmann/phpunit/pull/2810">#2810</a>: Code Coverage for PHPT tests does not work</li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:28:03 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -49,11 +49,7 @@ class UpdateForm extends User
             [['is_active', 'is_admin'], 'integer'],
             ['last_login', 'integer'],
             [['email', 'username', 'fullname'], 'trim'],
-            [['fullname'], 'filter',
-                'filter' => function ($value) {
-                    return \yii\helpers\HtmlPurifier::process($value);
-                }],
-
+            [['fullname'], 'filter', 'filter' => function ($value) { return \yii\helpers\HtmlPurifier::process($value);}],
             [['gender'], 'string'],
             [['phone_number'], 'string', 'max' => 20],
         ];

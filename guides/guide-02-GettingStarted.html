@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2086" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2086-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2086-collapse" class="collapse navbar-collapse"><ul id="w2087" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2070" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2070" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2071" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2071" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2072" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2072" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2073" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2073" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2074" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2074" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2075" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2075" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2076" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2076" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2077" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2077" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2078" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2078" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2079" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2079" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2080" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2080" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2081" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2081" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2082" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2082" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2083" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2083" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2084" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2084" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2085" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2085" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Getting Started <span id="getting-started"></span><a href="#getting-started" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#the-codeception-syntax">The Codeception Syntax</a></li>
+<li><a href="#actors">Actors</a></li>
+<li><a href="#writing-a-sample-test">Writing a Sample Test</a></li>
+<li><a href="#bdd">BDD</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#running-tests">Running Tests</a></li>
+<li><a href="#debugging">Debugging</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>Let's take a look at Codeception's architecture. We'll assume that you have already <a href="http://codeception.com/install">installed</a> it
+and bootstrapped your first test suites. Codeception has generated three of them: unit, functional, and acceptance.
+They are well described in the <a href="http://codeception.com/docs/01-Introduction">previous chapter</a>. Inside your <strong>/tests</strong> folder you will have three <code>.yml</code> config files and three directories
+with names corresponding to these suites: <code>unit</code>, <code>functional</code>, <code>acceptance</code>. Suites are independent groups of tests with a common purpose.</p>
+<h2>The Codeception Syntax <span id="the-codeception-syntax"></span><a href="#the-codeception-syntax" class="hashlink">&para;</a></h2><p>Codeception follows simple naming rules to make it easy to remember (as well as easy to understand) its method names.</p>
+<ul>
+<li><strong>Actions</strong> start with a plain english verb, like "click" or "fill". Examples:
+  <code>`</code>php
+  &lt;?php
+  $I-&gt;click('Login');
+  $I-&gt;fillField('#input-username', 'John Dough');
+  $I-&gt;pressKey('#input-remarks', 'foo');
+  <code>`</code></li>
+<li><strong>Assertions</strong> always start with "see" or "dontSee". Examples:
+  <code>`</code>php
+  &lt;?php
+  $I-&gt;see('Welcome');
+  $I-&gt;seeInTitle('My Company');
+  $I-&gt;seeElement('nav');
+  $I-&gt;dontSeeElement('#error-message');
+  $I-&gt;dontSeeInPageSource('<section class="foo">');
+  <code>`</code></li>
+<li><strong>Grabbers</strong> just <em>read</em> something from the page, but don't process it. The return value of those are meant to be saved as variables and used later. Example:
+  <code>`</code>php
+  &lt;?php
+  $method = $I-&gt;grabAttributeFrom('#login-form', 'method');
+  $I-&gt;assertEquals('post', $method);
+  <code>`</code></li>
+</ul>
+<h2>Actors <span id="actors"></span><a href="#actors" class="hashlink">&para;</a></h2><p>One of the main concepts of Codeception is representation of tests as actions of a person.
+We have a UnitTester, who executes functions and tests the code. We also have a FunctionalTester, a qualified tester,
+who tests the application as a whole, with knowledge of its internals. Lastly we have an AcceptanceTester, a user who works with our application
+through an interface that we provide.</p>
+<p><strong>Methods of actor classes are generally taken from <a href="http://codeception.com/docs/06-ModulesAndHelpers">Codeception Modules</a></strong>.
+Each module provides predefined actions for different testing purposes, and they can be combined to fit the testing environment.
+Codeception tries to solve 90% of possible testing issues in its modules, so you don't have to reinvent the wheel.
+We think that you can spend more time on writing tests and less on writing support code to make those tests run.
+By default, AcceptanceTester relies on PhpBrowser module, which is set in the <code>tests/acceptance.suite.yml</code> configuration file:</p>
+<pre><code class="language-yaml">actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://localhost/myapp/
+        - \Helper\Acceptance
+</code></pre>
+<p>In this configuration file you can enable/disable and reconfigure modules for your needs.
+When you change the configuration, the actor classes are rebuilt automatically. If the actor classes are not created or updated as you expect,
+try to generate them manually with the <code>build</code> command:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept build
+</code></pre>
+<h2>Writing a Sample Test <span id="writing-a-sample-test"></span><a href="#writing-a-sample-test" class="hashlink">&para;</a></h2><p>Codeception has its own testing format called Cest (Codecept + Test). 
+To start writing a test we need to create a new Cest file. We can do that by running the following command:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept generate:cest acceptance Signin
+</code></pre>
+<p>This will generate <code>SigninCest.php</code> file inside <code>tests/acceptance</code> directory. Let's open it:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SigninCest</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_before</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+    }
+    
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_after</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{        
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryToTest</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+       <span class="hljs-comment">// <span class="hljs-doctag">todo:</span> write test</span>
+    }
+}
+</code></pre>
+<p>We have <code>_before</code> and <code>_after</code> methods to run some common actions before and after a test. And we have a placeholder action <code>tryToTest</code> which we need to implement.
+If we try to test a signin process it's a good start to test a successful signin. Let's rename this method to <code>signInSuccessfully</code>.</p>
+<p>We'll assume that we have a 'login' page where we get authenticated by providing a username and password. 
+Then we are sent to a user page, where we see the text <code>Hello, %username%</code>. Let's look at how this scenario is written in Codeception:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SigninCest</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loginSuccessfully</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/login'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'Username'</span>,<span class="hljs-string">'davert'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'Password'</span>,<span class="hljs-string">'qwerty'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Login'</span>);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Hello, davert'</span>);
+    }
+}
+</code></pre>
+<p>This scenario can probably be read by non-technical people. If you just remove all special chars like braces, arrows and <code>$</code>,
+this test transforms into plain English text:</p>
+<pre><code class="hljs nginx"><span class="hljs-title">I</span> amOnPage <span class="hljs-string">'/login'</span>
+I fillField <span class="hljs-string">'Username'</span>,<span class="hljs-string">'davert'</span>
+I fillField <span class="hljs-string">'Password'</span>,<span class="hljs-string">'qwerty'</span>
+I click <span class="hljs-string">'Login'</span>
+I see <span class="hljs-string">'Hello, davert'</span>
+</code></pre>
+<p>Codeception generates this text representation from PHP code by executing:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept generate:scenarios
+</code></pre>
+<p>These generated scenarios will be stored in your <code>_data</code> directory in text files.</p>
+<p>Before we execute this test, we should make sure that the website is running on a local web server.
+Let's open the <code>tests/acceptance.suite.yml</code> file and replace the URL with the URL of your web application:</p>
+<pre><code class="language-yaml">actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: 'http://myappurl.local'
+        - \Helper\Acceptance
+</code></pre>
+<p>After configuring the URL we can run this test with the <code>run</code> command:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run
+</code></pre>
+<p>This is the output we should see:</p>
+<pre><code class="hljs bash language-bash">Acceptance Tests (<span class="hljs-number">1</span>) -------------------------------
+✔ SigninCest: sign <span class="hljs-keyword">in</span> successfully
+----------------------------------------------------
+
+Time: <span class="hljs-number">1</span> second, Memory: <span class="hljs-number">21.00</span>Mb
+
+OK (<span class="hljs-number">1</span> <span class="hljs-built_in">test</span>, <span class="hljs-number">1</span> assertions)
+</code></pre>
+<p>Let's get some detailed output:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run acceptance --steps
+</code></pre>
+<p>We should see a step-by-step report on the performed actions:</p>
+<pre><code class="hljs bash language-bash">Acceptance Tests (<span class="hljs-number">1</span>) -------------------------------
+SigninCest: Login to website
+Signature: SigninCest.php:signInSuccessfully
+Test: tests/acceptance/SigninCest.php:signInSuccessfully
+Scenario --
+ I am on page <span class="hljs-string">"/login"</span>
+ I fill field <span class="hljs-string">"Username"</span> <span class="hljs-string">"davert"</span>
+ I fill field <span class="hljs-string">"Password"</span> <span class="hljs-string">"qwerty"</span>
+ I click <span class="hljs-string">"Login"</span>
+ I see <span class="hljs-string">"Hello, davert"</span>
+ OK
+----------------------------------------------------
+
+Time: <span class="hljs-number">0</span> seconds, Memory: <span class="hljs-number">21.00</span>Mb
+
+OK (<span class="hljs-number">1</span> <span class="hljs-built_in">test</span>, <span class="hljs-number">1</span> assertions)
+</code></pre>
+<p>This simple test can be extended to a complete scenario of site usage, therefore,
+by emulating the user's actions, you can test any of your websites.</p>
+<p>To run more tests create a public method for each of them. Include <code>AcceptanceTester</code> object as <code>$I</code> as a method parameter and use the same <code>$I-&gt;</code> API you've seen before.
+If your tests share common setup actions put them into <code>_before</code> method. </p>
+<p>For instance, to test CRUD we want 4 methods to be implemented and all next tests should start at <code>/task</code> page:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TaskCrudCest</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_before</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-comment">// will be executed at the beginning of each test</span>
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/task'</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createTask</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+       <span class="hljs-comment">// <span class="hljs-doctag">todo:</span> write test</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">viewTask</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+       <span class="hljs-comment">// <span class="hljs-doctag">todo:</span> write test</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateTask</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-comment">// <span class="hljs-doctag">todo:</span> write test</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deleteTask</span><span class="hljs-params">(AcceptanceTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+       <span class="hljs-comment">// <span class="hljs-doctag">todo:</span> write test</span>
+    }
+}
+</code></pre>
+<p>Learn more about the <a href="http://codeception.com/docs/07-AdvancedUsage#Cest-Classes">Cest format</a> in the Advanced Testing section.</p>
+<h2>BDD <span id="bdd"></span><a href="#bdd" class="hashlink">&para;</a></h2><p>Codeception allows execution of user stories in Gherkin format in a similar manner as is done in Cucumber or Behat.
+Please refer to <a href="http://codeception.com/docs/07-BDD">the BDD chapter</a> to learn more.</p>
+<h2>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h2><p>Codeception has a global configuration in <code>codeception.yml</code> and a config for each suite. We also support <code>.dist</code> configuration files.
+If you have several developers in a project, put shared settings into <code>codeception.dist.yml</code> and personal settings into <code>codeception.yml</code>.
+The same goes for suite configs. For example, the <code>unit.suite.yml</code> will be merged with <code>unit.suite.dist.yml</code>.</p>
+<h2>Running Tests <span id="running-tests"></span><a href="#running-tests" class="hashlink">&para;</a></h2><p>Tests can be started with the <code>run</code> command:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run
+</code></pre>
+<p>With the first argument you can run all tests from one suite:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run acceptance
+</code></pre>
+<p>To limit tests run to a single class, add a second argument. Provide a local path to the test class, from the suite directory:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run acceptance SigninCest.php
+</code></pre>
+<p>Alternatively you can provide the full path to test file:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run tests/acceptance/SigninCest.php
+</code></pre>
+<p>You can further filter which tests are run by appending a method name to the class, separated by a colon (for Cest or Test formats):</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run tests/acceptance/SigninCest.php:^anonymousLogin$
+</code></pre>
+<p>You can provide a directory path as well. This will execute all acceptance tests from the <code>backend</code> dir:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run tests/acceptance/backend
+</code></pre>
+<p>Using regular expressions, you can even run many different test methods from the same directory or class.
+For example, this will execute all acceptance tests from the <code>backend</code> dir beginning with the word "login":</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run tests/acceptance/backend:^login
+</code></pre>
+<p>To execute a group of tests that are not stored in the same directory, you can organize them in <a href="http://codeception.com/docs/07-AdvancedUsage#Groups">groups</a>.</p>
+<h3>Reports <span id="reports"></span><a href="#reports" class="hashlink">&para;</a></h3><p>To generate JUnit XML output, you can provide the <code>--xml</code> option, and <code>--html</code> for HTML report.</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run --steps --xml --html
+</code></pre>
+<p>This command will run all tests for all suites, displaying the steps, and building HTML and XML reports. Reports will be stored in the <code>tests/_output/</code> directory.</p>
+<p>To see all the available options, run the following command:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept <span class="hljs-built_in">help</span> run
+</code></pre>
+<h2>Debugging <span id="debugging"></span><a href="#debugging" class="hashlink">&para;</a></h2><p>To receive detailed output, tests can be executed with the <code>--debug</code> option.
+You may print any information inside a test using the <code>codecept_debug</code> function.</p>
+<h3>Generators <span id="generators"></span><a href="#generators" class="hashlink">&para;</a></h3><p>There are plenty of useful Codeception commands:</p>
+<ul>
+<li><code>generate:cest</code> <em>suite</em> <em>filename</em> - Generates a sample Cest test</li>
+<li><code>generate:test</code> <em>suite</em> <em>filename</em> - Generates a sample PHPUnit Test with Codeception hooks</li>
+<li><code>generate:feature</code> <em>suite</em> <em>filename</em> - Generates Gherkin feature file</li>
+<li><code>generate:suite</code> <em>suite</em> <em>actor</em> - Generates a new suite with the given Actor class name</li>
+<li><code>generate:scenarios</code> <em>suite</em> - Generates text files containing scenarios from tests</li>
+<li><code>generate:helper</code> <em>filename</em> - Generates a sample Helper File</li>
+<li><code>generate:pageobject</code> <em>suite</em> <em>filename</em> - Generates a sample Page object</li>
+<li><code>generate:stepobject</code> <em>suite</em> <em>filename</em> - Generates a sample Step object</li>
+<li><code>generate:environment</code> <em>env</em> - Generates a sample Environment configuration</li>
+<li><code>generate:groupobject</code> <em>group</em> - Generates a sample Group Extension</li>
+</ul>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>We have taken a look into the Codeception structure. Most of the things you need were already generated by the <code>bootstrap</code> command.
+After you have reviewed the basic concepts and configurations, you can start writing your first scenario.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

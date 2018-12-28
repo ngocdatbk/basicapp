@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2338" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2338-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2338-collapse" class="collapse navbar-collapse"><ul id="w2339" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2322" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2322" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2323" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2323" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2324" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2324" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2325" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2325" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2326" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2326" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2327" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2327" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2328" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2328" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2329" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2329" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2330" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2330" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2331" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2331" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2332" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2332" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2333" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2333" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2334" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2334" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2335" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2335" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2336" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2336" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2337" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2337" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>AMQP <span id="amqp"></span><a href="#amqp" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#config">Config</a></li>
+<li><a href="#public-properties">Public Properties</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>This module interacts with message broker software that implements
+the Advanced Message Queuing Protocol (AMQP) standard. For example, RabbitMQ (tested).</p>
+<div class="alert alert-info">
+To use this module with Composer you need <em>"php-amqplib/php-amqplib": "~2.4"</em> package.
+</div>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><ul>
+<li>host: localhost - host to connect</li>
+<li>username: guest - username to connect</li>
+<li>password: guest - password to connect</li>
+<li>vhost: '/' - vhost to connect</li>
+<li>cleanup: true - defined queues will be purged before running every test.</li>
+<li>queues: [mail, twitter] - queues to cleanup</li>
+<li>single_channel - create and use only one channel during test execution</li>
+</ul>
+<h3>Example <span id="example"></span><a href="#example" class="hashlink">&para;</a></h3><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+    <span class="hljs-attribute">enabled</span>:
+        - <span class="hljs-attribute">AMQP</span>:
+            <span class="hljs-attribute">host</span>: <span class="hljs-string">'localhost'</span>
+            <span class="hljs-attribute">port</span>: <span class="hljs-string">'5672'</span>
+            <span class="hljs-attribute">username</span>: <span class="hljs-string">'guest'</span>
+            <span class="hljs-attribute">password</span>: <span class="hljs-string">'guest'</span>
+            <span class="hljs-attribute">vhost</span>: <span class="hljs-string">'/'</span>
+            <span class="hljs-attribute">queues</span>: [queue1, queue2]
+            <span class="hljs-attribute">single_channel</span>: false
+</code></pre>
+<h2>Public Properties <span id="public-properties"></span><a href="#public-properties" class="hashlink">&para;</a></h2><ul>
+<li>connection - AMQPStreamConnection - current connection</li>
+</ul>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>bindQueueToExchange <span id="bindqueuetoexchange"></span><a href="#bindqueuetoexchange" class="hashlink">&para;</a></h3><p>Binds a queue to an exchange</p>
+<p>This is an alias of method <code>queue_bind</code> of <code>PhpAmqpLib\Channel\AMQPChannel</code>.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;bindQueueToExchange(
+    <span class="hljs-string">'nameOfMyQueueToBind'</span>, <span class="hljs-comment">// name of the queue</span>
+    <span class="hljs-string">'transactionTracking.transaction'</span>, <span class="hljs-comment">// exchange name to bind to</span>
+    <span class="hljs-string">'your.routing.key'</span> <span class="hljs-comment">// Optionally, provide a binding key</span>
+)
+</code></pre>
+<ul>
+<li><code>param string</code> $queue</li>
+<li><code>param string</code> $exchange</li>
+<li><code>param string</code> $routing_key</li>
+<li><code>param bool</code> $nowait</li>
+<li><code>param array</code> $arguments</li>
+<li><code>param int</code> $ticket</li>
+<li><code>return</code> mixed|null</li>
+</ul>
+<h3>declareExchange <span id="declareexchange"></span><a href="#declareexchange" class="hashlink">&para;</a></h3><p>Declares an exchange</p>
+<p>This is an alias of method <code>exchange_declare</code> of <code>PhpAmqpLib\Channel\AMQPChannel</code>.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;declareExchange(
+    <span class="hljs-string">'nameOfMyExchange'</span>, <span class="hljs-comment">// exchange name</span>
+    <span class="hljs-string">'topic'</span> <span class="hljs-comment">// exchange type</span>
+)
+</code></pre>
+<ul>
+<li><code>param string</code> $exchange</li>
+<li><code>param string</code> $type</li>
+<li><code>param bool</code> $passive</li>
+<li><code>param bool</code> $durable</li>
+<li><code>param bool</code> $auto_delete</li>
+<li><code>param bool</code> $internal</li>
+<li><code>param bool</code> $nowait</li>
+<li><code>param array</code> $arguments</li>
+<li><code>param int</code> $ticket</li>
+<li><code>return</code> mixed|null</li>
+</ul>
+<h3>declareQueue <span id="declarequeue"></span><a href="#declarequeue" class="hashlink">&para;</a></h3><p>Declares queue, creates if needed</p>
+<p>This is an alias of method <code>queue_declare</code> of <code>PhpAmqpLib\Channel\AMQPChannel</code>.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;declareQueue(
+    <span class="hljs-string">'nameOfMyQueue'</span>, <span class="hljs-comment">// exchange name</span>
+)
+</code></pre>
+<ul>
+<li><code>param string</code> $queue</li>
+<li><code>param bool</code> $passive</li>
+<li><code>param bool</code> $durable</li>
+<li><code>param bool</code> $exclusive</li>
+<li><code>param bool</code> $auto_delete</li>
+<li><code>param bool</code> $nowait</li>
+<li><code>param array</code> $arguments</li>
+<li><code>param int</code> $ticket</li>
+<li><code>return</code> mixed|null</li>
+</ul>
+<h3>grabMessageFromQueue <span id="grabmessagefromqueue"></span><a href="#grabmessagefromqueue" class="hashlink">&para;</a></h3><p>Takes last message from queue.</p>
+<pre><code class="language- php">&lt;?php
+$message = $I-&gt;grabMessageFromQueue('queue.emails');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $queue</li>
+<li><code>return</code> \PhpAmqpLib\Message\AMQPMessage</li>
+</ul>
+<h3>purgeAllQueues <span id="purgeallqueues"></span><a href="#purgeallqueues" class="hashlink">&para;</a></h3><p>Purge all queues defined in config.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;purgeAllQueues();
+?&gt;
+</code></pre>
+<h3>purgeQueue <span id="purgequeue"></span><a href="#purgequeue" class="hashlink">&para;</a></h3><p>Purge a specific queue defined in config.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;purgeQueue('queue.emails');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $queueName</li>
+</ul>
+<h3>pushToExchange <span id="pushtoexchange"></span><a href="#pushtoexchange" class="hashlink">&para;</a></h3><p>Sends message to exchange by sending exchange name, message
+and (optionally) a routing key</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;pushToExchange('exchange.emails', 'thanks');
+$I-&gt;pushToExchange('exchange.emails', new AMQPMessage('Thanks!'));
+$I-&gt;pushToExchange('exchange.emails', new AMQPMessage('Thanks!'), 'severity');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $exchange</li>
+<li><code>param string|\PhpAmqpLib\Message\AMQPMessage</code> $message</li>
+<li><code>param string</code> $routing_key</li>
+</ul>
+<h3>pushToQueue <span id="pushtoqueue"></span><a href="#pushtoqueue" class="hashlink">&para;</a></h3><p>Sends message to queue</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;pushToQueue('queue.jobs', 'create user');
+$I-&gt;pushToQueue('queue.jobs', new AMQPMessage('create'));
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $queue</li>
+<li><code>param string|\PhpAmqpLib\Message\AMQPMessage</code> $message</li>
+</ul>
+<h3>seeMessageInQueueContainsText <span id="seemessageinqueuecontainstext"></span><a href="#seemessageinqueuecontainstext" class="hashlink">&para;</a></h3><p>Checks if message containing text received.</p>
+<p><strong>This method drops message from queue</strong>
+<strong>This method will wait for message. If none is sent the script will stuck</strong>.</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;pushToQueue('queue.emails', 'Hello, davert');
+$I-&gt;seeMessageInQueueContainsText('queue.emails','davert');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param string</code> $queue</li>
+<li><code>param string</code> $text</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/AMQP.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

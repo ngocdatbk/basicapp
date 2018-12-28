@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2914" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2914-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2914-collapse" class="collapse navbar-collapse"><ul id="w2915" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2898" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2898" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2899" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2899" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2900" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2900" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2901" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2901" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2902" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2902" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2903" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2903" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2904" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2904" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2905" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2905" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2906" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2906" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2907" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2907" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2908" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2908" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2909" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2909" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2910" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2910" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2911" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2911" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2912" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2912" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2913" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2913" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Console Commands <span id="console-commands"></span><a href="#console-commands" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#dryrun">DryRun</a></li>
+<li><a href="#generatesuite">GenerateSuite</a></li>
+<li><a href="#gherkinsnippets">GherkinSnippets</a></li>
+<li><a href="#init">Init</a></li>
+<li><a href="#generatesnapshot">GenerateSnapshot</a></li>
+<li><a href="#console">Console</a></li>
+<li><a href="#configvalidate">ConfigValidate</a></li>
+<li><a href="#generategroup">GenerateGroup</a></li>
+<li><a href="#generatecept">GenerateCept</a></li>
+<li><a href="#run">Run</a></li>
+<li><a href="#selfupdate">SelfUpdate</a></li>
+<li><a href="#completionfallback">CompletionFallback</a></li>
+<li><a href="#generatetest">GenerateTest</a></li>
+<li><a href="#build">Build</a></li>
+<li><a href="#generatehelper">GenerateHelper</a></li>
+<li><a href="#bootstrap">Bootstrap</a></li>
+<li><a href="#generateenvironment">GenerateEnvironment</a></li>
+<li><a href="#generatefeature">GenerateFeature</a></li>
+<li><a href="#generatescenarios">GenerateScenarios</a></li>
+<li><a href="#generatestepobject">GenerateStepObject</a></li>
+<li><a href="#clean">Clean</a></li>
+<li><a href="#gherkinsteps">GherkinSteps</a></li>
+<li><a href="#generatecest">GenerateCest</a></li>
+<li><a href="#generatepageobject">GeneratePageObject</a></li></ol></div>
+<h2>DryRun <span id="dryrun"></span><a href="#dryrun" class="hashlink">&para;</a></h2><p>Shows step by step execution process for scenario driven tests without actually running them.</p>
+<ul>
+<li><code>codecept dry-run acceptance</code></li>
+<li><code>codecept dry-run acceptance MyCest</code></li>
+<li><code>codecept dry-run acceptance checkout.feature</code></li>
+<li><code>codecept dry-run tests/acceptance/MyCest.php</code></li>
+</ul>
+<h2>GenerateSuite <span id="generatesuite"></span><a href="#generatesuite" class="hashlink">&para;</a></h2><p>Create new test suite. Requires suite name and actor name</p>
+<ul>
+<li>``</li>
+<li><code>codecept g:suite api</code> -&gt; api + ApiTester</li>
+<li><code>codecept g:suite integration Code</code> -&gt; integration + CodeTester</li>
+<li><code>codecept g:suite frontend Front</code> -&gt; frontend + FrontTester</li>
+</ul>
+<h2>GherkinSnippets <span id="gherkinsnippets"></span><a href="#gherkinsnippets" class="hashlink">&para;</a></h2><p>Generates code snippets for matched feature files in a suite.
+Code snippets are expected to be implemented in Actor or PageObjects</p>
+<p>Usage:</p>
+<ul>
+<li><code>codecept gherkin:snippets acceptance</code> - snippets from all feature of acceptance tests</li>
+<li><code>codecept gherkin:snippets acceptance/feature/users</code> - snippets from <code>feature/users</code> dir of acceptance tests</li>
+<li><code>codecept gherkin:snippets acceptance user_account.feature</code> - snippets from a single feature file</li>
+<li><code>codecept gherkin:snippets acceptance/feature/users/user_accout.feature</code> - snippets from feature file in a dir</li>
+</ul>
+<h2>Init <span id="init"></span><a href="#init" class="hashlink">&para;</a></h2><h2>GenerateSnapshot <span id="generatesnapshot"></span><a href="#generatesnapshot" class="hashlink">&para;</a></h2><p>Generates Snapshot.
+Snapshot can be used to test dynamical data.
+If suite name is provided, an actor class will be included into placeholder</p>
+<ul>
+<li><code>codecept g:snapshot UserEmails</code></li>
+<li><code>codecept g:snapshot Products</code></li>
+<li><code>codecept g:snapshot acceptance UserEmails</code></li>
+</ul>
+<h2>Console <span id="console"></span><a href="#console" class="hashlink">&para;</a></h2><p>Try to execute test commands in run-time. You may try commands before writing the test.</p>
+<ul>
+<li><code>codecept console acceptance</code> - starts acceptance suite environment. If you use WebDriver you can manipulate browser with Codeception commands.</li>
+</ul>
+<h2>ConfigValidate <span id="configvalidate"></span><a href="#configvalidate" class="hashlink">&para;</a></h2><p>Validates and prints Codeception config.
+Use it do debug Yaml configs</p>
+<p>Check config:</p>
+<ul>
+<li><code>codecept config</code>: check global config</li>
+<li><code>codecept config unit</code>: check suite config</li>
+</ul>
+<p>Load config:</p>
+<ul>
+<li><code>codecept config:validate -c path/to/another/config</code>: from another dir</li>
+<li><code>codecept config:validate -c another_config.yml</code>: from another config file</li>
+</ul>
+<p>Check overriding config values (like in <code>run</code> command)</p>
+<ul>
+<li><code>codecept config:validate -o "settings: shuffle: true"</code>: enable shuffle</li>
+<li><code>codecept config:validate -o "settings: lint: false"</code>: disable linting</li>
+<li><code>codecept config:validate -o "reporters: report: \Custom\Reporter" --report</code>: use custom reporter</li>
+</ul>
+<h2>GenerateGroup <span id="generategroup"></span><a href="#generategroup" class="hashlink">&para;</a></h2><p>Creates empty GroupObject - extension which handles all group events.</p>
+<ul>
+<li><code>codecept g:group Admin</code></li>
+</ul>
+<h2>GenerateCept <span id="generatecept"></span><a href="#generatecept" class="hashlink">&para;</a></h2><p>Generates Cept (scenario-driven test) file:</p>
+<ul>
+<li><code>codecept generate:cept suite Login</code></li>
+<li><code>codecept g:cept suite subdir/subdir/testnameCept.php</code></li>
+<li><code>codecept g:cept suite LoginCept -c path/to/project</code></li>
+</ul>
+<h2>Run <span id="run"></span><a href="#run" class="hashlink">&para;</a></h2><p>Executes tests.</p>
+<p>Usage:</p>
+<ul>
+<li><code>codecept run acceptance</code>: run all acceptance tests</li>
+<li><code>codecept run tests/acceptance/MyCept.php</code>: run only MyCept</li>
+<li><code>codecept run acceptance MyCept</code>: same as above</li>
+<li><code>codecept run acceptance MyCest:myTestInIt</code>: run one test from a Cest</li>
+<li><code>codecept run acceptance checkout.feature</code>: run feature-file</li>
+<li><code>codecept run acceptance -g slow</code>: run tests from <em>slow</em> group</li>
+<li><code>codecept run unit,functional</code>: run only unit and functional suites</li>
+</ul>
+<p>Verbosity modes:</p>
+<ul>
+<li><code>codecept run -v</code>:</li>
+<li><code>codecept run --steps</code>: print step-by-step execution</li>
+<li><code>codecept run -vv</code>:</li>
+<li><code>codecept run --debug</code>: print steps and debug information</li>
+<li><code>codecept run -vvv</code>: print internal debug information</li>
+</ul>
+<p>Load config:</p>
+<ul>
+<li><code>codecept run -c path/to/another/config</code>: from another dir</li>
+<li><code>codecept run -c another_config.yml</code>: from another config file</li>
+</ul>
+<p>Override config values:</p>
+<ul>
+<li><code>codecept run -o "settings: shuffle: true"</code>: enable shuffle</li>
+<li><code>codecept run -o "settings: lint: false"</code>: disable linting</li>
+<li><code>codecept run -o "reporters: report: \Custom\Reporter" --report</code>: use custom reporter</li>
+</ul>
+<p>Run with specific extension</p>
+<ul>
+<li><code>codecept run --ext Recorder</code> run with Recorder extension enabled</li>
+<li><code>codecept run --ext DotReporter</code> run with DotReporter printer</li>
+<li><code>codecept run --ext "My\Custom\Extension"</code> run with an extension loaded by class name</li>
+</ul>
+<p>Full reference:
+<code>`</code>
+Arguments:
+ suite                 suite to be tested
+ test                  test to be run</p>
+<p>Options:
+ -o, --override=OVERRIDE Override config values (multiple values allowed)
+ --config (-c)         Use custom path for config
+ --report              Show output in compact style
+ --html                Generate html with results (default: "report.html")
+ --xml                 Generate JUnit XML Log (default: "report.xml")
+ --tap                 Generate Tap Log (default: "report.tap.log")
+ --json                Generate Json Log (default: "report.json")
+ --colors              Use colors in output
+ --no-colors           Force no colors in output (useful to override config file)
+ --silent              Only outputs suite names and final results
+ --steps               Show steps in output
+ --debug (-d)          Show debug and scenario output
+ --coverage            Run with code coverage (default: "coverage.serialized")
+ --coverage-html       Generate CodeCoverage HTML report in path (default: "coverage")
+ --coverage-xml        Generate CodeCoverage XML report in file (default: "coverage.xml")
+ --coverage-text       Generate CodeCoverage text report in file (default: "coverage.txt")
+ --coverage-phpunit    Generate CodeCoverage PHPUnit report in file (default: "coverage-phpunit")
+ --no-exit             Don't finish with exit code
+ --group (-g)          Groups of tests to be executed (multiple values allowed)
+ --skip (-s)           Skip selected suites (multiple values allowed)
+ --skip-group (-x)     Skip selected groups (multiple values allowed)
+ --env                 Run tests in selected environments. (multiple values allowed, environments can be merged with ',')
+ --fail-fast (-f)      Stop after first failure
+ --no-rebuild          Do not rebuild actor classes on start
+ --help (-h)           Display this help message.
+ --quiet (-q)          Do not output any message.
+ --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+ --version (-V)        Display this application version.
+ --ansi                Force ANSI output.
+ --no-ansi             Disable ANSI output.
+ --no-interaction (-n) Do not ask any interactive question.
+ --seed                Use the given seed for shuffling tests
+<code>`</code></p>
+<h2>SelfUpdate <span id="selfupdate"></span><a href="#selfupdate" class="hashlink">&para;</a></h2><p>Auto-updates phar archive from official site: '<a href="http://codeception.com/codecept.phar">http://codeception.com/codecept.phar</a>' .</p>
+<ul>
+<li><code>php codecept.phar self-update</code></li>
+</ul>
+<p>@author Franck Cassedanne <a href="mailto:franck@cassedanne.com">franck@cassedanne.com</a></p>
+<h2>CompletionFallback <span id="completionfallback"></span><a href="#completionfallback" class="hashlink">&para;</a></h2><h2>GenerateTest <span id="generatetest"></span><a href="#generatetest" class="hashlink">&para;</a></h2><p>Generates skeleton for Unit Test that extends <code>Codeception\TestCase\Test</code>.</p>
+<ul>
+<li><code>codecept g:test unit User</code></li>
+<li><code>codecept g:test unit "App\User"</code></li>
+</ul>
+<h2>Build <span id="build"></span><a href="#build" class="hashlink">&para;</a></h2><p>Generates Actor classes (initially Guy classes) from suite configs.
+Starting from Codeception 2.0 actor classes are auto-generated. Use this command to generate them manually.</p>
+<ul>
+<li><code>codecept build</code></li>
+<li><code>codecept build path/to/project</code></li>
+</ul>
+<h2>GenerateHelper <span id="generatehelper"></span><a href="#generatehelper" class="hashlink">&para;</a></h2><p>Creates empty Helper class.</p>
+<ul>
+<li><code>codecept g:helper MyHelper</code></li>
+<li><code>codecept g:helper "My\Helper"</code></li>
+</ul>
+<h2>Bootstrap <span id="bootstrap"></span><a href="#bootstrap" class="hashlink">&para;</a></h2><p>Creates default config, tests directory and sample suites for current project.
+Use this command to start building a test suite.</p>
+<p>By default it will create 3 suites <strong>acceptance</strong>, <strong>functional</strong>, and <strong>unit</strong>.</p>
+<ul>
+<li><code>codecept bootstrap</code> - creates <code>tests</code> dir and <code>codeception.yml</code> in current dir.</li>
+<li><code>codecept bootstrap --empty</code> - creates <code>tests</code> dir without suites</li>
+<li><code>codecept bootstrap --namespace Frontend</code> - creates tests, and use <code>Frontend</code> namespace for actor classes and helpers.</li>
+<li><code>codecept bootstrap --actor Wizard</code> - sets actor as Wizard, to have <code>TestWizard</code> actor in tests.</li>
+<li><code>codecept bootstrap path/to/the/project</code> - provide different path to a project, where tests should be placed</li>
+</ul>
+<h2>GenerateEnvironment <span id="generateenvironment"></span><a href="#generateenvironment" class="hashlink">&para;</a></h2><p>Generates empty environment configuration file into envs dir:</p>
+<ul>
+<li><code>codecept g:env firefox</code></li>
+</ul>
+<p>Required to have <code>envs</code> path to be specified in <code>codeception.yml</code></p>
+<h2>GenerateFeature <span id="generatefeature"></span><a href="#generatefeature" class="hashlink">&para;</a></h2><p>Generates Feature file (in Gherkin):</p>
+<ul>
+<li><code>codecept generate:feature suite Login</code></li>
+<li><code>codecept g:feature suite subdir/subdir/login.feature</code></li>
+<li><code>codecept g:feature suite login.feature -c path/to/project</code></li>
+</ul>
+<h2>GenerateScenarios <span id="generatescenarios"></span><a href="#generatescenarios" class="hashlink">&para;</a></h2><p>Generates user-friendly text scenarios from scenario-driven tests (Cest, Cept).</p>
+<ul>
+<li><code>codecept g:scenarios acceptance</code> - for all acceptance tests</li>
+<li><code>codecept g:scenarios acceptance --format html</code> - in html format</li>
+<li><code>codecept g:scenarios acceptance --path doc</code> - generate scenarios to <code>doc</code> dir</li>
+</ul>
+<h2>GenerateStepObject <span id="generatestepobject"></span><a href="#generatestepobject" class="hashlink">&para;</a></h2><p>Generates StepObject class. You will be asked for steps you want to implement.</p>
+<ul>
+<li><code>codecept g:stepobject acceptance AdminSteps</code></li>
+<li><code>codecept g:stepobject acceptance UserSteps --silent</code> - skip action questions</li>
+</ul>
+<h2>Clean <span id="clean"></span><a href="#clean" class="hashlink">&para;</a></h2><p>Recursively cleans <code>output</code> directory and generated code.</p>
+<ul>
+<li><code>codecept clean</code></li>
+</ul>
+<h2>GherkinSteps <span id="gherkinsteps"></span><a href="#gherkinsteps" class="hashlink">&para;</a></h2><p>Prints all steps from all Gherkin contexts for a specific suite</p>
+<pre><code class="hljs nginx"><span class="hljs-title">codecept</span> gherkin:steps acceptance
+</code></pre>
+<h2>GenerateCest <span id="generatecest"></span><a href="#generatecest" class="hashlink">&para;</a></h2><p>Generates Cest (scenario-driven object-oriented test) file:</p>
+<ul>
+<li><code>codecept generate:cest suite Login</code></li>
+<li><code>codecept g:cest suite subdir/subdir/testnameCest.php</code></li>
+<li><code>codecept g:cest suite LoginCest -c path/to/project</code></li>
+<li><code>codecept g:cest "App\Login"</code></li>
+</ul>
+<h2>GeneratePageObject <span id="generatepageobject"></span><a href="#generatepageobject" class="hashlink">&para;</a></h2><p>Generates PageObject. Can be generated either globally, or just for one suite.
+If PageObject is generated globally it will act as UIMap, without any logic in it.</p>
+<ul>
+<li><code>codecept g:page Login</code></li>
+<li><code>codecept g:page Registration</code></li>
+<li><code>codecept g:page acceptance Login</code></li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

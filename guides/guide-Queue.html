@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2644" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2644-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2644-collapse" class="collapse navbar-collapse"><ul id="w2645" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2628" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2628" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2629" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2629" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2630" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2630" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2631" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2631" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2632" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2632" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2633" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2633" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2634" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2634" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2635" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2635" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2636" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2636" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2637" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2637" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2638" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2638" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2639" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2639" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2640" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2640" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2641" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2641" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2642" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2642" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2643" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2643" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Queue <span id="queue"></span><a href="#queue" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#status">Status</a></li>
+<li><a href="#config">Config</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Works with Queue servers.</p>
+<p>Testing with a selection of remote/local queueing services, including Amazon's SQS service
+Iron.io service and beanstalkd service.</p>
+<p>Supported and tested queue types are:</p>
+<ul>
+<li><a href="http://iron.io/">Iron.io</a></li>
+<li><a href="http://kr.github.io/beanstalkd/">Beanstalkd</a></li>
+<li><a href="http://aws.amazon.com/sqs/">Amazon SQS</a></li>
+</ul>
+<p>The following dependencies are needed for the listed queue servers:</p>
+<ul>
+<li>Beanstalkd: pda/pheanstalk ~3.0</li>
+<li>Amazon SQS: aws/aws-sdk-php</li>
+<li>IronMQ: iron-io/iron_mq</li>
+</ul>
+<h2>Status <span id="status"></span><a href="#status" class="hashlink">&para;</a></h2><ul>
+<li>Maintainer: <strong>nathanmac</strong></li>
+<li>Stability:<ul>
+<li>Iron.io:    <strong>stable</strong></li>
+<li>Beanstalkd: <strong>stable</strong></li>
+<li>Amazon SQS: <strong>stable</strong></li>
+</ul>
+</li>
+<li>Contact: nathan.macnamara@outlook.com</li>
+</ul>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><p>The configuration settings depending on which queueing service is being used, all the options are listed
+here. Refer to the configuration examples below to identify the configuration options required for your chosen
+service.</p>
+<ul>
+<li>type - type of queueing server (defaults to beanstalkd).</li>
+<li>host - hostname/ip address of the queue server or the host for the iron.io when using iron.io service.</li>
+<li>port: 11300 - port number for the queue server.</li>
+<li>timeout: 90 - timeout settings for connecting the queue server.</li>
+<li>token - Iron.io access token.</li>
+<li>project - Iron.io project ID.</li>
+<li>key - AWS access key ID.</li>
+<li>version - AWS version (e.g. latest)</li>
+<li>endpoint - The full URI of the webservice. This is only required when connecting to a custom endpoint (e.g., a local version of SQS).</li>
+<li>secret - AWS secret access key.
+   Warning:<pre><code class="hljs sql">   Hard-coding your credentials can be dangerous, because it is easy to accidentally <span class="hljs-operator"><span class="hljs-keyword">commit</span> your credentials
+   <span class="hljs-keyword">into</span> an SCM repository, potentially exposing your credentials <span class="hljs-keyword">to</span> more people <span class="hljs-keyword">than</span> intended.
+   It can also make it difficult <span class="hljs-keyword">to</span> rotate credentials <span class="hljs-keyword">in</span> the future.
+</span></code></pre>
+</li>
+<li><p>profile - AWS credential profile</p>
+<pre><code class="hljs javascript">    - it should be located <span class="hljs-keyword">in</span> ~<span class="hljs-regexp">/.aws/</span>credentials file
+    - eg:  [<span class="hljs-keyword">default</span>]
+           aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
+           aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
+           [project1]
+           aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
+           aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
+   - Note: Using IAM roles is the preferred technique <span class="hljs-keyword">for</span> providing credentials
+           to applications running on Amazon EC2
+           http:<span class="hljs-comment">//docs.aws.amazon.com/aws-sdk-php/v3/guide/guide/credentials.html?highlight=credentials</span>
+</code></pre>
+</li>
+<li><p>region - A region parameter is also required for AWS, refer to the AWS documentation for possible values list.</p>
+</li>
+</ul>
+<h3>Example <span id="example"></span><a href="#example" class="hashlink">&para;</a></h3><h4>Example (beanstalkd) <span id="example-beanstalkd"></span><a href="#example-beanstalkd" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [Queue]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">Queue</span>:
+         <span class="hljs-attribute">type</span>: <span class="hljs-string">'beanstalkd'</span>
+         <span class="hljs-attribute">host</span>: <span class="hljs-string">'127.0.0.1'</span>
+         <span class="hljs-attribute">port</span>: <span class="hljs-number">11300</span>
+         <span class="hljs-attribute">timeout</span>: <span class="hljs-number">120</span>
+</code></pre>
+<h4>Example (Iron.io) <span id="example-ironio"></span><a href="#example-ironio" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [Queue]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">Queue</span>:
+         <span class="hljs-string">'type'</span>: <span class="hljs-string">'iron'</span>,
+         <span class="hljs-string">'host'</span>: <span class="hljs-string">'mq-aws-us-east-1.iron.io'</span>,
+         <span class="hljs-string">'token'</span>: <span class="hljs-string">'your-token'</span>,
+         <span class="hljs-string">'project'</span>: <span class="hljs-string">'your-project-id'</span>
+</code></pre>
+<h4>Example (AWS SQS) <span id="example-aws-sqs"></span><a href="#example-aws-sqs" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [Queue]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">Queue</span>:
+         <span class="hljs-string">'type'</span>: <span class="hljs-string">'aws'</span>,
+         <span class="hljs-string">'key'</span>: <span class="hljs-string">'your-public-key'</span>,
+         <span class="hljs-string">'secret'</span>: <span class="hljs-string">'your-secret-key'</span>,
+         <span class="hljs-string">'region'</span>: <span class="hljs-string">'us-west-2'</span>
+</code></pre>
+<h4>Example AWS SQS using profile credentials <span id="example-aws-sqs-using-profile-credentials"></span><a href="#example-aws-sqs-using-profile-credentials" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [Queue]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">Queue</span>:
+         <span class="hljs-string">'type'</span>: <span class="hljs-string">'aws'</span>,
+         <span class="hljs-string">'profile'</span>: <span class="hljs-string">'project1'</span>, <span class="hljs-comment">//see documentation</span>
+         <span class="hljs-string">'region'</span>: <span class="hljs-string">'us-west-2'</span>
+</code></pre>
+<h4>Example AWS SQS running on Amazon EC2 instance <span id="example-aws-sqs-running-on-amazon-ec2-instance"></span><a href="#example-aws-sqs-running-on-amazon-ec2-instance" class="hashlink">&para;</a></h4><pre><code class="hljs less"><span class="hljs-attribute">modules</span>:
+   <span class="hljs-attribute">enabled</span>: [Queue]
+   <span class="hljs-attribute">config</span>:
+      <span class="hljs-attribute">Queue</span>:
+         <span class="hljs-string">'type'</span>: <span class="hljs-string">'aws'</span>,
+         <span class="hljs-string">'region'</span>: <span class="hljs-string">'us-west-2'</span>
+</code></pre>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>addMessageToQueue <span id="addmessagetoqueue"></span><a href="#addmessagetoqueue" class="hashlink">&para;</a></h3><p>Add a message to a queue/tube</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;addMessageToQueue(<span class="hljs-string">'this is a messages'</span>, <span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $message Message Body</li>
+<li><code>param string</code> $queue Queue Name</li>
+</ul>
+<h3>clearQueue <span id="clearqueue"></span><a href="#clearqueue" class="hashlink">&para;</a></h3><p>Clear all messages of the queue/tube</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;clearQueue(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+</ul>
+<h3>dontSeeEmptyQueue <span id="dontseeemptyqueue"></span><a href="#dontseeemptyqueue" class="hashlink">&para;</a></h3><p>Check if a queue/tube is NOT empty of all messages</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeEmptyQueue(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+</ul>
+<h3>dontSeeQueueExists <span id="dontseequeueexists"></span><a href="#dontseequeueexists" class="hashlink">&para;</a></h3><p>Check if a queue/tube does NOT exist on the queueing server.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeQueueExists(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+</ul>
+<h3>dontSeeQueueHasCurrentCount <span id="dontseequeuehascurrentcount"></span><a href="#dontseequeuehascurrentcount" class="hashlink">&para;</a></h3><p>Check if a queue/tube does NOT have a given current number of messages</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeQueueHasCurrentCount(<span class="hljs-string">'default'</span>, <span class="hljs-number">10</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+<li><code>param int</code> $expected Number of messages expected</li>
+</ul>
+<h3>dontSeeQueueHasTotalCount <span id="dontseequeuehastotalcount"></span><a href="#dontseequeuehastotalcount" class="hashlink">&para;</a></h3><p>Check if a queue/tube does NOT have a given total number of messages</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;dontSeeQueueHasTotalCount(<span class="hljs-string">'default'</span>, <span class="hljs-number">10</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+<li><code>param int</code> $expected Number of messages expected</li>
+</ul>
+<h3>grabQueueCurrentCount <span id="grabqueuecurrentcount"></span><a href="#grabqueuecurrentcount" class="hashlink">&para;</a></h3><p>Grabber method to get the current number of messages on the queue/tube (pending/ready)</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+    <span class="hljs-variable">$I</span>-&gt;grabQueueCurrentCount(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><p><code>param string</code> $queue Queue Name</p>
+</li>
+<li><p><code>return</code> int Count</p>
+</li>
+</ul>
+<h3>grabQueueTotalCount <span id="grabqueuetotalcount"></span><a href="#grabqueuetotalcount" class="hashlink">&para;</a></h3><p>Grabber method to get the total number of messages on the queue/tube</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+    <span class="hljs-variable">$I</span>-&gt;grabQueueTotalCount(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><p><code>param</code> $queue Queue Name</p>
+</li>
+<li><p><code>return</code> int Count</p>
+</li>
+</ul>
+<h3>grabQueues <span id="grabqueues"></span><a href="#grabqueues" class="hashlink">&para;</a></h3><p>Grabber method to get the list of queues/tubes on the server</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$queues</span> = <span class="hljs-variable">$I</span>-&gt;grabQueues();
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>return</code> array List of Queues/Tubes</li>
+</ul>
+<h3>seeEmptyQueue <span id="seeemptyqueue"></span><a href="#seeemptyqueue" class="hashlink">&para;</a></h3><p>Check if a queue/tube is empty of all messages</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeEmptyQueue(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+</ul>
+<h3>seeQueueExists <span id="seequeueexists"></span><a href="#seequeueexists" class="hashlink">&para;</a></h3><p>Check if a queue/tube exists on the queueing server.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeQueueExists(<span class="hljs-string">'default'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+</ul>
+<h3>seeQueueHasCurrentCount <span id="seequeuehascurrentcount"></span><a href="#seequeuehascurrentcount" class="hashlink">&para;</a></h3><p>Check if a queue/tube has a given current number of messages</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeQueueHasCurrentCount(<span class="hljs-string">'default'</span>, <span class="hljs-number">10</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+<li><code>param int</code> $expected Number of messages expected</li>
+</ul>
+<h3>seeQueueHasTotalCount <span id="seequeuehastotalcount"></span><a href="#seequeuehastotalcount" class="hashlink">&para;</a></h3><p>Check if a queue/tube has a given total number of messages</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seeQueueHasTotalCount(<span class="hljs-string">'default'</span>, <span class="hljs-number">10</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $queue Queue Name</li>
+<li><code>param int</code> $expected Number of messages expected</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Queue.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w5902" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w5902-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w5902-collapse" class="collapse navbar-collapse"><ul id="w5903" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-5886" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-5886" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5887" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-5887" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5888" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-5888" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5889" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-5889" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5890" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-5890" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5891" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-5891" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5892" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-5892" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5893" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-5893" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5894" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-5894" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5895" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-5895" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5896" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-5896" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5897" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-5897" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5898" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-5898" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5899" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-5899" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5900" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-5900" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-5901" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-5901" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Change Log: yii2-widgets <span id="change-log-yii2-widgets"></span><a href="#change-log-yii2-widgets" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#version-341">Version 3.4.1</a></li>
+<li><a href="#version-340">Version 3.4.0</a></li>
+<li><a href="#version-330">Version 3.3.0</a></li>
+<li><a href="#version-320">Version 3.2.0</a></li>
+<li><a href="#version-310">Version 3.1.0</a></li>
+<li><a href="#version-300">Version 3.0.0</a></li>
+<li><a href="#version-290">Version 2.9.0</a></li>
+<li><a href="#version-280">Version 2.8.0</a></li>
+<li><a href="#version-270">Version 2.7.0</a></li>
+<li><a href="#version-260">Version 2.6.0</a></li>
+<li><a href="#version-251">Version 2.5.1</a></li>
+<li><a href="#version-250">Version 2.5.0</a></li>
+<li><a href="#version-240">Version 2.4.0</a></li>
+<li><a href="#version-230">Version 2.3.0</a></li>
+<li><a href="#version-220">Version 2.2.0</a></li>
+<li><a href="#version-210">Version 2.1.0</a></li>
+<li><a href="#version-200">Version 2.0.0</a></li>
+<li><a href="#version-100">Version 1.0.0</a></li></ol></div>
+<h2>Version 3.4.1 <span id="version-341"></span><a href="#version-341" class="hashlink">&para;</a></h2><p><strong>Date</strong>: 09-Oct-2018</p>
+<ul>
+<li>Update composer dependencies</li>
+<li>Move all source code to <code>src</code> directory.</li>
+<li>Add github contribution and issue/PR log templates.</li>
+<li>Added ActiveField component</li>
+</ul>
+<h2>Version 3.4.0 <span id="version-340"></span><a href="#version-340" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 09-Nov-2014</p>
+<ul>
+<li>enh #199: Revamp yii2-widgets extension bundle to refer to individual sub repositories.</li>
+<li>Set release to stable.</li>
+</ul>
+<h2>Version 3.3.0 <span id="version-330"></span><a href="#version-330" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 05-Nov-2014</p>
+<ul>
+<li>enh #198: Enhance dependency validation using common code base.</li>
+<li>enh #195: Enable Typeahead option to conditionally load HandleBars.</li>
+<li>enh #193: Upgraded select2 plugin to latest version.</li>
+<li>enh #166: Reverted back Select2 placeholder CSS for bootstrap v3.3.0.</li>
+</ul>
+<h2>Version 3.2.0 <span id="version-320"></span><a href="#version-320" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 25-Oct-2014</p>
+<ul>
+<li>enh #186: Better replacement of tags for field template.</li>
+<li>enh #185: Update typeahead plugin to the latest release v0.10.5.</li>
+<li>enh #184: Update select2 plugin to the latest release v3.5.1.</li>
+<li>bug #183: Fix typeahead remote loading spinning indicator.</li>
+<li>enh #181: Enhance RangeInput to include new vertical orientation</li>
+</ul>
+<h2>Version 3.1.0 <span id="version-310"></span><a href="#version-310" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 10-Oct-2014</p>
+<ul>
+<li>enh #177: Add Italian translations.</li>
+<li>enh #173: Fix styling for FileInput additional line feed.</li>
+<li>bug #172: More correct InputWidget name field parsing.</li>
+<li>enh #169: Enhancement for ICU format con## Version for DatePicker and DateTimePicker (enrica, kartik-v).</li>
+</ul>
+<h2>Version 3.0.0 <span id="version-300"></span><a href="#version-300" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 08-Oct-2014</p>
+<ul>
+<li>enh #165, #166, #168: Various Select2 styling enhancements for Bootstrap.</li>
+<li>enh #162: Add Russian locale and translation for DatePicker plugin.</li>
+<li>PSR4 alias change</li>
+<li>Updated Select2 plugin ## Version to latest version.</li>
+</ul>
+<h2>Version 2.9.0 <span id="version-290"></span><a href="#version-290" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 14-Aug-2014</p>
+<ul>
+<li>bug # 157: Correct duplicate <code>label</code> displayed after SwitchInput.</li>
+<li>enh # 153: Various enhancements to <code>ColorInput</code> widget to read colors correctly based on plugin <code>preferredFormat</code>.</li>
+<li>bug # 151: Remove duplicate encoding for placeholder.</li>
+<li>enh # 150: Enhance <code>ColorInput</code> widget to allow controlling display of default palette of colors.</li>
+<li>Separate animation enhancements added to growl.</li>
+<li>bug #132: Enhance growl widget for major changes to core plugin.</li>
+</ul>
+<h2>Version 2.8.0 <span id="version-280"></span><a href="#version-280" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 31-Jul-2014</p>
+<ul>
+<li>enh #122: Upgrade bootstrap growl to latest plugin ## Version with various related enhancements</li>
+<li>enh #121, #119: Various styling enhancements to Select2.</li>
+<li>enh #71: Created separate <a href="https://github.com/kartik-v/yii2-editable">yii2-editable</a> extension</li>
+</ul>
+<h2>Version 2.7.0 <span id="version-270"></span><a href="#version-270" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 18-Jul-2014</p>
+<ul>
+<li>Added <code>iconPrefix</code> property in SideNav to easily configure with more icon frameworks (other than glyphicon).</li>
+<li>enh #111: Allow configuring of template for each item in SideNav.</li>
+<li>bug #110: Allow use of Select2 with tags, when tags are empty.</li>
+<li>enh #106: Added Turkish translations for FileInput widget.</li>
+<li>enh #104: Add more information to documentation for Select2 widget and explain placeholder setting when <code>allowClear</code> is <code>true</code>. </li>
+<li>bug #99: Fix DateControl to work for date time formatting with DateTimePicker. </li>
+<li>enh #98: Added <code>language</code> configuration property for  DatePicker, DateTimePicker, and TimePicker.</li>
+<li>enh #96: Enhanced DatePicker, DateTimePicker, and TimePicker to work along with the new <code>autoWidgetSettings</code> for DateControl module .</li>
+</ul>
+<h2>Version 2.6.0 <span id="version-260"></span><a href="#version-260" class="hashlink">&para;</a></h2><p><strong>Date:</strong> 01-Jul-2014</p>
+<ul>
+<li>Issue Fixes from #73 to #95.</li>
+<li>Added <code>language</code> property to <code>InputWidget</code> along with <code>initLanguage</code> method for automatic language setting in <code>pluginOptions</code>.
+ The <code>language</code> property will be auto defaulted to <code>Yii::$app-&gt;language</code> if not set.</li>
+</ul>
+<h2>Version 2.5.1 <span id="version-251"></span><a href="#version-251" class="hashlink">&para;</a></h2><ul>
+<li>Updated DepDrop widget to support rendering of \kartik\widgets\Select2 widget.</li>
+</ul>
+<h2>Version 2.5.0 <span id="version-250"></span><a href="#version-250" class="hashlink">&para;</a></h2><ul>
+<li>New DepDrop widget based on <a href="http://plugins.krajee.com/dependent-dropdown">dependent-dropdown plugin</a>.</li>
+<li>Upgrade Select2 Widget to v3.4.8 of the <code>select2</code> plugin.</li>
+</ul>
+<h2>Version 2.4.0 <span id="version-240"></span><a href="#version-240" class="hashlink">&para;</a></h2><ul>
+<li>Star Rating Widget upgraded as a result of the base Krajee StarRating JQuery plugin upgrade.</li>
+<li>Upgrade Select2 Widget to v3.4.6 of the <code>select2</code> plugin.</li>
+</ul>
+<h2>Version 2.3.0 <span id="version-230"></span><a href="#version-230" class="hashlink">&para;</a></h2><ul>
+<li>Typeahead widget upgraded to use ## Version 0.10 of the <code>typeahead.js</code> plugin.</li>
+<li><p>The widget has been released as 2 variants:</p>
+</li>
+<li><p><code>TypeaheadBasic</code>: This widget is a basic implementation of the <em>typeahead.js</em> plugin without any suggestion engine. 
+It uses a javascript substring matcher and Regular Expression matching to query and display suggestions. 
+<a href="http://demos.krajee.com/widget-details/typeahead-basic"><code>`</code>VIEW DEMO<code>`</code></a></p>
+</li>
+<li><p><code>Typeahead</code>: This widget is an advanced implementation of the <em>typeahead.js</em> plugin with the <em>BloodHound</em> suggestion
+ engine and the <em>Handlebars</em> template compiler.
+<a href="http://demos.krajee.com/widget-details/typeahead"><code>`</code>VIEW DEMO<code>`</code></a></p>
+</li>
+</ul>
+<h2>Version 2.2.0 <span id="version-220"></span><a href="#version-220" class="hashlink">&para;</a></h2><ul>
+<li>New category of widgets added - 'Notification'. Widgets now categorized as<ul>
+<li>Input Widgets</li>
+<li>Progress Widgets</li>
+<li>Navigation Widgets</li>
+<li>Notification Widgets</li>
+</ul>
+</li>
+<li>Added <code>Alert</code> widget extending the default \yii\bootstrap\Alert widget with more styling and auto fade out options.</li>
+<li>Added <code>Growl</code> widget wrapping the Bootstrap Growl JQuery plugin.</li>
+<li>Added <code>AlertBlock</code> widget allowing a block of alerts to be displayed and faded out. Uses and processes session flash messages if needed.</li>
+</ul>
+<h2>Version 2.1.0 <span id="version-210"></span><a href="#version-210" class="hashlink">&para;</a></h2><ul>
+<li>Widgets categorized as<ul>
+<li>Input Widgets</li>
+<li>Progress Widgets</li>
+<li>Navigation Widgets</li>
+</ul>
+</li>
+<li>Added DateTimePicker widget enhanced for Bootstrap 3.x based on the <a href="http://www.malot.fr/bootstrap-datetimepicker/">Bootstrap DateTimePicker Plugin</a> by smalot.</li>
+<li>Added Spinner widget based on spin.js - an animated CSS3 loading spinner with VML fallback for IE.</li>
+</ul>
+<h2>Version 2.0.0 <span id="version-200"></span><a href="#version-200" class="hashlink">&para;</a></h2><ul>
+<li>enh #40: FileInput widget now wraps the enhanced <a href="http://github.com/kartik-v/bootstrap-fileinput">JQuery Bootstrap FileInput Plugin</a>. </li>
+</ul>
+<p>The fileinput routines and rendering have been enhanced and offers ability to configure most options, call events, and methods.</p>
+<h2>Version 1.0.0 <span id="version-100"></span><a href="#version-100" class="hashlink">&para;</a></h2><p>Initial release</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:28:02 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

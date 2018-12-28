@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2464" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2464-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2464-collapse" class="collapse navbar-collapse"><ul id="w2465" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2448" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2448" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2449" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2449" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2450" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2450" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2451" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2451" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2452" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2452" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2453" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2453" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2454" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2454" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2455" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2455" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2456" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2456" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2457" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2457" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2458" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2458" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2459" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2459" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2460" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2460" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2461" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2461" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2462" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2462" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2463" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2463" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Doctrine2 <span id="doctrine2"></span><a href="#doctrine2" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#status">Status</a></li>
+<li><a href="#config">Config</a></li>
+<li><a href="#public-properties">Public Properties</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Access the database using <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/">Doctrine2 ORM</a>.</p>
+<p>When used with Zend Framework 2 or Symfony2, Doctrine's Entity Manager is automatically retrieved from Service Locator.
+Set up your <code>functional.suite.yml</code> like this:</p>
+<pre><code class="hljs bash">modules:
+    enabled:
+        - Symfony <span class="hljs-comment"># 'ZF2' or 'Symfony'</span>
+        - Doctrine2:
+            depends: Symfony
+            cleanup: <span class="hljs-literal">true</span> <span class="hljs-comment"># All doctrine queries will be wrapped in a transaction, which will be rolled back at the end of each test</span>
+</code></pre>
+<p>If you don't use Symfony or Zend Framework, you need to specify a callback function to retrieve the Entity Manager:</p>
+<pre><code class="hljs bash">modules:
+    enabled:
+        - Doctrine2:
+            connection_callback: [<span class="hljs-string">'MyDb'</span>, <span class="hljs-string">'createEntityManager'</span>]
+            cleanup: <span class="hljs-literal">true</span> <span class="hljs-comment"># All doctrine queries will be wrapped in a transaction, which will be rolled back at the end of each test</span>
+
+</code></pre>
+<p>This will use static method of <code>MyDb::createEntityManager()</code> to establish the Entity Manager.</p>
+<p>By default, the module will wrap everything into a transaction for each test and roll it back afterwards. By doing this
+tests will run much faster and will be isolated from each other.</p>
+<h2>Status <span id="status"></span><a href="#status" class="hashlink">&para;</a></h2><ul>
+<li>Maintainer: <strong>davert</strong></li>
+<li>Stability: <strong>stable</strong></li>
+<li>Contact: codecept@davert.mail.ua</li>
+</ul>
+<h2>Config <span id="config"></span><a href="#config" class="hashlink">&para;</a></h2><h2>Public Properties <span id="public-properties"></span><a href="#public-properties" class="hashlink">&para;</a></h2><ul>
+<li><code>em</code> - Entity Manager</li>
+</ul>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>dontSeeInRepository <span id="dontseeinrepository"></span><a href="#dontseeinrepository" class="hashlink">&para;</a></h3><p>Flushes changes to database and performs <code>findOneBy()</code> call for current repository.</p>
+<ul>
+<li><code>param</code> $entity</li>
+<li><code>param array</code> $params</li>
+</ul>
+<h3>flushToDatabase <span id="flushtodatabase"></span><a href="#flushtodatabase" class="hashlink">&para;</a></h3><p>Performs $em-&gt;flush();</p>
+<h3>grabEntitiesFromRepository <span id="grabentitiesfromrepository"></span><a href="#grabentitiesfromrepository" class="hashlink">&para;</a></h3><p>Selects entities from repository.
+It builds query based on array of parameters.
+You can use entity associations to build complex queries.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$users = $I-&gt;grabEntitiesFromRepository('AppBundle:User', array('name' =&gt; 'davert'));
+?&gt;
+</code></pre>
+<ul>
+<li><code>Available since</code> 1.1</li>
+<li><code>param</code> $entity</li>
+<li><code>param array</code> $params</li>
+<li><code>return</code> array</li>
+</ul>
+<h3>grabEntityFromRepository <span id="grabentityfromrepository"></span><a href="#grabentityfromrepository" class="hashlink">&para;</a></h3><p>Selects a single entity from repository.
+It builds query based on array of parameters.
+You can use entity associations to build complex queries.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$user = $I-&gt;grabEntityFromRepository('User', array('id' =&gt; '1234'));
+?&gt;
+</code></pre>
+<ul>
+<li><code>Available since</code> 1.1</li>
+<li><code>param</code> $entity</li>
+<li><code>param array</code> $params</li>
+<li><code>return</code> object</li>
+</ul>
+<h3>grabFromRepository <span id="grabfromrepository"></span><a href="#grabfromrepository" class="hashlink">&para;</a></h3><p>Selects field value from repository.
+It builds query based on array of parameters.
+You can use entity associations to build complex queries.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$email = $I-&gt;grabFromRepository('User', 'email', array('name' =&gt; 'davert'));
+?&gt;
+</code></pre>
+<ul>
+<li><code>Available since</code> 1.1</li>
+<li><code>param</code> $entity</li>
+<li><code>param</code> $field</li>
+<li><code>param array</code> $params</li>
+<li><code>return</code> array</li>
+</ul>
+<h3>haveFakeRepository <span id="havefakerepository"></span><a href="#havefakerepository" class="hashlink">&para;</a></h3><p>Mocks the repository.</p>
+<p>With this action you can redefine any method of any repository.
+Please, note: this fake repositories will be accessible through entity manager till the end of test.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+
+$I-&gt;haveFakeRepository('Entity\User', array('findByUsername' =&gt; function($username) {  return null; }));
+
+</code></pre>
+<p>This creates a stub class for Entity\User repository with redefined method findByUsername,
+which will always return the NULL value.</p>
+<ul>
+<li><code>param</code> $classname</li>
+<li><code>param array</code> $methods</li>
+</ul>
+<h3>haveInRepository <span id="haveinrepository"></span><a href="#haveinrepository" class="hashlink">&para;</a></h3><p>Persists record into repository.
+This method creates an entity, and sets its properties directly (via reflection).
+Setters of entity won't be executed, but you can create almost any entity and save it to database.
+Returns id using <code>getId</code> of newly created entity.</p>
+<pre><code class="hljs php language-php"><span class="hljs-variable">$I</span>-&gt;haveInRepository(<span class="hljs-string">'Entity\User'</span>, <span class="hljs-keyword">array</span>(<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'davert'</span>));
+</code></pre>
+<h3>onReconfigure <span id="onreconfigure"></span><a href="#onreconfigure" class="hashlink">&para;</a></h3><p>@throws ModuleConfigException</p>
+<h3>persistEntity <span id="persistentity"></span><a href="#persistentity" class="hashlink">&para;</a></h3><p>Adds entity to repository and flushes. You can redefine it's properties with the second parameter.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;persistEntity(new \Entity\User, array('name' =&gt; 'Miles'));
+$I-&gt;persistEntity($user, array('name' =&gt; 'Miles'));
+</code></pre>
+<ul>
+<li><code>param</code> $obj</li>
+<li><code>param array</code> $values</li>
+</ul>
+<h3>seeInRepository <span id="seeinrepository"></span><a href="#seeinrepository" class="hashlink">&para;</a></h3><p>Flushes changes to database, and executes a query with parameters defined in an array.
+You can use entity associations to build complex queries.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeInRepository('AppBundle:User', array('name' =&gt; 'davert'));
+$I-&gt;seeInRepository('User', array('name' =&gt; 'davert', 'Company' =&gt; array('name' =&gt; 'Codegyre')));
+$I-&gt;seeInRepository('Client', array('User' =&gt; array('Company' =&gt; array('name' =&gt; 'Codegyre')));
+?&gt;
+</code></pre>
+<p>Fails if record for given criteria can\'t be found,</p>
+<ul>
+<li><code>param</code> $entity</li>
+<li><code>param array</code> $params</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/Doctrine2.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2122" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2122-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2122-collapse" class="collapse navbar-collapse"><ul id="w2123" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2106" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2106" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2107" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2107" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2108" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2108" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2109" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2109" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2110" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2110" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2111" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2111" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2112" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2112" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2113" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2113" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2114" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2114" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2115" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2115" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2116" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2116" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2117" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2117" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2118" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2118" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2119" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2119" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2120" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2120" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2121" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2121" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Functional Tests <span id="functional-tests"></span><a href="#functional-tests" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#limitations">Limitations</a></li>
+<li><a href="#enabling-framework-modules">Enabling Framework Modules</a></li>
+<li><a href="#writing-functional-tests">Writing Functional Tests</a></li>
+<li><a href="#error-reporting">Error Reporting</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>Now that we've written some acceptance tests, functional tests are almost the same, with one major difference:
+Functional tests don't require a web server.</p>
+<p>In simple terms we set the <code>$_REQUEST</code>, <code>$_GET</code> and <code>$_POST</code> variables and then we execute the application from a test.
+This may be valuable, as functional tests are faster and provide detailed stack traces on failures.</p>
+<p>Codeception can connect to different PHP frameworks that support functional testing: Symfony2, Laravel5, Yii2,
+Zend Framework and others. You just need to enable the desired module in your functional suite configuration to start.</p>
+<p>Modules for all of these frameworks share the same interface, and thus your tests are not bound to any one of them.
+This is a sample functional test:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// LoginCest.php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginCest</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tryLogin</span> <span class="hljs-params">(FunctionalTester <span class="hljs-variable">$I</span>)</span>
+    </span>{
+        <span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Login'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'Username'</span>, <span class="hljs-string">'Miles'</span>);
+        <span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'Password'</span>, <span class="hljs-string">'Davis'</span>);
+        <span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Enter'</span>);
+        <span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Hello, Miles'</span>, <span class="hljs-string">'h1'</span>);
+        <span class="hljs-comment">// $I-&gt;seeEmailIsSent(); // only for Symfony2</span>
+    }
+}
+</code></pre>
+<p>As you see, the syntax is the same for functional and acceptance tests.</p>
+<h2>Limitations <span id="limitations"></span><a href="#limitations" class="hashlink">&para;</a></h2><p>Functional tests are usually much faster than acceptance tests. But functional tests are less stable as they run Codeception
+and the application in one environment. If your application was not designed to run in long lived processes (e.g.
+if you use the <code>exit</code> operator or global variables), then functional tests are probably not for you.</p>
+<h3>Headers, Cookies, Sessions <span id="headers-cookies-sessions"></span><a href="#headers-cookies-sessions" class="hashlink">&para;</a></h3><p>One of the common issues with functional tests is the use of PHP functions that deal with headers, sessions and cookies.
+As you may already know, the <code>header</code> function triggers an error if it is executed after PHP has already output something.
+In functional tests we run the application multiple times, thus we will get lots of irrelevant errors in the result.</p>
+<h3>External URL's <span id="external-urls"></span><a href="#external-urls" class="hashlink">&para;</a></h3><p>Functional tests cannot access external URL's, just URL's within your project. You can use Guzzle to open external URL's.</p>
+<h3>Shared Memory <span id="shared-memory"></span><a href="#shared-memory" class="hashlink">&para;</a></h3><p>In functional testing, unlike running the application the traditional way, the PHP application does not stop
+after it has finished processing a request. Since all requests are run in one memory container, they are not isolated.
+So <strong>if you see that your tests are mysteriously failing when they shouldn't - try to execute a single test.</strong>
+This will show if the tests were failing because they weren't isolated during the run.
+Keep your memory clean, avoid memory leaks and clean global and static variables.</p>
+<h2>Enabling Framework Modules <span id="enabling-framework-modules"></span><a href="#enabling-framework-modules" class="hashlink">&para;</a></h2><p>You have a functional testing suite in the <code>tests/functional</code> directory.
+To start, you need to include one of the framework modules in the suite configuration file: <code>tests/functional.suite.yml</code>.</p>
+<h3>Symfony <span id="symfony"></span><a href="#symfony" class="hashlink">&para;</a></h3><p>To perform Symfony integration you just need to include the Symfony module into your test suite. If you also use Doctrine2,
+don't forget to include it too. To make the Doctrine2 module connect using the <code>doctrine</code> service from Symfony,
+you should specify the Symfony module as a dependency for Doctrine2:</p>
+<pre><code class="language-yaml"># functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - Symfony
+        - Doctrine2:
+            depends: Symfony # connect to Symfony
+        - \Helper\Functional
+</code></pre>
+<p>By default this module will search for AppKernel in the <code>app</code> directory.</p>
+<p>The module uses the Symfony Profiler to provide additional information and assertions.</p>
+<p><a href="http://codeception.com/docs/modules/Symfony">See the full reference</a></p>
+<h3>Laravel5 <span id="laravel5"></span><a href="#laravel5" class="hashlink">&para;</a></h3><p>The <a href="http://codeception.com/docs/modules/Laravel5">Laravel5</a> module is included and requires no configuration:</p>
+<pre><code class="language-yaml"># functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - Laravel5
+        - \Helper\Functional
+</code></pre>
+<h3>Yii2 <span id="yii2"></span><a href="#yii2" class="hashlink">&para;</a></h3><p>Yii2 tests are included in <a href="https://github.com/yiisoft/yii2-app-basic">Basic</a>
+and <a href="https://github.com/yiisoft/yii2-app-advanced">Advanced</a> application templates. Follow the Yii2 guides to start.</p>
+<h3>Yii <span id="yii"></span><a href="#yii" class="hashlink">&para;</a></h3><p>By itself Yii framework does not have an engine for functional testing.
+So Codeception is the first and the only functional testing framework for Yii.
+To use it with Yii include <code>Yii1</code> module into config:</p>
+<pre><code class="language-yaml"># functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - Yii1
+        - \Helper\Functional
+</code></pre>
+<p>To avoid the common pitfalls we discussed earlier, Codeception provides basic hooks over the Yii engine.
+Please set them up following <a href="http://codeception.com/docs/modules/Yii1">the installation steps in the module reference</a>.</p>
+<h3>Zend Framework 2 <span id="zend-framework-2"></span><a href="#zend-framework-2" class="hashlink">&para;</a></h3><p>Use <a href="http://codeception.com/docs/modules/ZF2">the ZF2 module</a> to run functional tests inside Zend Framework 2:</p>
+<pre><code class="language-yaml"># functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - ZF2
+        - \Helper\Functional
+</code></pre>
+<h3>Zend Framework 1.x <span id="zend-framework-1x"></span><a href="#zend-framework-1x" class="hashlink">&para;</a></h3><p>The module for Zend Framework is highly inspired by the ControllerTestCase class, used for functional testing with PHPUnit.
+It follows similar approaches for bootstrapping and cleaning up.
+To start using Zend Framework in your functional tests, include the <code>ZF1</code> module:</p>
+<pre><code class="language-yaml"># functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - ZF1
+        - \Helper\Functional
+</code></pre>
+<p><a href="http://codeception.com/docs/modules/ZF1">See the full reference</a></p>
+<h3>Phalcon <span id="phalcon"></span><a href="#phalcon" class="hashlink">&para;</a></h3><p>The <code>Phalcon</code> module requires creating a bootstrap file which returns an instance of <code>\Phalcon\Mvc\Application</code>.
+To start writing functional tests with Phalcon support you should enable the <code>Phalcon</code> module
+and provide the path to this bootstrap file:</p>
+<pre><code class="language-yaml"># functional.suite.yml
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - Phalcon:
+            bootstrap: 'app/config/bootstrap.php'
+             cleanup: true
+             savepoints: true
+        - \Helper\Functional
+</code></pre>
+<p><a href="http://codeception.com/docs/modules/Phalcon">See the full reference</a></p>
+<h2>Writing Functional Tests <span id="writing-functional-tests"></span><a href="#writing-functional-tests" class="hashlink">&para;</a></h2><p>Functional tests are written in the same manner as <a href="http://codeception.com/docs/03-AcceptanceTests">Acceptance Tests</a>
+with the <code>PhpBrowser</code> module enabled. All framework modules and the <code>PhpBrowser</code> module share the same methods
+and the same engine.</p>
+<p>Therefore we can open a web page with <code>amOnPage</code> method:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span> = <span class="hljs-keyword">new</span> FunctionalTester(<span class="hljs-variable">$scenario</span>);
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/login'</span>);
+</code></pre>
+<p>We can click links to open web pages:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Logout'</span>);
+<span class="hljs-comment">// click link inside .nav element</span>
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Logout'</span>, <span class="hljs-string">'.nav'</span>);
+<span class="hljs-comment">// click by CSS</span>
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'a.logout'</span>);
+<span class="hljs-comment">// click with strict locator</span>
+<span class="hljs-variable">$I</span>-&gt;click([<span class="hljs-string">'class'</span> =&gt; <span class="hljs-string">'logout'</span>]);
+</code></pre>
+<p>We can submit forms as well:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;submitForm(<span class="hljs-string">'form#login'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'john'</span>, <span class="hljs-string">'password'</span> =&gt; <span class="hljs-string">'123456'</span>]);
+<span class="hljs-comment">// alternatively</span>
+<span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'#login input[name=name]'</span>, <span class="hljs-string">'john'</span>);
+<span class="hljs-variable">$I</span>-&gt;fillField(<span class="hljs-string">'#login input[name=password]'</span>, <span class="hljs-string">'123456'</span>);
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Submit'</span>, <span class="hljs-string">'#login'</span>);
+</code></pre>
+<p>And do assertions:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Welcome, john'</span>);
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Logged in successfully'</span>, <span class="hljs-string">'.notice'</span>);
+<span class="hljs-variable">$I</span>-&gt;seeCurrentUrlEquals(<span class="hljs-string">'/profile/john'</span>);
+</code></pre>
+<p>Framework modules also contain additional methods to access framework internals. For instance, Laravel5, Phalcon,
+and Yii2 modules have a <code>seeRecord</code> method which uses the ActiveRecord layer to check that a record exists in the database.</p>
+<p>Take a look at the complete reference for the module you are using. Most of its methods are common to all modules
+but some of them are unique.</p>
+<p>You can also access framework globals inside a test or access the dependency injection container
+inside the <code>Helper\Functional</code> class:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Helper</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Functional</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Module</span>
+</span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomethingWithMyService</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$service</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Symfony'</span>)-&gt;grabServiceFromContainer(<span class="hljs-string">'myservice'</span>);
+        <span class="hljs-variable">$service</span>-&gt;doSomething();
+    }
+}
+</code></pre>
+<p>Also check all available <em>Public Properties</em> of the used modules to get full access to their data.</p>
+<h2>Error Reporting <span id="error-reporting"></span><a href="#error-reporting" class="hashlink">&para;</a></h2><p>By default Codeception uses the <code>E_ALL &amp; ~E_STRICT &amp; ~E_DEPRECATED</code> error reporting level.
+In functional tests you might want to change this level depending on your framework's error policy.
+The error reporting level can be set in the suite configuration file:</p>
+<pre><code class="language-yaml">actor: FunctionalTester
+modules:
+    enabled:
+        - Yii1
+        - \Helper\Functional
+error_level: "E_ALL &amp; ~E_STRICT &amp; ~E_DEPRECATED"
+</code></pre>
+<p><code>error_level</code> can also be set globally in <code>codeception.yml</code> file.</p>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>Functional tests are great if you are using powerful frameworks. By using functional tests you can access
+and manipulate their internal state. This makes your tests shorter and faster. In other cases,
+if you don't use frameworks there is no practical reason to write functional tests.
+If you are using a framework other than the ones listed here, create a module for it and share it with the community.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,1390 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 12
+            [file] => .\assets\LayoutAdminAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\assets\LayoutAdminAsset.
+        )
+
+    [1] => Array
+        (
+            [line] => 17
+            [file] => .\assets\LayoutAdminAsset.php
+            [message] => Method $js has no parent to inherit from in app\assets\LayoutAdminAsset.
+        )
+
+    [2] => Array
+        (
+            [line] => 34
+            [file] => .\assets\LayoutAdminAsset.php
+            [message] => Method init has no parent to inherit from in app\assets\LayoutAdminAsset.
+        )
+
+    [3] => Array
+        (
+            [line] => 31
+            [file] => .\commands\AppMigrateController.php
+            [message] => Method $templateFile has no parent to inherit from in app\commands\AppMigrateController.
+        )
+
+    [4] => Array
+        (
+            [line] => 37
+            [file] => .\commands\AppMigrateController.php
+            [message] => Method $generatorTemplateFiles has no parent to inherit from in app\commands\AppMigrateController.
+        )
+
+    [5] => Array
+        (
+            [line] => 55
+            [file] => .\commands\AppMigrateController.php
+            [message] => Method options has no parent to inherit from in app\commands\AppMigrateController.
+        )
+
+    [6] => Array
+        (
+            [line] => 101
+            [file] => .\commands\AppMigrateController.php
+            [message] => Method getMigrationHistory has no parent to inherit from in app\commands\AppMigrateController.
+        )
+
+    [7] => Array
+        (
+            [line] => 143
+            [file] => .\commands\AppMigrateController.php
+            [message] => Method addMigrationHistory has no parent to inherit from in app\commands\AppMigrateController.
+        )
+
+    [8] => Array
+        (
+            [line] => 156
+            [file] => .\commands\AppMigrateController.php
+            [message] => Method removeMigrationHistory has no parent to inherit from in app\commands\AppMigrateController.
+        )
+
+    [9] => Array
+        (
+            [file] => .\commands\AppMigrateController.php
+            [message] => broken link to \app\commands\migrationPath in app\commands\AppMigrateController
+        )
+
+    [10] => Array
+        (
+            [file] => .\commands\AppMigrateController.php
+            [message] => broken link to \app\commands\migrationPath in app\commands\AppMigrateController
+        )
+
+    [11] => Array
+        (
+            [line] => 19
+            [file] => .\components\Controller.php
+            [message] => Method behaviors has no parent to inherit from in app\components\Controller.
+        )
+
+    [12] => Array
+        (
+            [line] => 19
+            [file] => .\components\Controller.php
+            [message] => Method behaviors has no parent to inherit from in app\components\Controller.
+        )
+
+    [13] => Array
+        (
+            [line] => 19
+            [file] => .\components\Controller.php
+            [message] => Method behaviors has no parent to inherit from in app\components\Controller.
+        )
+
+    [14] => Array
+        (
+            [line] => 19
+            [file] => .\components\Controller.php
+            [message] => Method behaviors has no parent to inherit from in app\components\Controller.
+        )
+
+    [15] => Array
+        (
+            [line] => 19
+            [file] => .\components\Controller.php
+            [message] => Method behaviors has no parent to inherit from in app\components\Controller.
+        )
+
+    [16] => Array
+        (
+            [file] => .\components\Model.php
+            [message] => broken link to \yii\db\BaseActiveRecord in app\components\Model
+        )
+
+    [17] => Array
+        (
+            [file] => .\components\Model.php
+            [message] => broken link to \app\components\attributes() in app\components\Model
+        )
+
+    [18] => Array
+        (
+            [line] => 18
+            [file] => .\controllers\SiteController.php
+            [message] => Method behaviors has no parent to inherit from in app\controllers\SiteController.
+        )
+
+    [19] => Array
+        (
+            [line] => 44
+            [file] => .\controllers\SiteController.php
+            [message] => Method actions has no parent to inherit from in app\controllers\SiteController.
+        )
+
+    [20] => Array
+        (
+            [line] => 358
+            [file] => .\helpers\AppLocale.php
+            [message] => Undefined parameter documented: $timeFormat in getRelativeDate().
+        )
+
+    [21] => Array
+        (
+            [line] => 73
+            [file] => .\helpers\ArrayHelper.php
+            [message] => Undefined parameter documented: $nodes in buildHierarchyArray().
+        )
+
+    [22] => Array
+        (
+            [line] => 104
+            [file] => .\helpers\ArrayHelper.php
+            [message] => Undefined parameter documented:  in getArrayHierarchy().
+        )
+
+    [23] => Array
+        (
+            [line] => 165
+            [file] => .\helpers\CookieHelper.php
+            [message] => Undefined parameter documented: $name in clearIdFromCookie().
+        )
+
+    [24] => Array
+        (
+            [line] => 125
+            [file] => .\helpers\ExportHelper.php
+            [message] => Undefined parameter documented: $filePatch in downloadFile().
+        )
+
+    [25] => Array
+        (
+            [line] => 34
+            [file] => .\models\User.php
+            [message] => Method findIdentity has no parent to inherit from in app\models\User.
+        )
+
+    [26] => Array
+        (
+            [line] => 42
+            [file] => .\models\User.php
+            [message] => Method findIdentityByAccessToken has no parent to inherit from in app\models\User.
+        )
+
+    [27] => Array
+        (
+            [line] => 73
+            [file] => .\models\User.php
+            [message] => Method getId has no parent to inherit from in app\models\User.
+        )
+
+    [28] => Array
+        (
+            [line] => 81
+            [file] => .\models\User.php
+            [message] => Method getAuthKey has no parent to inherit from in app\models\User.
+        )
+
+    [29] => Array
+        (
+            [line] => 89
+            [file] => .\models\User.php
+            [message] => Method validateAuthKey has no parent to inherit from in app\models\User.
+        )
+
+    [30] => Array
+        (
+            [line] => 13
+            [file] => .\modules\admin\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\admin\Module.
+        )
+
+    [31] => Array
+        (
+            [line] => 18
+            [file] => .\modules\admin\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\admin\Module.
+        )
+
+    [32] => Array
+        (
+            [line] => 12
+            [file] => .\modules\admin\assets\ProductAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\admin\assets\ProductAsset.
+        )
+
+    [33] => Array
+        (
+            [line] => 17
+            [file] => .\modules\admin\assets\ProductAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\admin\assets\ProductAsset.
+        )
+
+    [34] => Array
+        (
+            [line] => 31
+            [file] => .\modules\admin\assets\ProductAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\admin\assets\ProductAsset.
+        )
+
+    [35] => Array
+        (
+            [line] => 24
+            [file] => .\modules\admin\models\Product.php
+            [message] => Method tableName has no parent to inherit from in app\modules\admin\models\Product.
+        )
+
+    [36] => Array
+        (
+            [line] => 32
+            [file] => .\modules\admin\models\Product.php
+            [message] => Method rules has no parent to inherit from in app\modules\admin\models\Product.
+        )
+
+    [37] => Array
+        (
+            [line] => 48
+            [file] => .\modules\admin\models\Product.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\admin\models\Product.
+        )
+
+    [38] => Array
+        (
+            [line] => 24
+            [file] => .\modules\admin\models\Product.php
+            [message] => Method tableName has no parent to inherit from in app\modules\admin\models\Product.
+        )
+
+    [39] => Array
+        (
+            [line] => 32
+            [file] => .\modules\admin\models\Product.php
+            [message] => Method rules has no parent to inherit from in app\modules\admin\models\Product.
+        )
+
+    [40] => Array
+        (
+            [line] => 48
+            [file] => .\modules\admin\models\Product.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\admin\models\Product.
+        )
+
+    [41] => Array
+        (
+            [line] => 21
+            [file] => .\modules\admin\models\ProductCategory.php
+            [message] => Method tableName has no parent to inherit from in app\modules\admin\models\ProductCategory.
+        )
+
+    [42] => Array
+        (
+            [line] => 29
+            [file] => .\modules\admin\models\ProductCategory.php
+            [message] => Method rules has no parent to inherit from in app\modules\admin\models\ProductCategory.
+        )
+
+    [43] => Array
+        (
+            [line] => 42
+            [file] => .\modules\admin\models\ProductCategory.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\admin\models\ProductCategory.
+        )
+
+    [44] => Array
+        (
+            [line] => 21
+            [file] => .\modules\admin\models\ProductImage.php
+            [message] => Method tableName has no parent to inherit from in app\modules\admin\models\ProductImage.
+        )
+
+    [45] => Array
+        (
+            [line] => 29
+            [file] => .\modules\admin\models\ProductImage.php
+            [message] => Method rules has no parent to inherit from in app\modules\admin\models\ProductImage.
+        )
+
+    [46] => Array
+        (
+            [line] => 42
+            [file] => .\modules\admin\models\ProductImage.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\admin\models\ProductImage.
+        )
+
+    [47] => Array
+        (
+            [line] => 29
+            [file] => .\modules\admin\models\search\ProductSearch.php
+            [message] => Method scenarios has no parent to inherit from in app\modules\admin\models\search\ProductSearch.
+        )
+
+    [48] => Array
+        (
+            [line] => 13
+            [file] => .\modules\core\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\core\Module.
+        )
+
+    [49] => Array
+        (
+            [line] => 18
+            [file] => .\modules\core\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\core\Module.
+        )
+
+    [50] => Array
+        (
+            [line] => 13
+            [file] => .\modules\core\assets\AdminNavigationAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\core\assets\AdminNavigationAsset.
+        )
+
+    [51] => Array
+        (
+            [line] => 23
+            [file] => .\modules\core\assets\AdminNavigationAsset.php
+            [message] => Method $depends has no parent to inherit from in app\modules\core\assets\AdminNavigationAsset.
+        )
+
+    [52] => Array
+        (
+            [line] => 29
+            [file] => .\modules\core\assets\AdminNavigationAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\core\assets\AdminNavigationAsset.
+        )
+
+    [53] => Array
+        (
+            [line] => 39
+            [file] => .\modules\core\models\AdminNavigation.php
+            [message] => Method tableName has no parent to inherit from in app\modules\core\models\AdminNavigation.
+        )
+
+    [54] => Array
+        (
+            [line] => 47
+            [file] => .\modules\core\models\AdminNavigation.php
+            [message] => Method rules has no parent to inherit from in app\modules\core\models\AdminNavigation.
+        )
+
+    [55] => Array
+        (
+            [line] => 72
+            [file] => .\modules\core\models\AdminNavigation.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\core\models\AdminNavigation.
+        )
+
+    [56] => Array
+        (
+            [line] => 98
+            [file] => .\modules\core\models\AdminNavigation.php
+            [message] => Method beforeSave has no parent to inherit from in app\modules\core\models\AdminNavigation.
+        )
+
+    [57] => Array
+        (
+            [line] => 121
+            [file] => .\modules\core\models\AdminNavigation.php
+            [message] => Method afterSave has no parent to inherit from in app\modules\core\models\AdminNavigation.
+        )
+
+    [58] => Array
+        (
+            [line] => 19
+            [file] => .\modules\core\models\DataRegistry.php
+            [message] => Method tableName has no parent to inherit from in app\modules\core\models\DataRegistry.
+        )
+
+    [59] => Array
+        (
+            [line] => 27
+            [file] => .\modules\core\models\DataRegistry.php
+            [message] => Method rules has no parent to inherit from in app\modules\core\models\DataRegistry.
+        )
+
+    [60] => Array
+        (
+            [line] => 40
+            [file] => .\modules\core\models\DataRegistry.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\core\models\DataRegistry.
+        )
+
+    [61] => Array
+        (
+            [line] => 29
+            [file] => .\modules\core\widgets\SidebarNavigationWidget.php
+            [message] => Method $encodeLabels has no parent to inherit from in app\modules\core\widgets\SidebarNavigationWidget.
+        )
+
+    [62] => Array
+        (
+            [line] => 34
+            [file] => .\modules\core\widgets\SidebarNavigationWidget.php
+            [message] => Method $options has no parent to inherit from in app\modules\core\widgets\SidebarNavigationWidget.
+        )
+
+    [63] => Array
+        (
+            [line] => 40
+            [file] => .\modules\core\widgets\SidebarNavigationWidget.php
+            [message] => Method $activateParents has no parent to inherit from in app\modules\core\widgets\SidebarNavigationWidget.
+        )
+
+    [64] => Array
+        (
+            [line] => 45
+            [file] => .\modules\core\widgets\SidebarNavigationWidget.php
+            [message] => Method $dropDownCaret has no parent to inherit from in app\modules\core\widgets\SidebarNavigationWidget.
+        )
+
+    [65] => Array
+        (
+            [line] => 115
+            [file] => .\modules\core\widgets\SidebarNavigationWidget.php
+            [message] => Method isItemActive has no parent to inherit from in app\modules\core\widgets\SidebarNavigationWidget.
+        )
+
+    [66] => Array
+        (
+            [line] => 148
+            [file] => .\modules\core\widgets\SidebarNavigationWidget.php
+            [message] => Method renderItem has no parent to inherit from in app\modules\core\widgets\SidebarNavigationWidget.
+        )
+
+    [67] => Array
+        (
+            [line] => 13
+            [file] => .\modules\cronjob\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\cronjob\Module.
+        )
+
+    [68] => Array
+        (
+            [line] => 12
+            [file] => .\modules\cronjob\assets\CronjobAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\cronjob\assets\CronjobAsset.
+        )
+
+    [69] => Array
+        (
+            [line] => 17
+            [file] => .\modules\cronjob\assets\CronjobAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\cronjob\assets\CronjobAsset.
+        )
+
+    [70] => Array
+        (
+            [line] => 28
+            [file] => .\modules\cronjob\assets\CronjobAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\cronjob\assets\CronjobAsset.
+        )
+
+    [71] => Array
+        (
+            [line] => 92
+            [file] => .\modules\cronjob\helpers\CronHelper.php
+            [message] => Undefined parameter documented: $hourRules in _modifyRunTimeDayOfMonth().
+        )
+
+    [72] => Array
+        (
+            [line] => 104
+            [file] => .\modules\cronjob\helpers\CronHelper.php
+            [message] => Undefined parameter documented: $hourRules in _modifyRunTimeDayOfWeek().
+        )
+
+    [73] => Array
+        (
+            [line] => 27
+            [file] => .\modules\cronjob\models\Cronjob.php
+            [message] => Method tableName has no parent to inherit from in app\modules\cronjob\models\Cronjob.
+        )
+
+    [74] => Array
+        (
+            [line] => 35
+            [file] => .\modules\cronjob\models\Cronjob.php
+            [message] => Method rules has no parent to inherit from in app\modules\cronjob\models\Cronjob.
+        )
+
+    [75] => Array
+        (
+            [line] => 51
+            [file] => .\modules\cronjob\models\Cronjob.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\cronjob\models\Cronjob.
+        )
+
+    [76] => Array
+        (
+            [line] => 27
+            [file] => .\modules\cronjob\models\Cronjob.php
+            [message] => Method tableName has no parent to inherit from in app\modules\cronjob\models\Cronjob.
+        )
+
+    [77] => Array
+        (
+            [line] => 35
+            [file] => .\modules\cronjob\models\Cronjob.php
+            [message] => Method rules has no parent to inherit from in app\modules\cronjob\models\Cronjob.
+        )
+
+    [78] => Array
+        (
+            [line] => 51
+            [file] => .\modules\cronjob\models\Cronjob.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\cronjob\models\Cronjob.
+        )
+
+    [79] => Array
+        (
+            [line] => 19
+            [file] => .\modules\cronjob\models\CronjobLog.php
+            [message] => Method tableName has no parent to inherit from in app\modules\cronjob\models\CronjobLog.
+        )
+
+    [80] => Array
+        (
+            [line] => 27
+            [file] => .\modules\cronjob\models\CronjobLog.php
+            [message] => Method rules has no parent to inherit from in app\modules\cronjob\models\CronjobLog.
+        )
+
+    [81] => Array
+        (
+            [line] => 40
+            [file] => .\modules\cronjob\models\CronjobLog.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\cronjob\models\CronjobLog.
+        )
+
+    [82] => Array
+        (
+            [line] => 29
+            [file] => .\modules\cronjob\models\search\CronjobSearch.php
+            [message] => Method scenarios has no parent to inherit from in app\modules\cronjob\models\search\CronjobSearch.
+        )
+
+    [83] => Array
+        (
+            [line] => 13
+            [file] => .\modules\dashboard\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\dashboard\Module.
+        )
+
+    [84] => Array
+        (
+            [line] => 18
+            [file] => .\modules\dashboard\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\dashboard\Module.
+        )
+
+    [85] => Array
+        (
+            [line] => 13
+            [file] => .\modules\email\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\email\Module.
+        )
+
+    [86] => Array
+        (
+            [line] => 19
+            [file] => .\modules\email\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\email\Module.
+        )
+
+    [87] => Array
+        (
+            [line] => 25
+            [file] => .\modules\email\models\EmailQueue.php
+            [message] => Method tableName has no parent to inherit from in app\modules\email\models\EmailQueue.
+        )
+
+    [88] => Array
+        (
+            [line] => 33
+            [file] => .\modules\email\models\EmailQueue.php
+            [message] => Method rules has no parent to inherit from in app\modules\email\models\EmailQueue.
+        )
+
+    [89] => Array
+        (
+            [line] => 47
+            [file] => .\modules\email\models\EmailQueue.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\email\models\EmailQueue.
+        )
+
+    [90] => Array
+        (
+            [line] => 14
+            [file] => .\modules\permission\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\permission\Module.
+        )
+
+    [91] => Array
+        (
+            [line] => 19
+            [file] => .\modules\permission\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\permission\Module.
+        )
+
+    [92] => Array
+        (
+            [line] => 21
+            [file] => .\modules\permission\models\AuthAssignment.php
+            [message] => Method tableName has no parent to inherit from in app\modules\permission\models\AuthAssignment.
+        )
+
+    [93] => Array
+        (
+            [line] => 29
+            [file] => .\modules\permission\models\AuthAssignment.php
+            [message] => Method rules has no parent to inherit from in app\modules\permission\models\AuthAssignment.
+        )
+
+    [94] => Array
+        (
+            [line] => 43
+            [file] => .\modules\permission\models\AuthAssignment.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\permission\models\AuthAssignment.
+        )
+
+    [95] => Array
+        (
+            [line] => 30
+            [file] => .\modules\permission\models\AuthItem.php
+            [message] => Method tableName has no parent to inherit from in app\modules\permission\models\AuthItem.
+        )
+
+    [96] => Array
+        (
+            [line] => 38
+            [file] => .\modules\permission\models\AuthItem.php
+            [message] => Method rules has no parent to inherit from in app\modules\permission\models\AuthItem.
+        )
+
+    [97] => Array
+        (
+            [line] => 53
+            [file] => .\modules\permission\models\AuthItem.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\permission\models\AuthItem.
+        )
+
+    [98] => Array
+        (
+            [line] => 30
+            [file] => .\modules\permission\models\AuthItem.php
+            [message] => Method tableName has no parent to inherit from in app\modules\permission\models\AuthItem.
+        )
+
+    [99] => Array
+        (
+            [line] => 38
+            [file] => .\modules\permission\models\AuthItem.php
+            [message] => Method rules has no parent to inherit from in app\modules\permission\models\AuthItem.
+        )
+
+    [100] => Array
+        (
+            [line] => 53
+            [file] => .\modules\permission\models\AuthItem.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\permission\models\AuthItem.
+        )
+
+    [101] => Array
+        (
+            [line] => 21
+            [file] => .\modules\permission\models\AuthItemChild.php
+            [message] => Method tableName has no parent to inherit from in app\modules\permission\models\AuthItemChild.
+        )
+
+    [102] => Array
+        (
+            [line] => 29
+            [file] => .\modules\permission\models\AuthItemChild.php
+            [message] => Method rules has no parent to inherit from in app\modules\permission\models\AuthItemChild.
+        )
+
+    [103] => Array
+        (
+            [line] => 41
+            [file] => .\modules\permission\models\AuthItemChild.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\permission\models\AuthItemChild.
+        )
+
+    [104] => Array
+        (
+            [line] => 29
+            [file] => .\modules\permission\models\AuthItemSearch.php
+            [message] => Method scenarios has no parent to inherit from in app\modules\permission\models\AuthItemSearch.
+        )
+
+    [105] => Array
+        (
+            [line] => 22
+            [file] => .\modules\permission\models\AuthRule.php
+            [message] => Method tableName has no parent to inherit from in app\modules\permission\models\AuthRule.
+        )
+
+    [106] => Array
+        (
+            [line] => 30
+            [file] => .\modules\permission\models\AuthRule.php
+            [message] => Method rules has no parent to inherit from in app\modules\permission\models\AuthRule.
+        )
+
+    [107] => Array
+        (
+            [line] => 44
+            [file] => .\modules\permission\models\AuthRule.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\permission\models\AuthRule.
+        )
+
+    [108] => Array
+        (
+            [line] => 18
+            [file] => .\modules\permission\models\CreatePermissionForm.php
+            [message] => Method init has no parent to inherit from in app\modules\permission\models\CreatePermissionForm.
+        )
+
+    [109] => Array
+        (
+            [file] => .\modules\permission\models\CreatePermissionForm.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\permission\models\CreatePermissionForm
+        )
+
+    [110] => Array
+        (
+            [line] => 25
+            [file] => .\modules\permission\models\EditRule.php
+            [message] => Method rules has no parent to inherit from in app\modules\permission\models\EditRule.
+        )
+
+    [111] => Array
+        (
+            [line] => 37
+            [file] => .\modules\permission\models\EditRule.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\permission\models\EditRule.
+        )
+
+    [112] => Array
+        (
+            [line] => 13
+            [file] => .\modules\pub\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\pub\Module.
+        )
+
+    [113] => Array
+        (
+            [line] => 21
+            [file] => .\modules\pub\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\pub\Module.
+        )
+
+    [114] => Array
+        (
+            [line] => 12
+            [file] => .\modules\pub\assets\CartAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\pub\assets\CartAsset.
+        )
+
+    [115] => Array
+        (
+            [line] => 17
+            [file] => .\modules\pub\assets\CartAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\pub\assets\CartAsset.
+        )
+
+    [116] => Array
+        (
+            [line] => 30
+            [file] => .\modules\pub\assets\CartAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\pub\assets\CartAsset.
+        )
+
+    [117] => Array
+        (
+            [line] => 12
+            [file] => .\modules\pub\assets\LayoutPubAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\pub\assets\LayoutPubAsset.
+        )
+
+    [118] => Array
+        (
+            [line] => 17
+            [file] => .\modules\pub\assets\LayoutPubAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\pub\assets\LayoutPubAsset.
+        )
+
+    [119] => Array
+        (
+            [line] => 34
+            [file] => .\modules\pub\assets\LayoutPubAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\pub\assets\LayoutPubAsset.
+        )
+
+    [120] => Array
+        (
+            [line] => 12
+            [file] => .\modules\pub\assets\OrderAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\pub\assets\OrderAsset.
+        )
+
+    [121] => Array
+        (
+            [line] => 17
+            [file] => .\modules\pub\assets\OrderAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\pub\assets\OrderAsset.
+        )
+
+    [122] => Array
+        (
+            [line] => 30
+            [file] => .\modules\pub\assets\OrderAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\pub\assets\OrderAsset.
+        )
+
+    [123] => Array
+        (
+            [line] => 12
+            [file] => .\modules\pub\assets\ProductAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\pub\assets\ProductAsset.
+        )
+
+    [124] => Array
+        (
+            [line] => 18
+            [file] => .\modules\pub\assets\ProductAsset.php
+            [message] => Method $css has no parent to inherit from in app\modules\pub\assets\ProductAsset.
+        )
+
+    [125] => Array
+        (
+            [line] => 28
+            [file] => .\modules\pub\assets\ProductAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\pub\assets\ProductAsset.
+        )
+
+    [126] => Array
+        (
+            [line] => 13
+            [file] => .\modules\report\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\report\Module.
+        )
+
+    [127] => Array
+        (
+            [line] => 18
+            [file] => .\modules\report\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\report\Module.
+        )
+
+    [128] => Array
+        (
+            [line] => 12
+            [file] => .\modules\report\assets\OrderAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\report\assets\OrderAsset.
+        )
+
+    [129] => Array
+        (
+            [line] => 17
+            [file] => .\modules\report\assets\OrderAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\report\assets\OrderAsset.
+        )
+
+    [130] => Array
+        (
+            [line] => 30
+            [file] => .\modules\report\assets\OrderAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\report\assets\OrderAsset.
+        )
+
+    [131] => Array
+        (
+            [line] => 29
+            [file] => .\modules\report\models\Order.php
+            [message] => Method tableName has no parent to inherit from in app\modules\report\models\Order.
+        )
+
+    [132] => Array
+        (
+            [line] => 37
+            [file] => .\modules\report\models\Order.php
+            [message] => Method rules has no parent to inherit from in app\modules\report\models\Order.
+        )
+
+    [133] => Array
+        (
+            [line] => 53
+            [file] => .\modules\report\models\Order.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\report\models\Order.
+        )
+
+    [134] => Array
+        (
+            [line] => 29
+            [file] => .\modules\report\models\Order.php
+            [message] => Method tableName has no parent to inherit from in app\modules\report\models\Order.
+        )
+
+    [135] => Array
+        (
+            [line] => 37
+            [file] => .\modules\report\models\Order.php
+            [message] => Method rules has no parent to inherit from in app\modules\report\models\Order.
+        )
+
+    [136] => Array
+        (
+            [line] => 53
+            [file] => .\modules\report\models\Order.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\report\models\Order.
+        )
+
+    [137] => Array
+        (
+            [line] => 20
+            [file] => .\modules\report\models\OrderDetail.php
+            [message] => Method tableName has no parent to inherit from in app\modules\report\models\OrderDetail.
+        )
+
+    [138] => Array
+        (
+            [line] => 28
+            [file] => .\modules\report\models\OrderDetail.php
+            [message] => Method rules has no parent to inherit from in app\modules\report\models\OrderDetail.
+        )
+
+    [139] => Array
+        (
+            [line] => 39
+            [file] => .\modules\report\models\OrderDetail.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\report\models\OrderDetail.
+        )
+
+    [140] => Array
+        (
+            [line] => 29
+            [file] => .\modules\report\models\OrderSearch.php
+            [message] => Method scenarios has no parent to inherit from in app\modules\report\models\OrderSearch.
+        )
+
+    [141] => Array
+        (
+            [line] => 13
+            [file] => .\modules\setting\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\setting\Module.
+        )
+
+    [142] => Array
+        (
+            [line] => 12
+            [file] => .\modules\setting\assets\SettingAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\setting\assets\SettingAsset.
+        )
+
+    [143] => Array
+        (
+            [line] => 17
+            [file] => .\modules\setting\assets\SettingAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\setting\assets\SettingAsset.
+        )
+
+    [144] => Array
+        (
+            [line] => 31
+            [file] => .\modules\setting\assets\SettingAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\setting\assets\SettingAsset.
+        )
+
+    [145] => Array
+        (
+            [line] => 19
+            [file] => .\modules\setting\models\Setting.php
+            [message] => Method tableName has no parent to inherit from in app\modules\setting\models\Setting.
+        )
+
+    [146] => Array
+        (
+            [line] => 27
+            [file] => .\modules\setting\models\Setting.php
+            [message] => Method rules has no parent to inherit from in app\modules\setting\models\Setting.
+        )
+
+    [147] => Array
+        (
+            [line] => 41
+            [file] => .\modules\setting\models\Setting.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\setting\models\Setting.
+        )
+
+    [148] => Array
+        (
+            [line] => 20
+            [file] => .\modules\setting\models\SettingModel.php
+            [message] => Method rules has no parent to inherit from in app\modules\setting\models\SettingModel.
+        )
+
+    [149] => Array
+        (
+            [line] => 35
+            [file] => .\modules\setting\models\SettingModel.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\setting\models\SettingModel.
+        )
+
+    [150] => Array
+        (
+            [line] => 13
+            [file] => .\modules\user\Module.php
+            [message] => Method $controllerNamespace has no parent to inherit from in app\modules\user\Module.
+        )
+
+    [151] => Array
+        (
+            [line] => 18
+            [file] => .\modules\user\Module.php
+            [message] => Method init has no parent to inherit from in app\modules\user\Module.
+        )
+
+    [152] => Array
+        (
+            [line] => 12
+            [file] => .\modules\user\assets\AuthAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\modules\user\assets\AuthAsset.
+        )
+
+    [153] => Array
+        (
+            [line] => 17
+            [file] => .\modules\user\assets\AuthAsset.php
+            [message] => Method $js has no parent to inherit from in app\modules\user\assets\AuthAsset.
+        )
+
+    [154] => Array
+        (
+            [line] => 34
+            [file] => .\modules\user\assets\AuthAsset.php
+            [message] => Method init has no parent to inherit from in app\modules\user\assets\AuthAsset.
+        )
+
+    [155] => Array
+        (
+            [line] => 21
+            [file] => .\modules\user\components\User.php
+            [message] => Method $identityClass has no parent to inherit from in app\modules\user\components\User.
+        )
+
+    [156] => Array
+        (
+            [file] => .\modules\user\components\User.php
+            [message] => broken link to \app\modules\user\components\EVENT_AFTER_LOGIN in app\modules\user\components\User
+        )
+
+    [157] => Array
+        (
+            [line] => 142
+            [file] => .\modules\user\controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionListUser().
+        )
+
+    [158] => Array
+        (
+            [line] => 35
+            [file] => .\modules\user\models\User.php
+            [message] => Method tableName has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [159] => Array
+        (
+            [line] => 43
+            [file] => .\modules\user\models\User.php
+            [message] => Method rules has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [160] => Array
+        (
+            [line] => 73
+            [file] => .\modules\user\models\User.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [161] => Array
+        (
+            [line] => 108
+            [file] => .\modules\user\models\User.php
+            [message] => Method findIdentity has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [162] => Array
+        (
+            [line] => 124
+            [file] => .\modules\user\models\User.php
+            [message] => Method findIdentityByAccessToken has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [163] => Array
+        (
+            [line] => 132
+            [file] => .\modules\user\models\User.php
+            [message] => Method getId has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [164] => Array
+        (
+            [line] => 140
+            [file] => .\modules\user\models\User.php
+            [message] => Method getAuthKey has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [165] => Array
+        (
+            [line] => 154
+            [file] => .\modules\user\models\User.php
+            [message] => Method validateAuthKey has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [166] => Array
+        (
+            [line] => 162
+            [file] => .\modules\user\models\User.php
+            [message] => Method deleteUser has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [167] => Array
+        (
+            [line] => 35
+            [file] => .\modules\user\models\User.php
+            [message] => Method tableName has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [168] => Array
+        (
+            [line] => 43
+            [file] => .\modules\user\models\User.php
+            [message] => Method rules has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [169] => Array
+        (
+            [line] => 73
+            [file] => .\modules\user\models\User.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [170] => Array
+        (
+            [line] => 108
+            [file] => .\modules\user\models\User.php
+            [message] => Method findIdentity has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [171] => Array
+        (
+            [line] => 124
+            [file] => .\modules\user\models\User.php
+            [message] => Method findIdentityByAccessToken has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [172] => Array
+        (
+            [line] => 132
+            [file] => .\modules\user\models\User.php
+            [message] => Method getId has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [173] => Array
+        (
+            [line] => 140
+            [file] => .\modules\user\models\User.php
+            [message] => Method getAuthKey has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [174] => Array
+        (
+            [line] => 154
+            [file] => .\modules\user\models\User.php
+            [message] => Method validateAuthKey has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [175] => Array
+        (
+            [line] => 162
+            [file] => .\modules\user\models\User.php
+            [message] => Method deleteUser has no parent to inherit from in app\modules\user\models\User.
+        )
+
+    [176] => Array
+        (
+            [line] => 19
+            [file] => .\modules\user\models\UserAuth.php
+            [message] => Method tableName has no parent to inherit from in app\modules\user\models\UserAuth.
+        )
+
+    [177] => Array
+        (
+            [line] => 27
+            [file] => .\modules\user\models\UserAuth.php
+            [message] => Method rules has no parent to inherit from in app\modules\user\models\UserAuth.
+        )
+
+    [178] => Array
+        (
+            [line] => 42
+            [file] => .\modules\user\models\UserAuth.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\user\models\UserAuth.
+        )
+
+    [179] => Array
+        (
+            [line] => 20
+            [file] => .\modules\user\models\UserConfirm.php
+            [message] => Method tableName has no parent to inherit from in app\modules\user\models\UserConfirm.
+        )
+
+    [180] => Array
+        (
+            [line] => 28
+            [file] => .\modules\user\models\UserConfirm.php
+            [message] => Method rules has no parent to inherit from in app\modules\user\models\UserConfirm.
+        )
+
+    [181] => Array
+        (
+            [line] => 43
+            [file] => .\modules\user\models\UserConfirm.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\user\models\UserConfirm.
+        )
+
+    [182] => Array
+        (
+            [line] => 18
+            [file] => .\modules\user\models\UserLoginAttempts.php
+            [message] => Method tableName has no parent to inherit from in app\modules\user\models\UserLoginAttempts.
+        )
+
+    [183] => Array
+        (
+            [line] => 26
+            [file] => .\modules\user\models\UserLoginAttempts.php
+            [message] => Method rules has no parent to inherit from in app\modules\user\models\UserLoginAttempts.
+        )
+
+    [184] => Array
+        (
+            [line] => 38
+            [file] => .\modules\user\models\UserLoginAttempts.php
+            [message] => Method attributeLabels has no parent to inherit from in app\modules\user\models\UserLoginAttempts.
+        )
+
+    [185] => Array
+        (
+            [line] => 29
+            [file] => .\modules\user\models\UserSearch.php
+            [message] => Method scenarios has no parent to inherit from in app\modules\user\models\UserSearch.
+        )
+
+    [186] => Array
+        (
+            [line] => 19
+            [file] => .\modules\user\models\form\CreateForm.php
+            [message] => Method init has no parent to inherit from in app\modules\user\models\form\CreateForm.
+        )
+
+    [187] => Array
+        (
+            [file] => .\modules\user\models\form\CreateForm.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\user\models\form\CreateForm
+        )
+
+    [188] => Array
+        (
+            [file] => .\modules\user\models\form\ForgotPasswordForm.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\user\models\form\ForgotPasswordForm
+        )
+
+    [189] => Array
+        (
+            [file] => .\modules\user\models\form\LoginForm.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\user\models\form\LoginForm
+        )
+
+    [190] => Array
+        (
+            [file] => .\modules\user\models\form\ResetPassword.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\user\models\form\ResetPassword
+        )
+
+    [191] => Array
+        (
+            [line] => 20
+            [file] => .\modules\user\models\form\SignupForm.php
+            [message] => Method init has no parent to inherit from in app\modules\user\models\form\SignupForm.
+        )
+
+    [192] => Array
+        (
+            [file] => .\modules\user\models\form\SignupForm.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\user\models\form\SignupForm
+        )
+
+    [193] => Array
+        (
+            [line] => 19
+            [file] => .\modules\user\models\form\UpdateForm.php
+            [message] => Method init has no parent to inherit from in app\modules\user\models\form\UpdateForm.
+        )
+
+    [194] => Array
+        (
+            [file] => .\modules\user\models\form\UpdateForm.php
+            [message] => broken link to \yii\base\Model::attributeLabels() in app\modules\user\models\form\UpdateForm
+        )
+
+    [195] => Array
+        (
+            [line] => 50
+            [file] => .\widgets\Alert.php
+            [message] => Method run has no parent to inherit from in app\widgets\Alert.
+        )
+
+    [196] => Array
+        (
+            [file] => .\widgets\Alert.php
+            [message] => broken link to \yii\bootstrap\Alert::closeButton in app\widgets\Alert
+        )
+
+    [197] => Array
+        (
+            [line] => 12
+            [file] => .\widgets\assets\ImageGalleryAsset.php
+            [message] => Method $sourcePath has no parent to inherit from in app\widgets\assets\ImageGalleryAsset.
+        )
+
+    [198] => Array
+        (
+            [line] => 17
+            [file] => .\widgets\assets\ImageGalleryAsset.php
+            [message] => Method $js has no parent to inherit from in app\widgets\assets\ImageGalleryAsset.
+        )
+
+    [199] => Array
+        (
+            [line] => 31
+            [file] => .\widgets\assets\ImageGalleryAsset.php
+            [message] => Method init has no parent to inherit from in app\widgets\assets\ImageGalleryAsset.
+        )
+
+)

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2158" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2158-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2158-collapse" class="collapse navbar-collapse"><ul id="w2159" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2142" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2142" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2143" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2143" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2144" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2144" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2145" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2145" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2146" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2146" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2147" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2147" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2148" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2148" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2149" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2149" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2150" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2150" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2151" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2151" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2152" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2152" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2153" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2153" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2154" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2154" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2155" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2155" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2156" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2156" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2157" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2157" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Modules and Helpers <span id="modules-and-helpers"></span><a href="#modules-and-helpers" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#standard-modules">Standard Modules</a></li>
+<li><a href="#helpers">Helpers</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>Codeception uses modularity to create a comfortable testing environment for every test suite you write.</p>
+<p>All actions and assertions that can be performed by the Tester object in a class are defined in modules.
+You can extend the testing suite with your own actions and assertions by writing them into a custom module.</p>
+<p>Let's look at the following test:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span> = <span class="hljs-keyword">new</span> FunctionalTester(<span class="hljs-variable">$scenario</span>);
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/'</span>);
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Hello'</span>);
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, <span class="hljs-keyword">array</span>(<span class="hljs-string">'id'</span> =&gt; <span class="hljs-number">1</span>));
+<span class="hljs-variable">$I</span>-&gt;seeFileFound(<span class="hljs-string">'running.lock'</span>);
+</code></pre>
+<p>It can operate with different entities: the web page can be loaded with the PhpBrowser module,
+the database assertion uses the Db module, and file state can be checked with the Filesystem module.</p>
+<p>Modules are attached to the Actor classes in the suite configuration.
+For example, in <code>tests/functional.suite.yml</code> we should see:</p>
+<pre><code class="language-yaml">actor: FunctionalTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://localhost
+        - Db:
+            dsn: "mysql:host=localhost;dbname=testdb"
+        - Filesystem
+</code></pre>
+<p>The FunctionalTester class has its methods defined in modules. Actually, it doesn't contain any of them,
+but rather acts as a proxy. It knows which module executes this action and passes parameters into it.
+To make your IDE see all of the FunctionalTester methods, you should run use the <code>codecept build</code> command.
+It generates method signatures from enabled modules and saves them into a trait which is included in an actor.
+In the current example, the <code>tests/support/_generated/FunctionalTesterActions.php</code> file will be generated.
+By default, Codeception automatically rebuilds the Actions trait on each change of the suite configuration.</p>
+<h2>Standard Modules <span id="standard-modules"></span><a href="#standard-modules" class="hashlink">&para;</a></h2><p>Codeception has many bundled modules which will help you run tests for different purposes and different environments.
+The idea of modules is to share common actions, so that developers and QA engineers can concentrate on testing
+and not on reinventing the wheel. Each module provides methods for testing its own part and
+by combining modules you can get a powerful setup to test an application at all levels.</p>
+<p>There is the <code>WebDriver</code> module for acceptance testing, modules for all popular PHP frameworks,
+<code>PHPBrowser</code> to emulate browser execution, <code>REST</code> for testing APIs, and more.
+Modules are considered to be the most valuable part of Codeception.
+They are constantly improving to provide the best testing experience, and be flexible to satisfy everyone's needs.</p>
+<h3>Module Conflicts <span id="module-conflicts"></span><a href="#module-conflicts" class="hashlink">&para;</a></h3><p>Modules may conflict with one another. If a module implements <code>Codeception\Lib\Interfaces\ConflictsWithModule</code>,
+it might declare a conflict rule to be used with other modules. For instance, WebDriver conflicts
+with all modules implementing the <code>Codeception\Lib\Interfaces\Web</code> interface.</p>
+<pre><code class="hljs php language-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_conflicts</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Codeception\Lib\Interfaces\Web'</span>;
+}
+</code></pre>
+<p>This way if you try to use two modules sharing the same conflicted interface you will get an exception.</p>
+<p>To avoid confusion, <strong>Framework modules, PhpBrowser, and WebDriver</strong> can't be used together. For instance,
+the <code>amOnPage</code> method exists in all those modules, and you should not try to guess which module will actually execute it.
+If you are doing acceptance testing, set up either WebDriver or PHPBrowser but do not set both up at the same time.
+If you are doing functional testing, enable only one of the framework modules.</p>
+<p>In case you need to use a module which depends on a conflicted one, specify it as a dependent module in the configuration.
+You may want to use <code>WebDriver</code> with the <code>REST</code> module which interacts with a server through <code>PhpBrowser</code>.
+In this case your config should look like this:</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - WebDriver:
+            browser: firefox
+            url: http://localhost
+        - REST:
+            url: http://localhost/api/v1
+            depends: PhpBrowser
+</code></pre>
+<p>This configuration will allow you to send GET/POST requests to the server's APIs while working with a site through a browser.</p>
+<p>If you only need some parts of a conflicted module to be loaded, refer to the next section.</p>
+<h3>Module Parts <span id="module-parts"></span><a href="#module-parts" class="hashlink">&para;</a></h3><p>Modules with <em>Parts</em> section in their reference can be partially loaded. This way, the <code>$I</code> object will have actions
+belonging to only a specific part of that module. Partially loaded modules can be also used to avoid module conflicts.</p>
+<p>For instance, the Laravel5 module has an ORM part which contains database actions. You can enable the PhpBrowser module
+for testing and Laravel + ORM for connecting to the database and checking the data.</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - PhpBrowser:
+            url: http://localhost
+        - Laravel5:
+            part: ORM
+</code></pre>
+<p>The modules won't conflict as actions with the same names won't be loaded.</p>
+<p>The REST module has parts for <code>Xml</code> and <code>Json</code> in the same way. If you are testing a REST service with only JSON responses,
+you can enable just the JSON part of this module:</p>
+<pre><code class="language-yaml">actor: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: http://serviceapp/api/v1/
+            depends: PhpBrowser
+            part: Json
+</code></pre>
+<h2>Helpers <span id="helpers"></span><a href="#helpers" class="hashlink">&para;</a></h2><p>Codeception doesn't restrict you to only the modules from the main repository.
+Your project might need your own actions added to the test suite. By running the <code>bootstrap</code> command,
+Codeception generates three dummy modules for you, one for each of the newly created suites.
+These custom modules are called 'Helpers', and they can be found in the <code>tests/_support</code> directory.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Helper</span>;
+<span class="hljs-comment">// here you can define custom functions for FunctionalTester</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Functional</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Module</span>
+</span>{
+}
+</code></pre>
+<p>Actions are also quite simple. Every action you define is a public function. Write a public method,
+then run the <code>build</code> command, and you will see the new function added into the FunctionalTester class.</p>
+<div class="alert alert-info">
+Public methods prefixed by `_` are treated as hidden and won't be added to your Actor class.
+</div>
+<p>Assertions can be a bit tricky. First of all, it's recommended to prefix all your assertion actions with <code>see</code> or <code>dontSee</code>.</p>
+<p>Name your assertions like this:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seePageReloaded();
+<span class="hljs-variable">$I</span>-&gt;seeClassIsLoaded(<span class="hljs-variable">$classname</span>);
+<span class="hljs-variable">$I</span>-&gt;dontSeeUserExist(<span class="hljs-variable">$user</span>);
+</code></pre>
+<p>And then use them in your tests:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;seePageReloaded();
+<span class="hljs-variable">$I</span>-&gt;seeClassIsLoaded(<span class="hljs-string">'FunctionalTester'</span>);
+<span class="hljs-variable">$I</span>-&gt;dontSeeUserExist(<span class="hljs-variable">$user</span>);
+</code></pre>
+<p>You can define assertions by using assertXXX methods in your modules.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">seeClassExist</span><span class="hljs-params">(<span class="hljs-variable">$class</span>)</span>
+</span>{
+    <span class="hljs-variable">$this</span>-&gt;assertTrue(class_exists(<span class="hljs-variable">$class</span>));
+}
+</code></pre>
+<p>In your helpers you can use these assertions:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">seeCanCheckEverything</span><span class="hljs-params">(<span class="hljs-variable">$thing</span>)</span>
+</span>{
+    <span class="hljs-variable">$this</span>-&gt;assertTrue(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$thing</span>), <span class="hljs-string">"this thing is set"</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertFalse(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$any</span>), <span class="hljs-string">"this thing is not empty"</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertNotNull(<span class="hljs-variable">$thing</span>, <span class="hljs-string">"this thing is not null"</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertContains(<span class="hljs-string">"world"</span>, <span class="hljs-variable">$thing</span>, <span class="hljs-string">"this thing contains 'world'"</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertNotContains(<span class="hljs-string">"bye"</span>, <span class="hljs-variable">$thing</span>, <span class="hljs-string">"this thing doesn't contain 'bye'"</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">"hello world"</span>, <span class="hljs-variable">$thing</span>, <span class="hljs-string">"this thing is 'Hello world'!"</span>);
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<h3>Accessing Other Modules <span id="accessing-other-modules"></span><a href="#accessing-other-modules" class="hashlink">&para;</a></h3><p>It's possible that you will need to access internal data or functions from other modules.
+For example, for your module you might need to access the responses or internal actions of other modules.</p>
+<p>Modules can interact with each other through the <code>getModule</code> method.
+Please note that this method will throw an exception if the required module was not loaded.</p>
+<p>Let's imagine that we are writing a module that reconnects to a database.
+It's supposed to use the dbh connection value from the Db module.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reconnectToDatabase</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-variable">$dbh</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Db'</span>)-&gt;dbh;
+    <span class="hljs-variable">$dbh</span>-&gt;close();
+    <span class="hljs-variable">$dbh</span>-&gt;open();
+}
+</code></pre>
+<p>By using the <code>getModule</code> function, you get access to all of the public methods and properties of the requested module.
+The <code>dbh</code> property was defined as public specifically to be available to other modules.</p>
+<p>Modules may also contain methods that are exposed for use in helper classes. Those methods start with a <code>_</code> prefix
+and are not available in Actor classes, so can be accessed only from modules and extensions.</p>
+<p>You should use them to write your own actions using module internals.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">seeNumResults</span><span class="hljs-params">(<span class="hljs-variable">$num</span>)</span>
+</span>{
+    <span class="hljs-comment">// retrieving webdriver session</span>
+    <span class="hljs-comment">/**<span class="hljs-doctag">@var</span> $table \Facebook\WebDriver\WebDriverElement */</span>
+    <span class="hljs-variable">$elements</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'WebDriver'</span>)-&gt;_findElements(<span class="hljs-string">'#result'</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertNotEmpty(<span class="hljs-variable">$elements</span>);
+    <span class="hljs-variable">$table</span> = reset(<span class="hljs-variable">$elements</span>);
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">'table'</span>, <span class="hljs-variable">$table</span>-&gt;getTagName());
+    <span class="hljs-variable">$results</span> = <span class="hljs-variable">$table</span>-&gt;findElements(<span class="hljs-string">'tr'</span>);
+    <span class="hljs-comment">// asserting that table contains exactly $num rows</span>
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-variable">$num</span>, count(<span class="hljs-variable">$results</span>));
+}
+</code></pre>
+<p>In this example we use the API of the <a href="https://github.com/facebook/php-webdriver">facebook/php-webdriver</a> library,
+a Selenium WebDriver client the module is build on.
+You can also access the <code>webDriver</code> property of a module to get access to the <code>Facebook\WebDriver\RemoteWebDriver</code> instance
+for direct Selenium interaction.</p>
+<h3>Extending a Module <span id="extending-a-module"></span><a href="#extending-a-module" class="hashlink">&para;</a></h3><p>If accessing modules doesn't provide enough flexibility, you can extend a module inside a Helper class:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Helper</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyExtendedSelenium</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Module</span>\<span class="hljs-title">WebDriver</span> </span>{
+}
+</code></pre>
+<p>In this helper you can replace the parent's methods with your own implementation.
+You can also replace the <code>_before</code> and <code>_after</code> hooks, which might be an option
+when you need to customize starting and stopping of a testing session.</p>
+<h3>Hooks <span id="hooks"></span><a href="#hooks" class="hashlink">&para;</a></h3><p>Each module can handle events from the running test. A module can be executed before the test starts,
+or after the test is finished. This can be useful for bootstrap/cleanup actions.
+You can also define special behavior for when the test fails. This may help you in debugging the issue.
+For example, the PhpBrowser module saves the current webpage to the <code>tests/_output</code> directory when a test fails.</p>
+<p>All hooks are defined in <a href="http://codeception.com/docs/reference/Commands">Codeception\Module</a> and are listed here. You are free to redefine them in your module.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+
+    <span class="hljs-comment">// HOOK: used after configuration is loaded</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_initialize</span><span class="hljs-params">()</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: before each suite</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_beforeSuite</span><span class="hljs-params">(<span class="hljs-variable">$settings</span> = array<span class="hljs-params">()</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: after suite</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_afterSuite</span><span class="hljs-params">()</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: before each step</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_beforeStep</span><span class="hljs-params">(\Codeception\Step <span class="hljs-variable">$step</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: after each step</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_afterStep</span><span class="hljs-params">(\Codeception\Step <span class="hljs-variable">$step</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: before test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_before</span><span class="hljs-params">(\Codeception\TestInterface <span class="hljs-variable">$test</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: after test</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_after</span><span class="hljs-params">(\Codeception\TestInterface <span class="hljs-variable">$test</span>)</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// HOOK: on fail</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_failed</span><span class="hljs-params">(\Codeception\TestInterface <span class="hljs-variable">$test</span>, <span class="hljs-variable">$fail</span>)</span>
+    </span>{
+    }
+</code></pre>
+<p>Please note that methods with a <code>_</code> prefix are not added to the Actor class.
+This allows them to be defined as public but used only for internal purposes.</p>
+<h3>Debug <span id="debug"></span><a href="#debug" class="hashlink">&para;</a></h3><p>As we mentioned, the <code>_failed</code> hook can help in debugging a failed test.
+You have the opportunity to save the current test's state and show it to the user, but you are not limited to this.</p>
+<p>Each module can output internal values that may be useful during debug.
+For example, the PhpBrowser module prints the response code and current URL every time it moves to a new page.
+Thus, modules are not black boxes. They are trying to show you what is happening during the test.
+This makes debugging your tests less painful.</p>
+<p>To display additional information, use the <code>debug</code> and <code>debugSection</code> methods of the module.
+Here is an example of how it works for PhpBrowser:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+    <span class="hljs-variable">$this</span>-&gt;debugSection(<span class="hljs-string">'Request'</span>, <span class="hljs-variable">$params</span>);
+    <span class="hljs-variable">$this</span>-&gt;client-&gt;request(<span class="hljs-variable">$method</span>, <span class="hljs-variable">$uri</span>, <span class="hljs-variable">$params</span>);
+    <span class="hljs-variable">$this</span>-&gt;debug(<span class="hljs-string">'Response Code: '</span> . <span class="hljs-variable">$this</span>-&gt;client-&gt;getStatusCode());
+</code></pre>
+<p>This test, running with the PhpBrowser module in debug mode, will print something like this:</p>
+<pre><code class="hljs bash language-bash">I click <span class="hljs-string">"All pages"</span>
+* Request (GET) http://localhost/pages {}
+* Response code: <span class="hljs-number">200</span>
+</code></pre>
+<h2>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h2><p>Modules and Helpers can be configured from the suite configuration file, or globally from <code>codeception.yml</code>.</p>
+<p>Mandatory parameters should be defined in the <code>$requiredFields</code> property of the class.
+Here is how it is done in the Db module:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Db</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Module</span>
+</span>{
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$requiredFields</span> = [<span class="hljs-string">'dsn'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'password'</span>];
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>The next time you start the suite without setting one of these values, an exception will be thrown.</p>
+<p>For optional parameters, you should set default values. The <code>$config</code> property is used to define optional parameters
+as well as their values. In the WebDriver module we use the default Selenium Server address and port.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebDriver</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Module</span>
+</span>{
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$requiredFields</span> = [<span class="hljs-string">'browser'</span>, <span class="hljs-string">'url'</span>];
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$config</span> = [<span class="hljs-string">'host'</span> =&gt; <span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-string">'port'</span> =&gt; <span class="hljs-string">'4444'</span>];
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>The host and port parameter can be redefined in the suite configuration.
+Values are set in the <code>modules:config</code> section of the configuration file.</p>
+<pre><code class="language-yaml">modules:
+    enabled:
+        - WebDriver:
+            url: 'http://mysite.com/'
+            browser: 'firefox'
+        - Db:
+            cleanup: false
+            repopulate: false
+</code></pre>
+<p>Optional and mandatory parameters can be accessed through the <code>$config</code> property.
+Use <code>$this-&gt;config['parameter']</code> to get its value.</p>
+<h3>Dynamic Configuration With Parameters <span id="dynamic-configuration-with-parameters"></span><a href="#dynamic-configuration-with-parameters" class="hashlink">&para;</a></h3><p>Modules can be dynamically configured from environment variables.
+Parameter storage should be specified in the global <code>codeception.yml</code> configuration inside the <code>params</code> section.
+Parameters can be loaded from environment vars, from yaml (Symfony format), .env (Laravel format), ini, or php files.</p>
+<p>Use the <code>params</code> section of the global configuration file <code>codeception.yml</code> to specify how to load them.
+You can specify several sources for parameters to be loaded from.</p>
+<p>Example: load parameters from the environment:</p>
+<pre><code class="language-yaml">params:
+    - env # load params from environment vars
+</code></pre>
+<p>Example: load parameters from YAML file (Symfony):</p>
+<pre><code class="language-yaml">params:
+    - app/config/parameters.yml
+</code></pre>
+<p>Example: load parameters from php file (Yii)</p>
+<pre><code class="language-yaml">params:
+    - config/params.php
+</code></pre>
+<p>Example: load parameters from .env files (Laravel):</p>
+<pre><code class="language-yaml">params:
+    - .env
+    - .env.testing
+</code></pre>
+<p>Once loaded, parameter variables can be used as module configuration values.
+Use a variable name wrapped with <code>%</code> as a placeholder and it will be replaced by its value.</p>
+<p>Let's say we want to specify credentials for a cloud testing service. We have loaded <code>SAUCE_USER</code>
+and <code>SAUCE_KEY</code> variables from environment, and now we are passing their values into config of <code>WebDriver</code>:</p>
+<pre><code class="language-yaml">    modules:
+       enabled:
+          - WebDriver:
+             url: http://mysite.com
+             host: '%SAUCE_USER%:%SAUCE_KEY%@ondemand.saucelabs.com'
+</code></pre>
+<p>Parameters are also useful to provide connection credentials for the <code>Db</code> module (taken from Laravel's .env files):</p>
+<pre><code class="language-yaml">module:
+    enabled:
+        - Db:
+            dsn: "mysql:host=%DB_HOST%;dbname=%DB_DATABASE%"
+            user: "%DB_USERNAME%"
+            password: "DB_PASSWORD"
+</code></pre>
+<h3>Runtime Configuration <span id="runtime-configuration"></span><a href="#runtime-configuration" class="hashlink">&para;</a></h3><p>If you want to reconfigure a module at runtime, you can use the <code>_reconfigure</code> method of the module.
+You may call it from a helper class and pass in all the fields you want to change.</p>
+<p>In this case configuration will be changed instantly. In next example we change root URL for PhpBrowser to point to the admin area,
+ so next <code>amOnPage('/')</code> will open <code>/admin/</code> page.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'PhpBrowser'</span>)-&gt;_reconfigure(<span class="hljs-keyword">array</span>(<span class="hljs-string">'url'</span> =&gt; <span class="hljs-string">'http://localhost/admin'</span>));
+</code></pre>
+<p>However, in WebDriver configuration changes can't be applied that easily. For instance, if you change the browser you need to close the current browser session and start a new one.
+For that WebDriver module provides <code>_restart</code> method which takes an array with config and restarts the browser.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// start chrome</span>
+<span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'WebDriver'</span>)-&gt;_restart([<span class="hljs-string">'browser'</span> =&gt; <span class="hljs-string">'chrome'</span>]);
+<span class="hljs-comment">// or just restart browser</span>
+<span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'WebDriver'</span>)-&gt;_restart();
+</code></pre>
+<p>At the end of a test all configuration changes will be rolled back to the original configuration values.</p>
+<h3>Runtime Configuration of a Test <span id="runtime-configuration-of-a-test"></span><a href="#runtime-configuration-of-a-test" class="hashlink">&para;</a></h3><p>Sometimes it is needed to set custom configuration for a specific test only.
+For <a href="http://codeception.com/docs/07-AdvancedUsage#Cest-Classes">Cest</a> and <a href="http://codeception.com/docs/05-UnitTests">Test\Unit</a>
+formats you can use <code>@prepare</code> annotation which can execute the code before other hooks are executed. This allows <code>@prepare</code>
+to change the module configuration in runtime. <code>@prepare</code> uses <a href="http://codeception.com/docs/07-AdvancedUsage#Dependency-Injection">dependency injection</a>
+to automatically inject required modules into a method.</p>
+<p>To run a specific test only in Chrome browser, you can call <code>_reconfigure</code> from WebDriver module for a test itself using <code>@prepare</code>.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@prepare</span> useChrome
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">chromeSpecificTest</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useChrome</span><span class="hljs-params">(\Codeception\Module\WebDriver <span class="hljs-variable">$webdriver</span>)</span>
+</span>{
+    <span class="hljs-comment">// WebDriver was injected by the class name</span>
+    <span class="hljs-variable">$webdriver</span>-&gt;_reconfigure([<span class="hljs-string">'browser'</span> =&gt; <span class="hljs-string">'chrome'</span>]);
+}
+</code></pre>
+<p>Prepare methods can invoke all methods of a module, as well as hidden API methods (starting with <code>_</code>). Use them to customize the module setup for a specific test.</p>
+<p>To change module configuration for a specific group of tests use <a href="http://codeception.com/docs/08-Customization#Group-Objects">GroupObjects</a>.</p>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>Modules are the real power of Codeception. They are used to emulate multiple inheritances for Actor classes
+(UnitTester, FunctionalTester, AcceptanceTester, etc). Codeception provides modules to emulate web requests,
+access data, interact with popular PHP libraries, etc. If the bundled modules are not enough for you that's OK,
+you are free to write your own! Use Helpers (custom modules) for everything that Codeception can't do out of the box.
+Helpers also can be used to extend the functionality of the original modules.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

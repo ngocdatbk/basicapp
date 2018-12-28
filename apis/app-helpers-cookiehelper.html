@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>CookieHelper, app\helpers\CookieHelper - Yii Framework 2.0 API Documentation</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w878" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w878-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Yii Framework 2.0 API Documentation</a></div><div id="w878-collapse" class="collapse navbar-collapse"><ul id="w879" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-825" data-toggle="collapse" data-parent="#navigation">app\assets <b class="caret"></b></a><div id="navigation-825" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-assets-appasset.html">AppAsset</a>
+<a class="list-group-item" href="./app-assets-fontawesomeasset.html">FontAwesomeAsset</a>
+<a class="list-group-item" href="./app-assets-layoutadminasset.html">LayoutAdminAsset</a></div>
+<a class="list-group-item" href="#navigation-826" data-toggle="collapse" data-parent="#navigation">app\commands <b class="caret"></b></a><div id="navigation-826" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-commands-appmigratecontroller.html">AppMigrateController</a>
+<a class="list-group-item" href="./app-commands-cronabstractcontroller.html">CronAbstractController</a>
+<a class="list-group-item" href="./app-commands-croncontroller.html">CronController</a>
+<a class="list-group-item" href="./app-commands-hellocontroller.html">HelloController</a>
+<a class="list-group-item" href="./app-commands-rbaccontroller.html">RbacController</a></div>
+<a class="list-group-item" href="#navigation-827" data-toggle="collapse" data-parent="#navigation">app\components <b class="caret"></b></a><div id="navigation-827" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-components-controller.html">Controller</a>
+<a class="list-group-item" href="./app-components-model.html">Model</a></div>
+<a class="list-group-item" href="#navigation-828" data-toggle="collapse" data-parent="#navigation">app\controllers <b class="caret"></b></a><div id="navigation-828" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-controllers-sitecontroller.html">SiteController</a></div>
+<a class="list-group-item active" href="#navigation-829" data-toggle="collapse" data-parent="#navigation">app\helpers <b class="caret"></b></a><div id="navigation-829" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./app-helpers-apihelper.html">ApiHelper</a>
+<a class="list-group-item" href="./app-helpers-applocale.html">AppLocale</a>
+<a class="list-group-item" href="./app-helpers-applicationhelper.html">ApplicationHelper</a>
+<a class="list-group-item" href="./app-helpers-arrayhelper.html">ArrayHelper</a>
+<a class="list-group-item active" href="./app-helpers-cookiehelper.html">CookieHelper</a>
+<a class="list-group-item" href="./app-helpers-denormalization.html">Denormalization</a>
+<a class="list-group-item" href="./app-helpers-exporthelper.html">ExportHelper</a>
+<a class="list-group-item" href="./app-helpers-gmailapi.html">GmailApi</a>
+<a class="list-group-item" href="./app-helpers-googleapi.html">GoogleApi</a>
+<a class="list-group-item" href="./app-helpers-googlehelper.html">GoogleHelper</a>
+<a class="list-group-item" href="./app-helpers-htmlhelper.html">HtmlHelper</a>
+<a class="list-group-item" href="./app-helpers-languagetranslatehelper.html">LanguageTranslateHelper</a>
+<a class="list-group-item" href="./app-helpers-mailhelper.html">MailHelper</a>
+<a class="list-group-item" href="./app-helpers-php.html">Php</a>
+<a class="list-group-item" href="./app-helpers-renderhtmlwidget.html">RenderHtmlWidget</a>
+<a class="list-group-item" href="./app-helpers-responsehelper.html">ResponseHelper</a>
+<a class="list-group-item" href="./app-helpers-stringhelper.html">StringHelper</a>
+<a class="list-group-item" href="./app-helpers-urlhelper.html">UrlHelper</a></div>
+<a class="list-group-item" href="#navigation-830" data-toggle="collapse" data-parent="#navigation">app\models <b class="caret"></b></a><div id="navigation-830" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-models-contactform.html">ContactForm</a>
+<a class="list-group-item" href="./app-models-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./app-models-user.html">User</a></div>
+<a class="list-group-item" href="#navigation-831" data-toggle="collapse" data-parent="#navigation">app\modules\admin <b class="caret"></b></a><div id="navigation-831" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-832" data-toggle="collapse" data-parent="#navigation">app\modules\admin\assets <b class="caret"></b></a><div id="navigation-832" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-assets-productasset.html">ProductAsset</a></div>
+<a class="list-group-item" href="#navigation-833" data-toggle="collapse" data-parent="#navigation">app\modules\admin\controllers <b class="caret"></b></a><div id="navigation-833" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-admin-controllers-productcategorycontroller.html">ProductCategoryController</a>
+<a class="list-group-item" href="./app-modules-admin-controllers-productcontroller.html">ProductController</a></div>
+<a class="list-group-item" href="#navigation-834" data-toggle="collapse" data-parent="#navigation">app\modules\admin\models <b class="caret"></b></a><div id="navigation-834" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-models-product.html">Product</a>
+<a class="list-group-item" href="./app-modules-admin-models-productcategory.html">ProductCategory</a>
+<a class="list-group-item" href="./app-modules-admin-models-productimage.html">ProductImage</a>
+<a class="list-group-item" href="./app-modules-admin-models-productimageupload.html">ProductImageUpload</a></div>
+<a class="list-group-item" href="#navigation-835" data-toggle="collapse" data-parent="#navigation">app\modules\admin\models\search <b class="caret"></b></a><div id="navigation-835" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-models-search-productsearch.html">ProductSearch</a></div>
+<a class="list-group-item" href="#navigation-836" data-toggle="collapse" data-parent="#navigation">app\modules\core <b class="caret"></b></a><div id="navigation-836" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-837" data-toggle="collapse" data-parent="#navigation">app\modules\core\assets <b class="caret"></b></a><div id="navigation-837" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-assets-adminnavigationasset.html">AdminNavigationAsset</a></div>
+<a class="list-group-item" href="#navigation-838" data-toggle="collapse" data-parent="#navigation">app\modules\core\components <b class="caret"></b></a><div id="navigation-838" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-components-dataregistry.html">DataRegistry</a></div>
+<a class="list-group-item" href="#navigation-839" data-toggle="collapse" data-parent="#navigation">app\modules\core\controllers <b class="caret"></b></a><div id="navigation-839" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-controllers-adminnavigationcontroller.html">AdminNavigationController</a>
+<a class="list-group-item" href="./app-modules-core-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-840" data-toggle="collapse" data-parent="#navigation">app\modules\core\models <b class="caret"></b></a><div id="navigation-840" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-models-adminnavigation.html">AdminNavigation</a>
+<a class="list-group-item" href="./app-modules-core-models-dataregistry.html">DataRegistry</a></div>
+<a class="list-group-item" href="#navigation-841" data-toggle="collapse" data-parent="#navigation">app\modules\core\widgets <b class="caret"></b></a><div id="navigation-841" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-widgets-sidebarnavigationwidget.html">SidebarNavigationWidget</a></div>
+<a class="list-group-item" href="#navigation-842" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob <b class="caret"></b></a><div id="navigation-842" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-843" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\assets <b class="caret"></b></a><div id="navigation-843" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-assets-cronjobasset.html">CronjobAsset</a></div>
+<a class="list-group-item" href="#navigation-844" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\controllers <b class="caret"></b></a><div id="navigation-844" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-controllers-cronjobcontroller.html">CronjobController</a>
+<a class="list-group-item" href="./app-modules-cronjob-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-845" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\helpers <b class="caret"></b></a><div id="navigation-845" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-helpers-cronhelper.html">CronHelper</a></div>
+<a class="list-group-item" href="#navigation-846" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\models <b class="caret"></b></a><div id="navigation-846" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-models-cronjob.html">Cronjob</a>
+<a class="list-group-item" href="./app-modules-cronjob-models-cronjoblog.html">CronjobLog</a></div>
+<a class="list-group-item" href="#navigation-847" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\models\search <b class="caret"></b></a><div id="navigation-847" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-models-search-cronjobsearch.html">CronjobSearch</a></div>
+<a class="list-group-item" href="#navigation-848" data-toggle="collapse" data-parent="#navigation">app\modules\dashboard <b class="caret"></b></a><div id="navigation-848" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-dashboard-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-849" data-toggle="collapse" data-parent="#navigation">app\modules\dashboard\controllers <b class="caret"></b></a><div id="navigation-849" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-dashboard-controllers-dashboardcontroller.html">DashboardController</a>
+<a class="list-group-item" href="./app-modules-dashboard-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-850" data-toggle="collapse" data-parent="#navigation">app\modules\email <b class="caret"></b></a><div id="navigation-850" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-851" data-toggle="collapse" data-parent="#navigation">app\modules\email\commands <b class="caret"></b></a><div id="navigation-851" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-commands-sendmail.html">SendMail</a></div>
+<a class="list-group-item" href="#navigation-852" data-toggle="collapse" data-parent="#navigation">app\modules\email\controllers <b class="caret"></b></a><div id="navigation-852" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-email-controllers-emailqueuecontroller.html">EmailQueueController</a></div>
+<a class="list-group-item" href="#navigation-853" data-toggle="collapse" data-parent="#navigation">app\modules\email\models <b class="caret"></b></a><div id="navigation-853" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-models-emailqueue.html">EmailQueue</a></div>
+<a class="list-group-item" href="#navigation-854" data-toggle="collapse" data-parent="#navigation">app\modules\permission <b class="caret"></b></a><div id="navigation-854" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-855" data-toggle="collapse" data-parent="#navigation">app\modules\permission\controllers <b class="caret"></b></a><div id="navigation-855" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-permissioncontroller.html">PermissionController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-rolecontroller.html">RoleController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-rulecontroller.html">RuleController</a></div>
+<a class="list-group-item" href="#navigation-856" data-toggle="collapse" data-parent="#navigation">app\modules\permission\models <b class="caret"></b></a><div id="navigation-856" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-models-authassignment.html">AuthAssignment</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitem.html">AuthItem</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitemchild.html">AuthItemChild</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitemsearch.html">AuthItemSearch</a>
+<a class="list-group-item" href="./app-modules-permission-models-authrule.html">AuthRule</a>
+<a class="list-group-item" href="./app-modules-permission-models-createpermissionform.html">CreatePermissionForm</a>
+<a class="list-group-item" href="./app-modules-permission-models-editrule.html">EditRule</a></div>
+<a class="list-group-item" href="#navigation-857" data-toggle="collapse" data-parent="#navigation">app\modules\pub <b class="caret"></b></a><div id="navigation-857" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-858" data-toggle="collapse" data-parent="#navigation">app\modules\pub\assets <b class="caret"></b></a><div id="navigation-858" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-assets-cartasset.html">CartAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-layoutpubasset.html">LayoutPubAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-orderasset.html">OrderAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-productasset.html">ProductAsset</a></div>
+<a class="list-group-item" href="#navigation-859" data-toggle="collapse" data-parent="#navigation">app\modules\pub\controllers <b class="caret"></b></a><div id="navigation-859" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-controllers-cartcontroller.html">CartController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-dashboardcontroller.html">DashboardController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-ordercontroller.html">OrderController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-productcontroller.html">ProductController</a></div>
+<a class="list-group-item" href="#navigation-860" data-toggle="collapse" data-parent="#navigation">app\modules\report <b class="caret"></b></a><div id="navigation-860" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-861" data-toggle="collapse" data-parent="#navigation">app\modules\report\assets <b class="caret"></b></a><div id="navigation-861" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-assets-orderasset.html">OrderAsset</a></div>
+<a class="list-group-item" href="#navigation-862" data-toggle="collapse" data-parent="#navigation">app\modules\report\controllers <b class="caret"></b></a><div id="navigation-862" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-report-controllers-ordercontroller.html">OrderController</a>
+<a class="list-group-item" href="./app-modules-report-controllers-orderdetailcontroller.html">OrderDetailController</a></div>
+<a class="list-group-item" href="#navigation-863" data-toggle="collapse" data-parent="#navigation">app\modules\report\models <b class="caret"></b></a><div id="navigation-863" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-models-order.html">Order</a>
+<a class="list-group-item" href="./app-modules-report-models-orderdetail.html">OrderDetail</a>
+<a class="list-group-item" href="./app-modules-report-models-ordersearch.html">OrderSearch</a></div>
+<a class="list-group-item" href="#navigation-864" data-toggle="collapse" data-parent="#navigation">app\modules\setting <b class="caret"></b></a><div id="navigation-864" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-865" data-toggle="collapse" data-parent="#navigation">app\modules\setting\assets <b class="caret"></b></a><div id="navigation-865" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-assets-settingasset.html">SettingAsset</a></div>
+<a class="list-group-item" href="#navigation-866" data-toggle="collapse" data-parent="#navigation">app\modules\setting\components <b class="caret"></b></a><div id="navigation-866" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-components-settings.html">Settings</a></div>
+<a class="list-group-item" href="#navigation-867" data-toggle="collapse" data-parent="#navigation">app\modules\setting\controllers <b class="caret"></b></a><div id="navigation-867" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-setting-controllers-settingcontroller.html">SettingController</a></div>
+<a class="list-group-item" href="#navigation-868" data-toggle="collapse" data-parent="#navigation">app\modules\setting\models <b class="caret"></b></a><div id="navigation-868" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-models-setting.html">Setting</a>
+<a class="list-group-item" href="./app-modules-setting-models-settingmodel.html">SettingModel</a></div>
+<a class="list-group-item" href="#navigation-869" data-toggle="collapse" data-parent="#navigation">app\modules\user <b class="caret"></b></a><div id="navigation-869" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-870" data-toggle="collapse" data-parent="#navigation">app\modules\user\assets <b class="caret"></b></a><div id="navigation-870" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-assets-authasset.html">AuthAsset</a></div>
+<a class="list-group-item" href="#navigation-871" data-toggle="collapse" data-parent="#navigation">app\modules\user\components <b class="caret"></b></a><div id="navigation-871" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-components-user.html">User</a></div>
+<a class="list-group-item" href="#navigation-872" data-toggle="collapse" data-parent="#navigation">app\modules\user\controllers <b class="caret"></b></a><div id="navigation-872" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-controllers-authcontroller.html">AuthController</a>
+<a class="list-group-item" href="./app-modules-user-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-user-controllers-usercontroller.html">UserController</a></div>
+<a class="list-group-item" href="#navigation-873" data-toggle="collapse" data-parent="#navigation">app\modules\user\models <b class="caret"></b></a><div id="navigation-873" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-models-user.html">User</a>
+<a class="list-group-item" href="./app-modules-user-models-userauth.html">UserAuth</a>
+<a class="list-group-item" href="./app-modules-user-models-userconfirm.html">UserConfirm</a>
+<a class="list-group-item" href="./app-modules-user-models-userloginattempts.html">UserLoginAttempts</a>
+<a class="list-group-item" href="./app-modules-user-models-usersearch.html">UserSearch</a></div>
+<a class="list-group-item" href="#navigation-874" data-toggle="collapse" data-parent="#navigation">app\modules\user\models\form <b class="caret"></b></a><div id="navigation-874" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-models-form-createform.html">CreateForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-forgotpasswordform.html">ForgotPasswordForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-resetpassword.html">ResetPassword</a>
+<a class="list-group-item" href="./app-modules-user-models-form-signupform.html">SignupForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-updateform.html">UpdateForm</a></div>
+<a class="list-group-item" href="#navigation-875" data-toggle="collapse" data-parent="#navigation">app\rbac <b class="caret"></b></a><div id="navigation-875" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-rbac-authorrule.html">AuthorRule</a></div>
+<a class="list-group-item" href="#navigation-876" data-toggle="collapse" data-parent="#navigation">app\widgets <b class="caret"></b></a><div id="navigation-876" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-widgets-alert.html">Alert</a>
+<a class="list-group-item" href="./app-widgets-imagegallery.html">ImageGallery</a>
+<a class="list-group-item" href="./app-widgets-viewas.html">ViewAs</a></div>
+<a class="list-group-item" href="#navigation-877" data-toggle="collapse" data-parent="#navigation">app\widgets\assets <b class="caret"></b></a><div id="navigation-877" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-widgets-assets-imagegalleryasset.html">ImageGalleryAsset</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Class app\helpers\CookieHelper</h1>
+<div class="top-nav">
+    <a href="index.html">All Classes</a>
+                | <a href="#methods">Methods</a>
+            </div>
+
+<table class="summaryTable docClass table table-bordered">
+    <colgroup>
+        <col class="col-name" />
+        <col class="col-value" />
+    </colgroup>
+            <tr><th>Inheritance</th><td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td></tr>
+                                        </table>
+
+<div class="class-description">
+    <p><strong>Description of CookieHelper</strong></p>
+    
+    </div>
+
+<a id="properties"></a>
+
+<a id="methods"></a>
+
+<div class="summary doc-method">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+            <tr id="clearIdFromCookie()">
+        <td><a href="app-helpers-cookiehelper.html#clearIdFromCookie()-detail">clearIdFromCookie()</a></td>
+        <td>Clears the specified ID from the specified cookie. The cookie must be a comma-separated ID list.</td>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+    </tr>
+            <tr id="deleteAllCookies()">
+        <td><a href="app-helpers-cookiehelper.html#deleteAllCookies()-detail">deleteAllCookies()</a></td>
+        <td>Deletes all cookies set by Lnx.</td>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+    </tr>
+            <tr id="deleteCookie()">
+        <td><a href="app-helpers-cookiehelper.html#deleteCookie()-detail">deleteCookie()</a></td>
+        <td>Deletes the named cookie. The settings must match the settings when it was created.</td>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+    </tr>
+            <tr id="getCookie()">
+        <td><a href="app-helpers-cookiehelper.html#getCookie()-detail">getCookie()</a></td>
+        <td>Gets the specified cookie. This automatically adds the necessary prefix.</td>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+    </tr>
+            <tr id="setCookie()">
+        <td><a href="app-helpers-cookiehelper.html#setCookie()-detail">setCookie()</a></td>
+        <td>Sets a cookie with Lnx-specific options.</td>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+    </tr>
+    </table>
+</div>
+
+<div class="summary doc-method">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="_setCookieInternal()">
+        <td><a href="app-helpers-cookiehelper.html#_setCookieInternal()-detail">_setCookieInternal()</a></td>
+        <td>Internal helper to set or delete a cookie with Lnx-specific options.</td>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+    </tr>
+                        </table>
+</div>
+
+<a id="events"></a>
+
+<a id="constants"></a>
+
+<h2>Method Details</h2>
+
+<div class="method-doc">
+
+    <div class="detail-header h3" id="_setCookieInternal()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-helpers-cookiehelper.html#_setCookieInternal()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        _setCookieInternal()
+        <span class="detail-header-tag small">
+            protected                        static            method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Internal helper to set or delete a cookie with Lnx-specific options.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected static</span> <span class="signature-type"><a href="http://www.php.net/language.types.boolean">boolean</a></span> <strong><a href="app-helpers-cookiehelper.html#_setCookieInternal()-detail">_setCookieInternal</a></strong> ( <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$value</span>, <span style="color: #0000BB">$expiration&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span>, <span style="color: #0000BB">$httpOnly&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span>, <span style="color: #0000BB">$secure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Name of the cookie</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$value</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a>|<a href="http://www.php.net/language.types.boolean">false</a></td>
+                  <td class="param-desc-col"><p>Value of the cookie, false to delete</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$expiration</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
+                  <td class="param-desc-col"><p>Time stamp the cookie expires</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$httpOnly</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+                  <td class="param-desc-col"><p>Whether the cookie should be available via HTTP only</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$secure</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a>|<a href="http://www.php.net/language.types.null">null</a></td>
+                  <td class="param-desc-col"><p>Whether the cookie should be available via HTTPS only; if null, value is true if currently on HTTPS</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+                  <td class="param-desc-col"><p>True if set</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="clearIdFromCookie()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-helpers-cookiehelper.html#clearIdFromCookie()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        clearIdFromCookie()
+        <span class="detail-header-tag small">
+            public                        static            method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Clears the specified ID from the specified cookie. The cookie must be a comma-separated ID list.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public static</span> <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <strong><a href="app-helpers-cookiehelper.html#clearIdFromCookie()-detail">clearIdFromCookie</a></strong> ( <span style="color: #0000BB">$id</span>, <span style="color: #0000BB">$cookieName</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a>|<a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$cookieName</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>Exploded cookie array</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="deleteAllCookies()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-helpers-cookiehelper.html#deleteAllCookies()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        deleteAllCookies()
+        <span class="detail-header-tag small">
+            public                        static            method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Deletes all cookies set by Lnx.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public static</span> <span class="signature-type">void</span> <strong><a href="app-helpers-cookiehelper.html#deleteAllCookies()-detail">deleteAllCookies</a></strong> ( <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <span style="color: #0000BB">$skip&nbsp;</span><span style="color: #007700">=&nbsp;[]</span>, <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <span style="color: #0000BB">$flags&nbsp;</span><span style="color: #007700">=&nbsp;[]</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$skip</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>List of cookies to skip</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$flags</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>List of flags to apply to individual cookies. [cookie name] =&gt; {httpOnly: true/false, secure: true/false/null}</p>
+</td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="deleteCookie()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-helpers-cookiehelper.html#deleteCookie()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        deleteCookie()
+        <span class="detail-header-tag small">
+            public                        static            method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Deletes the named cookie. The settings must match the settings when it was created.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public static</span> <span class="signature-type"><a href="http://www.php.net/language.types.boolean">boolean</a></span> <strong><a href="app-helpers-cookiehelper.html#deleteCookie()-detail">deleteCookie</a></strong> ( <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$httpOnly&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span>, <span style="color: #0000BB">$secure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Name of cookie</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$httpOnly</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+                  <td class="param-desc-col"><p>Whether the cookie should be available via HTTP only</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$secure</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a>|<a href="http://www.php.net/language.types.null">null</a></td>
+                  <td class="param-desc-col"><p>Whether the cookie should be available via HTTPS only; if null, value is true if currently on HTTPS</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+                  <td class="param-desc-col"><p>True if deleted</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="getCookie()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-helpers-cookiehelper.html#getCookie()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        getCookie()
+        <span class="detail-header-tag small">
+            public                        static            method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Gets the specified cookie. This automatically adds the necessary prefix.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public static</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a>|<a href="http://www.php.net/language.types.array">array</a>|<a href="http://www.php.net/language.types.boolean">false</a></span> <strong><a href="app-helpers-cookiehelper.html#getCookie()-detail">getCookie</a></strong> ( <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$validation&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Cookie name without prefix</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$validation</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a>|<a href="http://www.php.net/language.types.array">array</a>|<a href="http://www.php.net/language.types.boolean">false</a></td>
+                  <td class="param-desc-col"><p>False if cookie isn't found</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="setCookie()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-helpers-cookiehelper.html#setCookie()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        setCookie()
+        <span class="detail-header-tag small">
+            public                        static            method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Sets a cookie with Lnx-specific options.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public static</span> <span class="signature-type"><a href="http://www.php.net/language.types.boolean">boolean</a></span> <strong><a href="app-helpers-cookiehelper.html#setCookie()-detail">setCookie</a></strong> ( <span style="color: #0000BB">$name</span>, <span style="color: #0000BB">$value</span>, <span style="color: #0000BB">$lifetime&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span>, <span style="color: #0000BB">$httpOnly&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span>, <span style="color: #0000BB">$secure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$name</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Name of the cookie</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$value</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Value of the cookie</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$lifetime</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
+                  <td class="param-desc-col"><p>The number of seconds the cookie should live from now. If 0, sets a session cookie.</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$httpOnly</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+                  <td class="param-desc-col"><p>Whether the cookie should be available via HTTP only</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$secure</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a>|<a href="http://www.php.net/language.types.null">null</a></td>
+                  <td class="param-desc-col"><p>Whether the cookie should be available via HTTPS only; if null, value is true if currently on HTTPS</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.boolean">boolean</a></td>
+                  <td class="param-desc-col"><p>True if set</p>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+</div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:29:13 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

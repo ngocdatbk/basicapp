@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w3076" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w3076-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w3076-collapse" class="collapse navbar-collapse"><ul id="w3077" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-3060" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-3060" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3061" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-3061" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3062" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-3062" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3063" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-3063" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3064" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-3064" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3065" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-3065" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3066" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-3066" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3067" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-3067" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3068" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-3068" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3069" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-3069" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3070" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-3070" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3071" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-3071" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3072" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-3072" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3073" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-3073" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3074" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-3074" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3075" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-3075" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h2>Codeception\Module <span id="codeceptionmodule"></span><a href="#codeceptionmodule" class="hashlink">&para;</a></h2><ul>
+<li><em>Uses</em> <code>Codeception\Util\Shared\Asserts</code></li>
+</ul>
+<p>Basic class for Modules and Helpers.
+You must extend from it while implementing own helpers.</p>
+<p>Public methods of this class start with <code>_</code> prefix in order to ignore them in actor classes.
+Module contains <strong>HOOKS</strong> which allow to handle test execution routine.</p>
+<h4>$includeInheritedActions <span id="includeinheritedactions"></span><a href="#includeinheritedactions" class="hashlink">&para;</a></h4><p><em>public static</em> <strong>$includeInheritedActions</strong></p>
+<p>By setting it to false module wan't inherit methods of parent class.</p>
+<p>type <code>bool</code></p>
+<h4>$onlyActions <span id="onlyactions"></span><a href="#onlyactions" class="hashlink">&para;</a></h4><p><em>public static</em> <strong>$onlyActions</strong></p>
+<p>Allows to explicitly set what methods have this class.</p>
+<p>type <code>array</code></p>
+<h4>$excludeActions <span id="excludeactions"></span><a href="#excludeactions" class="hashlink">&para;</a></h4><p><em>public static</em> <strong>$excludeActions</strong></p>
+<p>Allows to explicitly exclude actions from module.</p>
+<p>type <code>array</code></p>
+<h4>$aliases <span id="aliases"></span><a href="#aliases" class="hashlink">&para;</a></h4><p><em>public static</em> <strong>$aliases</strong></p>
+<p>Allows to rename actions</p>
+<p>type <code>array</code></p>
+<h4>__construct() <span id="construct"></span><a href="#construct" class="hashlink">&para;</a></h4><p> <em>public</em> __construct($moduleContainer, $config = null) </p>
+<p>Module constructor.</p>
+<p>Requires module container (to provide access between modules of suite) and config.</p>
+<ul>
+<li><code>param ModuleContainer</code> $moduleContainer</li>
+<li><code>param null</code> $config</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L70">See source</a></p>
+<h4>_after() <span id="after"></span><a href="#after" class="hashlink">&para;</a></h4><p> <em>public</em> _after($test) </p>
+<p><strong>HOOK</strong> executed after test</p>
+<ul>
+<li><code>param TestInterface</code> $test</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L253">See source</a></p>
+<h4>_afterStep() <span id="afterstep"></span><a href="#afterstep" class="hashlink">&para;</a></h4><p> <em>public</em> _afterStep($step) </p>
+<p><strong>HOOK</strong> executed after step</p>
+<ul>
+<li><code>param Step</code> $step</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L235">See source</a></p>
+<h4>_afterSuite() <span id="aftersuite"></span><a href="#aftersuite" class="hashlink">&para;</a></h4><p> <em>public</em> _afterSuite() </p>
+<p><strong>HOOK</strong> executed after suite</p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L217">See source</a></p>
+<h4>_before() <span id="before"></span><a href="#before" class="hashlink">&para;</a></h4><p> <em>public</em> _before($test) </p>
+<p><strong>HOOK</strong> executed before test</p>
+<ul>
+<li><code>param TestInterface</code> $test</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L244">See source</a></p>
+<h4>_beforeStep() <span id="beforestep"></span><a href="#beforestep" class="hashlink">&para;</a></h4><p> <em>public</em> _beforeStep($step) </p>
+<p><strong>HOOK</strong> executed before step</p>
+<ul>
+<li><code>param Step</code> $step</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L226">See source</a></p>
+<h4>_beforeSuite() <span id="beforesuite"></span><a href="#beforesuite" class="hashlink">&para;</a></h4><p> <em>public</em> _beforeSuite($settings = null) </p>
+<p><strong>HOOK</strong> executed before suite</p>
+<ul>
+<li><code>param array</code> $settings</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L210">See source</a></p>
+<h4>_failed() <span id="failed"></span><a href="#failed" class="hashlink">&para;</a></h4><p> <em>public</em> _failed($test, $fail) </p>
+<p><strong>HOOK</strong> executed when test fails but before <code>_after</code></p>
+<ul>
+<li><code>param TestInterface</code> $test</li>
+<li><code>param \Exception</code> $fail</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L263">See source</a></p>
+<h4>_getConfig() <span id="getconfig"></span><a href="#getconfig" class="hashlink">&para;</a></h4><p> <em>public</em> _getConfig($key = null) </p>
+<p>Get config values or specific config item.</p>
+<ul>
+<li><code>param null</code> $key</li>
+<li><code>return</code> array|mixed|null</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L338">See source</a></p>
+<h4>_getName() <span id="getname"></span><a href="#getname" class="hashlink">&para;</a></h4><p> <em>public</em> _getName() </p>
+<p>Returns a module name for a Module, a class name for Helper</p>
+<ul>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L177">See source</a></p>
+<h4>_hasRequiredFields() <span id="hasrequiredfields"></span><a href="#hasrequiredfields" class="hashlink">&para;</a></h4><p> <em>public</em> _hasRequiredFields() </p>
+<p>Checks if a module has required fields</p>
+<ul>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L193">See source</a></p>
+<h4>_initialize() <span id="initialize"></span><a href="#initialize" class="hashlink">&para;</a></h4><p> <em>public</em> _initialize() </p>
+<p><strong>HOOK</strong> triggered after module is created and configuration is loaded</p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L201">See source</a></p>
+<h4>_reconfigure() <span id="reconfigure"></span><a href="#reconfigure" class="hashlink">&para;</a></h4><p> <em>public</em> _reconfigure($config) </p>
+<p>Allows to redefine config for a specific test.
+Config is restored at the end of a test.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// cleanup DB only for specific group of tests</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_before</span><span class="hljs-params">(Test <span class="hljs-variable">$test</span>)</span> </span>{
+    <span class="hljs-keyword">if</span> (in_array(<span class="hljs-string">'cleanup'</span>, <span class="hljs-variable">$test</span>-&gt;getMetadata()-&gt;getGroups()) {
+        <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Db'</span>)-&gt;_reconfigure([<span class="hljs-string">'cleanup'</span> =&gt; <span class="hljs-keyword">true</span>]);
+    }
+}
+</code></pre>
+<ul>
+<li><code>param</code> $config</li>
+<li><code>throws</code> Exception\ModuleConfigException</li>
+<li><code>throws</code> ModuleException</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L119">See source</a></p>
+<h4>_resetConfig() <span id="resetconfig"></span><a href="#resetconfig" class="hashlink">&para;</a></h4><p> <em>public</em> _resetConfig() </p>
+<p>Reverts config changed by <code>_reconfigure</code></p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L137">See source</a></p>
+<h4>_setConfig() <span id="setconfig"></span><a href="#setconfig" class="hashlink">&para;</a></h4><p> <em>public</em> _setConfig($config) </p>
+<p>Allows to define initial module config.
+Can be used in <code>_beforeSuite</code> hook of Helpers or Extensions</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_beforeSuite</span><span class="hljs-params">(<span class="hljs-variable">$settings</span> = [])</span> </span>{
+    <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'otherModule'</span>)-&gt;_setConfig(<span class="hljs-variable">$this</span>-&gt;myOtherConfig);
+}
+</code></pre>
+<ul>
+<li><code>param</code> $config</li>
+<li><code>throws</code> Exception\ModuleConfigException</li>
+<li><code>throws</code> ModuleException</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L95">See source</a></p>
+<h4>assert() <span id="assert"></span><a href="#assert" class="hashlink">&para;</a></h4><p> <em>protected</em> assert($arguments, $not = null) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L6">See source</a></p>
+<h4>assertArrayHasKey() <span id="assertarrayhaskey"></span><a href="#assertarrayhaskey" class="hashlink">&para;</a></h4><p> <em>protected</em> assertArrayHasKey($key, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $key</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L385">See source</a></p>
+<h4>assertArrayNotHasKey() <span id="assertarraynothaskey"></span><a href="#assertarraynothaskey" class="hashlink">&para;</a></h4><p> <em>protected</em> assertArrayNotHasKey($key, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $key</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L395">See source</a></p>
+<h4>assertArraySubset() <span id="assertarraysubset"></span><a href="#assertarraysubset" class="hashlink">&para;</a></h4><p> <em>protected</em> assertArraySubset($subset, $array, $strict = null, $message = null) </p>
+<p>Checks that array contains subset.</p>
+<ul>
+<li><code>param array</code>  $subset</li>
+<li><code>param array</code>  $array</li>
+<li><code>param bool</code>   $strict</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L408">See source</a></p>
+<h4>assertContains() <span id="assertcontains"></span><a href="#assertcontains" class="hashlink">&para;</a></h4><p> <em>protected</em> assertContains($needle, $haystack, $message = null) </p>
+<p>Checks that haystack contains needle</p>
+<ul>
+<li><code>param</code>        $needle</li>
+<li><code>param</code>        $haystack</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L149">See source</a></p>
+<h4>assertCount() <span id="assertcount"></span><a href="#assertcount" class="hashlink">&para;</a></h4><p> <em>protected</em> assertCount($expectedCount, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $expectedCount</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L418">See source</a></p>
+<h4>assertEmpty() <span id="assertempty"></span><a href="#assertempty" class="hashlink">&para;</a></h4><p> <em>protected</em> assertEmpty($actual, $message = null) </p>
+<p>Checks that variable is empty.</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L221">See source</a></p>
+<h4>assertEquals() <span id="assertequals"></span><a href="#assertequals" class="hashlink">&para;</a></h4><p> <em>protected</em> assertEquals($expected, $actual, $message = null, $delta = null) </p>
+<p>Checks that two variables are equal.</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+<li><code>param float</code>  $delta</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L35">See source</a></p>
+<h4>assertFalse() <span id="assertfalse"></span><a href="#assertfalse" class="hashlink">&para;</a></h4><p> <em>protected</em> assertFalse($condition, $message = null) </p>
+<p>Checks that condition is negative.</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L287">See source</a></p>
+<h4>assertFileExists() <span id="assertfileexists"></span><a href="#assertfileexists" class="hashlink">&para;</a></h4><p> <em>protected</em> assertFileExists($filename, $message = null) </p>
+<p>Checks if file exists</p>
+<ul>
+<li><code>param string</code> $filename</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L334">See source</a></p>
+<h4>assertFileNotExists() <span id="assertfilenotexists"></span><a href="#assertfilenotexists" class="hashlink">&para;</a></h4><p> <em>protected</em> assertFileNotExists($filename, $message = null) </p>
+<p>Checks if file doesn't exist</p>
+<ul>
+<li><code>param string</code> $filename</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L346">See source</a></p>
+<h4>assertGreaterOrEquals() <span id="assertgreaterorequals"></span><a href="#assertgreaterorequals" class="hashlink">&para;</a></h4><p> <em>protected</em> assertGreaterOrEquals($expected, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $expected</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L356">See source</a></p>
+<h4>assertGreaterThan() <span id="assertgreaterthan"></span><a href="#assertgreaterthan" class="hashlink">&para;</a></h4><p> <em>protected</em> assertGreaterThan($expected, $actual, $message = null) </p>
+<p>Checks that actual is greater than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L84">See source</a></p>
+<h4>assertGreaterThanOrEqual() <span id="assertgreaterthanorequal"></span><a href="#assertgreaterthanorequal" class="hashlink">&para;</a></h4><p> <em>protected</em> assertGreaterThanOrEqual($expected, $actual, $message = null) </p>
+<p>Checks that actual is greater or equal than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L104">See source</a></p>
+<h4>assertGreaterThen() <span id="assertgreaterthen"></span><a href="#assertgreaterthen" class="hashlink">&para;</a></h4><p> <em>protected</em> assertGreaterThen($expected, $actual, $message = null) </p>
+<ul>
+<li><code>deprecated</code> 
+<a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L92">See source</a></li>
+</ul>
+<h4>assertGreaterThenOrEqual() <span id="assertgreaterthenorequal"></span><a href="#assertgreaterthenorequal" class="hashlink">&para;</a></h4><p> <em>protected</em> assertGreaterThenOrEqual($expected, $actual, $message = null) </p>
+<ul>
+<li><code>deprecated</code> 
+<a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L112">See source</a></li>
+</ul>
+<h4>assertInstanceOf() <span id="assertinstanceof"></span><a href="#assertinstanceof" class="hashlink">&para;</a></h4><p> <em>protected</em> assertInstanceOf($class, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $class</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L428">See source</a></p>
+<h4>assertInternalType() <span id="assertinternaltype"></span><a href="#assertinternaltype" class="hashlink">&para;</a></h4><p> <em>protected</em> assertInternalType($type, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $type</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L448">See source</a></p>
+<h4>assertIsEmpty() <span id="assertisempty"></span><a href="#assertisempty" class="hashlink">&para;</a></h4><p> <em>protected</em> assertIsEmpty($actual, $description = null) </p>
+<ul>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L375">See source</a></p>
+<h4>assertLessOrEquals() <span id="assertlessorequals"></span><a href="#assertlessorequals" class="hashlink">&para;</a></h4><p> <em>protected</em> assertLessOrEquals($expected, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $expected</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L366">See source</a></p>
+<h4>assertLessThan() <span id="assertlessthan"></span><a href="#assertlessthan" class="hashlink">&para;</a></h4><p> <em>protected</em> assertLessThan($expected, $actual, $message = null) </p>
+<p>Checks that actual is less than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L124">See source</a></p>
+<h4>assertLessThanOrEqual() <span id="assertlessthanorequal"></span><a href="#assertlessthanorequal" class="hashlink">&para;</a></h4><p> <em>protected</em> assertLessThanOrEqual($expected, $actual, $message = null) </p>
+<p>Checks that actual is less or equal than expected</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L136">See source</a></p>
+<h4>assertNot() <span id="assertnot"></span><a href="#assertnot" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNot($arguments) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L22">See source</a></p>
+<h4>assertNotContains() <span id="assertnotcontains"></span><a href="#assertnotcontains" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotContains($needle, $haystack, $message = null) </p>
+<p>Checks that haystack doesn't contain needle.</p>
+<ul>
+<li><code>param</code>        $needle</li>
+<li><code>param</code>        $haystack</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L161">See source</a></p>
+<h4>assertNotEmpty() <span id="assertnotempty"></span><a href="#assertnotempty" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotEmpty($actual, $message = null) </p>
+<p>Checks that variable is not empty.</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L232">See source</a></p>
+<h4>assertNotEquals() <span id="assertnotequals"></span><a href="#assertnotequals" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotEquals($expected, $actual, $message = null, $delta = null) </p>
+<p>Checks that two variables are not equal</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+<li><code>param float</code>  $delta</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L48">See source</a></p>
+<h4>assertNotFalse() <span id="assertnotfalse"></span><a href="#assertnotfalse" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotFalse($condition, $message = null) </p>
+<p>Checks that the condition is NOT false (everything but false)</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L298">See source</a></p>
+<h4>assertNotInstanceOf() <span id="assertnotinstanceof"></span><a href="#assertnotinstanceof" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotInstanceOf($class, $actual, $description = null) </p>
+<ul>
+<li><code>param</code> $class</li>
+<li><code>param</code> $actual</li>
+<li><code>param</code> $description</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L438">See source</a></p>
+<h4>assertNotNull() <span id="assertnotnull"></span><a href="#assertnotnull" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotNull($actual, $message = null) </p>
+<p>Checks that variable is not NULL</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L254">See source</a></p>
+<h4>assertNotRegExp() <span id="assertnotregexp"></span><a href="#assertnotregexp" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotRegExp($pattern, $string, $message = null) </p>
+<p>Checks that string not match with pattern</p>
+<ul>
+<li><code>param string</code> $pattern</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L185">See source</a></p>
+<h4>assertNotSame() <span id="assertnotsame"></span><a href="#assertnotsame" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotSame($expected, $actual, $message = null) </p>
+<p>Checks that two variables are not same</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L72">See source</a></p>
+<h4>assertNotTrue() <span id="assertnottrue"></span><a href="#assertnottrue" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNotTrue($condition, $message = null) </p>
+<p>Checks that the condition is NOT true (everything but true)</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L276">See source</a></p>
+<h4>assertNull() <span id="assertnull"></span><a href="#assertnull" class="hashlink">&para;</a></h4><p> <em>protected</em> assertNull($actual, $message = null) </p>
+<p>Checks that variable is NULL</p>
+<ul>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L243">See source</a></p>
+<h4>assertRegExp() <span id="assertregexp"></span><a href="#assertregexp" class="hashlink">&para;</a></h4><p> <em>protected</em> assertRegExp($pattern, $string, $message = null) </p>
+<p>Checks that string match with pattern</p>
+<ul>
+<li><code>param string</code> $pattern</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L173">See source</a></p>
+<h4>assertSame() <span id="assertsame"></span><a href="#assertsame" class="hashlink">&para;</a></h4><p> <em>protected</em> assertSame($expected, $actual, $message = null) </p>
+<p>Checks that two variables are same</p>
+<ul>
+<li><code>param</code>        $expected</li>
+<li><code>param</code>        $actual</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L60">See source</a></p>
+<h4>assertStringStartsNotWith() <span id="assertstringstartsnotwith"></span><a href="#assertstringstartsnotwith" class="hashlink">&para;</a></h4><p> <em>protected</em> assertStringStartsNotWith($prefix, $string, $message = null) </p>
+<p>Checks that a string doesn't start with the given prefix.</p>
+<ul>
+<li><code>param string</code> $prefix</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L209">See source</a></p>
+<h4>assertStringStartsWith() <span id="assertstringstartswith"></span><a href="#assertstringstartswith" class="hashlink">&para;</a></h4><p> <em>protected</em> assertStringStartsWith($prefix, $string, $message = null) </p>
+<p>Checks that a string starts with the given prefix.</p>
+<ul>
+<li><code>param string</code> $prefix</li>
+<li><code>param string</code> $string</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L197">See source</a></p>
+<h4>assertThat() <span id="assertthat"></span><a href="#assertthat" class="hashlink">&para;</a></h4><p> <em>protected</em> assertThat($haystack, $constraint, $message = null) </p>
+<ul>
+<li><code>param</code>        $haystack</li>
+<li><code>param</code>        $constraint</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L309">See source</a></p>
+<h4>assertThatItsNot() <span id="assertthatitsnot"></span><a href="#assertthatitsnot" class="hashlink">&para;</a></h4><p> <em>protected</em> assertThatItsNot($haystack, $constraint, $message = null) </p>
+<p>Checks that haystack doesn't attend</p>
+<ul>
+<li><code>param</code>        $haystack</li>
+<li><code>param</code>        $constraint</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L321">See source</a></p>
+<h4>assertTrue() <span id="asserttrue"></span><a href="#asserttrue" class="hashlink">&para;</a></h4><p> <em>protected</em> assertTrue($condition, $message = null) </p>
+<p>Checks that condition is positive.</p>
+<ul>
+<li><code>param</code>        $condition</li>
+<li><code>param string</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L265">See source</a></p>
+<h4>debug() <span id="debug"></span><a href="#debug" class="hashlink">&para;</a></h4><p> <em>protected</em> debug($message) </p>
+<p>Print debug message to the screen.</p>
+<ul>
+<li><code>param</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L272">See source</a></p>
+<h4>debugSection() <span id="debugsection"></span><a href="#debugsection" class="hashlink">&para;</a></h4><p> <em>protected</em> debugSection($title, $message) </p>
+<p>Print debug message with a title</p>
+<ul>
+<li><code>param</code> $title</li>
+<li><code>param</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L283">See source</a></p>
+<h4>fail() <span id="fail"></span><a href="#fail" class="hashlink">&para;</a></h4><p> <em>protected</em> fail($message) </p>
+<p>Fails the test with message.</p>
+<ul>
+<li><code>param</code> $message</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Shared/Asserts.php#L458">See source</a></p>
+<h4>getModule() <span id="getmodule"></span><a href="#getmodule" class="hashlink">&para;</a></h4><p> <em>protected</em> getModule($name) </p>
+<p>Get another module by its name:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'WebDriver'</span>)-&gt;_findElements(<span class="hljs-string">'.items'</span>);
+</code></pre>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>return</code> Module</li>
+<li><code>throws</code> ModuleException</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L324">See source</a></p>
+<h4>getModules() <span id="getmodules"></span><a href="#getmodules" class="hashlink">&para;</a></h4><p> <em>protected</em> getModules() </p>
+<p>Get all enabled modules</p>
+<ul>
+<li><code>return</code> array</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L307">See source</a></p>
+<h4>hasModule() <span id="hasmodule"></span><a href="#hasmodule" class="hashlink">&para;</a></h4><p> <em>protected</em> hasModule($name) </p>
+<p>Checks that module is enabled.</p>
+<ul>
+<li><code>param</code> $name</li>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L297">See source</a></p>
+<h4>onReconfigure() <span id="onreconfigure"></span><a href="#onreconfigure" class="hashlink">&para;</a></h4><p> <em>protected</em> onReconfigure() </p>
+<p>HOOK to be executed when config changes with <code>_reconfigure</code>.</p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L129">See source</a></p>
+<h4>scalarizeArray() <span id="scalarizearray"></span><a href="#scalarizearray" class="hashlink">&para;</a></h4><p> <em>protected</em> scalarizeArray($array) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L349">See source</a></p>
+<h4>validateConfig() <span id="validateconfig"></span><a href="#validateconfig" class="hashlink">&para;</a></h4><p> <em>protected</em> validateConfig() </p>
+<p>Validates current config for required fields and required packages.</p>
+<ul>
+<li><code>throws</code> Exception\ModuleConfigException</li>
+<li><code>throws</code> ModuleException</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php#L148">See source</a></p>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Module.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:59 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

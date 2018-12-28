@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2734" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2734-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2734-collapse" class="collapse navbar-collapse"><ul id="w2735" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2718" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2718" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2719" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2719" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2720" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2720" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2721" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2721" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2722" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2722" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2723" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2723" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2724" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2724" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2725" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2725" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2726" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2726" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2727" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2727" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2728" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2728" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2729" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2729" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2730" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2730" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2731" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2731" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2732" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2732" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2733" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2733" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>SOAP <span id="soap"></span><a href="#soap" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#status">Status</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#public-properties">Public Properties</a></li>
+<li><a href="#actions">Actions</a></li></ol></div>
+<p>Module for testing SOAP WSDL web services.
+Send requests and check if response matches the pattern.</p>
+<p>This module can be used either with frameworks or PHPBrowser.
+It tries to guess the framework is is attached to.
+If a endpoint is a full url then it uses PHPBrowser.</p>
+<h3>Using Inside Framework <span id="using-inside-framework"></span><a href="#using-inside-framework" class="hashlink">&para;</a></h3><p>Please note, that PHP SoapServer::handle method sends additional headers.
+This may trigger warning: "Cannot modify header information"
+If you use PHP SoapServer with framework, try to block call to this method in testing environment.</p>
+<h2>Status <span id="status"></span><a href="#status" class="hashlink">&para;</a></h2><ul>
+<li>Maintainer: <strong>davert</strong></li>
+<li>Stability: <strong>stable</strong></li>
+<li>Contact: codecept@davert.mail.ua</li>
+</ul>
+<h2>Configuration <span id="configuration"></span><a href="#configuration" class="hashlink">&para;</a></h2><ul>
+<li>endpoint <em>required</em> - soap wsdl endpoint</li>
+<li>SOAPAction - replace SOAPAction HTTP header (Set to '' to SOAP 1.2)</li>
+</ul>
+<h2>Public Properties <span id="public-properties"></span><a href="#public-properties" class="hashlink">&para;</a></h2><ul>
+<li>xmlRequest - last SOAP request (DOMDocument)</li>
+<li>xmlResponse - last SOAP response (DOMDocument)</li>
+</ul>
+<h2>Actions <span id="actions"></span><a href="#actions" class="hashlink">&para;</a></h2><h3>dontSeeSoapResponseContainsStructure <span id="dontseesoapresponsecontainsstructure"></span><a href="#dontseesoapresponsecontainsstructure" class="hashlink">&para;</a></h3><p>Opposite to <code>seeSoapResponseContainsStructure</code></p>
+<ul>
+<li><code>param</code> $xml</li>
+</ul>
+<h3>dontSeeSoapResponseContainsXPath <span id="dontseesoapresponsecontainsxpath"></span><a href="#dontseesoapresponsecontainsxpath" class="hashlink">&para;</a></h3><p>Checks XML response doesn't contain XPath locator</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;dontSeeSoapResponseContainsXPath('//root/user[@id=1]');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $xpath</li>
+</ul>
+<h3>dontSeeSoapResponseEquals <span id="dontseesoapresponseequals"></span><a href="#dontseesoapresponseequals" class="hashlink">&para;</a></h3><p>Checks XML response equals provided XML.
+Comparison is done by canonicalizing both xml`s.</p>
+<p>Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<ul>
+<li><code>param</code> $xml</li>
+</ul>
+<h3>dontSeeSoapResponseIncludes <span id="dontseesoapresponseincludes"></span><a href="#dontseesoapresponseincludes" class="hashlink">&para;</a></h3><p>Checks XML response does not include provided XML.
+Comparison is done by canonicalizing both xml`s.
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<ul>
+<li><code>param</code> $xml</li>
+</ul>
+<h3>grabAttributeFrom <span id="grabattributefrom"></span><a href="#grabattributefrom" class="hashlink">&para;</a></h3><p>Finds and returns attribute of element.
+Element is matched by either CSS or XPath</p>
+<ul>
+<li><code>Available since</code> 1.1</li>
+<li><code>param</code> $cssOrXPath</li>
+<li><code>param</code> $attribute</li>
+<li><code>return</code> string</li>
+</ul>
+<h3>grabTextContentFrom <span id="grabtextcontentfrom"></span><a href="#grabtextcontentfrom" class="hashlink">&para;</a></h3><p>Finds and returns text contents of element.
+Element is matched by either CSS or XPath</p>
+<ul>
+<li><code>Available since</code> 1.1</li>
+<li><code>param</code> $cssOrXPath</li>
+<li><code>return</code> string</li>
+</ul>
+<h3>haveSoapHeader <span id="havesoapheader"></span><a href="#havesoapheader" class="hashlink">&para;</a></h3><p>Prepare SOAP header.
+Receives header name and parameters as array.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;haveSoapHeader('AuthHeader', array('username' =&gt; 'davert', 'password' =&gt; '123345'));
+</code></pre>
+<p>Will produce header:</p>
+<pre><code class="hljs twig"><span class="xml">   <span class="hljs-tag">&lt;<span class="hljs-title">soapenv:Header</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">SessionHeader</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">AuthHeader</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>davert<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>12345<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">AuthHeader</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">soapenv:Header</span>&gt;</span>
+</span></code></pre>
+<ul>
+<li><code>param</code> $header</li>
+<li><code>param array</code> $params</li>
+</ul>
+<h3>seeResponseCodeIs <span id="seeresponsecodeis"></span><a href="#seeresponsecodeis" class="hashlink">&para;</a></h3><p>@deprecated use seeSoapResponseCodeIs instead</p>
+<h3>seeSoapResponseCodeIs <span id="seesoapresponsecodeis"></span><a href="#seesoapresponsecodeis" class="hashlink">&para;</a></h3><p>Checks response code from server.</p>
+<ul>
+<li><code>param</code> $code</li>
+</ul>
+<h3>seeSoapResponseContainsStructure <span id="seesoapresponsecontainsstructure"></span><a href="#seesoapresponsecontainsstructure" class="hashlink">&para;</a></h3><p>Checks XML response contains provided structure.
+Response elements will be compared with XML provided.
+Only nodeNames are checked to see elements match.</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+
+$I-&gt;seeSoapResponseContainsStructure("&lt;query&gt;&lt;name&gt;&lt;/name&gt;&lt;/query&gt;");
+?&gt;
+</code></pre>
+<p>Use this method to check XML of valid structure is returned.
+This method does not use schema for validation.
+This method does not require path from root to match the structure.</p>
+<ul>
+<li><code>param</code> $xml</li>
+</ul>
+<h3>seeSoapResponseContainsXPath <span id="seesoapresponsecontainsxpath"></span><a href="#seesoapresponsecontainsxpath" class="hashlink">&para;</a></h3><p>Checks XML response with XPath locator</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeSoapResponseContainsXPath('//root/user[@id=1]');
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $xpath</li>
+</ul>
+<h3>seeSoapResponseEquals <span id="seesoapresponseequals"></span><a href="#seesoapresponseequals" class="hashlink">&para;</a></h3><p>Checks XML response equals provided XML.
+Comparison is done by canonicalizing both xml`s.</p>
+<p>Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeSoapResponseEquals("&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;SOAP-ENV:Envelope&gt;&lt;SOAP-ENV:Body&gt;&lt;result&gt;1&lt;/result&gt;&lt;/SOAP-ENV:Envelope&gt;");
+
+$dom = new \DOMDocument();
+$dom-&gt;load($file);
+$I-&gt;seeSoapRequestIncludes($dom);
+
+</code></pre>
+<ul>
+<li><code>param</code> $xml</li>
+</ul>
+<h3>seeSoapResponseIncludes <span id="seesoapresponseincludes"></span><a href="#seesoapresponseincludes" class="hashlink">&para;</a></h3><p>Checks XML response includes provided XML.
+Comparison is done by canonicalizing both xml`s.
+Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<p>Example:</p>
+<pre><code class="language- php">&lt;?php
+$I-&gt;seeSoapResponseIncludes("&lt;result&gt;1&lt;/result&gt;");
+$I-&gt;seeSoapRequestIncludes(\Codeception\Utils\Soap::response()-&gt;result-&gt;val(1));
+
+$dom = new \DDOMDocument();
+$dom-&gt;load('template.xml');
+$I-&gt;seeSoapRequestIncludes($dom);
+?&gt;
+</code></pre>
+<ul>
+<li><code>param</code> $xml</li>
+</ul>
+<h3>sendSoapRequest <span id="sendsoaprequest"></span><a href="#sendsoaprequest" class="hashlink">&para;</a></h3><p>Submits request to endpoint.</p>
+<p>Requires of api function name and parameters.
+Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).</p>
+<p>You are allowed to execute as much requests as you need inside test.</p>
+<p>Example:</p>
+<pre><code class="language- php">$I-&gt;sendSoapRequest('UpdateUser', '&lt;user&gt;&lt;id&gt;1&lt;/id&gt;&lt;name&gt;notdavert&lt;/name&gt;&lt;/user&gt;');
+$I-&gt;sendSoapRequest('UpdateUser', \Codeception\Utils\Soap::request()-&gt;user
+  -&gt;id-&gt;val(1)-&gt;parent()
+  -&gt;name-&gt;val('notdavert');
+</code></pre>
+<ul>
+<li><code>param</code> $request</li>
+<li><code>param</code> $body</li>
+</ul>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.5/src/Codeception/Module/SOAP.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:58 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

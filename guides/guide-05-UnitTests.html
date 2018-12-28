@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2140" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2140-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2140-collapse" class="collapse navbar-collapse"><ul id="w2141" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2124" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2124" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2125" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2125" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2126" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2126" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2127" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2127" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2128" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2128" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2129" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2129" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2130" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2130" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2131" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2131" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2132" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2132" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2133" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2133" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2134" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2134" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2135" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2135" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2136" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2136" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2137" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2137" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2138" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2138" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2139" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2139" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Unit &amp; Integration Tests <span id="unit-amp-integration-tests"></span><a href="#unit-amp-integration-tests" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#creating-a-test">Creating a Test</a></li>
+<li><a href="#unit-testing">Unit Testing</a></li>
+<li><a href="#integration-tests">Integration Tests</a></li>
+<li><a href="#advanced-tools">Advanced Tools</a></li>
+<li><a href="#conclusion">Conclusion</a></li></ol></div>
+<p>Codeception uses PHPUnit as a backend for running its tests. Thus, any PHPUnit test can be added to a Codeception test suite
+and then executed. If you ever wrote a PHPUnit test then do it just as you did before.
+Codeception adds some nice helpers to simplify common tasks.</p>
+<h2>Creating a Test <span id="creating-a-test"></span><a href="#creating-a-test" class="hashlink">&para;</a></h2><p>Create a test using <code>generate:test</code> command with a suite and test names as parameters:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept generate:<span class="hljs-built_in">test</span> unit Example
+</code></pre>
+<p>It creates a new <code>ExampleTest</code> file located in the <code>tests/unit</code> directory.</p>
+<p>As always, you can run the newly created test with this command:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run unit ExampleTest
+</code></pre>
+<p>Or simply run the whole set of unit tests with:</p>
+<pre><code class="hljs bash language-bash">php vendor/bin/codecept run unit
+</code></pre>
+<p>A test created by the <code>generate:test</code> command will look like this:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleTest</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Test</span>\<span class="hljs-title">Unit</span>
+</span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@var</span> \UnitTester
+     */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$tester</span>;
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_before</span><span class="hljs-params">()</span>
+    </span>{
+    }
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_after</span><span class="hljs-params">()</span>
+    </span>{
+    }
+
+    <span class="hljs-comment">// tests</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testMe</span><span class="hljs-params">()</span>
+    </span>{
+
+    }
+}
+</code></pre>
+<p>Inside a class:</p>
+<ul>
+<li>all public methods with <code>test</code> prefix are tests</li>
+<li><code>_before</code> method is executed before each test (like <code>setUp</code> in PHPUnit)</li>
+<li><code>_after</code> method is executed after each test (like <code>tearDown</code> in PHPUnit)</li>
+</ul>
+<h2>Unit Testing <span id="unit-testing"></span><a href="#unit-testing" class="hashlink">&para;</a></h2><p>Unit tests are focused around a single component of an application. 
+All external dependencies for components should be replaced with test doubles. </p>
+<p>A typical unit test may look like this: </p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTest</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Test</span>\<span class="hljs-title">Unit</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testValidation</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$user</span> = <span class="hljs-keyword">new</span> User();
+
+        <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-keyword">null</span>);
+        <span class="hljs-variable">$this</span>-&gt;assertFalse(<span class="hljs-variable">$user</span>-&gt;validate([<span class="hljs-string">'username'</span>]));
+
+        <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'toolooooongnaaaaaaameeee'</span>);
+        <span class="hljs-variable">$this</span>-&gt;assertFalse(<span class="hljs-variable">$user</span>-&gt;validate([<span class="hljs-string">'username'</span>]));
+
+        <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'davert'</span>);
+        <span class="hljs-variable">$this</span>-&gt;assertTrue(<span class="hljs-variable">$user</span>-&gt;validate([<span class="hljs-string">'username'</span>]));
+    }
+}
+</code></pre>
+<h3>Assertions <span id="assertions"></span><a href="#assertions" class="hashlink">&para;</a></h3><p>There are pretty many assertions you can use inside tests. The most common are:</p>
+<ul>
+<li><code>$this-&gt;assertEquals()</code></li>
+<li><code>$this-&gt;assertContains()</code></li>
+<li><code>$this-&gt;assertFalse()</code></li>
+<li><code>$this-&gt;assertTrue()</code></li>
+<li><code>$this-&gt;assertNull()</code></li>
+<li><code>$this-&gt;assertEmpty()</code></li>
+</ul>
+<p>Assertion methods come from PHPUnit. <a href="https://phpunit.de/manual/current/en/appendixes.assertions.html">See the complete reference at phpunit.de</a>.</p>
+<h3>Test Doubles <span id="test-doubles"></span><a href="#test-doubles" class="hashlink">&para;</a></h3><p>Codeception provides <a href="https://github.com/Codeception/Stub">Codeception\Stub library</a> for building mocks and stubs for tests. 
+Under the hood it used PHPUnit's mock builder but with much simplified API.</p>
+<p>Alternatively, <a href="https://github.com/Codeception/MockeryModule">Mockery</a> can be used inside Codeception.</p>
+<h4>Stubs <span id="stubs"></span><a href="#stubs" class="hashlink">&para;</a></h4><p>Stubs can be created with a static methods of <code>Codeception\Stub</code>.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$user</span> = \Codeception\Stub::make(<span class="hljs-string">'User'</span>, [<span class="hljs-string">'getName'</span> =&gt; <span class="hljs-string">'john'</span>]);
+<span class="hljs-variable">$name</span> = <span class="hljs-variable">$user</span>-&gt;getName(); <span class="hljs-comment">// 'john'</span>
+</code></pre>
+<p><a href="http://codeception.com/docs/reference/Mock">See complete reference</a></p>
+<p>Inside unit tests (<code>Codeception\Test\Unit</code>) it is recommended to use alternative API:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// create a stub with find method replaced</span>
+<span class="hljs-variable">$userRepository</span> = <span class="hljs-variable">$this</span>-&gt;make(UserRepository::class, [<span class="hljs-string">'find'</span> =&gt; <span class="hljs-keyword">new</span> User]);
+<span class="hljs-variable">$userRepository</span>-&gt;find(<span class="hljs-number">1</span>); <span class="hljs-comment">// =&gt; User</span>
+
+<span class="hljs-comment">// create a dummy</span>
+<span class="hljs-variable">$userRepository</span> = <span class="hljs-variable">$this</span>-&gt;makeEmpty(UserRepository::class);
+
+<span class="hljs-comment">// create a stub with all methods replaced except one</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-variable">$this</span>-&gt;makeEmptyExcept(User::class, <span class="hljs-string">'validate'</span>);
+<span class="hljs-variable">$user</span>-&gt;validate(<span class="hljs-variable">$data</span>);
+
+<span class="hljs-comment">// create a stub by calling constructor and replacing a method</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-variable">$this</span>-&gt;construct(User::class, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'davert'</span>], [<span class="hljs-string">'save'</span> =&gt; <span class="hljs-keyword">false</span>]);
+
+<span class="hljs-comment">// create a stub by calling constructor with empty methods</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-variable">$this</span>-&gt;constructEmpty(User::class, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'davert'</span>]);
+
+<span class="hljs-comment">// create a stub by calling constructor with empty methods</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-variable">$this</span>-&gt;constructEmptyExcept(User::class, <span class="hljs-string">'getName'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'davert'</span>]);
+<span class="hljs-variable">$user</span>-&gt;getName(); <span class="hljs-comment">// =&gt; davert</span>
+<span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'jane'</span>); <span class="hljs-comment">// =&gt; this method is empty</span>
+</code></pre>
+<p><a href="http://codeception.com/docs/reference/Mock">See complete reference</a></p>
+<p>Stubs can also be created using static methods from <code>Codeception\Stub</code> class.
+In this </p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+\Codeception\Stub::make(UserRepository::class, [<span class="hljs-string">'find'</span> =&gt; <span class="hljs-keyword">new</span> User]);
+</code></pre>
+<p>See a reference for <a href="http://codeception.com/docs/reference/Stub">static Stub API</a>  </p>
+<h4>Mocks <span id="mocks"></span><a href="#mocks" class="hashlink">&para;</a></h4><p>To declare expectations for mocks use <code>Codeception\Stub\Expected</code> class:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// create a mock where $user-&gt;getName() should never be called</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-variable">$this</span>-&gt;make(<span class="hljs-string">'User'</span>, [
+     <span class="hljs-string">'getName'</span> =&gt; Expected::never(),
+     <span class="hljs-string">'someMethod'</span> =&gt; <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{}
+]);
+<span class="hljs-variable">$user</span>-&gt;someMethod();
+
+<span class="hljs-comment">// create a mock where $user-&gt;getName() should be called at least once</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-variable">$this</span>-&gt;make(<span class="hljs-string">'User'</span>, [
+        <span class="hljs-string">'getName'</span> =&gt; Expected::atLeastOnce(<span class="hljs-string">'Davert'</span>)
+    ]
+);
+<span class="hljs-variable">$user</span>-&gt;getName();
+<span class="hljs-variable">$userName</span> = <span class="hljs-variable">$user</span>-&gt;getName();
+<span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">'Davert'</span>, <span class="hljs-variable">$userName</span>);
+</code></pre>
+<p><a href="http://codeception.com/docs/reference/Mock">See complete reference</a></p>
+<h2>Integration Tests <span id="integration-tests"></span><a href="#integration-tests" class="hashlink">&para;</a></h2><p>Unlike unit tests integration tests doesn't require the code to be executed in isolation.
+That allows us to use database and other components inside a tests. 
+To improve the testing experience modules can be used as in functional testing.</p>
+<h3>Using Modules <span id="using-modules"></span><a href="#using-modules" class="hashlink">&para;</a></h3><p>As in scenario-driven functional or acceptance tests you can access Actor class methods.
+If you write integration tests, it may be useful to include the <code>Db</code> module for database testing.</p>
+<pre><code class="language-yaml"># Codeception Test Suite Configuration
+
+# suite for unit (internal) tests.
+actor: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - Db
+        - \Helper\Unit
+</code></pre>
+<p>To access UnitTester methods you can use the <code>UnitTester</code> property in a test.</p>
+<h3>Testing Database <span id="testing-database"></span><a href="#testing-database" class="hashlink">&para;</a></h3><p>Let's see how you can do some database testing:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testSavingUser</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-variable">$user</span> = <span class="hljs-keyword">new</span> User();
+    <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'Miles'</span>);
+    <span class="hljs-variable">$user</span>-&gt;setSurname(<span class="hljs-string">'Davis'</span>);
+    <span class="hljs-variable">$user</span>-&gt;save();
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">'Miles Davis'</span>, <span class="hljs-variable">$user</span>-&gt;getFullName());
+    <span class="hljs-variable">$this</span>-&gt;tester-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Miles'</span>, <span class="hljs-string">'surname'</span> =&gt; <span class="hljs-string">'Davis'</span>]);
+}
+</code></pre>
+<p>To enable the database functionality in unit tests, make sure the <code>Db</code> module is included
+in the <code>unit.suite.yml</code> configuration file.
+The database will be cleaned and populated after each test, the same way it happens for acceptance and functional tests.
+If that's not your required behavior, change the settings of the <code>Db</code> module for the current suite. See <a href="http://codeception.com/docs/modules/Db">Db Module</a></p>
+<h3>Interacting with the Framework <span id="interacting-with-the-framework"></span><a href="#interacting-with-the-framework" class="hashlink">&para;</a></h3><p>You should probably not access your database directly if your project already uses ORM for database interactions.
+Why not use ORM directly inside your tests? Let's try to write a test using Laravel's ORM Eloquent.
+For this we need to configure the Laravel5 module. We won't need its web interaction methods like <code>amOnPage</code> or <code>see</code>,
+so let's enable only the ORM part of it:</p>
+<pre><code class="language-yaml">actor: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - Laravel5:
+            part: ORM
+        - \Helper\Unit
+</code></pre>
+<p>We included the Laravel5 module the same way we did for functional testing.
+Let's see how we can use it for integration tests:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testUserNameCanBeChanged</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// create a user from framework, user will be deleted after the test</span>
+    <span class="hljs-variable">$id</span> = <span class="hljs-variable">$this</span>-&gt;tester-&gt;haveRecord(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'miles'</span>]);
+    <span class="hljs-comment">// access model</span>
+    <span class="hljs-variable">$user</span> = User::find(<span class="hljs-variable">$id</span>);
+    <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'bill'</span>);
+    <span class="hljs-variable">$user</span>-&gt;save();
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">'bill'</span>, <span class="hljs-variable">$user</span>-&gt;getName());
+    <span class="hljs-comment">// verify data was saved using framework methods</span>
+    <span class="hljs-variable">$this</span>-&gt;tester-&gt;seeRecord(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'bill'</span>]);
+    <span class="hljs-variable">$this</span>-&gt;tester-&gt;dontSeeRecord(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'miles'</span>]);
+}
+</code></pre>
+<p>A very similar approach can be used for all frameworks that have an ORM implementing the ActiveRecord pattern.
+In Yii2 and Phalcon, the methods <code>haveRecord</code>, <code>seeRecord</code>, <code>dontSeeRecord</code> work in the same way.
+They also should be included by specifying <code>part: ORM</code> in order to not use the functional testing actions.</p>
+<p>If you are using Symfony with Doctrine, you don't need to enable Symfony itself but just Doctrine2:</p>
+<pre><code class="language-yaml">actor: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - Doctrine2:
+            depends: Symfony
+        - \Helper\Unit
+</code></pre>
+<p>In this case you can use the methods from the Doctrine2 module, while Doctrine itself uses the Symfony module
+to establish connections to the database. In this case a test might look like:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testUserNameCanBeChanged</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// create a user from framework, user will be deleted after the test</span>
+    <span class="hljs-variable">$id</span> = <span class="hljs-variable">$this</span>-&gt;tester-&gt;haveInRepository(User::class, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'miles'</span>]);
+    <span class="hljs-comment">// get entity manager by accessing module</span>
+    <span class="hljs-variable">$em</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Doctrine2'</span>)-&gt;em;
+    <span class="hljs-comment">// get real user</span>
+    <span class="hljs-variable">$user</span> = <span class="hljs-variable">$em</span>-&gt;find(User::class, <span class="hljs-variable">$id</span>);
+    <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'bill'</span>);
+    <span class="hljs-variable">$em</span>-&gt;persist(<span class="hljs-variable">$user</span>);
+    <span class="hljs-variable">$em</span>-&gt;flush();
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">'bill'</span>, <span class="hljs-variable">$user</span>-&gt;getName());
+    <span class="hljs-comment">// verify data was saved using framework methods</span>
+    <span class="hljs-variable">$this</span>-&gt;tester-&gt;seeInRepository(User::class, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'bill'</span>]);
+    <span class="hljs-variable">$this</span>-&gt;tester-&gt;dontSeeInRepository(User::class, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'miles'</span>]);
+}
+</code></pre>
+<p>In both examples you should not be worried about the data persistence between tests.
+The Doctrine2 and Laravel5 modules will clean up the created data at the end of a test.
+This is done by wrapping each test in a transaction and rolling it back afterwards.</p>
+<h3>Accessing Module <span id="accessing-module"></span><a href="#accessing-module" class="hashlink">&para;</a></h3><p>Codeception allows you to access the properties and methods of all modules defined for this suite.
+Unlike using the UnitTester class for this purpose, using a module directly grants you access
+to all public properties of that module.</p>
+<p>We have already demonstrated this in a previous example where we accessed the Entity Manager from a Doctrine2 module:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@var</span> Doctrine\ORM\EntityManager */</span>
+<span class="hljs-variable">$em</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Doctrine2'</span>)-&gt;em;
+</code></pre>
+<p>If you use the <code>Symfony</code> module, here is how you can access the Symfony container:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@var</span> Symfony\Component\DependencyInjection\Container */</span>
+<span class="hljs-variable">$container</span> = <span class="hljs-variable">$this</span>-&gt;getModule(<span class="hljs-string">'Symfony'</span>)-&gt;container;
+</code></pre>
+<p>The same can be done for all public properties of an enabled module. Accessible properties are listed in the module reference.</p>
+<h3>Scenario Driven Testing <span id="scenario-driven-testing"></span><a href="#scenario-driven-testing" class="hashlink">&para;</a></h3><p><a href="http://codeception.com/docs/07-AdvancedUsage#Cest-Classes">Cest format</a> can also be used for integration testing.
+In some cases it makes tests cleaner as it simplifies module access by using common <code>$I-&gt;</code> syntax:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildShouldHaveSequence</span><span class="hljs-params">(\UnitTester <span class="hljs-variable">$I</span>)</span>
+</span>{
+    <span class="hljs-variable">$build</span> = <span class="hljs-variable">$I</span>-&gt;have(Build::class, [<span class="hljs-string">'project_id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;project-&gt;id]);
+    <span class="hljs-variable">$I</span>-&gt;assertEquals(<span class="hljs-number">1</span>, <span class="hljs-variable">$build</span>-&gt;sequence);
+    <span class="hljs-variable">$build</span> = <span class="hljs-variable">$I</span>-&gt;have(Build::class, [<span class="hljs-string">'project_id'</span> =&gt; <span class="hljs-variable">$this</span>-&gt;project-&gt;id]);
+    <span class="hljs-variable">$I</span>-&gt;assertEquals(<span class="hljs-number">2</span>, <span class="hljs-variable">$build</span>-&gt;sequence);
+    <span class="hljs-variable">$this</span>-&gt;project-&gt;refresh();
+    <span class="hljs-variable">$I</span>-&gt;assertEquals(<span class="hljs-number">3</span>, <span class="hljs-variable">$this</span>-&gt;project-&gt;build_sequence);
+}
+</code></pre>
+<p>This format can be recommended for testing domain and database interactions.</p>
+<p>In Cest format you don't have native support for test doubles so it's recommended 
+to include a trait <code>\Codeception\Test\Feature\Stub</code> to enable mocks inside a test.
+Alternatively, install and enable <a href="https://github.com/Codeception/MockeryModule">Mockery module</a>.</p>
+<h2>Advanced Tools <span id="advanced-tools"></span><a href="#advanced-tools" class="hashlink">&para;</a></h2><h3>Specify <span id="specify"></span><a href="#specify" class="hashlink">&para;</a></h3><p>When writing tests you should prepare them for constant changes in your application.
+Tests should be easy to read and maintain. If a specification of your application is changed,
+your tests should be updated as well. If you don't have a convention inside your team for documenting tests,
+you will have issues figuring out what tests will be affected by the introduction of a new feature.</p>
+<p>That's why it's pretty important not just to cover your application with unit tests, but make unit tests self-explanatory.
+We do this for scenario-driven acceptance and functional tests, and we should do this for unit and integration tests as well.</p>
+<p>For this case we have a stand-alone project <a href="https://github.com/Codeception/Specify">Specify</a>
+(which is included in the phar package) for writing specifications inside unit tests:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTest</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Test</span>\<span class="hljs-title">Unit</span>
+</span>{
+    <span class="hljs-keyword">use</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Specify</span>;
+
+    <span class="hljs-comment">/** <span class="hljs-doctag">@specify</span> */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$user</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testValidation</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-variable">$this</span>-&gt;user = User::create();
+
+        <span class="hljs-variable">$this</span>-&gt;specify(<span class="hljs-string">"username is required"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-variable">$this</span>-&gt;user-&gt;username = <span class="hljs-keyword">null</span>;
+            <span class="hljs-variable">$this</span>-&gt;assertFalse(<span class="hljs-variable">$this</span>-&gt;user-&gt;validate([<span class="hljs-string">'username'</span>]));
+        });
+
+        <span class="hljs-variable">$this</span>-&gt;specify(<span class="hljs-string">"username is too long"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-variable">$this</span>-&gt;user-&gt;username = <span class="hljs-string">'toolooooongnaaaaaaameeee'</span>;
+            <span class="hljs-variable">$this</span>-&gt;assertFalse(<span class="hljs-variable">$this</span>-&gt;user-&gt;validate([<span class="hljs-string">'username'</span>]));
+        });
+
+        <span class="hljs-variable">$this</span>-&gt;specify(<span class="hljs-string">"username is ok"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-variable">$this</span>-&gt;user-&gt;username = <span class="hljs-string">'davert'</span>;
+            <span class="hljs-variable">$this</span>-&gt;assertTrue(<span class="hljs-variable">$this</span>-&gt;user-&gt;validate([<span class="hljs-string">'username'</span>]));
+        });
+    }
+}
+</code></pre>
+<p>By using <code>specify</code> codeblocks, you can describe any piece of a test.
+This makes tests much cleaner and comprehensible for everyone in your team.</p>
+<p>Code inside <code>specify</code> blocks is isolated. In the example above, any changes to <code>$this-&gt;user</code>
+will not be reflected in other code blocks as it is marked with <code>@specify</code> annotation.</p>
+<p>Also, you may add <a href="https://github.com/Codeception/Verify">Codeception\Verify</a> for BDD-style assertions.
+This tiny library adds more readable assertions, which is quite nice, if you are always confused
+about which argument in <code>assert</code> calls is expected and which one is actual:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+verify(<span class="hljs-variable">$user</span>-&gt;getName())-&gt;equals(<span class="hljs-string">'john'</span>);
+</code></pre>
+<h3>Domain Assertions <span id="domain-assertions"></span><a href="#domain-assertions" class="hashlink">&para;</a></h3><p>The more complicated your domain is the more explicit your tests should be. With <a href="https://github.com/Codeception/DomainAssert">DomainAssert</a>
+library you can easily create custom assertion methods for unit and integration tests.</p>
+<p>It allows to reuse business rules inside assertion methods:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$user</span> = <span class="hljs-keyword">new</span> User;
+
+<span class="hljs-comment">// simple custom assertions below:</span>
+<span class="hljs-variable">$this</span>-&gt;assertUserIsValid(<span class="hljs-variable">$user</span>);
+<span class="hljs-variable">$this</span>-&gt;assertUserIsAdmin(<span class="hljs-variable">$user</span>);
+
+<span class="hljs-comment">// use combined explicit assertion</span>
+<span class="hljs-comment">// to tell what you expect to check</span>
+<span class="hljs-variable">$this</span>-&gt;assertUserCanPostToBlog(<span class="hljs-variable">$user</span>, <span class="hljs-variable">$blog</span>);
+<span class="hljs-comment">// instead of just calling a bunch of assertions</span>
+<span class="hljs-variable">$this</span>-&gt;assertNotNull(<span class="hljs-variable">$user</span>);
+<span class="hljs-variable">$this</span>-&gt;assertNotNull(<span class="hljs-variable">$blog</span>);
+<span class="hljs-variable">$this</span>-&gt;assertContain(<span class="hljs-variable">$user</span>, <span class="hljs-variable">$blog</span>-&gt;getOwners());
+</code></pre>
+<p>With custom assertion methods you can improve readability of your tests and keep them focused around the specification.</p>
+<h3>AspectMock <span id="aspectmock"></span><a href="#aspectmock" class="hashlink">&para;</a></h3><p><a href="https://github.com/Codeception/AspectMock">AspectMock</a> is an advanced mocking framework which allows you to replace any methods of any class in a test.
+Static methods, class methods, date and time functions can be easily replaced with AspectMock.
+For instance, you can test singletons!</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testSingleton</span><span class="hljs-params">()</span>
+</span>{
+	<span class="hljs-variable">$class</span> = MySingleton::getInstance();
+	<span class="hljs-variable">$this</span>-&gt;assertInstanceOf(<span class="hljs-string">'MySingleton'</span>, <span class="hljs-variable">$class</span>);
+	test::double(<span class="hljs-string">'MySingleton'</span>, [<span class="hljs-string">'getInstance'</span> =&gt; <span class="hljs-keyword">new</span> DOMDocument]);
+	<span class="hljs-variable">$this</span>-&gt;assertInstanceOf(<span class="hljs-string">'DOMDocument'</span>, <span class="hljs-variable">$class</span>);
+}
+</code></pre>
+<ul>
+<li><a href="https://github.com/Codeception/AspectMock">AspectMock on GitHub</a></li>
+<li><a href="http://codeception.com/07-31-2013/nothing-is-untestable-aspect-mock.html">AspectMock in Action</a></li>
+<li><a href="http://codeception.com/09-13-2013/understanding-aspectmock.html">How it Works</a></li>
+</ul>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>PHPUnit tests are first-class citizens in test suites. Whenever you need to write and execute unit tests,
+you don't need to install PHPUnit separately, but use Codeception directly to execute them.
+Some nice features can be added to common unit tests by integrating Codeception modules.
+For most unit and integration testing, PHPUnit tests are enough. They run fast, and are easy to maintain.</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>Yii Framework 2.0 API Documentation</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w6983" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w6983-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Yii Framework 2.0 API Documentation</a></div><div id="w6983-collapse" class="collapse navbar-collapse"><ul id="w6984" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-6930" data-toggle="collapse" data-parent="#navigation">app\assets <b class="caret"></b></a><div id="navigation-6930" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-assets-appasset.html">AppAsset</a>
+<a class="list-group-item" href="./app-assets-fontawesomeasset.html">FontAwesomeAsset</a>
+<a class="list-group-item" href="./app-assets-layoutadminasset.html">LayoutAdminAsset</a></div>
+<a class="list-group-item" href="#navigation-6931" data-toggle="collapse" data-parent="#navigation">app\commands <b class="caret"></b></a><div id="navigation-6931" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-commands-appmigratecontroller.html">AppMigrateController</a>
+<a class="list-group-item" href="./app-commands-cronabstractcontroller.html">CronAbstractController</a>
+<a class="list-group-item" href="./app-commands-croncontroller.html">CronController</a>
+<a class="list-group-item" href="./app-commands-hellocontroller.html">HelloController</a>
+<a class="list-group-item" href="./app-commands-rbaccontroller.html">RbacController</a></div>
+<a class="list-group-item" href="#navigation-6932" data-toggle="collapse" data-parent="#navigation">app\components <b class="caret"></b></a><div id="navigation-6932" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-components-controller.html">Controller</a>
+<a class="list-group-item" href="./app-components-model.html">Model</a></div>
+<a class="list-group-item" href="#navigation-6933" data-toggle="collapse" data-parent="#navigation">app\controllers <b class="caret"></b></a><div id="navigation-6933" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-controllers-sitecontroller.html">SiteController</a></div>
+<a class="list-group-item" href="#navigation-6934" data-toggle="collapse" data-parent="#navigation">app\helpers <b class="caret"></b></a><div id="navigation-6934" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-helpers-apihelper.html">ApiHelper</a>
+<a class="list-group-item" href="./app-helpers-applocale.html">AppLocale</a>
+<a class="list-group-item" href="./app-helpers-applicationhelper.html">ApplicationHelper</a>
+<a class="list-group-item" href="./app-helpers-arrayhelper.html">ArrayHelper</a>
+<a class="list-group-item" href="./app-helpers-cookiehelper.html">CookieHelper</a>
+<a class="list-group-item" href="./app-helpers-denormalization.html">Denormalization</a>
+<a class="list-group-item" href="./app-helpers-exporthelper.html">ExportHelper</a>
+<a class="list-group-item" href="./app-helpers-gmailapi.html">GmailApi</a>
+<a class="list-group-item" href="./app-helpers-googleapi.html">GoogleApi</a>
+<a class="list-group-item" href="./app-helpers-googlehelper.html">GoogleHelper</a>
+<a class="list-group-item" href="./app-helpers-htmlhelper.html">HtmlHelper</a>
+<a class="list-group-item" href="./app-helpers-languagetranslatehelper.html">LanguageTranslateHelper</a>
+<a class="list-group-item" href="./app-helpers-mailhelper.html">MailHelper</a>
+<a class="list-group-item" href="./app-helpers-php.html">Php</a>
+<a class="list-group-item" href="./app-helpers-renderhtmlwidget.html">RenderHtmlWidget</a>
+<a class="list-group-item" href="./app-helpers-responsehelper.html">ResponseHelper</a>
+<a class="list-group-item" href="./app-helpers-stringhelper.html">StringHelper</a>
+<a class="list-group-item" href="./app-helpers-urlhelper.html">UrlHelper</a></div>
+<a class="list-group-item" href="#navigation-6935" data-toggle="collapse" data-parent="#navigation">app\models <b class="caret"></b></a><div id="navigation-6935" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-models-contactform.html">ContactForm</a>
+<a class="list-group-item" href="./app-models-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./app-models-user.html">User</a></div>
+<a class="list-group-item" href="#navigation-6936" data-toggle="collapse" data-parent="#navigation">app\modules\admin <b class="caret"></b></a><div id="navigation-6936" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6937" data-toggle="collapse" data-parent="#navigation">app\modules\admin\assets <b class="caret"></b></a><div id="navigation-6937" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-assets-productasset.html">ProductAsset</a></div>
+<a class="list-group-item" href="#navigation-6938" data-toggle="collapse" data-parent="#navigation">app\modules\admin\controllers <b class="caret"></b></a><div id="navigation-6938" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-admin-controllers-productcategorycontroller.html">ProductCategoryController</a>
+<a class="list-group-item" href="./app-modules-admin-controllers-productcontroller.html">ProductController</a></div>
+<a class="list-group-item" href="#navigation-6939" data-toggle="collapse" data-parent="#navigation">app\modules\admin\models <b class="caret"></b></a><div id="navigation-6939" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-models-product.html">Product</a>
+<a class="list-group-item" href="./app-modules-admin-models-productcategory.html">ProductCategory</a>
+<a class="list-group-item" href="./app-modules-admin-models-productimage.html">ProductImage</a>
+<a class="list-group-item" href="./app-modules-admin-models-productimageupload.html">ProductImageUpload</a></div>
+<a class="list-group-item" href="#navigation-6940" data-toggle="collapse" data-parent="#navigation">app\modules\admin\models\search <b class="caret"></b></a><div id="navigation-6940" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-admin-models-search-productsearch.html">ProductSearch</a></div>
+<a class="list-group-item" href="#navigation-6941" data-toggle="collapse" data-parent="#navigation">app\modules\core <b class="caret"></b></a><div id="navigation-6941" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6942" data-toggle="collapse" data-parent="#navigation">app\modules\core\assets <b class="caret"></b></a><div id="navigation-6942" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-assets-adminnavigationasset.html">AdminNavigationAsset</a></div>
+<a class="list-group-item" href="#navigation-6943" data-toggle="collapse" data-parent="#navigation">app\modules\core\components <b class="caret"></b></a><div id="navigation-6943" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-components-dataregistry.html">DataRegistry</a></div>
+<a class="list-group-item" href="#navigation-6944" data-toggle="collapse" data-parent="#navigation">app\modules\core\controllers <b class="caret"></b></a><div id="navigation-6944" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-controllers-adminnavigationcontroller.html">AdminNavigationController</a>
+<a class="list-group-item" href="./app-modules-core-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-6945" data-toggle="collapse" data-parent="#navigation">app\modules\core\models <b class="caret"></b></a><div id="navigation-6945" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-models-adminnavigation.html">AdminNavigation</a>
+<a class="list-group-item" href="./app-modules-core-models-dataregistry.html">DataRegistry</a></div>
+<a class="list-group-item" href="#navigation-6946" data-toggle="collapse" data-parent="#navigation">app\modules\core\widgets <b class="caret"></b></a><div id="navigation-6946" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-core-widgets-sidebarnavigationwidget.html">SidebarNavigationWidget</a></div>
+<a class="list-group-item" href="#navigation-6947" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob <b class="caret"></b></a><div id="navigation-6947" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6948" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\assets <b class="caret"></b></a><div id="navigation-6948" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-assets-cronjobasset.html">CronjobAsset</a></div>
+<a class="list-group-item" href="#navigation-6949" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\controllers <b class="caret"></b></a><div id="navigation-6949" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-controllers-cronjobcontroller.html">CronjobController</a>
+<a class="list-group-item" href="./app-modules-cronjob-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-6950" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\helpers <b class="caret"></b></a><div id="navigation-6950" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-helpers-cronhelper.html">CronHelper</a></div>
+<a class="list-group-item" href="#navigation-6951" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\models <b class="caret"></b></a><div id="navigation-6951" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-models-cronjob.html">Cronjob</a>
+<a class="list-group-item" href="./app-modules-cronjob-models-cronjoblog.html">CronjobLog</a></div>
+<a class="list-group-item" href="#navigation-6952" data-toggle="collapse" data-parent="#navigation">app\modules\cronjob\models\search <b class="caret"></b></a><div id="navigation-6952" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-cronjob-models-search-cronjobsearch.html">CronjobSearch</a></div>
+<a class="list-group-item" href="#navigation-6953" data-toggle="collapse" data-parent="#navigation">app\modules\dashboard <b class="caret"></b></a><div id="navigation-6953" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-dashboard-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6954" data-toggle="collapse" data-parent="#navigation">app\modules\dashboard\controllers <b class="caret"></b></a><div id="navigation-6954" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-dashboard-controllers-dashboardcontroller.html">DashboardController</a>
+<a class="list-group-item" href="./app-modules-dashboard-controllers-defaultcontroller.html">DefaultController</a></div>
+<a class="list-group-item" href="#navigation-6955" data-toggle="collapse" data-parent="#navigation">app\modules\email <b class="caret"></b></a><div id="navigation-6955" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6956" data-toggle="collapse" data-parent="#navigation">app\modules\email\commands <b class="caret"></b></a><div id="navigation-6956" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-commands-sendmail.html">SendMail</a></div>
+<a class="list-group-item" href="#navigation-6957" data-toggle="collapse" data-parent="#navigation">app\modules\email\controllers <b class="caret"></b></a><div id="navigation-6957" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-email-controllers-emailqueuecontroller.html">EmailQueueController</a></div>
+<a class="list-group-item" href="#navigation-6958" data-toggle="collapse" data-parent="#navigation">app\modules\email\models <b class="caret"></b></a><div id="navigation-6958" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-email-models-emailqueue.html">EmailQueue</a></div>
+<a class="list-group-item" href="#navigation-6959" data-toggle="collapse" data-parent="#navigation">app\modules\permission <b class="caret"></b></a><div id="navigation-6959" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6960" data-toggle="collapse" data-parent="#navigation">app\modules\permission\controllers <b class="caret"></b></a><div id="navigation-6960" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-permissioncontroller.html">PermissionController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-rolecontroller.html">RoleController</a>
+<a class="list-group-item" href="./app-modules-permission-controllers-rulecontroller.html">RuleController</a></div>
+<a class="list-group-item" href="#navigation-6961" data-toggle="collapse" data-parent="#navigation">app\modules\permission\models <b class="caret"></b></a><div id="navigation-6961" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-permission-models-authassignment.html">AuthAssignment</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitem.html">AuthItem</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitemchild.html">AuthItemChild</a>
+<a class="list-group-item" href="./app-modules-permission-models-authitemsearch.html">AuthItemSearch</a>
+<a class="list-group-item" href="./app-modules-permission-models-authrule.html">AuthRule</a>
+<a class="list-group-item" href="./app-modules-permission-models-createpermissionform.html">CreatePermissionForm</a>
+<a class="list-group-item" href="./app-modules-permission-models-editrule.html">EditRule</a></div>
+<a class="list-group-item" href="#navigation-6962" data-toggle="collapse" data-parent="#navigation">app\modules\pub <b class="caret"></b></a><div id="navigation-6962" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6963" data-toggle="collapse" data-parent="#navigation">app\modules\pub\assets <b class="caret"></b></a><div id="navigation-6963" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-assets-cartasset.html">CartAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-layoutpubasset.html">LayoutPubAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-orderasset.html">OrderAsset</a>
+<a class="list-group-item" href="./app-modules-pub-assets-productasset.html">ProductAsset</a></div>
+<a class="list-group-item" href="#navigation-6964" data-toggle="collapse" data-parent="#navigation">app\modules\pub\controllers <b class="caret"></b></a><div id="navigation-6964" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-pub-controllers-cartcontroller.html">CartController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-dashboardcontroller.html">DashboardController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-ordercontroller.html">OrderController</a>
+<a class="list-group-item" href="./app-modules-pub-controllers-productcontroller.html">ProductController</a></div>
+<a class="list-group-item" href="#navigation-6965" data-toggle="collapse" data-parent="#navigation">app\modules\report <b class="caret"></b></a><div id="navigation-6965" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6966" data-toggle="collapse" data-parent="#navigation">app\modules\report\assets <b class="caret"></b></a><div id="navigation-6966" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-assets-orderasset.html">OrderAsset</a></div>
+<a class="list-group-item" href="#navigation-6967" data-toggle="collapse" data-parent="#navigation">app\modules\report\controllers <b class="caret"></b></a><div id="navigation-6967" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-report-controllers-ordercontroller.html">OrderController</a>
+<a class="list-group-item" href="./app-modules-report-controllers-orderdetailcontroller.html">OrderDetailController</a></div>
+<a class="list-group-item" href="#navigation-6968" data-toggle="collapse" data-parent="#navigation">app\modules\report\models <b class="caret"></b></a><div id="navigation-6968" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-report-models-order.html">Order</a>
+<a class="list-group-item" href="./app-modules-report-models-orderdetail.html">OrderDetail</a>
+<a class="list-group-item" href="./app-modules-report-models-ordersearch.html">OrderSearch</a></div>
+<a class="list-group-item" href="#navigation-6969" data-toggle="collapse" data-parent="#navigation">app\modules\setting <b class="caret"></b></a><div id="navigation-6969" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6970" data-toggle="collapse" data-parent="#navigation">app\modules\setting\assets <b class="caret"></b></a><div id="navigation-6970" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-assets-settingasset.html">SettingAsset</a></div>
+<a class="list-group-item" href="#navigation-6971" data-toggle="collapse" data-parent="#navigation">app\modules\setting\components <b class="caret"></b></a><div id="navigation-6971" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-components-settings.html">Settings</a></div>
+<a class="list-group-item" href="#navigation-6972" data-toggle="collapse" data-parent="#navigation">app\modules\setting\controllers <b class="caret"></b></a><div id="navigation-6972" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-setting-controllers-settingcontroller.html">SettingController</a></div>
+<a class="list-group-item" href="#navigation-6973" data-toggle="collapse" data-parent="#navigation">app\modules\setting\models <b class="caret"></b></a><div id="navigation-6973" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-setting-models-setting.html">Setting</a>
+<a class="list-group-item" href="./app-modules-setting-models-settingmodel.html">SettingModel</a></div>
+<a class="list-group-item" href="#navigation-6974" data-toggle="collapse" data-parent="#navigation">app\modules\user <b class="caret"></b></a><div id="navigation-6974" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-module.html">Module</a></div>
+<a class="list-group-item" href="#navigation-6975" data-toggle="collapse" data-parent="#navigation">app\modules\user\assets <b class="caret"></b></a><div id="navigation-6975" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-assets-authasset.html">AuthAsset</a></div>
+<a class="list-group-item" href="#navigation-6976" data-toggle="collapse" data-parent="#navigation">app\modules\user\components <b class="caret"></b></a><div id="navigation-6976" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-components-user.html">User</a></div>
+<a class="list-group-item" href="#navigation-6977" data-toggle="collapse" data-parent="#navigation">app\modules\user\controllers <b class="caret"></b></a><div id="navigation-6977" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-controllers-authcontroller.html">AuthController</a>
+<a class="list-group-item" href="./app-modules-user-controllers-defaultcontroller.html">DefaultController</a>
+<a class="list-group-item" href="./app-modules-user-controllers-usercontroller.html">UserController</a></div>
+<a class="list-group-item" href="#navigation-6978" data-toggle="collapse" data-parent="#navigation">app\modules\user\models <b class="caret"></b></a><div id="navigation-6978" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-models-user.html">User</a>
+<a class="list-group-item" href="./app-modules-user-models-userauth.html">UserAuth</a>
+<a class="list-group-item" href="./app-modules-user-models-userconfirm.html">UserConfirm</a>
+<a class="list-group-item" href="./app-modules-user-models-userloginattempts.html">UserLoginAttempts</a>
+<a class="list-group-item" href="./app-modules-user-models-usersearch.html">UserSearch</a></div>
+<a class="list-group-item" href="#navigation-6979" data-toggle="collapse" data-parent="#navigation">app\modules\user\models\form <b class="caret"></b></a><div id="navigation-6979" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-modules-user-models-form-createform.html">CreateForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-forgotpasswordform.html">ForgotPasswordForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-loginform.html">LoginForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-resetpassword.html">ResetPassword</a>
+<a class="list-group-item" href="./app-modules-user-models-form-signupform.html">SignupForm</a>
+<a class="list-group-item" href="./app-modules-user-models-form-updateform.html">UpdateForm</a></div>
+<a class="list-group-item" href="#navigation-6980" data-toggle="collapse" data-parent="#navigation">app\rbac <b class="caret"></b></a><div id="navigation-6980" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-rbac-authorrule.html">AuthorRule</a></div>
+<a class="list-group-item" href="#navigation-6981" data-toggle="collapse" data-parent="#navigation">app\widgets <b class="caret"></b></a><div id="navigation-6981" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-widgets-alert.html">Alert</a>
+<a class="list-group-item" href="./app-widgets-imagegallery.html">ImageGallery</a>
+<a class="list-group-item" href="./app-widgets-viewas.html">ViewAs</a></div>
+<a class="list-group-item" href="#navigation-6982" data-toggle="collapse" data-parent="#navigation">app\widgets\assets <b class="caret"></b></a><div id="navigation-6982" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-widgets-assets-imagegalleryasset.html">ImageGalleryAsset</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Class Reference</h1>
+
+<table class="summaryTable docIndex table table-bordered table-striped table-hover">
+    <colgroup>
+        <col class="col-package" />
+        <col class="col-class" />
+        <col class="col-description" />
+    </colgroup>
+    <tr>
+        <th>Class</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><a href="app-assets-appasset.html">app\assets\AppAsset</a></td>
+        <td>Main application asset bundle.</td>
+    </tr>
+    <tr>
+        <td><a href="app-assets-fontawesomeasset.html">app\assets\FontAwesomeAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-assets-layoutadminasset.html">app\assets\LayoutAdminAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-commands-appmigratecontroller.html">app\commands\AppMigrateController</a></td>
+        <td>Description of MigrateController</td>
+    </tr>
+    <tr>
+        <td><a href="app-commands-cronabstractcontroller.html">app\commands\CronAbstractController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-commands-croncontroller.html">app\commands\CronController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-commands-hellocontroller.html">app\commands\HelloController</a></td>
+        <td>This command echoes the first argument that you have entered.</td>
+    </tr>
+    <tr>
+        <td><a href="app-commands-rbaccontroller.html">app\commands\RbacController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-components-controller.html">app\components\Controller</a></td>
+        <td>Base application controller extend from yii\web\Controller</td>
+    </tr>
+    <tr>
+        <td><a href="app-components-model.html">app\components\Model</a></td>
+        <td>Base application Model
+BaseModel extend yii\db\ActiveRecord</td>
+    </tr>
+    <tr>
+        <td><a href="app-controllers-sitecontroller.html">app\controllers\SiteController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-apihelper.html">app\helpers\ApiHelper</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-applocale.html">app\helpers\AppLocale</a></td>
+        <td>Handle date and time</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-applicationhelper.html">app\helpers\ApplicationHelper</a></td>
+        <td>Application helper store all needed common helper may be used in application</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-arrayhelper.html">app\helpers\ArrayHelper</a></td>
+        <td>Extend of \yii\helpers\ArrayHelper</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-cookiehelper.html">app\helpers\CookieHelper</a></td>
+        <td>Description of CookieHelper</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-denormalization.html">app\helpers\Denormalization</a></td>
+        <td>Provide functions to validate serialize data and list integer value (ex: 1,2,3)</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-exporthelper.html">app\helpers\ExportHelper</a></td>
+        <td>ExportHelper export file excel xlsx</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-gmailapi.html">app\helpers\GmailApi</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-googleapi.html">app\helpers\GoogleApi</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-googlehelper.html">app\helpers\GoogleHelper</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-htmlhelper.html">app\helpers\HtmlHelper</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-languagetranslatehelper.html">app\helpers\LanguageTranslateHelper</a></td>
+        <td>Translate param array</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-mailhelper.html">app\helpers\MailHelper</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-php.html">app\helpers\Php</a></td>
+        <td>Helper of Php</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-renderhtmlwidget.html">app\helpers\RenderHtmlWidget</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-responsehelper.html">app\helpers\ResponseHelper</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-stringhelper.html">app\helpers\StringHelper</a></td>
+        <td>Description of StringHelper</td>
+    </tr>
+    <tr>
+        <td><a href="app-helpers-urlhelper.html">app\helpers\UrlHelper</a></td>
+        <td>UrlHelper</td>
+    </tr>
+    <tr>
+        <td><a href="app-models-contactform.html">app\models\ContactForm</a></td>
+        <td>ContactForm is the model behind the contact form.</td>
+    </tr>
+    <tr>
+        <td><a href="app-models-loginform.html">app\models\LoginForm</a></td>
+        <td>LoginForm is the model behind the login form.</td>
+    </tr>
+    <tr>
+        <td><a href="app-models-user.html">app\models\User</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-module.html">app\modules\admin\Module</a></td>
+        <td>Admin module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-assets-productasset.html">app\modules\admin\assets\ProductAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-controllers-defaultcontroller.html">app\modules\admin\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>admin</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-controllers-productcategorycontroller.html">app\modules\admin\controllers\ProductCategoryController</a></td>
+        <td>ProductCategoryController implements the CRUD actions for ProductCategory model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-controllers-productcontroller.html">app\modules\admin\controllers\ProductController</a></td>
+        <td>ProductController implements the CRUD actions for Product model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-models-product.html">app\modules\admin\models\Product</a></td>
+        <td>This is the model class for table "product".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-models-productcategory.html">app\modules\admin\models\ProductCategory</a></td>
+        <td>This is the model class for table "product_category".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-models-productimage.html">app\modules\admin\models\ProductImage</a></td>
+        <td>This is the model class for table "product_image".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-models-productimageupload.html">app\modules\admin\models\ProductImageUpload</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-admin-models-search-productsearch.html">app\modules\admin\models\search\ProductSearch</a></td>
+        <td>ProductSearch represents the model behind the search form of <code>app\modules\admin\models\Product</code>.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-module.html">app\modules\core\Module</a></td>
+        <td>Core module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-assets-adminnavigationasset.html">app\modules\core\assets\AdminNavigationAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-components-dataregistry.html">app\modules\core\components\DataRegistry</a></td>
+        <td>DataRegistry</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-controllers-adminnavigationcontroller.html">app\modules\core\controllers\AdminNavigationController</a></td>
+        <td>AdminNavigationController implements the CRUD actions for AdminNavigation model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-controllers-defaultcontroller.html">app\modules\core\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>core</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-models-adminnavigation.html">app\modules\core\models\AdminNavigation</a></td>
+        <td>This is the model class for table "admin_navigation".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-models-dataregistry.html">app\modules\core\models\DataRegistry</a></td>
+        <td>This is the model class for table "data_registry".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-core-widgets-sidebarnavigationwidget.html">app\modules\core\widgets\SidebarNavigationWidget</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-module.html">app\modules\cronjob\Module</a></td>
+        <td>Cronjob module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-assets-cronjobasset.html">app\modules\cronjob\assets\CronjobAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-controllers-cronjobcontroller.html">app\modules\cronjob\controllers\CronjobController</a></td>
+        <td>CronjobController implements the CRUD actions for Cronjob model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-controllers-defaultcontroller.html">app\modules\cronjob\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>cronjob</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-helpers-cronhelper.html">app\modules\cronjob\helpers\CronHelper</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-models-cronjob.html">app\modules\cronjob\models\Cronjob</a></td>
+        <td>This is the model class for table "cronjob".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-models-cronjoblog.html">app\modules\cronjob\models\CronjobLog</a></td>
+        <td>This is the model class for table "cronjob_log".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-cronjob-models-search-cronjobsearch.html">app\modules\cronjob\models\search\CronjobSearch</a></td>
+        <td>CronjobSearch represents the model behind the search form of <code>app\modules\cronjob\models\Cronjob</code>.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-dashboard-module.html">app\modules\dashboard\Module</a></td>
+        <td>Dashboard module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-dashboard-controllers-dashboardcontroller.html">app\modules\dashboard\controllers\DashboardController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-dashboard-controllers-defaultcontroller.html">app\modules\dashboard\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>dashboard</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-email-module.html">app\modules\email\Module</a></td>
+        <td>Email-queue module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-email-commands-sendmail.html">app\modules\email\commands\SendMail</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-email-controllers-defaultcontroller.html">app\modules\email\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>email-queue</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-email-controllers-emailqueuecontroller.html">app\modules\email\controllers\EmailQueueController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-email-models-emailqueue.html">app\modules\email\models\EmailQueue</a></td>
+        <td>This is the model class for table "email_queue".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-module.html">app\modules\permission\Module</a></td>
+        <td>Permission module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-controllers-defaultcontroller.html">app\modules\permission\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>permission</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-controllers-permissioncontroller.html">app\modules\permission\controllers\PermissionController</a></td>
+        <td>PermissionController implements the CRUD actions for AuthItem model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-controllers-rolecontroller.html">app\modules\permission\controllers\RoleController</a></td>
+        <td>RoleController implements the CRUD actions for AuthItem model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-controllers-rulecontroller.html">app\modules\permission\controllers\RuleController</a></td>
+        <td>RuleController implements the CRUD actions for AuthRule model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-authassignment.html">app\modules\permission\models\AuthAssignment</a></td>
+        <td>This is the model class for table "auth_assignment".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-authitem.html">app\modules\permission\models\AuthItem</a></td>
+        <td>This is the model class for table "auth_item".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-authitemchild.html">app\modules\permission\models\AuthItemChild</a></td>
+        <td>This is the model class for table "auth_item_child".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-authitemsearch.html">app\modules\permission\models\AuthItemSearch</a></td>
+        <td>AuthItemSearch represents the model behind the search form of <code>app\modules\permission\models\AuthItem</code>.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-authrule.html">app\modules\permission\models\AuthRule</a></td>
+        <td>This is the model class for table "auth_rule".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-createpermissionform.html">app\modules\permission\models\CreatePermissionForm</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-permission-models-editrule.html">app\modules\permission\models\EditRule</a></td>
+        <td>This is the model class for table "auth_rule".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-module.html">app\modules\pub\Module</a></td>
+        <td>Pub module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-assets-cartasset.html">app\modules\pub\assets\CartAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-assets-layoutpubasset.html">app\modules\pub\assets\LayoutPubAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-assets-orderasset.html">app\modules\pub\assets\OrderAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-assets-productasset.html">app\modules\pub\assets\ProductAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-controllers-cartcontroller.html">app\modules\pub\controllers\CartController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-controllers-dashboardcontroller.html">app\modules\pub\controllers\DashboardController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-controllers-defaultcontroller.html">app\modules\pub\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>pub</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-controllers-ordercontroller.html">app\modules\pub\controllers\OrderController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-pub-controllers-productcontroller.html">app\modules\pub\controllers\ProductController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-module.html">app\modules\report\Module</a></td>
+        <td>Report module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-assets-orderasset.html">app\modules\report\assets\OrderAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-controllers-defaultcontroller.html">app\modules\report\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>report</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-controllers-ordercontroller.html">app\modules\report\controllers\OrderController</a></td>
+        <td>OrderController implements the CRUD actions for Order model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-controllers-orderdetailcontroller.html">app\modules\report\controllers\OrderDetailController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-models-order.html">app\modules\report\models\Order</a></td>
+        <td>This is the model class for table "order".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-models-orderdetail.html">app\modules\report\models\OrderDetail</a></td>
+        <td>This is the model class for table "order_detail".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-report-models-ordersearch.html">app\modules\report\models\OrderSearch</a></td>
+        <td>OrderSearch represents the model behind the search form of <code>app\modules\report\models\Order</code>.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-module.html">app\modules\setting\Module</a></td>
+        <td>Setting module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-assets-settingasset.html">app\modules\setting\assets\SettingAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-components-settings.html">app\modules\setting\components\Settings</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-controllers-defaultcontroller.html">app\modules\setting\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>setting</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-controllers-settingcontroller.html">app\modules\setting\controllers\SettingController</a></td>
+        <td>SettingController implements the CRUD actions for Setting model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-models-setting.html">app\modules\setting\models\Setting</a></td>
+        <td>This is the model class for table "setting".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-setting-models-settingmodel.html">app\modules\setting\models\SettingModel</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-module.html">app\modules\user\Module</a></td>
+        <td>User module definition class</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-assets-authasset.html">app\modules\user\assets\AuthAsset</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-components-user.html">app\modules\user\components\User</a></td>
+        <td>Class User</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-controllers-authcontroller.html">app\modules\user\controllers\AuthController</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-controllers-defaultcontroller.html">app\modules\user\controllers\DefaultController</a></td>
+        <td>Default controller for the <code>user</code> module</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-controllers-usercontroller.html">app\modules\user\controllers\UserController</a></td>
+        <td>UserController implements the CRUD actions for User model.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-user.html">app\modules\user\models\User</a></td>
+        <td>This is the model class for table "user".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-userauth.html">app\modules\user\models\UserAuth</a></td>
+        <td>This is the model class for table "user_auth".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-userconfirm.html">app\modules\user\models\UserConfirm</a></td>
+        <td>This is the model class for table "user_confirm".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-userloginattempts.html">app\modules\user\models\UserLoginAttempts</a></td>
+        <td>This is the model class for table "user_login_attempts".</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-usersearch.html">app\modules\user\models\UserSearch</a></td>
+        <td>UserSearch represents the model behind the search form of <code>app\modules\user\models\User</code>.</td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-form-createform.html">app\modules\user\models\form\CreateForm</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-form-forgotpasswordform.html">app\modules\user\models\form\ForgotPasswordForm</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-form-loginform.html">app\modules\user\models\form\LoginForm</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-form-resetpassword.html">app\modules\user\models\form\ResetPassword</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-form-signupform.html">app\modules\user\models\form\SignupForm</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-modules-user-models-form-updateform.html">app\modules\user\models\form\UpdateForm</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-rbac-authorrule.html">app\rbac\AuthorRule</a></td>
+        <td>Checks if authorID matches user passed via params</td>
+    </tr>
+    <tr>
+        <td><a href="app-widgets-alert.html">app\widgets\Alert</a></td>
+        <td>Alert widget renders a message from session flash. All flash messages are displayed
+in the sequence they were assigned using setFlash. You can set message as following:</td>
+    </tr>
+    <tr>
+        <td><a href="app-widgets-imagegallery.html">app\widgets\ImageGallery</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-widgets-viewas.html">app\widgets\ViewAs</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="app-widgets-assets-imagegalleryasset.html">app\widgets\assets\ImageGalleryAsset</a></td>
+        <td></td>
+    </tr>
+</table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:29:17 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

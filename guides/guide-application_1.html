@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w7018" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w7018-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w7018-collapse" class="collapse navbar-collapse"><ul id="w7019" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-7002" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-7002" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7003" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-7003" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7004" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-7004" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7005" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-7005" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7006" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-7006" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7007" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-7007" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7008" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-7008" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7009" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-7009" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7010" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-7010" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7011" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-7011" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7012" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-7012" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7013" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-7013" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7014" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-7014" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7015" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-7015" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7016" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-7016" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-7017" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-7017" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Console Tool <span id="console-tool"></span><a href="#console-tool" class="hashlink">&para;</a></h1>
+<div class="toc"><ol><li><a href="#help">help</a></li>
+<li><a href="#list">list</a></li></ol></div>
+<ul>
+<li><a href="#help"><code>help</code></a></li>
+<li><a href="#list"><code>list</code></a></li>
+</ul>
+<h2><code>help</code> <span id="help"></span><a href="#help" class="hashlink">&para;</a></h2><p>Displays help for a command</p>
+<h3>Usage <span id="usage"></span><a href="#usage" class="hashlink">&para;</a></h3><ul>
+<li><code>help [--format FORMAT] [--raw] [--] [&lt;command_name&gt;]</code></li>
+</ul>
+<p>The help command displays help for a given command:</p>
+<p>  php app/console help list</p>
+<p>You can also output the help in other formats by using the --format option:</p>
+<p>  php app/console help --format=xml list</p>
+<p>To display the list of available commands, please use the list command.</p>
+<h3>Arguments <span id="arguments"></span><a href="#arguments" class="hashlink">&para;</a></h3><h4><code>command_name</code> <span id="commandname"></span><a href="#commandname" class="hashlink">&para;</a></h4><p>The command name</p>
+<ul>
+<li>Is required: no</li>
+<li>Is array: no</li>
+<li>Default: <code>'help'</code></li>
+</ul>
+<h3>Options <span id="options"></span><a href="#options" class="hashlink">&para;</a></h3><h4><code>--format</code> <span id="format"></span><a href="#format" class="hashlink">&para;</a></h4><p>The output format (txt, xml, json, or md)</p>
+<ul>
+<li>Accept value: yes</li>
+<li>Is value required: yes</li>
+<li>Is multiple: no</li>
+<li>Default: <code>'txt'</code></li>
+</ul>
+<h4><code>--raw</code> <span id="raw"></span><a href="#raw" class="hashlink">&para;</a></h4><p>To output raw command help</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--help|-h</code> <span id="help-h"></span><a href="#help-h" class="hashlink">&para;</a></h4><p>Display this help message</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--quiet|-q</code> <span id="quiet-q"></span><a href="#quiet-q" class="hashlink">&para;</a></h4><p>Do not output any message</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--verbose|-v|-vv|-vvv</code> <span id="verbose-v-vv-vvv"></span><a href="#verbose-v-vv-vvv" class="hashlink">&para;</a></h4><p>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--version|-V</code> <span id="version-v"></span><a href="#version-v" class="hashlink">&para;</a></h4><p>Display this application version</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--ansi</code> <span id="ansi"></span><a href="#ansi" class="hashlink">&para;</a></h4><p>Force ANSI output</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--no-ansi</code> <span id="no-ansi"></span><a href="#no-ansi" class="hashlink">&para;</a></h4><p>Disable ANSI output</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--no-interaction|-n</code> <span id="no-interaction-n"></span><a href="#no-interaction-n" class="hashlink">&para;</a></h4><p>Do not ask any interactive question</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h2><code>list</code> <span id="list"></span><a href="#list" class="hashlink">&para;</a></h2><p>Lists commands</p>
+<h3>Usage <span id="usage"></span><a href="#usage" class="hashlink">&para;</a></h3><ul>
+<li><code>list [--raw] [--format FORMAT] [--] [&lt;namespace&gt;]</code></li>
+</ul>
+<p>The list command lists all commands:</p>
+<p>  php app/console list</p>
+<p>You can also display the commands for a specific namespace:</p>
+<p>  php app/console list test</p>
+<p>You can also output the information in other formats by using the --format option:</p>
+<p>  php app/console list --format=xml</p>
+<p>It's also possible to get raw list of commands (useful for embedding command runner):</p>
+<p>  php app/console list --raw</p>
+<h3>Arguments <span id="arguments"></span><a href="#arguments" class="hashlink">&para;</a></h3><h4><code>namespace</code> <span id="namespace"></span><a href="#namespace" class="hashlink">&para;</a></h4><p>The namespace name</p>
+<ul>
+<li>Is required: no</li>
+<li>Is array: no</li>
+<li>Default: <code>NULL</code></li>
+</ul>
+<h3>Options <span id="options"></span><a href="#options" class="hashlink">&para;</a></h3><h4><code>--raw</code> <span id="raw"></span><a href="#raw" class="hashlink">&para;</a></h4><p>To output raw command list</p>
+<ul>
+<li>Accept value: no</li>
+<li>Is value required: no</li>
+<li>Is multiple: no</li>
+<li>Default: <code>false</code></li>
+</ul>
+<h4><code>--format</code> <span id="format"></span><a href="#format" class="hashlink">&para;</a></h4><p>The output format (txt, xml, json, or md)</p>
+<ul>
+<li>Accept value: yes</li>
+<li>Is value required: yes</li>
+<li>Is multiple: no</li>
+<li>Default: <code>'txt'</code></li>
+</ul>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:28:03 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

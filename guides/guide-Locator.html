@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w3040" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w3040-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w3040-collapse" class="collapse navbar-collapse"><ul id="w3041" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-3024" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-3024" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3025" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-3025" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3026" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-3026" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3027" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-3027" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3028" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-3028" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3029" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-3029" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3030" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-3030" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3031" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-3031" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3032" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-3032" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3033" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-3033" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3034" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-3034" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3035" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-3035" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3036" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-3036" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3037" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-3037" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3038" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-3038" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3039" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-3039" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h2>Codeception\Util\Locator <span id="codeceptionutillocator"></span><a href="#codeceptionutillocator" class="hashlink">&para;</a></h2><p>Set of useful functions for using CSS and XPath locators.
+Please check them before writing complex functional or acceptance tests.</p>
+<h4>combine() <span id="combine"></span><a href="#combine" class="hashlink">&para;</a></h4><p> <em>public static</em> combine($selector1, $selector2) </p>
+<p>Applies OR operator to any number of CSS or XPath selectors.
+You can mix up CSS and XPath selectors here.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Title'</span>, Locator::combine(<span class="hljs-string">'h1'</span>,<span class="hljs-string">'h2'</span>,<span class="hljs-string">'h3'</span>));
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>This will search for <code>Title</code> text in either <code>h1</code>, <code>h2</code>, or <code>h3</code> tag.
+You can also combine CSS selector with XPath locator:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+<span class="hljs-variable">$I</span>-&gt;fillField(Locator::combine(<span class="hljs-string">'form input[type=text]'</span>,<span class="hljs-string">'//form/textarea[2]'</span>), <span class="hljs-string">'qwerty'</span>);
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<p>As a result the Locator will produce a mixed XPath value that will be used in fillField action.</p>
+<ul>
+<li><code>static</code> </li>
+<li><code>param</code> $selector1</li>
+<li><code>param</code> $selector2</li>
+<li><code>throws</code> \Exception</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L50">See source</a></p>
+<h4>contains() <span id="contains"></span><a href="#contains" class="hashlink">&para;</a></h4><p> <em>public static</em> contains($element, $text) </p>
+<p>Locates an element containing a text inside.
+Either CSS or XPath locator can be passed, however they will be converted to XPath.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+Locator::contains(<span class="hljs-string">'label'</span>, <span class="hljs-string">'Name'</span>); <span class="hljs-comment">// label containing name</span>
+Locator::contains(<span class="hljs-string">'div[@contenteditable=true]'</span>, <span class="hljs-string">'hello world'</span>);
+</code></pre>
+<ul>
+<li><code>param</code> $element</li>
+<li><code>param</code> $text</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L292">See source</a></p>
+<h4>elementAt() <span id="elementat"></span><a href="#elementat" class="hashlink">&para;</a></h4><p> <em>public static</em> elementAt($element, $position) </p>
+<p>Locates element at position.
+Either CSS or XPath locator can be passed as locator,
+position is an integer. If a negative value is provided, counting starts from the last element.
+First element has index 1</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+Locator::elementAt(<span class="hljs-string">'//table/tr'</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// second row</span>
+Locator::elementAt(<span class="hljs-string">'//table/tr'</span>, -<span class="hljs-number">1</span>); <span class="hljs-comment">// last row</span>
+Locator::elementAt(<span class="hljs-string">'table#grind&gt;tr'</span>, -<span class="hljs-number">2</span>); <span class="hljs-comment">// previous than last row</span>
+</code></pre>
+<ul>
+<li><code>param string</code> $element CSS or XPath locator</li>
+<li><code>param int</code> $position xpath index</li>
+<li><code>return</code> mixed</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L318">See source</a></p>
+<h4>find() <span id="find"></span><a href="#find" class="hashlink">&para;</a></h4><p> <em>public static</em> find($element, array $attributes) </p>
+<p>Finds element by it's attribute(s)</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+<span class="hljs-variable">$I</span>-&gt;seeElement(Locator::find(<span class="hljs-string">'img'</span>, [<span class="hljs-string">'title'</span> =&gt; <span class="hljs-string">'diagram'</span>]));
+</code></pre>
+<ul>
+<li><code>static</code> </li>
+<li><code>param</code> $element</li>
+<li><code>param</code> $attributes</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L159">See source</a></p>
+<h4>firstElement() <span id="firstelement"></span><a href="#firstelement" class="hashlink">&para;</a></h4><p> <em>public static</em> firstElement($element) </p>
+<p>Locates first element of group elements.
+Either CSS or XPath locator can be passed as locator,
+Equal to <code>Locator::elementAt($locator, 1)</code></p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+Locator::firstElement(<span class="hljs-string">'//table/tr'</span>);
+</code></pre>
+<ul>
+<li><code>param</code> $element</li>
+<li><code>return</code> mixed</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L348">See source</a></p>
+<h4>href() <span id="href"></span><a href="#href" class="hashlink">&para;</a></h4><p> <em>public static</em> href($url) </p>
+<p>Matches the <em>a</em> element with given URL</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> \<span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Log In'</span>, Locator::href(<span class="hljs-string">'/login.php'</span>));
+<span class="hljs-preprocessor">?&gt;</span>
+</code></pre>
+<ul>
+<li><code>static</code> </li>
+<li><code>param</code> $url</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L79">See source</a></p>
+<h4>humanReadableString() <span id="humanreadablestring"></span><a href="#humanreadablestring" class="hashlink">&para;</a></h4><p> <em>public static</em> humanReadableString($selector) </p>
+<p>Transforms strict locator, \Facebook\WebDriver\WebDriverBy into a string represenation</p>
+<ul>
+<li><code>param</code> $selector</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L381">See source</a></p>
+<h4>isCSS() <span id="iscss"></span><a href="#iscss" class="hashlink">&para;</a></h4><p> <em>public static</em> isCSS($selector) </p>
+<p>Checks that provided string is CSS selector</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+Locator::isCSS(<span class="hljs-string">'#user .hello'</span>) =&gt; <span class="hljs-keyword">true</span>
+Locator::isCSS(<span class="hljs-string">'body'</span>) =&gt; <span class="hljs-keyword">true</span>
+Locator::isCSS(<span class="hljs-string">'//body/p/user'</span>) =&gt; <span class="hljs-keyword">false</span>
+</code></pre>
+<ul>
+<li><code>param</code> $selector</li>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L186">See source</a></p>
+<h4>isClass() <span id="isclass"></span><a href="#isclass" class="hashlink">&para;</a></h4><p> <em>public static</em> isClass($class) </p>
+<p>Checks that a string is valid CSS class</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+Locator::isClass(<span class="hljs-string">'.hello'</span>) =&gt; <span class="hljs-keyword">true</span>
+Locator::isClass(<span class="hljs-string">'body'</span>) =&gt; <span class="hljs-keyword">false</span>
+Locator::isClass(<span class="hljs-string">'//body/p/user'</span>) =&gt; <span class="hljs-keyword">false</span>
+</code></pre>
+<ul>
+<li><code>param</code> $class</li>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L270">See source</a></p>
+<h4>isID() <span id="isid"></span><a href="#isid" class="hashlink">&para;</a></h4><p> <em>public static</em> isID($id) </p>
+<p>Checks that a string is valid CSS ID</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+Locator::isID(<span class="hljs-string">'#user'</span>) =&gt; <span class="hljs-keyword">true</span>
+Locator::isID(<span class="hljs-string">'body'</span>) =&gt; <span class="hljs-keyword">false</span>
+Locator::isID(<span class="hljs-string">'//body/p/user'</span>) =&gt; <span class="hljs-keyword">false</span>
+</code></pre>
+<ul>
+<li><code>param</code> $id</li>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L252">See source</a></p>
+<h4>isPrecise() <span id="isprecise"></span><a href="#isprecise" class="hashlink">&para;</a></h4><p> <em>public static</em> isPrecise($locator) </p>
+<ul>
+<li><code>param</code> $locator</li>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L221">See source</a></p>
+<h4>isXPath() <span id="isxpath"></span><a href="#isxpath" class="hashlink">&para;</a></h4><p> <em>public static</em> isXPath($locator) </p>
+<p>Checks that locator is an XPath</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+Locator::isXPath(<span class="hljs-string">'#user .hello'</span>) =&gt; <span class="hljs-keyword">false</span>
+Locator::isXPath(<span class="hljs-string">'body'</span>) =&gt; <span class="hljs-keyword">false</span>
+Locator::isXPath(<span class="hljs-string">'//body/p/user'</span>) =&gt; <span class="hljs-keyword">true</span>
+</code></pre>
+<ul>
+<li><code>param</code> $locator</li>
+<li><code>return</code> bool</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L210">See source</a></p>
+<h4>lastElement() <span id="lastelement"></span><a href="#lastelement" class="hashlink">&para;</a></h4><p> <em>public static</em> lastElement($element) </p>
+<p>Locates last element of group elements.
+Either CSS or XPath locator can be passed as locator,
+Equal to <code>Locator::elementAt($locator, -1)</code></p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+Locator::lastElement(<span class="hljs-string">'//table/tr'</span>);
+</code></pre>
+<ul>
+<li><code>param</code> $element</li>
+<li><code>return</code> mixed</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L369">See source</a></p>
+<h4>option() <span id="option"></span><a href="#option" class="hashlink">&para;</a></h4><p> <em>public static</em> option($value) </p>
+<p>Matches option by text:</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Codeception</span>\<span class="hljs-title">Util</span>\<span class="hljs-title">Locator</span>;
+
+<span class="hljs-variable">$I</span>-&gt;seeElement(Locator::option(<span class="hljs-string">'Male'</span>), <span class="hljs-string">'#select-gender'</span>);
+</code></pre>
+<ul>
+<li><code>param</code> $value</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L124">See source</a></p>
+<h4>tabIndex() <span id="tabindex"></span><a href="#tabindex" class="hashlink">&para;</a></h4><p> <em>public static</em> tabIndex($index) </p>
+<p>Matches the element with given tab index</p>
+<p>Do you often use the <code>TAB</code> key to navigate through the web page? How do your site respond to this navigation?
+You could try to match elements by their tab position using <code>tabIndex</code> method of <code>Locator</code> class.
+<code>`</code>php
+&lt;?php
+use \Codeception\Util\Locator;</p>
+<p>$I-&gt;fillField(Locator::tabIndex(1), 'davert');
+$I-&gt;fillField(Locator::tabIndex(2) , 'qwerty');
+$I-&gt;click('Login');
+?&gt;
+<code>`</code></p>
+<ul>
+<li><code>static</code> </li>
+<li><code>param</code> $index</li>
+<li><code>return</code> string</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L105">See source</a></p>
+<h4>toXPath() <span id="toxpath"></span><a href="#toxpath" class="hashlink">&para;</a></h4><p> <em>protected static</em> toXPath($selector) </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/Locator.php#L129">See source</a></p>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.5/src//Codeception/Util/Locator.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:59 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w3112" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w3112-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w3112-collapse" class="collapse navbar-collapse"><ul id="w3113" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-3096" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-3096" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3097" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-3097" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3098" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-3098" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3099" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-3099" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3100" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-3100" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3101" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-3101" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3102" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-3102" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3103" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-3103" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3104" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-3104" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3105" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-3105" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3106" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-3106" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3107" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-3107" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3108" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-3108" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3109" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-3109" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3110" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-3110" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-3111" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-3111" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h2>Codeception\Util\XmlBuilder <span id="codeceptionutilxmlbuilder"></span><a href="#codeceptionutilxmlbuilder" class="hashlink">&para;</a></h2><p>That's a pretty simple yet powerful class to build XML structures in jQuery-like style.
+With no XML line actually written!
+Uses DOM extension to manipulate XML data.</p>
+<pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$xml</span> = <span class="hljs-keyword">new</span> \Codeception\Util\XmlBuilder();
+<span class="hljs-variable">$xml</span>-&gt;users
+   -&gt;user
+       -&gt;val(<span class="hljs-number">1</span>)
+       -&gt;email
+           -&gt;val(<span class="hljs-string">'davert@mail.ua'</span>)
+           -&gt;attr(<span class="hljs-string">'valid'</span>,<span class="hljs-string">'true'</span>)
+           -&gt;parent()
+       -&gt;cart
+           -&gt;attr(<span class="hljs-string">'empty'</span>,<span class="hljs-string">'false'</span>)
+           -&gt;items
+               -&gt;item
+                   -&gt;val(<span class="hljs-string">'useful item'</span>);
+               -&gt;parents(<span class="hljs-string">'user'</span>)
+       -&gt;active
+           -&gt;val(<span class="hljs-number">1</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-variable">$xml</span>;
+</code></pre>
+<p>This will produce this XML</p>
+<pre><code class="hljs xml language-xml"><span class="hljs-pi">&lt;?xml version="1.0"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">users</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>
+       1
+       <span class="hljs-tag">&lt;<span class="hljs-title">email</span> <span class="hljs-attribute">valid</span>=<span class="hljs-value">"true"</span>&gt;</span>davert@mail.ua<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">cart</span> <span class="hljs-attribute">empty</span>=<span class="hljs-value">"false"</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-title">items</span>&gt;</span>
+               <span class="hljs-tag">&lt;<span class="hljs-title">item</span>&gt;</span>useful item<span class="hljs-tag">&lt;/<span class="hljs-title">item</span>&gt;</span>
+           <span class="hljs-tag">&lt;/<span class="hljs-title">items</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">cart</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">active</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">active</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">users</span>&gt;</span>
+</code></pre>
+<h3>Usage <span id="usage"></span><a href="#usage" class="hashlink">&para;</a></h3><p>Builder uses chained calls. So each call to builder returns a builder object.
+Except for <code>getDom</code> and <code>__toString</code> methods.</p>
+<ul>
+<li><code>$xml-&gt;node</code> - create new xml node and go inside of it.</li>
+<li><code>$xml-&gt;node-&gt;val('value')</code> - sets the inner value of node</li>
+<li><code>$xml-&gt;attr('name','value')</code> - set the attribute of node</li>
+<li><code>$xml-&gt;parent()</code> - go back to parent node.</li>
+<li><code>$xml-&gt;parents('user')</code> - go back through all parents to <code>user</code> node.</li>
+</ul>
+<p>Export:</p>
+<ul>
+<li><code>$xml-&gt;getDom</code> - get a DOMDocument object</li>
+<li><code>$xml-&gt;__toString</code> - get a string representation of XML.</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/master/src/Codeception/Util/XmlBuilder.php">Source code</a></p>
+<h4>__construct() <span id="construct"></span><a href="#construct" class="hashlink">&para;</a></h4><p> <em>public</em> __construct() </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L80">See source</a></p>
+<h4>__get() <span id="get"></span><a href="#get" class="hashlink">&para;</a></h4><p> <em>public</em> __get($tag) </p>
+<p>Appends child node</p>
+<ul>
+<li><code>param</code> $tag</li>
+<li><code>return</code> XmlBuilder</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L93">See source</a></p>
+<h4>__toString() <span id="tostring"></span><a href="#tostring" class="hashlink">&para;</a></h4><p> <em>public</em> __toString() </p>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L165">See source</a></p>
+<h4>attr() <span id="attr"></span><a href="#attr" class="hashlink">&para;</a></h4><p> <em>public</em> attr($attr, $val) </p>
+<p>Sets attribute for current node</p>
+<ul>
+<li><code>param</code> $attr</li>
+<li><code>param</code> $val</li>
+<li><code>return</code> XmlBuilder</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L120">See source</a></p>
+<h4>getDom() <span id="getdom"></span><a href="#getdom" class="hashlink">&para;</a></h4><p> <em>public</em> getDom() </p>
+<ul>
+<li><code>return</code> \DOMDocument</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L173">See source</a></p>
+<h4>parent() <span id="parent"></span><a href="#parent" class="hashlink">&para;</a></h4><p> <em>public</em> parent() </p>
+<p>Traverses to parent</p>
+<ul>
+<li><code>return</code> XmlBuilder</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L131">See source</a></p>
+<h4>parents() <span id="parents"></span><a href="#parents" class="hashlink">&para;</a></h4><p> <em>public</em> parents($tag) </p>
+<p>Traverses to parent with $name</p>
+<ul>
+<li><code>param</code> $tag</li>
+<li><code>return</code> XmlBuilder</li>
+<li><code>throws</code> \Exception</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L145">See source</a></p>
+<h4>val() <span id="val"></span><a href="#val" class="hashlink">&para;</a></h4><p> <em>public</em> val($val) </p>
+<ul>
+<li><code>param</code> $val</li>
+<li><code>return</code> XmlBuilder</li>
+</ul>
+<p><a href="https://github.com/Codeception/Codeception/blob/2.5/src/Codeception/Util/XmlBuilder.php#L106">See source</a></p>
+<p>&nbsp;</p><div class="alert alert-warning">Reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/blob/2.5/src//Codeception/Util/XmlBuilder.php">Help us to improve documentation. Edit module reference</a></div>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:59 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

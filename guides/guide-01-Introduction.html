@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/ef25ba5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/d6a501f7/solarized_light.css" rel="stylesheet">
+<link href="./assets/66a7d106/style.css" rel="stylesheet">
+<script src="./assets/bc3f95e6/jquery.js"></script>
+<script src="./assets/ef25ba5/js/bootstrap.js"></script>
+<script src="./assets/e4cd224c/jssearch.js"></script>    <title>The Definitive Guide to Yii 2.0</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w2068" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w2068-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">The Definitive Guide to Yii 2.0</a></div><div id="w2068-collapse" class="collapse navbar-collapse"><ul id="w2069" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-2052" data-toggle="collapse" data-parent="#navigation">REQUIREMENTS <b class="caret"></b></a><div id="navigation-2052" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2053" data-toggle="collapse" data-parent="#navigation">INSTALLATION <b class="caret"></b></a><div id="navigation-2053" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2054" data-toggle="collapse" data-parent="#navigation">Install via Composer <b class="caret"></b></a><div id="navigation-2054" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2055" data-toggle="collapse" data-parent="#navigation">Install from an Archive File <b class="caret"></b></a><div id="navigation-2055" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2056" data-toggle="collapse" data-parent="#navigation">Install with Docker <b class="caret"></b></a><div id="navigation-2056" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2057" data-toggle="collapse" data-parent="#navigation">CONFIGURATION <b class="caret"></b></a><div id="navigation-2057" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2058" data-toggle="collapse" data-parent="#navigation">Database <b class="caret"></b></a><div id="navigation-2058" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2059" data-toggle="collapse" data-parent="#navigation">TESTING <b class="caret"></b></a><div id="navigation-2059" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2060" data-toggle="collapse" data-parent="#navigation">Running  acceptance tests <b class="caret"></b></a><div id="navigation-2060" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2061" data-toggle="collapse" data-parent="#navigation">run all available tests <b class="caret"></b></a><div id="navigation-2061" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2062" data-toggle="collapse" data-parent="#navigation">run acceptance tests <b class="caret"></b></a><div id="navigation-2062" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2063" data-toggle="collapse" data-parent="#navigation">run only unit and functional tests <b class="caret"></b></a><div id="navigation-2063" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2064" data-toggle="collapse" data-parent="#navigation">Code coverage support <b class="caret"></b></a><div id="navigation-2064" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2065" data-toggle="collapse" data-parent="#navigation">collect coverage for all tests <b class="caret"></b></a><div id="navigation-2065" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2066" data-toggle="collapse" data-parent="#navigation">collect coverage only for unit tests <b class="caret"></b></a><div id="navigation-2066" class="submenu panel-collapse collapse"></div>
+<a class="list-group-item" href="#navigation-2067" data-toggle="collapse" data-parent="#navigation">collect coverage for unit and functional tests <b class="caret"></b></a><div id="navigation-2067" class="submenu panel-collapse collapse"></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h1>Introduction <span id="introduction"></span><a href="#introduction" class="hashlink">&para;</a></h1><p>The idea behind testing is not new. You can't sleep well if you are not confident
+that your last commit didn't take down the whole application.
+Having your application covered with tests gives you more trust in the stability of your application. That's all.</p>
+<p>In most cases tests don't guarantee that the application works 100% as it is supposed to.
+You can't predict all possible scenarios and exceptional situations for complex apps,
+but with tests you can cover the most important parts of your app and at least be sure they work as predicted.</p>
+<p>There are plenty of ways to test your application.
+The most popular paradigm is <a href="http://en.wikipedia.org/wiki/Unit_testing">Unit Testing</a>.
+For web applications, testing just the controller and/or the model doesn't prove that your application is working.
+To test the behavior of your application as a whole, you should write functional or acceptance tests.</p>
+<p>Codeception supports all three testing types.
+Out of the box you have tools for writing unit, functional, and acceptance tests in a unified framework.</p>
+<table class="table table-bordered table-striped">
+<thead>
+<tr><th>Codeception Unit Tests </th><th>Codeception Functional Tests </th><th>Codeception Acceptance Tests</th></tr>
+</thead>
+<tbody>
+<tr><td>Scope of the test </td><td>Single PHP class </td><td>PHP Framework (Routing, Controllers, etc.) </td><td>Page in browser (Chrome, Firefox, or PhpBrowser)</td></tr>
+<tr><td>Testing computer needs access to project's PHP files </td><td>Yes </td><td>Yes </td><td>No</td></tr>
+<tr><td>Webserver required </td><td>No </td><td>No </td><td>Yes</td></tr>
+<tr><td>JavaScript  </td><td>No </td><td>No </td><td>Yes</td></tr>
+<tr><td>Additional software required </td><td>None </td><td>None </td><td><ul><li>For WebDriver: Selenium Server or PhantomJS (deprecated)</li><li>For PhpBrowser: None</li></ul></td></tr>
+<tr><td>Test execution speed </td><td>High </td><td>High </td><td>Low</td></tr>
+<tr><td>Configuration file </td><td><code>unit.suite.yml</code> </td><td><code>functional.suite.yml</code> </td><td><code>acceptance.suite.yml</code></td></tr>
+</tbody>
+</table>
+<p>One of the main advantages of Codeception is that you don't have to decide on just <em>one</em> type of testing. You can have all three!
+And chances are, that you will (sooner or later) need all three. That's why Codeception consists of three so-called "suites":
+A "unit suite" for all unit tests, a "functional suite" for all functional tests, and an "acceptance suite" for all acceptance tests.</p>
+<p>Let's review those three testing types in reverse order.</p>
+<h3>Acceptance Tests <span id="acceptance-tests"></span><a href="#acceptance-tests" class="hashlink">&para;</a></h3><p>How does your client, manager, tester, or any other non-technical person know your website is working?
+By opening the browser, accessing the site, clicking on links, filling in the forms,
+and actually seeing the content on a web page. They have no idea of the programming language, framework, database, web-server,
+or why the application did (or did not) behave as expected.</p>
+<p>This is what acceptance tests are doing. They cover scenarios from a user's perspective.
+With acceptance tests, you can be confident that users, following all the defined scenarios, won't get errors.</p>
+<p><strong>Any website</strong> can be covered with acceptance tests, even if you use a very exotic CMS or framework.</p>
+<h4>Sample acceptance test <span id="sample-acceptance-test"></span><a href="#sample-acceptance-test" class="hashlink">&para;</a></h4><pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/'</span>);
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Sign Up'</span>);
+<span class="hljs-variable">$I</span>-&gt;submitForm(<span class="hljs-string">'#signup'</span>, [<span class="hljs-string">'username'</span> =&gt; <span class="hljs-string">'MilesDavis'</span>, <span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'miles@davis.com'</span>]);
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Thank you for Signing Up!'</span>);
+</code></pre>
+<h3>Functional Tests <span id="functional-tests"></span><a href="#functional-tests" class="hashlink">&para;</a></h3><p>What if we could check our application without running it on a server?
+That way we could see detailed exceptions on errors, have our tests run faster,
+and check the database against predictable and expected results. That's what functional tests are for.</p>
+<p>For functional tests, you emulate a web request (<code>$_GET</code> and <code>$_POST</code> variables)
+which returns the HTML response. Inside a test, you can make assertions about the response,
+and you can check if the data was successfully stored in the database.</p>
+<p>For functional tests, your application needs to be structured in order to run in a test environment.
+Codeception provides connectors to several popular PHP frameworks. You can also write your own.</p>
+<h4>Sample functional test <span id="sample-functional-test"></span><a href="#sample-functional-test" class="hashlink">&para;</a></h4><pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$I</span>-&gt;amOnPage(<span class="hljs-string">'/'</span>);
+<span class="hljs-variable">$I</span>-&gt;click(<span class="hljs-string">'Sign Up'</span>);
+<span class="hljs-variable">$I</span>-&gt;submitForm(<span class="hljs-string">'#signup'</span>, [<span class="hljs-string">'username'</span> =&gt; <span class="hljs-string">'MilesDavis'</span>, <span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'miles@davis.com'</span>]);
+<span class="hljs-variable">$I</span>-&gt;see(<span class="hljs-string">'Thank you for Signing Up!'</span>);
+<span class="hljs-variable">$I</span>-&gt;seeEmailSent(<span class="hljs-string">'miles@davis.com'</span>, <span class="hljs-string">'Thank you for registration'</span>);
+<span class="hljs-variable">$I</span>-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'miles@davis.com'</span>]);
+</code></pre>
+<h3>Unit Tests <span id="unit-tests"></span><a href="#unit-tests" class="hashlink">&para;</a></h3><p>Testing pieces of code before coupling them together is highly important as well. This way,
+you can be sure that some deeply hidden feature still works, even if it was not covered by functional or acceptance tests.
+This also shows care in producing stable and testable code.</p>
+<p>Codeception is created on top of <a href="http://www.phpunit.de/">PHPUnit</a>. If you have experience writing unit tests with PHPUnit
+you can continue doing so. Codeception has no problem executing standard PHPUnit tests,
+but, additionally, Codeception provides some well-built tools to make your unit tests simpler and cleaner.</p>
+<p>Requirements and code can change rapidly,
+and unit tests should be updated every time to fit the requirements.
+The better you understand the testing scenario, the faster you can update it for new behavior.</p>
+<h4>Sample integration test <span id="sample-integration-test"></span><a href="#sample-integration-test" class="hashlink">&para;</a></h4><pre><code class="hljs php language-php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testSavingUser</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-variable">$user</span> = <span class="hljs-keyword">new</span> User();
+    <span class="hljs-variable">$user</span>-&gt;setName(<span class="hljs-string">'Miles'</span>);
+    <span class="hljs-variable">$user</span>-&gt;setSurname(<span class="hljs-string">'Davis'</span>);
+    <span class="hljs-variable">$user</span>-&gt;save();
+    <span class="hljs-variable">$this</span>-&gt;assertEquals(<span class="hljs-string">'Miles Davis'</span>, <span class="hljs-variable">$user</span>-&gt;getFullName());
+    <span class="hljs-variable">$this</span>-&gt;tester-&gt;seeInDatabase(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Miles'</span>, <span class="hljs-string">'surname'</span> =&gt; <span class="hljs-string">'Davis'</span>]);
+}
+</code></pre>
+<h2>Conclusion <span id="conclusion"></span><a href="#conclusion" class="hashlink">&para;</a></h2><p>Despite the wide popularity of <em>TDD</em> (Test Driven Development), some PHP developers never write automated tests for their applications mostly because they think it's hard, slow or boring.
+The Codeception framework was developed to actually make testing fun.
+It allows writing unit, functional, integration, and acceptance tests in a single, coherent style.</p>
+<p>It can be called a <em>BDD</em> (Behavior Driven Development) framework. All Codeception tests are written in a descriptive manner.
+Just by looking at the test body, you can clearly understand what is being tested and how it is performed.
+Even complex tests with many assertions are written in a simple PHP Domain-Specific Language (<em>DSL</em>).</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Fri, 28 Dec 2018 10:27:57 +0100</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>
